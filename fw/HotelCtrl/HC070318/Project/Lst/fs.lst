@@ -1,0 +1,1583 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m4
+	.eabi_attribute	6, 13	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.fpu	fpv4-sp-d16
+	.eabi_attribute	27, 1	@ Tag_ABI_HardFP_use
+	.eabi_attribute	36, 1	@ Tag_FP_HP_extension
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	28, 1	@ Tag_ABI_VFP_args
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 2	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 1	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"fs.c"
+	.file	1 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../User/Http/fsdata.h"
+	.file	2 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../Libraries/lwip-1.4.1/port/arch\\cc.h"
+	.file	3 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../User/Http/fsdata.c"
+	.file	4 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../User/Http/fs.h"
+	.file	5 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../User/Http/fs.c"
+	.section	.text.fs_open,"ax",%progbits
+	.hidden	fs_open                 @ -- Begin function fs_open
+	.globl	fs_open
+	.p2align	1
+	.type	fs_open,%function
+	.code	16                      @ @fs_open
+	.thumb_func
+fs_open:
+.Lfunc_begin0:
+	.loc	5 100 0                 @ ../User/Http/fs.c:100:0
+	.fnstart
+	.cfi_sections .debug_frame
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r6, r7, r8, lr}
+	push.w	{r4, r5, r6, r7, r8, lr}
+	.cfi_def_cfa_offset 24
+	.cfi_offset lr, -4
+	.cfi_offset r8, -8
+	.cfi_offset r7, -12
+	.cfi_offset r6, -16
+	.cfi_offset r5, -20
+	.cfi_offset r4, -24
+	@DEBUG_VALUE: fs_open:name <- $r0
+	mov	r4, r0
+.Ltmp0:
+	@DEBUG_VALUE: fs_open:name <- $r4
+	movw	r0, :lower16:fs_memory
+	movs	r7, #0
+.Ltmp1:
+	@DEBUG_VALUE: fs_malloc:i <- 0
+	movt	r0, :upper16:fs_memory
+	add.w	r6, r0, #12
+.Ltmp2:
+	.p2align	2
+.LBB0_1:                                @ =>This Inner Loop Header: Depth=1
+	@DEBUG_VALUE: fs_open:name <- $r4
+	@DEBUG_VALUE: fs_malloc:i <- $r7
+	@DEBUG_VALUE: fs_free:i <- $r7
+	.loc	5 76 21 prologue_end    @ ../User/Http/fs.c:76:21
+	ldrb	r0, [r6, #8]
+.Ltmp3:
+	.loc	5 76 8 is_stmt 0        @ ../User/Http/fs.c:76:8
+	cbz	r0, .LBB0_4
+.Ltmp4:
+@ %bb.2:                                @   in Loop: Header=BB0_1 Depth=1
+	@DEBUG_VALUE: fs_malloc:i <- $r7
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 75 40 is_stmt 1       @ ../User/Http/fs.c:75:40
+	adds	r7, #1
+.Ltmp5:
+	@DEBUG_VALUE: fs_malloc:i <- $r7
+	.loc	5 75 16 is_stmt 0       @ ../User/Http/fs.c:75:16
+	adds	r6, #24
+.Ltmp6:
+	.loc	5 75 3                  @ ../User/Http/fs.c:75:3
+	cmp	r7, #10
+	blo	.LBB0_1
+.Ltmp7:
+.LBB0_3:
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 0 3                   @ ../User/Http/fs.c:0:3
+	mov.w	r8, #0
+	b	.LBB0_12
+.Ltmp8:
+.LBB0_4:
+	@DEBUG_VALUE: fs_malloc:i <- $r7
+	@DEBUG_VALUE: fs_open:name <- $r4
+	movw	r5, :lower16:file__Web_config
+	movs	r0, #1
+.Ltmp9:
+	.loc	5 117 3 is_stmt 1       @ ../User/Http/fs.c:117:3
+	sub.w	r8, r6, #12
+	movt	r5, :upper16:file__Web_config
+.Ltmp10:
+	@DEBUG_VALUE: fs_open:f <- $r5
+	.loc	5 77 26                 @ ../User/Http/fs.c:77:26
+	strb	r0, [r6, #8]
+.Ltmp11:
+	.p2align	2
+.LBB0_5:                                @ =>This Inner Loop Header: Depth=1
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	@DEBUG_VALUE: fs_open:f <- $r5
+	.loc	5 118 34                @ ../User/Http/fs.c:118:34
+	ldr	r1, [r5, #4]
+	.loc	5 118 10 is_stmt 0      @ ../User/Http/fs.c:118:10
+	mov	r0, r4
+	bl	strcmp
+.Ltmp12:
+	.loc	5 118 9                 @ ../User/Http/fs.c:118:9
+	cbz	r0, .LBB0_10
+.Ltmp13:
+@ %bb.6:                                @   in Loop: Header=BB0_5 Depth=1
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 117 38 is_stmt 1      @ ../User/Http/fs.c:117:38
+	ldr	r5, [r5]
+.Ltmp14:
+	@DEBUG_VALUE: fs_open:f <- $r5
+	.loc	5 117 3 is_stmt 0       @ ../User/Http/fs.c:117:3
+	cmp	r5, #0
+	bne	.LBB0_5
+.Ltmp15:
+@ %bb.7:
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 0 3                   @ ../User/Http/fs.c:0:3
+	movs	r0, #0
+.Ltmp16:
+	.p2align	2
+.LBB0_8:                                @ =>This Inner Loop Header: Depth=1
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	@DEBUG_VALUE: fs_free:i <- $r0
+	.loc	5 90 8 is_stmt 1        @ ../User/Http/fs.c:90:8
+	cmp	r7, r0
+	beq	.LBB0_11
+.Ltmp17:
+@ %bb.9:                                @   in Loop: Header=BB0_8 Depth=1
+	@DEBUG_VALUE: fs_free:i <- $r0
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 89 40                 @ ../User/Http/fs.c:89:40
+	adds	r0, #1
+.Ltmp18:
+	@DEBUG_VALUE: fs_free:i <- $r0
+	.loc	5 89 3 is_stmt 0        @ ../User/Http/fs.c:89:3
+	cmp	r0, #10
+	blo	.LBB0_8
+	b	.LBB0_3
+.Ltmp19:
+.LBB0_10:
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 119 37 is_stmt 1      @ ../User/Http/fs.c:119:37
+	ldr	r0, [r5, #8]
+	movs	r1, #0
+	.loc	5 119 18 is_stmt 0      @ ../User/Http/fs.c:119:18
+	str	r0, [r6, #-12]
+	.loc	5 120 22 is_stmt 1      @ ../User/Http/fs.c:120:22
+	ldr	r0, [r5, #12]
+	.loc	5 122 24                @ ../User/Http/fs.c:122:24
+	str	r1, [r6]
+	.loc	5 120 17                @ ../User/Http/fs.c:120:17
+	strd	r0, r0, [r6, #-8]
+	.loc	5 123 39                @ ../User/Http/fs.c:123:39
+	ldrb	r0, [r5, #16]
+	.loc	5 123 34 is_stmt 0      @ ../User/Http/fs.c:123:34
+	strb	r0, [r6, #4]
+	b	.LBB0_12
+.Ltmp20:
+.LBB0_11:
+	@DEBUG_VALUE: fs_free:i <- $r0
+	@DEBUG_VALUE: fs_open:f <- $r5
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 0 34                  @ ../User/Http/fs.c:0:34
+	mov.w	r8, #0
+.Ltmp21:
+	.loc	5 91 26 is_stmt 1       @ ../User/Http/fs.c:91:26
+	strb.w	r8, [r6, #8]
+.Ltmp22:
+.LBB0_12:
+	@DEBUG_VALUE: fs_open:name <- $r4
+	.loc	5 136 1                 @ ../User/Http/fs.c:136:1
+	mov	r0, r8
+	pop.w	{r4, r5, r6, r7, r8, pc}
+.Ltmp23:
+.Lfunc_end0:
+	.size	fs_open, .Lfunc_end0-fs_open
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.fs_close,"ax",%progbits
+	.hidden	fs_close                @ -- Begin function fs_close
+	.globl	fs_close
+	.p2align	1
+	.type	fs_close,%function
+	.code	16                      @ @fs_close
+	.thumb_func
+fs_close:
+.Lfunc_begin1:
+	.loc	5 141 0                 @ ../User/Http/fs.c:141:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	@DEBUG_VALUE: fs_close:file <- $r0
+	@DEBUG_VALUE: fs_close:file <- $r0
+	@DEBUG_VALUE: fs_free:file <- $r0
+	@DEBUG_VALUE: fs_free:file <- $r0
+	movw	r1, :lower16:fs_memory
+	movs	r2, #0
+	movt	r1, :upper16:fs_memory
+.Ltmp24:
+	@DEBUG_VALUE: fs_free:i <- 0
+	b	.LBB1_2
+.Ltmp25:
+	.p2align	2
+.LBB1_1:                                @   in Loop: Header=BB1_2 Depth=1
+	@DEBUG_VALUE: fs_free:i <- $r2
+	@DEBUG_VALUE: fs_free:file <- $r0
+	@DEBUG_VALUE: fs_close:file <- $r0
+	.loc	5 89 40 prologue_end    @ ../User/Http/fs.c:89:40
+	adds	r2, #1
+.Ltmp26:
+	@DEBUG_VALUE: fs_free:i <- $r2
+	.loc	5 89 16 is_stmt 0       @ ../User/Http/fs.c:89:16
+	adds	r1, #24
+.Ltmp27:
+	.loc	5 89 3                  @ ../User/Http/fs.c:89:3
+	cmp	r2, #10
+.Ltmp28:
+	.loc	5 151 1 is_stmt 1       @ ../User/Http/fs.c:151:1
+	it	hs
+	bxhs	lr
+.Ltmp29:
+.LBB1_2:                                @ =>This Inner Loop Header: Depth=1
+	@DEBUG_VALUE: fs_free:file <- $r0
+	@DEBUG_VALUE: fs_close:file <- $r0
+	@DEBUG_VALUE: fs_free:i <- $r2
+	.loc	5 90 8                  @ ../User/Http/fs.c:90:8
+	cmp	r0, r1
+	bne	.LBB1_1
+.Ltmp30:
+@ %bb.3:
+	@DEBUG_VALUE: fs_free:i <- $r2
+	@DEBUG_VALUE: fs_free:file <- $r0
+	@DEBUG_VALUE: fs_close:file <- $r0
+	.loc	5 0 8 is_stmt 0         @ ../User/Http/fs.c:0:8
+	movs	r0, #0
+.Ltmp31:
+	.loc	5 91 26 is_stmt 1       @ ../User/Http/fs.c:91:26
+	strb	r0, [r1, #20]
+.Ltmp32:
+	.loc	5 151 1                 @ ../User/Http/fs.c:151:1
+	bx	lr
+.Ltmp33:
+.Lfunc_end1:
+	.size	fs_close, .Lfunc_end1-fs_close
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.fs_read,"ax",%progbits
+	.hidden	fs_read                 @ -- Begin function fs_read
+	.globl	fs_read
+	.p2align	1
+	.type	fs_read,%function
+	.code	16                      @ @fs_read
+	.thumb_func
+fs_read:
+.Lfunc_begin2:
+	.loc	5 155 0                 @ ../User/Http/fs.c:155:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r7, lr}
+	push	{r4, r5, r7, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+	.cfi_offset r5, -12
+	.cfi_offset r4, -16
+	@DEBUG_VALUE: fs_read:file <- $r0
+	@DEBUG_VALUE: fs_read:buffer <- $r1
+	@DEBUG_VALUE: fs_read:count <- $r2
+	mov	r5, r0
+	@DEBUG_VALUE: fs_read:count <- $r2
+	@DEBUG_VALUE: fs_read:buffer <- $r1
+.Ltmp34:
+	@DEBUG_VALUE: fs_read:file <- $r5
+	.loc	5 158 27 prologue_end   @ ../User/Http/fs.c:158:27
+	ldrd	r3, r0, [r0, #4]
+.Ltmp35:
+	.loc	5 158 6 is_stmt 0       @ ../User/Http/fs.c:158:6
+	cmp	r3, r0
+	bne	.LBB2_2
+.Ltmp36:
+@ %bb.1:
+	@DEBUG_VALUE: fs_read:file <- $r5
+	@DEBUG_VALUE: fs_read:count <- $r2
+	@DEBUG_VALUE: fs_read:buffer <- $r1
+	.loc	5 0 6                   @ ../User/Http/fs.c:0:6
+	mov.w	r4, #-1
+	b	.LBB2_3
+.Ltmp37:
+.LBB2_2:
+	@DEBUG_VALUE: fs_read:file <- $r5
+	@DEBUG_VALUE: fs_read:count <- $r2
+	@DEBUG_VALUE: fs_read:buffer <- $r1
+	.loc	5 162 20 is_stmt 1      @ ../User/Http/fs.c:162:20
+	subs	r4, r3, r0
+.Ltmp38:
+	@DEBUG_VALUE: fs_read:read <- $r4
+	.loc	5 163 6                 @ ../User/Http/fs.c:163:6
+	cmp	r4, r2
+	it	gt
+	movgt	r4, r2
+.Ltmp39:
+	@DEBUG_VALUE: fs_read:count <- $r4
+	@DEBUG_VALUE: fs_read:read <- $r4
+	.loc	5 167 3                 @ ../User/Http/fs.c:167:3
+	ldr	r2, [r5]
+	add	r2, r0
+	mov	r0, r1
+	mov	r1, r2
+.Ltmp40:
+	mov	r2, r4
+	bl	__aeabi_memcpy
+	.loc	5 168 15                @ ../User/Http/fs.c:168:15
+	ldr	r0, [r5, #8]
+	add	r0, r4
+	str	r0, [r5, #8]
+.Ltmp41:
+.LBB2_3:
+	@DEBUG_VALUE: fs_read:file <- $r5
+	.loc	5 171 1                 @ ../User/Http/fs.c:171:1
+	mov	r0, r4
+	pop	{r4, r5, r7, pc}
+.Ltmp42:
+.Lfunc_end2:
+	.size	fs_read, .Lfunc_end2-fs_read
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.fs_bytes_left,"ax",%progbits
+	.hidden	fs_bytes_left           @ -- Begin function fs_bytes_left
+	.globl	fs_bytes_left
+	.p2align	1
+	.type	fs_bytes_left,%function
+	.code	16                      @ @fs_bytes_left
+	.thumb_func
+fs_bytes_left:
+.Lfunc_begin3:
+	.loc	5 174 0                 @ ../User/Http/fs.c:174:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	@DEBUG_VALUE: fs_bytes_left:file <- $r0
+	@DEBUG_VALUE: fs_bytes_left:file <- $r0
+	.loc	5 175 16 prologue_end   @ ../User/Http/fs.c:175:16
+	ldrd	r1, r0, [r0, #4]
+.Ltmp43:
+	.loc	5 175 20 is_stmt 0      @ ../User/Http/fs.c:175:20
+	subs	r0, r1, r0
+	.loc	5 175 3                 @ ../User/Http/fs.c:175:3
+	bx	lr
+.Ltmp44:
+.Lfunc_end3:
+	.size	fs_bytes_left, .Lfunc_end3-fs_bytes_left
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.type	data__index_shtml,%object @ @data__index_shtml
+	.section	.rodata.data__index_shtml,"a",%progbits
+data__index_shtml:
+	.ascii	"/index.shtml\000\000\000\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/html\r\nExpires: Fri, 10 Apr 2008 14:00:00 GMT\r\nPragma: no-cache\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n  <head>\r\n    <title>FreeRTOS.org lwIP WEB server demo</title>\r\n  </head>\r\n  <BODY onLoad=\"window.setTimeout(&quot;location.href='index.shtml'&quot;,2000)\">\r\n<font face=\"arial\">\r\n<a href=\"index.shtml\">Task Stats</a> <b>|</b> <a href=\"runtime.shtml\">Run Time Stats</a> <b>|</b> <a href=\"sysctrl.html\">FreeRTOS Homepage</a> <b>|</b> \r\n<br><p>\r\n<hr>\r\n<br><p>\r\n<h2>Task statistics</h2>\r\nPage will refresh every 2 seconds.<p>\r\n<font face=\"courier\"><pre>Task          State  Priority  Stack\t#<br>************************************************<br>\r\n<!--#rtos_stats-->\r\n</pre></font>\r\n</font>\r\n</body>\r\n</html>\r\n\r\n"
+	.size	data__index_shtml, 901
+
+	.hidden	file__index_shtml       @ @file__index_shtml
+	.type	file__index_shtml,%object
+	.section	.rodata.file__index_shtml,"a",%progbits
+	.globl	file__index_shtml
+	.p2align	2
+file__index_shtml:
+	.long	0
+	.long	data__index_shtml
+	.long	data__index_shtml+16
+	.long	885                     @ 0x375
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__index_shtml, 20
+
+	.type	data__log_html,%object  @ @data__log_html
+	.section	.rodata.data__log_html,"a",%progbits
+data__log_html:
+	.ascii	"/log.html\000\000\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/html\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\n<meta content=\"MSHTML 6.00.2800.1561\" name=\"GENERATOR\"> \n<body>\n$<!--#t-->$\n</body>\n</html>\n \n"
+	.size	data__log_html, 386
+
+	.hidden	file__log_html          @ @file__log_html
+	.type	file__log_html,%object
+	.section	.rodata.file__log_html,"a",%progbits
+	.globl	file__log_html
+	.p2align	2
+file__log_html:
+	.long	file__index_shtml
+	.long	data__log_html
+	.long	data__log_html+12
+	.long	374                     @ 0x176
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__log_html, 20
+
+	.type	data__runtime_shtml,%object @ @data__runtime_shtml
+	.section	.rodata.data__runtime_shtml,"a",%progbits
+data__runtime_shtml:
+	.ascii	"/runtime.shtml\000\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/html\r\nExpires: Fri, 10 Apr 2008 14:00:00 GMT\r\nPragma: no-cache\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html>\r\n  <head>\r\n    <title>FreeRTOS.org lwIP WEB server demo</title>\r\n  </head>\r\n  <BODY onLoad=\"window.setTimeout(&quot;location.href='runtime.shtml'&quot;,2000)\">\r\n<font face=\"arial\">\r\n<a href=\"index.shtml\">Task Stats</a> <b>|</b> <a href=\"runtime.shtml\">Run Time Stats</a> <b>|</b> <a href=\"http://www.freertos.org/\">FreeRTOS Homepage</a> <b>|</b> \r\n<br><p>\r\n<hr>\r\n<br><p>\r\n<h2>Run-time statistics</h2>\r\nPage will refresh every 2 seconds.<p>\r\n<font face=\"courier\"><pre>Task            Abs Time      % Time<br>****************************************<br>\r\n<!--#run_stats-->\r\n\r\n</pre></font>\r\n</font>\r\n</body>\r\n</html>\r\n\r\n"
+	.size	data__runtime_shtml, 910
+
+	.hidden	file__runtime_shtml     @ @file__runtime_shtml
+	.type	file__runtime_shtml,%object
+	.section	.rodata.file__runtime_shtml,"a",%progbits
+	.globl	file__runtime_shtml
+	.p2align	2
+file__runtime_shtml:
+	.long	file__log_html
+	.long	data__runtime_shtml
+	.long	data__runtime_shtml+16
+	.long	894                     @ 0x37e
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__runtime_shtml, 20
+
+	.type	data__sysctrl_cgi,%object @ @data__sysctrl_cgi
+	.section	.rodata.data__sysctrl_cgi,"a",%progbits
+data__sysctrl_cgi:
+	.ascii	"/sysctrl.cgi\000\000\000\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/plain\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html><head><title>sysctrl_cgi</title>\n\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\n<meta content=\"MSHTML 6.00.2800.1561\" name=\"GENERATOR\">\n<style =\"font-weight: normal; font-family: Verdana;\"></style></head>\n<body>\n<h4><small style=\"font-family: Verdana;\"><small><big><big><big style=\"font-weight: bold;\"><big><strong><span style=\"font-style: italic;\">Dugme radi</span></strong>&nbsp;\n&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</big></big></big></big></small></small></h4>\n<hr style=\"width: 100%; height: 2px;\">\n \n<br>\n<big><br>\n</big> \n<br>\n<br>\n<table style=\"width: 787px; color: white; height: 31px;\" white=\"\" color=\"\" ;=\"\" 100=\"\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\n<tbody>\n<tr>\n<td class=\"tabtitle\" style=\"height: 15px; background-color:white;\"><big><big><font size=\"-1\"><big><big><strong><a href=\"sysctrl.html\" >RIKVERC</a></strong></big></big></font></big></big></td>\n</tr>\n</tbody>\n</table>\n<br>\n<br>\n  </form>\n<h3><font size=\"-1\"><span style=\"color: black;\"></span>\n</font></h3><h3 style=\"font-weight: normal; font-family: Verdana;\"><font size=\"-1\"><br>\n</font></h3>\n<span style=\"font-family: Verdana;\"></span><font size=\"-1\"><a style=\"font-family: Verdana;\" href=\"/sysctrl.html\"><big><span style=\"font-weight: bold;\"></span></big></a></font>\n<font size=\"-1\"><span style=\"color: black;\">_______________________________________________________________________________________________________________<br>\n</span></font><font class=\"footmsg\">&nbsp;\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n<span style=\"color: silver;\">&nbsp; &nbsp;\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;All rights\nreserved \302\251 2011 I-media GROUP d.o.o. Sarajevo</span>&nbsp;</font>\n</body></html>\n \n"
+	.size	data__sysctrl_cgi, 1999
+
+	.hidden	file__sysctrl_cgi       @ @file__sysctrl_cgi
+	.type	file__sysctrl_cgi,%object
+	.section	.rodata.file__sysctrl_cgi,"a",%progbits
+	.globl	file__sysctrl_cgi
+	.p2align	2
+file__sysctrl_cgi:
+	.long	file__runtime_shtml
+	.long	data__sysctrl_cgi
+	.long	data__sysctrl_cgi+16
+	.long	1983                    @ 0x7bf
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__sysctrl_cgi, 20
+
+	.type	data__sysctrl_html,%object @ @data__sysctrl_html
+	.section	.rodata.data__sysctrl_html,"a",%progbits
+data__sysctrl_html:
+	.ascii	"/sysctrl.html\000\000\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/html\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\r\n<html>\r\n<head>\r\n    <title>sysctrl_html</title>\r\n\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1252\">\r\n    <meta content=\"MSHTML 6.00.2800.1561\" name=\"GENERATOR\">\r\n</head>\r\n<body>\r\n    <br>\r\n    Prva/Odabrana adresa.......<input id=\"kont101\" value=\"100\" type=\"number\" min=\"1\" max=\"65000\" onchange=\"kont102.value = this.value\" title=\"Jedina odabrana adresa za sve komande ako je zadnja/nova adresa ista ili prva odabrana adresa u rasponu do zadnje adrese. Odabirom adrese rs485 interfejsa glavnog kontrolera, po defaultu = 5, komanda se odnosi na glavni kontroler\">\r\n    <hr>\r\n    Zadnja/Nova adresa..........<input id=\"kont102\" value=\"100\" type=\"number\" min=\"1\" max=\"65000\" title=\"zadnja odabrana adresa u rasponu za update komande ili nova adresa kontrolera\"> &nbsp; &nbsp; &nbsp;\r\n    <hr>\r\n    Grupna adresa..................<input id=\"kont103\" value=\"26486\" type=\"number\" min=\"1\" max=\"65000\" title=\"grupna adresa kontrolera za sinhronizovane komande grupama: pozarni put, kontrola rasvjete sprata, novi zurnal za sprat\"> &nbsp; &nbsp; &nbsp;\r\n    <hr>\r\n    Broadcast adresa..............<input id=\"kont104\" value=\"39321\" type=\"number\" min=\"1\" max=\"65000\" title=\"zajednicka adresa za cijeli sistem za sinhronizovane komande svim uredjajima: vrijeme, kontrola rasvjete balkona, pozarni put, zurnal za sistem....\"> &nbsp;\r\n    <hr>\r\n    RS485 interface baudrate:\r\n    <select id=\"kont105\" name=\"interface_baudrate\" title=\"brzina rs485 interfejsa kontrolera sobe mora biti ista kao i kod glavnog kontrolera za uspjesnu komunikaciju. Za promjenu brzine rs485 interfejsa glavnog kontrolera, prva i zadnja odabrana adresa trebaju biti rs485 adresa interfejsa glavnog kontrolera, po defaultu = 5 \">\r\n        <option value=\"0\">2400 bps</option>\r\n        <option value=\"1\">4800 bps</option>\r\n        <option value=\"2\">9600 bps</option>\r\n        <option value=\"3\">19200 bps</option>\r\n        <option value=\"4\">38400 bps</option>\r\n        <option value=\"5\">57600 bps</option>\r\n        <option selected value=\"6\">115200 bps</option>\r\n        <option value=\"7\">230400 bps</option>\r\n        <option value=\"8\">460800 bps</option>\r\n        <option value=\"9\">921600 bps</option>\r\n    </select>\r\n    <input id=\"kont106\" value=\"Promjena adresa\" type=\"button\" onclick=\"send_event(106)\" title=\"promjena postavki rs485 interfejsa ukljucuje i vrijednost brzine interfejsa !!!\">\r\n    <hr>\r\n    <input id=\"kont201\" value=\"Podesi vrijeme\" type=\"button\" onclick=\"set_time()\" title=\"podesi tacno vrijeme i datum sistema prema lokalnom vremenu racunara\">\r\n    <input id=\"kont202\" value=\"Pregledaj log\" type=\"button\" onclick=\"get_log()\" title=\"pregledaj zadnji blok log liste\">\r\n    <input id=\"kont203\" value=\"Obrisi log\" type=\"button\" onclick=\"delete_log()\" title=\"obrisi zadnji blok log liste\">\r\n    <input id=\"kont204\" value=\"Brisi log listu\" type=\"button\" onclick=\"delete_log_list()\" title=\"obrisi cijelu log listu\">\r\n    <br>\r\n    <br>\r\n    <span id=\"log0\"></span>\r\n    <hr>\r\n    <input id=\"kont301\" value=\"Provjeri status\" type=\"button\" onclick=\"send_event(301)\" title=\"zahtjev za status kontrolera sobe sa adresom podesenom u input boksu Prva/Odabrana adresa i pregled vracenog odgovora\">\r\n    Promjeni status:\r\n    <select id=\"kont302\" onchange=\"send_event(302)\" title=\"promjeni status kontrolera sobe sa adresom podesenom u input boksu Prva/Odabrana adresa\">\r\n        <option value=\"0\">U pripremi</option>\r\n        <option value=\"1\">Spremna</option>\r\n        <option value=\"2\">Zauzeta</option>\r\n        <option value=\"3\">Ciscenje</option>\r\n        <option value=\"4\">Zamjena posteljine</option>\r\n        <option value=\"5\">Generalno C.</option>\r\n        <option value=\"6\">Neupotrebljiva</option>\r\n        <option value=\"7\">Late CheckOut</option>\r\n        <option value=\"8\">Sobarica u sobi</option>\r\n        <option value=\"9\">Reset DND</option>\r\n        <option value=\"10\">Alarm pozara</option>\r\n        <option value=\"11\">Pozarni put</option>\r\n    </select>\r\n    <hr>\r\n    Podesi period zamjene posteljine: <input id=\"kont303\" onchange=\"send_event(303)\" value=\"0\" type=\"number\" min=\"0\" max=\"99\" title=\"period ponavljanja u danima, zahtjeva za zamjenu posteljine kontrolera sobe, sa adresom podesenom u input boksu Prva/Odabrana adresa, vrijednost  0 = nula iskljucuje funkciju. Vrijednost brojaca aktivne funkcije se mo\236e resetovati na 0 = nulu tako da se status sa bilo kojeg drugog promjeni na status U PRIPREMI\">\r\n    <hr>\r\n    Podesi osvjetljenje displeja......... <input id=\"kont304\" onchange=\"send_event(304)\" value=\"500\" type=\"number\" min=\"100\" max=\"900\" title=\"podesi jacinu pozadinskog osvjetljenja lcd displeja kontrolera sobe sa adresom podesenom u input boksu Prva/Odabrana adresa\">\r\n    <input id=\"kont305\" value=\"Pregled slika\" type=\"button\" onclick=\"send_event(305)\" title=\"komanda kontroleru sobe sa adresom podesenom u input boksu Prva/Odabrana adresa, za pregled svih slika na displeju, po redu, od prve do zadnje\">\r\n    <hr>\r\n    <input id=\"kont408\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"selektuj ovo polje za forsiranje izlaza kontrolera sobe sa adresom podesenom u input boksu Prva/Odabrana adresa, a prema stanju checkbox kontrola 0 do 7. dok god je ova kontrola selektovana, digitalni izlazi na kontroleru sobe ce biti poostavljeni u stanje kontrola 0 do 7 bez bilo kakve promjene iz softvera kontrolera sobe\">\r\n    Forsiraj digitalne izlaze...\r\n    0<input id=\"kont400\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz kontakter napajanja\">\r\n    1<input id=\"kont401\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz DND modul\">\r\n    2<input id=\"kont402\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz balkonska rasvjeta\">\r\n    3<input id=\"kont403\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz zvono\">\r\n    4<input id=\"kont404\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz kontakter klime\">\r\n    5<input id=\"kont405\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz termostat klime\">\r\n    6<input id=\"kont406\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz elektro brava\">\r\n    7<input id=\"kont407\" onchange=\"send_event(408)\" type=\"checkbox\" value=\"0\" title=\"izlaz buzzer\">\r\n    <hr>\r\n    <input value=\"Reset glavnog kontrolera\" type=\"button\" onclick=\"send_event(450)\" title=\"resetuj direktnom komandom glavni kontroler\">\r\n    <input value=\"Reset adresiranog kontrolera\" type=\"button\" onclick=\"send_event(451)\" title=\"resetuj kontroler sobe sa adresom podesenom u input boksu Prva/Odabrana adresa\">\r\n    <input value=\"Reset SOS\" type=\"button\" onclick=\"send_event(452)\" title=\"resetuj SOS alarm kontrolera sobe sa adresom podesenom u input boksu Prva/Odabrana adresa, ili SOS alarm na glavnom kontroleru odabirom adrese rs485 interfejsa glavnog kontrolera u input boksu Prva/Odabrana adresa, a po defaultu = 5\">\r\n    <hr>\r\n    <input value=\"Update Firmwarea\" type=\"button\" onclick=\"send_event(480)\" title=\"komanda za update firmwera adresiranog kontrolera. prethodno je potrebno komandom za prenos slika izvrsiti transfer slike img20.raw koja je preimenovani binarni fajl novog firmwera kontrolera sobe. odabirom adrese rs485 interfejsa glavnog kontrolera u input boksu Prva/Odabrana adresa, a po defaultu = 5, komanda se odnosi na glavni kontroler za koji je potrebno prethodno tftp klijentom uploadowati novi firmware CTRL_NEW.BIN ili kopirati na uSD karticu\">\r\n    <input value=\"Update Bootloadera\" type=\"button\" onclick=\"send_event(481)\" title=\"komanda za update bootloadera adresiranog kontrolera. prethodno je potrebno komandom za prenos slika izvrsiti transfer slike img21.raw koja je preimenovani binarni fajl novog bootloadera kontrolera sobe.  odabirom adrese rs485 interfejsa glavnog kontrolera u input boksu Prva/Odabrana adresa, a po defaultu = 5, komanda se odnosi na glavni kontroler za koji je potrebno prethodno tftp klijentom uploadowati novi firmware CTRL_NEW.BIN ili kopirati na uSD karticu\">\r\n    <input value=\"Update config listom\" type=\"button\" onclick=\"send_event(482)\" title=\"pokreni update koji je prethodno upisan u fajl UPDATE.CFG i uploadovan na glavni kontroler\">\r\n    <hr>\r\n    Prva slika: <input id=\"kont501\" onchange=\"kont502.value = this.value\" value=\"1\" type=\"number\" min=\"1\" max=\"21\" title=\"odabir prve od vise slika za update ili jedine odabrane\">&nbsp;\r\n    Zadnja slika: <input id=\"kont502\" onchange=\"\" value=\"1\" type=\"number\" min=\"1\" max=\"21\" title=\"odabir poslednje slike kod vi\232e slika za update. za jednu sliku postaviti isti ili manji broj\">&nbsp; &nbsp; &nbsp;\r\n    <input value=\"Update slika\" type=\"button\" onclick=\"send_event(503)\" title=\"pokreni update slika odabranih od prve do zadnje i na adresirane kontrolere soba od Prve/Odabrane do Zadnje/Nove adrese\">\r\n    <hr>\r\n    IP adresa............<input id=\"kont550\" value=\"192\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont551\" value=\"168\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont552\" value=\"20\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont553\" value=\"199\" type=\"number\" min=\"0\" max=\"255\">\r\n    <hr>\r\n    Subnet Mask......<input id=\"kont560\" value=\"255\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont561\" value=\"255\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont562\" value=\"255\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont563\" value=\"0\" type=\"number\" min=\"0\" max=\"255\">\r\n    <hr>\r\n    Default Gateway.<input id=\"kont570\" value=\"192\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont571\" value=\"168\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont572\" value=\"20\" type=\"number\" min=\"0\" max=\"255\"> <input id=\"kont573\" value=\"1\" type=\"number\" min=\"0\" max=\"255\">\r\n    <br>\r\n    <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n    <input value=\"Promjena IP adresa\" type=\"button\" onclick=\"send_event(575)\" title=\"U slucaju pogresnih postavki i gubitka konekcije sa glavnim kontrolerom, pritisnuti i zadrzati srednji taster na glavnomm kontroleru. kada ccrvena LED treci puta zasvijetli, odmah otpustiti taster. ucitane su defaultne adrese, IP:192.168.20.199 SUBNET:255.255.255.0 GW:192.168.20.199\">\r\n    <hr>\r\n    Sistem ID:..........<input id=\"kont580\" value=\"43981\" type=\"number\" min=\"1\" max=\"65000\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n    <input value=\"Promjena ID sistema\" type=\"button\" onclick=\"send_event(581)\" title=\"Promjena ID broja sistema za adresirani uredjaj u polju Prva/Odabrana adresa. Ako se komanda posalje na rs485 adresu glavnog kontrolera, defaultno = 5, momentalno ce biti broadcast adresom proslijedjena svim kontrolerima, sto znaci da ni jedna rfid kartica nece biti validna do sledeceg programiranja sa novim ID brojem sistema\">\r\n    <hr>\r\n    <input value=\"Tesni Zurnal  1\" type=\"button\" onclick=\"send_event(590)\" title=\"testni zurnal text 1\">\r\n    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n    <input value=\"Testni Zurnal 2\" type=\"button\" onclick=\"send_event(591)\" title=\"testni zurnal text 1\">\r\n    <hr>\r\n    <input value=\"Update Starog Firmware-a\" type=\"button\" onclick=\"send_event(600)\" title=\"Update starog firmware-a za adresirani uredjaj u polju Prva/Odabrana adresa, novim firmware-om NEW.BIN uploadovanim na glavni kontroler. Nakon update-a pokrenuti 1. Update Bootloader, 2. Update Firmware. Ne smije se zamjeniti ovaj redoslijed !!!\">\r\n    ...OBAVEZAN REDOSLIJED \r\n    <br>\r\n    <br>\r\n    1. Upload novog firmware-a sa 2 fajla: NEW.BIN + IMG20.RAW<br>\r\n    2. Upload novog bootloadera: IMG21.RAW<br>\r\n    3. Odabir adrese + Dugme: Update starog firmware-a<br>\r\n    4. Nakon update-a, Dugme: Update Bootloadera<br>\r\n    5. Nakon update-a, Update Firmwarea.\r\n    <hr>\r\n    <input value=\"Ucitaj Listu Kontrolera\" type=\"button\" onclick=\"send_event(610)\" title=\"Formiranje liste adresa kontrolera iz fajla CTRL_ADD.TXT uploadovanog na glavni kontroler. Lista sadrzi decimalne adrese odvojene zarezom, npr:  101,102,103;  i zavrsava sa tacka-zarezom\">\r\n    ....Formiranje liste adresa kontrolera sobe<br>\r\n    <hr>\r\n    \r\n</body>\r\n</html>\r\n<SCRIPT>\r\n    function get_log() {\r\n        document.getElementById(\"log0\").innerHTML = 'Zahtjev poslan';\r\n        var xhttp = new XMLHttpRequest();\r\n        xhttp.onreadystatechange = function () {\r\n            if (xhttp.readyState == 4 && xhttp.status == 200) {  // alert(xhttp.responseText);\r\n                document.getElementById(\"log0\").innerHTML = xhttp.responseText;\r\n            } else { document.getElementById(\"log0\").innerHTML = 'Greska<br>readyState:' + xhttp.readyState + '<br>status:' + xhttp.status + '<br>responseText' + xhttp.responseText + '<br>responseXML:' + xhttp.responseXML; }\r\n        };\r\n        xhttp.open(\"GET\", \"sysctrl.cgi?log=3\", true);\r\n        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\r\n        xhttp.send();\r\n    }\r\n    function delete_log() {\r\n        document.getElementById(\"log0\").innerHTML = \"Zahtjev za brisanje\"\r\n        var xhttp = new XMLHttpRequest();\r\n        xhttp.onreadystatechange = function () {\r\n            if (xhttp.readyState == 4 && xhttp.status == 200) {\r\n                document.getElementById(\"log0\").innerHTML = xhttp.responseText;\r\n            } else { document.getElementById(\"log0\").innerHTML = 'Greska<br>readyState:' + xhttp.readyState + '<br>status:' + xhttp.status + '<br>responseText' + xhttp.responseText + '<br>responseXML:' + xhttp.responseXML; }\r\n        }; xhttp.open(\"GET\", \"sysctrl.cgi?log=4\", true);\r\n        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\r\n        xhttp.send();\r\n    }\r\n    function delete_log_list() {\r\n        document.getElementById(\"log0\").innerHTML = \"Zahtjev za brisanje\"\r\n        var xhttp = new XMLHttpRequest();\r\n        xhttp.onreadystatechange = function () {\r\n            if (xhttp.readyState == 4 && xhttp.status == 200) {\r\n                document.getElementById(\"log0\").innerHTML = xhttp.responseText;\r\n            } else { document.getElementById(\"log0\").innerHTML = 'Greska<br>readyState:' + xhttp.readyState + '<br>status:' + xhttp.status + '<br>responseText' + xhttp.responseText + '<br>responseXML:' + xhttp.responseXML; }\r\n        }; xhttp.open(\"GET\", \"sysctrl.cgi?log=5\", true);\r\n        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\r\n        xhttp.send();\r\n    }\r\n    function set_time() {\r\n        var htt = \"\";\r\n        var currentTime = new Date();\r\n        var day = (currentTime.getDay()); \r\n        var month = addZero(currentTime.getMonth() + 1);        \r\n        var date = addZero(currentTime.getDate());\r\n        var year = addZero(currentTime.getFullYear());\r\n        var hours = addZero(currentTime.getHours());\r\n        var minutes = addZero(currentTime.getMinutes());\r\n        var sec = addZero(currentTime.getSeconds());\r\n        htt = \"sysctrl.cgi?tdu=\" + day + date + month + year + hours + minutes + sec + \"&n=0\";\r\n        var xhttp = new XMLHttpRequest();\r\n        xhttp.open(\"GET\", htt, true);\r\n        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\r\n        xhttp.send();\r\n    }\r\n    function addZero(i) {\r\n        if (i < 10) {\r\n            i = \"0\" + i;\r\n        }\r\n        return i;\r\n    }\r\n    function send_event(t) {\r\n        var htt = \"\";\r\n        if (t == \"106\") {\r\n            htt = \"sysctrl.cgi?rsc=\" + document.getElementById(\"kont101\").value + \"&rsa=\" + document.getElementById(\"kont102\").value +\r\n                \"&rga=\" + document.getElementById(\"kont103\").value + \"&rba=\" + document.getElementById(\"kont104\").value +\r\n                \"&rib=\" + document.getElementById(\"kont105\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"301\") {\r\n            location.href = \"sysctrl.cgi?cst=\" + document.getElementById(\"kont101\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"302\") {\r\n            htt = \"sysctrl.cgi?stg=\" + document.getElementById(\"kont101\").value + \"&val=\" + document.getElementById(\"kont302\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"303\") {\r\n            htt = \"sysctrl.cgi?sbr=\" + document.getElementById(\"kont101\").value + \"&per=\" + document.getElementById(\"kont303\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"304\") {\r\n            htt = \"sysctrl.cgi?cbr=\" + document.getElementById(\"kont101\").value + \"&br=\" + document.getElementById(\"kont304\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"305\") {\r\n            htt = \"sysctrl.cgi?ipr=\" + document.getElementById(\"kont101\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"408\") {\r\n            var n0 = 0; var n1 = 0; var n2 = 0; var n3 = 0; var n4 = 0; var n5 = 0; var n6 = 0; var n7 = 0; var n8 = 0;\r\n\r\n            if (document.getElementById(\"kont408\").checked == true) {\r\n                if (document.getElementById(\"kont400\").checked) { n0 = 1; };\r\n                if (document.getElementById(\"kont401\").checked) { n1 = 1; };\r\n                if (document.getElementById(\"kont402\").checked) { n2 = 1; };\r\n                if (document.getElementById(\"kont403\").checked) { n3 = 1; };\r\n                if (document.getElementById(\"kont404\").checked) { n4 = 1; };\r\n                if (document.getElementById(\"kont405\").checked) { n5 = 1; };\r\n                if (document.getElementById(\"kont406\").checked) { n6 = 1; };\r\n                if (document.getElementById(\"kont407\").checked) { n7 = 1; };\r\n                n8 = 1;\r\n            }\r\n            htt = \"sysctrl.cgi?cdo=\" + document.getElementById(\"kont101\").value + \"&do0=\" + n0 + \"&do1=\" + n1 + \"&do2=\" + n2 + \"&do3=\" + n3 + \"&do4=\" + n4 + \"&do5=\" + n5 + \"&do6=\" + n6 + \"&do7=\" + n7 + \"&ctrl=\" + n8 + \"&n=0\";\r\n        }\r\n        else if (t == \"450\") {\r\n            htt = \"sysctrl.cgi?rst=0&n=0\";\r\n        }\r\n        else if (t == \"451\") {\r\n            htt = \"sysctrl.cgi?rst=\" + document.getElementById(\"kont101\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"452\") {\r\n            htt = \"sysctrl.cgi?rud=\" + document.getElementById(\"kont101\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"480\") {\r\n            htt = \"sysctrl.cgi?fuf=\" + document.getElementById(\"kont101\").value + \"&ful=\" + document.getElementById(\"kont102\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"481\") {\r\n            htt = \"sysctrl.cgi?buf=\" + document.getElementById(\"kont101\").value + \"&bul=\" + document.getElementById(\"kont102\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"482\") {\r\n            htt = \"sysctrl.cgi?cfg=run&n=0\";\r\n        }\r\n        else if (t == \"503\") {\r\n            htt = \"sysctrl.cgi?iuf=\" + document.getElementById(\"kont501\").value + \"&iul=\" + document.getElementById(\"kont502\").value +\r\n                \"&ifa=\" + document.getElementById(\"kont101\").value + \"&ila=\" + document.getElementById(\"kont102\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"575\") {\r\n            var ipp = document.getElementById(\"kont550\").value + \".\" + document.getElementById(\"kont551\").value + \".\" + document.getElementById(\"kont552\").value + \".\" + document.getElementById(\"kont553\").value;\r\n            var smm = document.getElementById(\"kont560\").value + \".\" + document.getElementById(\"kont561\").value + \".\" + document.getElementById(\"kont562\").value + \".\" + document.getElementById(\"kont563\").value;\r\n            var dgg = document.getElementById(\"kont570\").value + \".\" + document.getElementById(\"kont571\").value + \".\" + document.getElementById(\"kont572\").value + \".\" + document.getElementById(\"kont573\").value;\r\n            htt = \"sysctrl.cgi?ipa=\" + ipp + \"&snm=\" + smm + \"&gwa=\" + dgg + \"&n=0\";\r\n        }\r\n        else if (t == \"581\") {\r\n            htt = \"sysctrl.cgi?sid=\" + document.getElementById(\"kont101\").value + \"&nid=\" + document.getElementById(\"kont580\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"590\") {\r\n            htt = \"sysctrl.cgi?jrn1=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0,1,2,3,4;&n=0\";\r\n        }\r\n        else if (t == \"591\") {\r\n            htt = \"sysctrl.cgi?jrn2=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0,1,2,3,4;&n=0\";\r\n        }\r\n        else if (t == \"600\") {\r\n            htt = \"sysctrl.cgi?cud=\" + document.getElementById(\"kont101\").value + \"&n=0\";\r\n        }\r\n        else if (t == \"610\") {\r\n            htt = \"sysctrl.cgi?cad=load&n=0\";\r\n        }\r\n        var xhttp = new XMLHttpRequest();\r\n        xhttp.open(\"GET\", htt, true);\r\n        xhttp.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\r\n        xhttp.send();\r\n    }\r\n\r\n</SCRIPT>"
+	.size	data__sysctrl_html, 20984
+
+	.hidden	file__sysctrl_html      @ @file__sysctrl_html
+	.type	file__sysctrl_html,%object
+	.section	.rodata.file__sysctrl_html,"a",%progbits
+	.globl	file__sysctrl_html
+	.p2align	2
+file__sysctrl_html:
+	.long	file__sysctrl_cgi
+	.long	data__sysctrl_html
+	.long	data__sysctrl_html+16
+	.long	20968                   @ 0x51e8
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__sysctrl_html, 20
+
+	.type	data__Web_config,%object @ @data__Web_config
+	.section	.rodata.data__Web_config,"a",%progbits
+data__Web_config:
+	.ascii	"/Web.config\000HTTP/1.0 200 OK\r\nServer: lwIP/1.3.1 (http://savannah.nongnu.org/projects/lwip)\r\nContent-type: text/plain\r\n\r\n\357\273\277<?xml version=\"1.0\"?>\r\n<configuration>\r\n  <system.web>\r\n    <compilation debug=\"true\" targetFramework=\"4.0\"/>\r\n  </system.web>\r\n</configuration>"
+	.size	data__Web_config, 267
+
+	.hidden	file__Web_config        @ @file__Web_config
+	.type	file__Web_config,%object
+	.section	.rodata.file__Web_config,"a",%progbits
+	.globl	file__Web_config
+	.p2align	2
+file__Web_config:
+	.long	file__sysctrl_html
+	.long	data__Web_config
+	.long	data__Web_config+12
+	.long	255                     @ 0xff
+	.byte	1                       @ 0x1
+	.zero	3
+	.size	file__Web_config, 20
+
+	.hidden	fs_memory               @ @fs_memory
+	.type	fs_memory,%object
+	.section	.bss.fs_memory,"aw",%nobits
+	.globl	fs_memory
+	.p2align	2
+fs_memory:
+	.zero	240
+	.size	fs_memory, 240
+
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../User/Http\\fs.c"    @ string offset=55
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" @ string offset=73
+.Linfo_string3:
+	.asciz	"file__index_shtml"     @ string offset=151
+.Linfo_string4:
+	.asciz	"next"                  @ string offset=169
+.Linfo_string5:
+	.asciz	"name"                  @ string offset=174
+.Linfo_string6:
+	.asciz	"unsigned char"         @ string offset=179
+.Linfo_string7:
+	.asciz	"data"                  @ string offset=193
+.Linfo_string8:
+	.asciz	"len"                   @ string offset=198
+.Linfo_string9:
+	.asciz	"int"                   @ string offset=202
+.Linfo_string10:
+	.asciz	"http_header_included"  @ string offset=206
+.Linfo_string11:
+	.asciz	"u8_t"                  @ string offset=227
+.Linfo_string12:
+	.asciz	"fsdata_file"           @ string offset=232
+.Linfo_string13:
+	.asciz	"__ARRAY_SIZE_TYPE__"   @ string offset=244
+.Linfo_string14:
+	.asciz	"file__log_html"        @ string offset=264
+.Linfo_string15:
+	.asciz	"file__runtime_shtml"   @ string offset=279
+.Linfo_string16:
+	.asciz	"file__sysctrl_cgi"     @ string offset=299
+.Linfo_string17:
+	.asciz	"file__sysctrl_html"    @ string offset=317
+.Linfo_string18:
+	.asciz	"file__Web_config"      @ string offset=336
+.Linfo_string19:
+	.asciz	"fs_memory"             @ string offset=353
+.Linfo_string20:
+	.asciz	"file"                  @ string offset=363
+.Linfo_string21:
+	.asciz	"char"                  @ string offset=368
+.Linfo_string22:
+	.asciz	"index"                 @ string offset=373
+.Linfo_string23:
+	.asciz	"pextension"            @ string offset=379
+.Linfo_string24:
+	.asciz	"fs_file"               @ string offset=390
+.Linfo_string25:
+	.asciz	"inuse"                 @ string offset=398
+.Linfo_string26:
+	.asciz	"fs_table"              @ string offset=404
+.Linfo_string27:
+	.asciz	"data__index_shtml"     @ string offset=413
+.Linfo_string28:
+	.asciz	"data__log_html"        @ string offset=431
+.Linfo_string29:
+	.asciz	"data__runtime_shtml"   @ string offset=446
+.Linfo_string30:
+	.asciz	"data__sysctrl_cgi"     @ string offset=466
+.Linfo_string31:
+	.asciz	"data__sysctrl_html"    @ string offset=484
+.Linfo_string32:
+	.asciz	"data__Web_config"      @ string offset=503
+.Linfo_string33:
+	.asciz	"fs_malloc"             @ string offset=520
+.Linfo_string34:
+	.asciz	"i"                     @ string offset=530
+.Linfo_string35:
+	.asciz	"fs_free"               @ string offset=532
+.Linfo_string36:
+	.asciz	"fs_open"               @ string offset=540
+.Linfo_string37:
+	.asciz	"fs_close"              @ string offset=548
+.Linfo_string38:
+	.asciz	"fs_read"               @ string offset=557
+.Linfo_string39:
+	.asciz	"fs_bytes_left"         @ string offset=565
+.Linfo_string40:
+	.asciz	"f"                     @ string offset=579
+.Linfo_string41:
+	.asciz	"buffer"                @ string offset=581
+.Linfo_string42:
+	.asciz	"count"                 @ string offset=588
+.Linfo_string43:
+	.asciz	"read"                  @ string offset=594
+	.section	.debug_loc,"",%progbits
+.Ldebug_loc0:
+	.long	.Lfunc_begin0
+	.long	.Ltmp0
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	.Ltmp0
+	.long	.Ltmp23
+	.short	1                       @ Loc expr size
+	.byte	84                      @ DW_OP_reg4
+	.long	0
+	.long	0
+.Ldebug_loc1:
+	.long	.Ltmp1
+	.long	.Ltmp2
+	.short	2                       @ Loc expr size
+	.byte	17                      @ DW_OP_consts
+	.byte	0                       @ 0
+	.long	.Ltmp2
+	.long	.Ltmp7
+	.short	1                       @ Loc expr size
+	.byte	87                      @ DW_OP_reg7
+	.long	.Ltmp8
+	.long	.Ltmp11
+	.short	1                       @ Loc expr size
+	.byte	87                      @ DW_OP_reg7
+	.long	0
+	.long	0
+.Ldebug_loc2:
+	.long	.Ltmp2
+	.long	.Ltmp4
+	.short	1                       @ Loc expr size
+	.byte	87                      @ DW_OP_reg7
+	.long	.Ltmp16
+	.long	.Ltmp19
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	.Ltmp20
+	.long	.Ltmp22
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+.Ldebug_loc3:
+	.long	.Ltmp10
+	.long	.Ltmp22
+	.short	1                       @ Loc expr size
+	.byte	85                      @ DW_OP_reg5
+	.long	0
+	.long	0
+.Ldebug_loc4:
+	.long	.Lfunc_begin1
+	.long	.Ltmp31
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+.Ldebug_loc5:
+	.long	.Lfunc_begin1
+	.long	.Ltmp31
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+.Ldebug_loc6:
+	.long	.Ltmp24
+	.long	.Ltmp25
+	.short	2                       @ Loc expr size
+	.byte	17                      @ DW_OP_consts
+	.byte	0                       @ 0
+	.long	.Ltmp25
+	.long	.Lfunc_end1
+	.short	1                       @ Loc expr size
+	.byte	82                      @ DW_OP_reg2
+	.long	0
+	.long	0
+.Ldebug_loc7:
+	.long	.Lfunc_begin2
+	.long	.Ltmp34
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	.Ltmp34
+	.long	.Ltmp42
+	.short	1                       @ Loc expr size
+	.byte	85                      @ DW_OP_reg5
+	.long	0
+	.long	0
+.Ldebug_loc8:
+	.long	.Lfunc_begin2
+	.long	.Ltmp40
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	0
+	.long	0
+.Ldebug_loc9:
+	.long	.Lfunc_begin2
+	.long	.Ltmp39
+	.short	1                       @ Loc expr size
+	.byte	82                      @ DW_OP_reg2
+	.long	.Ltmp39
+	.long	.Ltmp41
+	.short	1                       @ Loc expr size
+	.byte	84                      @ DW_OP_reg4
+	.long	0
+	.long	0
+.Ldebug_loc10:
+	.long	.Ltmp38
+	.long	.Ltmp41
+	.short	1                       @ Loc expr size
+	.byte	84                      @ DW_OP_reg4
+	.long	0
+	.long	0
+.Ldebug_loc11:
+	.long	.Lfunc_begin3
+	.long	.Ltmp43
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	3                       @ Abbreviation Code
+	.byte	1                       @ DW_TAG_array_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	4                       @ Abbreviation Code
+	.byte	33                      @ DW_TAG_subrange_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	55                      @ DW_AT_count
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	5                       @ Abbreviation Code
+	.byte	38                      @ DW_TAG_const_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	6                       @ Abbreviation Code
+	.byte	19                      @ DW_TAG_structure_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	7                       @ Abbreviation Code
+	.byte	13                      @ DW_TAG_member
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	56                      @ DW_AT_data_member_location
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	8                       @ Abbreviation Code
+	.byte	15                      @ DW_TAG_pointer_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	9                       @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	10                      @ Abbreviation Code
+	.byte	22                      @ DW_TAG_typedef
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	11                      @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	12                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	13                      @ Abbreviation Code
+	.byte	15                      @ DW_TAG_pointer_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	14                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	15                      @ Abbreviation Code
+	.byte	33                      @ DW_TAG_subrange_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	55                      @ DW_AT_count
+	.byte	5                       @ DW_FORM_data2
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	16                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	17                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	32                      @ DW_AT_inline
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	18                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	19                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	32                      @ DW_AT_inline
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	20                      @ Abbreviation Code
+	.byte	5                       @ DW_TAG_formal_parameter
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	21                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	22                      @ Abbreviation Code
+	.byte	5                       @ DW_TAG_formal_parameter
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	23                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	24                      @ Abbreviation Code
+	.byte	29                      @ DW_TAG_inlined_subroutine
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	49                      @ DW_AT_abstract_origin
+	.byte	19                      @ DW_FORM_ref4
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	88                      @ DW_AT_call_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	89                      @ DW_AT_call_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	25                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	49                      @ DW_AT_abstract_origin
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	26                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	27                      @ Abbreviation Code
+	.byte	5                       @ DW_TAG_formal_parameter
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	49                      @ DW_AT_abstract_origin
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	.Ldebug_info_end0-.Ldebug_info_start0 @ Length of Unit
+.Ldebug_info_start0:
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0x3c9 DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.long	0                       @ DW_AT_low_pc
+	.long	.Ldebug_ranges3         @ DW_AT_ranges
+	.byte	2                       @ Abbrev [2] 0x26:0x13 DW_TAG_variable
+	.long	.Linfo_string3          @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1702                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__index_shtml
+	.byte	3                       @ Abbrev [3] 0x39:0xc DW_TAG_array_type
+	.long	69                      @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x3e:0x6 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.byte	1                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	5                       @ Abbrev [5] 0x45:0x5 DW_TAG_const_type
+	.long	74                      @ DW_AT_type
+	.byte	6                       @ Abbrev [6] 0x4a:0x45 DW_TAG_structure_type
+	.long	.Linfo_string12         @ DW_AT_name
+	.byte	20                      @ DW_AT_byte_size
+	.byte	1                       @ DW_AT_decl_file
+	.byte	38                      @ DW_AT_decl_line
+	.byte	7                       @ Abbrev [7] 0x52:0xc DW_TAG_member
+	.long	.Linfo_string4          @ DW_AT_name
+	.long	143                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	39                      @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x5e:0xc DW_TAG_member
+	.long	.Linfo_string5          @ DW_AT_name
+	.long	148                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	40                      @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x6a:0xc DW_TAG_member
+	.long	.Linfo_string7          @ DW_AT_name
+	.long	148                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	41                      @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x76:0xc DW_TAG_member
+	.long	.Linfo_string8          @ DW_AT_name
+	.long	165                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	42                      @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x82:0xc DW_TAG_member
+	.long	.Linfo_string10         @ DW_AT_name
+	.long	172                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	43                      @ DW_AT_decl_line
+	.byte	16                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x8f:0x5 DW_TAG_pointer_type
+	.long	69                      @ DW_AT_type
+	.byte	8                       @ Abbrev [8] 0x94:0x5 DW_TAG_pointer_type
+	.long	153                     @ DW_AT_type
+	.byte	5                       @ Abbrev [5] 0x99:0x5 DW_TAG_const_type
+	.long	158                     @ DW_AT_type
+	.byte	9                       @ Abbrev [9] 0x9e:0x7 DW_TAG_base_type
+	.long	.Linfo_string6          @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	9                       @ Abbrev [9] 0xa5:0x7 DW_TAG_base_type
+	.long	.Linfo_string9          @ DW_AT_name
+	.byte	5                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	10                      @ Abbrev [10] 0xac:0xb DW_TAG_typedef
+	.long	158                     @ DW_AT_type
+	.long	.Linfo_string11         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	37                      @ DW_AT_decl_line
+	.byte	11                      @ Abbrev [11] 0xb7:0x7 DW_TAG_base_type
+	.long	.Linfo_string13         @ DW_AT_name
+	.byte	8                       @ DW_AT_byte_size
+	.byte	7                       @ DW_AT_encoding
+	.byte	2                       @ Abbrev [2] 0xbe:0x13 DW_TAG_variable
+	.long	.Linfo_string14         @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1710                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__log_html
+	.byte	2                       @ Abbrev [2] 0xd1:0x13 DW_TAG_variable
+	.long	.Linfo_string15         @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1718                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__runtime_shtml
+	.byte	2                       @ Abbrev [2] 0xe4:0x13 DW_TAG_variable
+	.long	.Linfo_string16         @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1726                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__sysctrl_cgi
+	.byte	2                       @ Abbrev [2] 0xf7:0x13 DW_TAG_variable
+	.long	.Linfo_string17         @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1734                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__sysctrl_html
+	.byte	2                       @ Abbrev [2] 0x10a:0x13 DW_TAG_variable
+	.long	.Linfo_string18         @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.short	1742                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	file__Web_config
+	.byte	12                      @ Abbrev [12] 0x11d:0x12 DW_TAG_variable
+	.long	.Linfo_string19         @ DW_AT_name
+	.long	303                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	5                       @ DW_AT_decl_file
+	.byte	63                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	fs_memory
+	.byte	3                       @ Abbrev [3] 0x12f:0xc DW_TAG_array_type
+	.long	315                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x134:0x6 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.byte	10                      @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	6                       @ Abbrev [6] 0x13b:0x21 DW_TAG_structure_type
+	.long	.Linfo_string26         @ DW_AT_name
+	.byte	24                      @ DW_AT_byte_size
+	.byte	5                       @ DW_AT_decl_file
+	.byte	57                      @ DW_AT_decl_line
+	.byte	7                       @ Abbrev [7] 0x143:0xc DW_TAG_member
+	.long	.Linfo_string20         @ DW_AT_name
+	.long	348                     @ DW_AT_type
+	.byte	5                       @ DW_AT_decl_file
+	.byte	58                      @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x14f:0xc DW_TAG_member
+	.long	.Linfo_string25         @ DW_AT_name
+	.long	172                     @ DW_AT_type
+	.byte	5                       @ DW_AT_decl_file
+	.byte	59                      @ DW_AT_decl_line
+	.byte	20                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	6                       @ Abbrev [6] 0x15c:0x45 DW_TAG_structure_type
+	.long	.Linfo_string24         @ DW_AT_name
+	.byte	20                      @ DW_AT_byte_size
+	.byte	4                       @ DW_AT_decl_file
+	.byte	70                      @ DW_AT_decl_line
+	.byte	7                       @ Abbrev [7] 0x164:0xc DW_TAG_member
+	.long	.Linfo_string7          @ DW_AT_name
+	.long	417                     @ DW_AT_type
+	.byte	4                       @ DW_AT_decl_file
+	.byte	71                      @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x170:0xc DW_TAG_member
+	.long	.Linfo_string8          @ DW_AT_name
+	.long	165                     @ DW_AT_type
+	.byte	4                       @ DW_AT_decl_file
+	.byte	72                      @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x17c:0xc DW_TAG_member
+	.long	.Linfo_string22         @ DW_AT_name
+	.long	165                     @ DW_AT_type
+	.byte	4                       @ DW_AT_decl_file
+	.byte	73                      @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x188:0xc DW_TAG_member
+	.long	.Linfo_string23         @ DW_AT_name
+	.long	434                     @ DW_AT_type
+	.byte	4                       @ DW_AT_decl_file
+	.byte	74                      @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	7                       @ Abbrev [7] 0x194:0xc DW_TAG_member
+	.long	.Linfo_string10         @ DW_AT_name
+	.long	172                     @ DW_AT_type
+	.byte	4                       @ DW_AT_decl_file
+	.byte	79                      @ DW_AT_decl_line
+	.byte	16                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x1a1:0x5 DW_TAG_pointer_type
+	.long	422                     @ DW_AT_type
+	.byte	5                       @ Abbrev [5] 0x1a6:0x5 DW_TAG_const_type
+	.long	427                     @ DW_AT_type
+	.byte	9                       @ Abbrev [9] 0x1ab:0x7 DW_TAG_base_type
+	.long	.Linfo_string21         @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	13                      @ Abbrev [13] 0x1b2:0x1 DW_TAG_pointer_type
+	.byte	14                      @ Abbrev [14] 0x1b3:0x11 DW_TAG_variable
+	.long	.Linfo_string27         @ DW_AT_name
+	.long	452                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.byte	10                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__index_shtml
+	.byte	3                       @ Abbrev [3] 0x1c4:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x1c9:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	901                     @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	14                      @ Abbrev [14] 0x1d1:0x11 DW_TAG_variable
+	.long	.Linfo_string28         @ DW_AT_name
+	.long	482                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.byte	85                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__log_html
+	.byte	3                       @ Abbrev [3] 0x1e2:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x1e7:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	386                     @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	14                      @ Abbrev [14] 0x1ef:0x11 DW_TAG_variable
+	.long	.Linfo_string29         @ DW_AT_name
+	.long	512                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.byte	125                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__runtime_shtml
+	.byte	3                       @ Abbrev [3] 0x200:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x205:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	910                     @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	14                      @ Abbrev [14] 0x20d:0x11 DW_TAG_variable
+	.long	.Linfo_string30         @ DW_AT_name
+	.long	542                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.byte	200                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__sysctrl_cgi
+	.byte	3                       @ Abbrev [3] 0x21e:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x223:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	1999                    @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	16                      @ Abbrev [16] 0x22b:0x12 DW_TAG_variable
+	.long	.Linfo_string31         @ DW_AT_name
+	.long	573                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.short	341                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__sysctrl_html
+	.byte	3                       @ Abbrev [3] 0x23d:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x242:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	20984                   @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	16                      @ Abbrev [16] 0x24a:0x12 DW_TAG_variable
+	.long	.Linfo_string32         @ DW_AT_name
+	.long	604                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.short	1668                    @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	data__Web_config
+	.byte	3                       @ Abbrev [3] 0x25c:0xd DW_TAG_array_type
+	.long	153                     @ DW_AT_type
+	.byte	15                      @ Abbrev [15] 0x261:0x7 DW_TAG_subrange_type
+	.long	183                     @ DW_AT_type
+	.short	267                     @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x269:0x5 DW_TAG_pointer_type
+	.long	427                     @ DW_AT_type
+	.byte	17                      @ Abbrev [17] 0x26e:0x19 DW_TAG_subprogram
+	.long	.Linfo_string33         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	72                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	647                     @ DW_AT_type
+	.byte	1                       @ DW_AT_inline
+	.byte	18                      @ Abbrev [18] 0x27b:0xb DW_TAG_variable
+	.long	.Linfo_string34         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	74                      @ DW_AT_decl_line
+	.long	165                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x287:0x5 DW_TAG_pointer_type
+	.long	348                     @ DW_AT_type
+	.byte	19                      @ Abbrev [19] 0x28c:0x20 DW_TAG_subprogram
+	.long	.Linfo_string35         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	86                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_inline
+	.byte	20                      @ Abbrev [20] 0x295:0xb DW_TAG_formal_parameter
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	86                      @ DW_AT_decl_line
+	.long	647                     @ DW_AT_type
+	.byte	18                      @ Abbrev [18] 0x2a0:0xb DW_TAG_variable
+	.long	.Linfo_string34         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	88                      @ DW_AT_decl_line
+	.long	165                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	21                      @ Abbrev [21] 0x2ac:0x6b DW_TAG_subprogram
+	.long	.Lfunc_begin0           @ DW_AT_low_pc
+	.long	.Lfunc_end0             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string36         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	99                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	647                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	22                      @ Abbrev [22] 0x2c3:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc0            @ DW_AT_location
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	99                      @ DW_AT_decl_line
+	.long	417                     @ DW_AT_type
+	.byte	23                      @ Abbrev [23] 0x2d2:0xf DW_TAG_variable
+	.long	.Ldebug_loc3            @ DW_AT_location
+	.long	.Linfo_string40         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	102                     @ DW_AT_decl_line
+	.long	143                     @ DW_AT_type
+	.byte	18                      @ Abbrev [18] 0x2e1:0xb DW_TAG_variable
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	101                     @ DW_AT_decl_line
+	.long	647                     @ DW_AT_type
+	.byte	24                      @ Abbrev [24] 0x2ec:0x15 DW_TAG_inlined_subroutine
+	.long	622                     @ DW_AT_abstract_origin
+	.long	.Ldebug_ranges0         @ DW_AT_ranges
+	.byte	5                       @ DW_AT_call_file
+	.byte	104                     @ DW_AT_call_line
+	.byte	25                      @ Abbrev [25] 0x2f7:0x9 DW_TAG_variable
+	.long	.Ldebug_loc1            @ DW_AT_location
+	.long	635                     @ DW_AT_abstract_origin
+	.byte	0                       @ End Of Children Mark
+	.byte	24                      @ Abbrev [24] 0x301:0x15 DW_TAG_inlined_subroutine
+	.long	652                     @ DW_AT_abstract_origin
+	.long	.Ldebug_ranges1         @ DW_AT_ranges
+	.byte	5                       @ DW_AT_call_file
+	.byte	134                     @ DW_AT_call_line
+	.byte	25                      @ Abbrev [25] 0x30c:0x9 DW_TAG_variable
+	.long	.Ldebug_loc2            @ DW_AT_location
+	.long	672                     @ DW_AT_abstract_origin
+	.byte	0                       @ End Of Children Mark
+	.byte	0                       @ End Of Children Mark
+	.byte	26                      @ Abbrev [26] 0x317:0x41 DW_TAG_subprogram
+	.long	.Lfunc_begin1           @ DW_AT_low_pc
+	.long	.Lfunc_end1             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string37         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	140                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	22                      @ Abbrev [22] 0x32a:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc4            @ DW_AT_location
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	140                     @ DW_AT_decl_line
+	.long	647                     @ DW_AT_type
+	.byte	24                      @ Abbrev [24] 0x339:0x1e DW_TAG_inlined_subroutine
+	.long	652                     @ DW_AT_abstract_origin
+	.long	.Ldebug_ranges2         @ DW_AT_ranges
+	.byte	5                       @ DW_AT_call_file
+	.byte	150                     @ DW_AT_call_line
+	.byte	27                      @ Abbrev [27] 0x344:0x9 DW_TAG_formal_parameter
+	.long	.Ldebug_loc5            @ DW_AT_location
+	.long	661                     @ DW_AT_abstract_origin
+	.byte	25                      @ Abbrev [25] 0x34d:0x9 DW_TAG_variable
+	.long	.Ldebug_loc6            @ DW_AT_location
+	.long	672                     @ DW_AT_abstract_origin
+	.byte	0                       @ End Of Children Mark
+	.byte	0                       @ End Of Children Mark
+	.byte	21                      @ Abbrev [21] 0x358:0x54 DW_TAG_subprogram
+	.long	.Lfunc_begin2           @ DW_AT_low_pc
+	.long	.Lfunc_end2             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string38         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	154                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	165                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	22                      @ Abbrev [22] 0x36f:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc7            @ DW_AT_location
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	154                     @ DW_AT_decl_line
+	.long	647                     @ DW_AT_type
+	.byte	22                      @ Abbrev [22] 0x37e:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc8            @ DW_AT_location
+	.long	.Linfo_string41         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	154                     @ DW_AT_decl_line
+	.long	617                     @ DW_AT_type
+	.byte	22                      @ Abbrev [22] 0x38d:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc9            @ DW_AT_location
+	.long	.Linfo_string42         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	154                     @ DW_AT_decl_line
+	.long	165                     @ DW_AT_type
+	.byte	23                      @ Abbrev [23] 0x39c:0xf DW_TAG_variable
+	.long	.Ldebug_loc10           @ DW_AT_location
+	.long	.Linfo_string43         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	156                     @ DW_AT_decl_line
+	.long	165                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	21                      @ Abbrev [21] 0x3ac:0x27 DW_TAG_subprogram
+	.long	.Lfunc_begin3           @ DW_AT_low_pc
+	.long	.Lfunc_end3             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string39         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	173                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	165                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	22                      @ Abbrev [22] 0x3c3:0xf DW_TAG_formal_parameter
+	.long	.Ldebug_loc11           @ DW_AT_location
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_decl_file
+	.byte	173                     @ DW_AT_decl_line
+	.long	647                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	0                       @ End Of Children Mark
+.Ldebug_info_end0:
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.long	.Ltmp2
+	.long	.Ltmp7
+	.long	.Ltmp10
+	.long	.Ltmp11
+	.long	0
+	.long	0
+.Ldebug_ranges1:
+	.long	.Ltmp16
+	.long	.Ltmp19
+	.long	.Ltmp21
+	.long	.Ltmp22
+	.long	0
+	.long	0
+.Ldebug_ranges2:
+	.long	.Ltmp25
+	.long	.Ltmp28
+	.long	.Ltmp29
+	.long	.Ltmp32
+	.long	0
+	.long	0
+.Ldebug_ranges3:
+	.long	.Lfunc_begin0
+	.long	.Lfunc_end0
+	.long	.Lfunc_begin1
+	.long	.Lfunc_end1
+	.long	.Lfunc_begin2
+	.long	.Lfunc_end2
+	.long	.Lfunc_begin3
+	.long	.Lfunc_end3
+	.long	0
+	.long	0
+	.section	.debug_macinfo,"",%progbits
+	.byte	0                       @ End Of Macro List Mark
+
+	.ident	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]"
+	.section	".note.GNU-stack","",%progbits
+	.eabi_attribute	30, 3	@ Tag_ABI_optimization_goals
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

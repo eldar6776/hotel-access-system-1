@@ -1,0 +1,129 @@
+				******************************************
+				**										**
+				**		SERVICE	MENU DISPLAY SCREEN 1	**<<<<<<<<
+				**										**		/\
+				******************************************		/\
+				**		DIGITAL   INPUT   SETTINGS		**		/\
+				**		--------------------------		**		/\
+				**		CARD STACKER      SET-> ON		**		/\
+				**		SOS ALARM               ON		**		/\
+				**		SOS RESET              OFF		**		/\
+				**		HANDMAID CALL          OFF		**		/\
+				**		MINIBAR SENSOR    DISABLED		**		/\
+				**		BALCONY DOOR            ON		**		/\
+				**		DND SWITCH             OFF		**		/\
+				**		ENTRY DOOR        DISABLED		**		|
+				**		--------------------------		**		|
+				**		ENTER 	           >> NEXT		**>>>	|
+				******************************************	V	|
+				**		NEXT >>				SELECT 		**	V	|
+				******************************************	V	|
+				**		SET	++			  DESELECT		**	V	|
+				******************************************	V	|
+															V	|
+															V	|
+															V	|
+															V	|
+				******************************************	V	|
+				**										**	V	|
+				**      SERVICE	MENU DISPLAY SCREEN 2	**<<<	|
+				**										**		|
+				******************************************		|
+				**		DIGITAL  OUTPUT   SETTINGS		**		|
+				**		--------------------------		**		|
+				**		POWER CONTACTOR			ON		**		|
+				**		DND & HM RESET			ON		**		/\
+				**		BALCONY LIGHT		   OFF		**		/\
+				**		DOOR BELL			   OFF		**		/\
+				**		HVAC POWER			   OFF		**		/\
+				**		HVAC THERMOSTAT		   OFF		**		/\
+				**		DOOR LOCK		  SET-> ON		**		|
+SCREEN			**		PCB BUZZER			   OFF		**		|	ITEM / VALUE
+----------------**		--------------------------		**		|-----------------
+NOT_SELECTED	**		ENTER 	           >> NEXT		**>>>	|	NOT_SELECTED
+				******************************************	V	|
+SELECTED		**		NEXT >>				SELECT 		**	V	|	NOT_SELECTED
+				******************************************	V	|
+SELECTED		**		SET	++			  DESELECT		**	V	|	SELECTED
+				******************************************	V	|
+															V	|
+															V	|
+															V	|
+															V	|
+															V	|
+				******************************************	V	|
+				**										**	V	|
+				**		SERVICE	MENU DISPLAY SCREEN 3	**<<<	|
+				**										**		|
+				******************************************		|
+				**		SETUP  SYSTEM  SETTINGS  1		**		|
+				**		--------------------------		**		|
+				**		RESTART CONTROLLER				**		|
+				**		PREVIEW DISPLAY IMAGES			**		/\
+				**		REQUEST IMAGES UPDATE			**		/\
+				**		REQUEST FIRMWARE UPDATE			**		/\
+				**		SCAN ONEWIRE: LUX Term. x3		**		/\
+				**		SET RS485 ADDRESS    12345		**		/\
+				**		SET SYSTEM ID	     65432		**		|
+				**		SET TIME  12:00 01.01.2018		**		|
+				**		--------------------------		**		|
+				**		ENTER 	           >> NEXT		**>>>	|
+				******************************************	V	|
+				**		NEXT >>				SELECT 		**	V	|
+				******************************************	V	|
+				**		SET	++			  DESELECT		**	V	|
+				******************************************	V	|
+															V	|
+															V	|
+															V	|
+															V	|
+															V	|
+				******************************************	V	|
+				**										**	V	|
+				**		SERVICE	MENU DISPLAY SCREEN 4	**<<<	|
+				**										**		|
+				******************************************		|
+				**		SETUP  SYSTEM  SETTINGS  2		**		|
+				**		--------------------------		**		|
+				**		DISPLAY CARD TEXT	   OFF		**		/\
+				**		TAMPER PROTECTION		ON		**		/\
+				**		WIRELESS RADIO			ON		**		/\
+				**		RADIO ADDRESS		 RC001		**		/\
+				**		RADIO CHANEL			22		**		/\
+				**		BUZZER VOLUME          123		**		|
+				**		DOORLOCK POWER	       255		**		|
+				**		LOAD SYSTEM DEFAULT				**		|
+				**		--------------------------		**		|
+				**		ENTER 	           >> NEXT		**>>>	|
+				******************************************	V	|
+				**		NEXT >> 			SELECT 		**	V	|
+				******************************************	V	|
+				**		SET	++			  DESELECT		**	V	|
+				******************************************	V	|
+															V	|
+															V	|
+															V	|
+															V	|
+															V	|
+				******************************************	V	|
+				**										**	V	|
+				**		SERVICE	MENU DISPLAY SCREEN 5	**<<<	|
+				**										**		|
+				******************************************		|
+				**		EXTEND  ACCESS	PERMISSION		**		|
+				**		--------------------------		**		|
+				**		PERMITTED ADDRESS 1: 12345		**		/\
+				**		PERMITTED ADDRESS 2: 00000		**		/\
+				**		PERMITTED ADDRESS 3: 00000		**		/\
+				**		PERMITTED ADDRESS 4: 00000		**		/\
+				**		PERMITTED ADDRESS 5: 00000		**		/\
+				**		PERMITTED ADDRESS 6: 00000		**		/\
+				**		PERMITTED ADDRESS 7: 00000		**		/\
+				**		PERMITTED ADDRESS 8: 00000		**		/\
+				**		--------------------------		**		|
+				**		ENTER 	           >> NEXT		**>>>>>>|
+				******************************************
+				**		NEXT >>				SELECT 		**
+				******************************************
+				**		SET	++			  DESELECT		**
+				******************************************

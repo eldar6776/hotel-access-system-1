@@ -1,0 +1,2293 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m4
+	.eabi_attribute	6, 13	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.fpu	fpv4-sp-d16
+	.eabi_attribute	27, 1	@ Tag_ABI_HardFP_use
+	.eabi_attribute	36, 1	@ Tag_FP_HP_extension
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	28, 1	@ Tag_ABI_VFP_args
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 2	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 1	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"NetworkConnected.c"
+	.file	1 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../Libraries/STemWinLibrary532/inc/GUI_Type.h"
+	.file	2 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../Libraries/STemWinLibrary532/inc/LCD.h"
+	.file	3 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../Application/Dsiplay/NetworkConnected.c"
+	.type	_acNetworkConnected,%object @ @_acNetworkConnected
+	.section	.rodata._acNetworkConnected,"a",%progbits
+	.p2align	1
+_acNetworkConnected:
+	.short	61277                   @ 0xef5d
+	.short	59196                   @ 0xe73c
+	.short	63390                   @ 0xf79e
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	52857                   @ 0xce79
+	.short	52857                   @ 0xce79
+	.short	57083                   @ 0xdefb
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	61341                   @ 0xef9d
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	50744                   @ 0xc638
+	.short	59196                   @ 0xe73c
+	.short	59164                   @ 0xe71c
+	.short	59164                   @ 0xe71c
+	.short	55002                   @ 0xd6da
+	.short	50744                   @ 0xc638
+	.short	48630                   @ 0xbdf6
+	.short	63390                   @ 0xf79e
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	50712                   @ 0xc618
+	.short	42260                   @ 0xa514
+	.short	52889                   @ 0xce99
+	.short	52857                   @ 0xce79
+	.short	46486                   @ 0xb596
+	.short	44501                   @ 0xadd5
+	.short	25770                   @ 0x64aa
+	.short	61277                   @ 0xef5d
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	59196                   @ 0xe73c
+	.short	48599                   @ 0xbdd7
+	.short	40115                   @ 0x9cb3
+	.short	40179                   @ 0x9cf3
+	.short	42228                   @ 0xa4f4
+	.short	46518                   @ 0xb5b6
+	.short	57083                   @ 0xdefb
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63422                   @ 0xf7be
+	.short	61309                   @ 0xef7d
+	.short	48599                   @ 0xbdd7
+	.short	54938                   @ 0xd69a
+	.short	63422                   @ 0xf7be
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61277                   @ 0xef5d
+	.short	54938                   @ 0xd69a
+	.short	59196                   @ 0xe73c
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63390                   @ 0xf79e
+	.short	48599                   @ 0xbdd7
+	.short	44373                   @ 0xad55
+	.short	44405                   @ 0xad75
+	.short	46388                   @ 0xb534
+	.short	48631                   @ 0xbdf7
+	.short	52890                   @ 0xce9a
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	59228                   @ 0xe75c
+	.short	46486                   @ 0xb596
+	.short	44276                   @ 0xacf4
+	.short	48502                   @ 0xbd76
+	.short	54874                   @ 0xd65a
+	.short	50615                   @ 0xc5b7
+	.short	44276                   @ 0xacf4
+	.short	48535                   @ 0xbd97
+	.short	61342                   @ 0xef9e
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63422                   @ 0xf7be
+	.short	59196                   @ 0xe73c
+	.short	57019                   @ 0xdebb
+	.short	57019                   @ 0xdebb
+	.short	63422                   @ 0xf7be
+	.short	63454                   @ 0xf7de
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	59228                   @ 0xe75c
+	.short	48534                   @ 0xbd96
+	.short	42196                   @ 0xa4d4
+	.short	46422                   @ 0xb556
+	.short	57051                   @ 0xdedb
+	.short	61341                   @ 0xef9d
+	.short	63390                   @ 0xf79e
+	.short	63422                   @ 0xf7be
+	.short	63422                   @ 0xf7be
+	.short	63390                   @ 0xf79e
+	.short	57019                   @ 0xdebb
+	.short	44277                   @ 0xacf5
+	.short	44309                   @ 0xad15
+	.short	57083                   @ 0xdefb
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	59228                   @ 0xe75c
+	.short	48534                   @ 0xbd96
+	.short	42163                   @ 0xa4b3
+	.short	44308                   @ 0xad14
+	.short	54906                   @ 0xd67a
+	.short	59164                   @ 0xe71c
+	.short	59228                   @ 0xe75c
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	63390                   @ 0xf79e
+	.short	63390                   @ 0xf79e
+	.short	63390                   @ 0xf79e
+	.short	63390                   @ 0xf79e
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	59164                   @ 0xe71c
+	.short	46454                   @ 0xb576
+	.short	42164                   @ 0xa4b4
+	.short	50648                   @ 0xc5d8
+	.short	63422                   @ 0xf7be
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63422                   @ 0xf7be
+	.short	46486                   @ 0xb596
+	.short	42163                   @ 0xa4b3
+	.short	42228                   @ 0xa4f4
+	.short	50744                   @ 0xc638
+	.short	54970                   @ 0xd6ba
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	59164                   @ 0xe71c
+	.short	59228                   @ 0xe75c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61341                   @ 0xef9d
+	.short	61341                   @ 0xef9d
+	.short	61341                   @ 0xef9d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59196                   @ 0xe73c
+	.short	59164                   @ 0xe71c
+	.short	57083                   @ 0xdefb
+	.short	50712                   @ 0xc618
+	.short	42164                   @ 0xa4b4
+	.short	44309                   @ 0xad15
+	.short	57116                   @ 0xdf1c
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	54906                   @ 0xd67a
+	.short	42164                   @ 0xa4b4
+	.short	54905                   @ 0xd679
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	57083                   @ 0xdefb
+	.short	59164                   @ 0xe71c
+	.short	59164                   @ 0xe71c
+	.short	59228                   @ 0xe75c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	59228                   @ 0xe75c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	52857                   @ 0xce79
+	.short	44245                   @ 0xacd5
+	.short	42132                   @ 0xa494
+	.short	52760                   @ 0xce18
+	.short	63454                   @ 0xf7de
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	54970                   @ 0xd6ba
+	.short	44341                   @ 0xad35
+	.short	61309                   @ 0xef7d
+	.short	59228                   @ 0xe75c
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	57083                   @ 0xdefb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	59228                   @ 0xe75c
+	.short	59228                   @ 0xe75c
+	.short	59228                   @ 0xe75c
+	.short	61277                   @ 0xef5d
+	.short	59228                   @ 0xe75c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	55002                   @ 0xd6da
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	52857                   @ 0xce79
+	.short	52857                   @ 0xce79
+	.short	48535                   @ 0xbd97
+	.short	42131                   @ 0xa493
+	.short	46390                   @ 0xb536
+	.short	59197                   @ 0xe73d
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63422                   @ 0xf7be
+	.short	40083                   @ 0x9c93
+	.short	59196                   @ 0xe73c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59196                   @ 0xe73c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	59164                   @ 0xe71c
+	.short	59164                   @ 0xe71c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	52889                   @ 0xce99
+	.short	52857                   @ 0xce79
+	.short	52857                   @ 0xce79
+	.short	52889                   @ 0xce99
+	.short	50744                   @ 0xc638
+	.short	42196                   @ 0xa4d4
+	.short	42131                   @ 0xa493
+	.short	54905                   @ 0xd679
+	.short	63454                   @ 0xf7de
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	50680                   @ 0xc5f8
+	.short	48631                   @ 0xbdf7
+	.short	57051                   @ 0xdedb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59196                   @ 0xe73c
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57115                   @ 0xdf1b
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	52857                   @ 0xce79
+	.short	52889                   @ 0xce99
+	.short	52889                   @ 0xce99
+	.short	52889                   @ 0xce99
+	.short	52857                   @ 0xce79
+	.short	52857                   @ 0xce79
+	.short	50744                   @ 0xc638
+	.short	48631                   @ 0xbdf7
+	.short	44276                   @ 0xacf4
+	.short	39953                   @ 0x9c11
+	.short	50647                   @ 0xc5d7
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	42196                   @ 0xa4d4
+	.short	52825                   @ 0xce59
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57083                   @ 0xdefb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59196                   @ 0xe73c
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	52889                   @ 0xce99
+	.short	52857                   @ 0xce79
+	.short	52889                   @ 0xce99
+	.short	52857                   @ 0xce79
+	.short	50744                   @ 0xc638
+	.short	48663                   @ 0xbe17
+	.short	48599                   @ 0xbdd7
+	.short	46486                   @ 0xb596
+	.short	44405                   @ 0xad75
+	.short	38034                   @ 0x9492
+	.short	42292                   @ 0xa534
+	.short	40018                   @ 0x9c52
+	.short	57083                   @ 0xdefb
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	48566                   @ 0xbdb6
+	.short	33776                   @ 0x83f0
+	.short	46550                   @ 0xb5d6
+	.short	52857                   @ 0xce79
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	52857                   @ 0xce79
+	.short	50744                   @ 0xc638
+	.short	48631                   @ 0xbdf7
+	.short	48599                   @ 0xbdd7
+	.short	46518                   @ 0xb5b6
+	.short	38162                   @ 0x9512
+	.short	13125                   @ 0x3345
+	.short	9155                    @ 0x23c3
+	.short	27757                   @ 0x6c6d
+	.short	52824                   @ 0xce58
+	.short	27436                   @ 0x6b2c
+	.short	44373                   @ 0xad55
+	.short	46324                   @ 0xb4f4
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	42228                   @ 0xa4f4
+	.short	33711                   @ 0x83af
+	.short	31662                   @ 0x7bae
+	.short	35921                   @ 0x8c51
+	.short	46518                   @ 0xb5b6
+	.short	52857                   @ 0xce79
+	.short	52889                   @ 0xce99
+	.short	54970                   @ 0xd6ba
+	.short	57083                   @ 0xdefb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59228                   @ 0xe75c
+	.short	59164                   @ 0xe71c
+	.short	57083                   @ 0xdefb
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	52857                   @ 0xce79
+	.short	50776                   @ 0xc658
+	.short	48631                   @ 0xbdf7
+	.short	48599                   @ 0xbdd7
+	.short	46518                   @ 0xb5b6
+	.short	44405                   @ 0xad75
+	.short	44373                   @ 0xad55
+	.short	44405                   @ 0xad75
+	.short	7074                    @ 0x1ba2
+	.short	3552                    @ 0xde0
+	.short	3841                    @ 0xf01
+	.short	3456                    @ 0xd80
+	.short	50776                   @ 0xc658
+	.short	31501                   @ 0x7b0d
+	.short	29453                   @ 0x730d
+	.short	52857                   @ 0xce79
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	48599                   @ 0xbdd7
+	.short	31663                   @ 0x7baf
+	.short	35953                   @ 0x8c71
+	.short	35823                   @ 0x8bef
+	.short	31695                   @ 0x7bcf
+	.short	35889                   @ 0x8c31
+	.short	46518                   @ 0xb5b6
+	.short	52889                   @ 0xce99
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	57083                   @ 0xdefb
+	.short	59196                   @ 0xe73c
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	61277                   @ 0xef5d
+	.short	59164                   @ 0xe71c
+	.short	57115                   @ 0xdf1b
+	.short	57051                   @ 0xdedb
+	.short	52857                   @ 0xce79
+	.short	50712                   @ 0xc618
+	.short	48599                   @ 0xbdd7
+	.short	46486                   @ 0xb596
+	.short	44373                   @ 0xad55
+	.short	42292                   @ 0xa534
+	.short	44405                   @ 0xad75
+	.short	50744                   @ 0xc638
+	.short	57051                   @ 0xdedb
+	.short	44533                   @ 0xadf5
+	.short	5280                    @ 0x14a0
+	.short	3616                    @ 0xe20
+	.short	3808                    @ 0xee0
+	.short	5536                    @ 0x15a0
+	.short	40275                   @ 0x9d53
+	.short	33808                   @ 0x8410
+	.short	37872                   @ 0x93f0
+	.short	46486                   @ 0xb596
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63390                   @ 0xf79e
+	.short	38002                   @ 0x9472
+	.short	27469                   @ 0x6b4d
+	.short	33775                   @ 0x83ef
+	.short	38033                   @ 0x9491
+	.short	35856                   @ 0x8c10
+	.short	33743                   @ 0x83cf
+	.short	38034                   @ 0x9492
+	.short	48631                   @ 0xbdf7
+	.short	52857                   @ 0xce79
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	61277                   @ 0xef5d
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	57115                   @ 0xdf1b
+	.short	48631                   @ 0xbdf7
+	.short	44405                   @ 0xad75
+	.short	42260                   @ 0xa514
+	.short	40147                   @ 0x9cd3
+	.short	42324                   @ 0xa554
+	.short	48631                   @ 0xbdf7
+	.short	54938                   @ 0xd69a
+	.short	48599                   @ 0xbdd7
+	.short	40179                   @ 0x9cf3
+	.short	33873                   @ 0x8451
+	.short	40275                   @ 0x9d53
+	.short	5184                    @ 0x1440
+	.short	5440                    @ 0x1540
+	.short	5536                    @ 0x15a0
+	.short	11364                   @ 0x2c64
+	.short	35888                   @ 0x8c30
+	.short	29453                   @ 0x730d
+	.short	37969                   @ 0x9451
+	.short	52793                   @ 0xce39
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	50712                   @ 0xc618
+	.short	35857                   @ 0x8c11
+	.short	29517                   @ 0x734d
+	.short	33840                   @ 0x8430
+	.short	38066                   @ 0x94b2
+	.short	35888                   @ 0x8c30
+	.short	33775                   @ 0x83ef
+	.short	40147                   @ 0x9cd3
+	.short	48631                   @ 0xbdf7
+	.short	52857                   @ 0xce79
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	57115                   @ 0xdf1b
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	46550                   @ 0xb5d6
+	.short	40147                   @ 0x9cd3
+	.short	40147                   @ 0x9cd3
+	.short	46486                   @ 0xb596
+	.short	52857                   @ 0xce79
+	.short	44438                   @ 0xad96
+	.short	38067                   @ 0x94b3
+	.short	35921                   @ 0x8c51
+	.short	42260                   @ 0xa514
+	.short	48631                   @ 0xbdf7
+	.short	54970                   @ 0xd6ba
+	.short	61277                   @ 0xef5d
+	.short	30030                   @ 0x754e
+	.short	9219                    @ 0x2403
+	.short	19592                   @ 0x4c88
+	.short	38097                   @ 0x94d1
+	.short	27404                   @ 0x6b0c
+	.short	35856                   @ 0x8c10
+	.short	35824                   @ 0x8bf0
+	.short	61341                   @ 0xef9d
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	61341                   @ 0xef9d
+	.short	52793                   @ 0xce39
+	.short	35857                   @ 0x8c11
+	.short	27469                   @ 0x6b4d
+	.short	35889                   @ 0x8c31
+	.short	40147                   @ 0x9cd3
+	.short	37969                   @ 0x9451
+	.short	35856                   @ 0x8c10
+	.short	42260                   @ 0xa514
+	.short	48631                   @ 0xbdf7
+	.short	52825                   @ 0xce59
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	57083                   @ 0xdefb
+	.short	50712                   @ 0xc618
+	.short	38034                   @ 0x9492
+	.short	42260                   @ 0xa514
+	.short	46454                   @ 0xb576
+	.short	38067                   @ 0x94b3
+	.short	33841                   @ 0x8431
+	.short	42260                   @ 0xa514
+	.short	48631                   @ 0xbdf7
+	.short	52889                   @ 0xce99
+	.short	59164                   @ 0xe71c
+	.short	59196                   @ 0xe73c
+	.short	59228                   @ 0xe75c
+	.short	61309                   @ 0xef7d
+	.short	61309                   @ 0xef7d
+	.short	54970                   @ 0xd6ba
+	.short	42194                   @ 0xa4d2
+	.short	29452                   @ 0x730c
+	.short	35823                   @ 0x8bef
+	.short	33743                   @ 0x83cf
+	.short	52793                   @ 0xce39
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	52793                   @ 0xce39
+	.short	35857                   @ 0x8c11
+	.short	27469                   @ 0x6b4d
+	.short	35954                   @ 0x8c72
+	.short	42292                   @ 0xa534
+	.short	38001                   @ 0x9471
+	.short	35889                   @ 0x8c31
+	.short	44373                   @ 0xad55
+	.short	48663                   @ 0xbe17
+	.short	52857                   @ 0xce79
+	.short	52857                   @ 0xce79
+	.short	40147                   @ 0x9cd3
+	.short	29582                   @ 0x738e
+	.short	35889                   @ 0x8c31
+	.short	40115                   @ 0x9cb3
+	.short	46518                   @ 0xb5b6
+	.short	52825                   @ 0xce59
+	.short	54970                   @ 0xd6ba
+	.short	57083                   @ 0xdefb
+	.short	57083                   @ 0xdefb
+	.short	59164                   @ 0xe71c
+	.short	59164                   @ 0xe71c
+	.short	52792                   @ 0xce38
+	.short	42195                   @ 0xa4d3
+	.short	33645                   @ 0x836d
+	.short	33645                   @ 0x836d
+	.short	35823                   @ 0x8bef
+	.short	37969                   @ 0x9451
+	.short	33679                   @ 0x838f
+	.short	46454                   @ 0xb576
+	.short	63422                   @ 0xf7be
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	52825                   @ 0xce59
+	.short	35857                   @ 0x8c11
+	.short	29518                   @ 0x734e
+	.short	35954                   @ 0x8c72
+	.short	44373                   @ 0xad55
+	.short	38033                   @ 0x9491
+	.short	37969                   @ 0x9451
+	.short	44373                   @ 0xad55
+	.short	40147                   @ 0x9cd3
+	.short	35888                   @ 0x8c30
+	.short	44405                   @ 0xad75
+	.short	48631                   @ 0xbdf7
+	.short	52825                   @ 0xce59
+	.short	52857                   @ 0xce79
+	.short	52889                   @ 0xce99
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	48631                   @ 0xbdf7
+	.short	40082                   @ 0x9c92
+	.short	31597                   @ 0x7b6d
+	.short	33613                   @ 0x834d
+	.short	35823                   @ 0x8bef
+	.short	37937                   @ 0x9431
+	.short	33744                   @ 0x83d0
+	.short	31599                   @ 0x7b6f
+	.short	37969                   @ 0x9451
+	.short	52857                   @ 0xce79
+	.short	63422                   @ 0xf7be
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	52857                   @ 0xce79
+	.short	37937                   @ 0x9431
+	.short	31598                   @ 0x7b6e
+	.short	38034                   @ 0x9492
+	.short	44405                   @ 0xad75
+	.short	38098                   @ 0x94d2
+	.short	33742                   @ 0x83ce
+	.short	44372                   @ 0xad54
+	.short	48631                   @ 0xbdf7
+	.short	50712                   @ 0xc618
+	.short	50776                   @ 0xc658
+	.short	50776                   @ 0xc658
+	.short	46486                   @ 0xb596
+	.short	38002                   @ 0x9472
+	.short	31597                   @ 0x7b6d
+	.short	31565                   @ 0x7b4d
+	.short	37872                   @ 0x93f0
+	.short	35921                   @ 0x8c51
+	.short	33743                   @ 0x83cf
+	.short	31663                   @ 0x7baf
+	.short	37938                   @ 0x9432
+	.short	48567                   @ 0xbdb7
+	.short	59164                   @ 0xe71c
+	.short	63390                   @ 0xf79e
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63390                   @ 0xf79e
+	.short	54937                   @ 0xd699
+	.short	37970                   @ 0x9452
+	.short	31566                   @ 0x7b4e
+	.short	40114                   @ 0x9cb2
+	.short	44405                   @ 0xad75
+	.short	42227                   @ 0xa4f3
+	.short	48599                   @ 0xbdd7
+	.short	44372                   @ 0xad54
+	.short	37969                   @ 0x9451
+	.short	33613                   @ 0x834d
+	.short	33645                   @ 0x836d
+	.short	35791                   @ 0x8bcf
+	.short	37969                   @ 0x9451
+	.short	33743                   @ 0x83cf
+	.short	31598                   @ 0x7b6e
+	.short	38002                   @ 0x9472
+	.short	48567                   @ 0xbdb7
+	.short	59164                   @ 0xe71c
+	.short	63390                   @ 0xf79e
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	63390                   @ 0xf79e
+	.short	54938                   @ 0xd69a
+	.short	37969                   @ 0x9451
+	.short	29518                   @ 0x734e
+	.short	35921                   @ 0x8c51
+	.short	40017                   @ 0x9c51
+	.short	33711                   @ 0x83af
+	.short	37871                   @ 0x93ef
+	.short	35921                   @ 0x8c51
+	.short	33744                   @ 0x83d0
+	.short	31631                   @ 0x7b8f
+	.short	35889                   @ 0x8c31
+	.short	48599                   @ 0xbdd7
+	.short	59164                   @ 0xe71c
+	.short	63390                   @ 0xf79e
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	29614                   @ 0x73ae
+	.short	33711                   @ 0x83af
+	.short	31566                   @ 0x7b4e
+	.short	31630                   @ 0x7b8e
+	.short	29453                   @ 0x730d
+	.short	25324                   @ 0x62ec
+	.short	48567                   @ 0xbdb7
+	.short	59164                   @ 0xe71c
+	.short	63390                   @ 0xf79e
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	38098                   @ 0x94d2
+	.short	55002                   @ 0xd6da
+	.short	46453                   @ 0xb575
+	.short	40115                   @ 0x9cb3
+	.short	40147                   @ 0x9cd3
+	.short	38002                   @ 0x9472
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	40146                   @ 0x9cd2
+	.short	61309                   @ 0xef7d
+	.short	57051                   @ 0xdedb
+	.short	52825                   @ 0xce59
+	.short	48631                   @ 0xbdf7
+	.short	40115                   @ 0x9cb3
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	40146                   @ 0x9cd2
+	.short	61309                   @ 0xef7d
+	.short	57083                   @ 0xdefb
+	.short	52825                   @ 0xce59
+	.short	48663                   @ 0xbe17
+	.short	40146                   @ 0x9cd2
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	63422                   @ 0xf7be
+	.short	63422                   @ 0xf7be
+	.short	63422                   @ 0xf7be
+	.short	38098                   @ 0x94d2
+	.short	59228                   @ 0xe75c
+	.short	57051                   @ 0xdedb
+	.short	52825                   @ 0xce59
+	.short	48599                   @ 0xbdd7
+	.short	40114                   @ 0x9cb2
+	.short	63422                   @ 0xf7be
+	.short	63422                   @ 0xf7be
+	.short	63422                   @ 0xf7be
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63422                   @ 0xf7be
+	.short	37841                   @ 0x93d1
+	.short	42034                   @ 0xa432
+	.short	42035                   @ 0xa433
+	.short	42035                   @ 0xa433
+	.short	39954                   @ 0x9c12
+	.short	42003                   @ 0xa413
+	.short	42002                   @ 0xa412
+	.short	39986                   @ 0x9c32
+	.short	42034                   @ 0xa432
+	.short	42003                   @ 0xa413
+	.short	42035                   @ 0xa433
+	.short	42035                   @ 0xa433
+	.short	42035                   @ 0xa433
+	.short	37873                   @ 0x93f1
+	.short	63422                   @ 0xf7be
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	63454                   @ 0xf7de
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61277                   @ 0xef5d
+	.short	38034                   @ 0x9492
+	.short	44373                   @ 0xad55
+	.short	46453                   @ 0xb575
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	37841                   @ 0x93d1
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	54970                   @ 0xd6ba
+	.short	54938                   @ 0xd69a
+	.short	37809                   @ 0x93b1
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	44373                   @ 0xad55
+	.short	38002                   @ 0x9472
+	.short	63390                   @ 0xf79e
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	57083                   @ 0xdefb
+	.short	44405                   @ 0xad75
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	37841                   @ 0x93d1
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	48631                   @ 0xbdf7
+	.short	39921                   @ 0x9bf1
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	59196                   @ 0xe73c
+	.short	44340                   @ 0xad34
+	.short	57115                   @ 0xdf1b
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	57083                   @ 0xdefb
+	.short	42292                   @ 0xa534
+	.short	54970                   @ 0xd6ba
+	.short	57051                   @ 0xdedb
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	37808                   @ 0x93b0
+	.short	46518                   @ 0xb5b6
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	46486                   @ 0xb596
+	.short	37776                   @ 0x9390
+	.short	54970                   @ 0xd6ba
+	.short	54970                   @ 0xd6ba
+	.short	55002                   @ 0xd6da
+	.short	54970                   @ 0xd6ba
+	.short	55002                   @ 0xd6da
+	.short	57051                   @ 0xdedb
+	.short	57051                   @ 0xdedb
+	.short	42259                   @ 0xa513
+	.short	57115                   @ 0xdf1b
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	57083                   @ 0xdefb
+	.short	40147                   @ 0x9cd3
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	35695                   @ 0x8b6f
+	.short	48404                   @ 0xbd14
+	.short	46323                   @ 0xb4f3
+	.short	46323                   @ 0xb4f3
+	.short	48404                   @ 0xbd14
+	.short	46356                   @ 0xb514
+	.short	46323                   @ 0xb4f3
+	.short	48404                   @ 0xbd14
+	.short	46356                   @ 0xb514
+	.short	44307                   @ 0xad13
+	.short	44308                   @ 0xad14
+	.short	48404                   @ 0xbd14
+	.short	48403                   @ 0xbd13
+	.short	37743                   @ 0x936f
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	50744                   @ 0xc638
+	.short	40114                   @ 0x9cb2
+	.short	57115                   @ 0xdf1b
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	57083                   @ 0xdefb
+	.short	33808                   @ 0x8410
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	33550                   @ 0x830e
+	.short	44145                   @ 0xac71
+	.short	46161                   @ 0xb451
+	.short	46226                   @ 0xb492
+	.short	46193                   @ 0xb471
+	.short	44113                   @ 0xac51
+	.short	42097                   @ 0xa471
+	.short	42065                   @ 0xa451
+	.short	44113                   @ 0xac51
+	.short	44145                   @ 0xac71
+	.short	44145                   @ 0xac71
+	.short	40049                   @ 0x9c71
+	.short	46161                   @ 0xb451
+	.short	33582                   @ 0x832e
+	.short	40147                   @ 0x9cd3
+	.short	40147                   @ 0x9cd3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	40179                   @ 0x9cf3
+	.short	33840                   @ 0x8430
+	.short	59196                   @ 0xe73c
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	61341                   @ 0xef9d
+	.short	40147                   @ 0x9cd3
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	33840                   @ 0x8430
+	.short	29325                   @ 0x728d
+	.short	33614                   @ 0x834e
+	.short	33582                   @ 0x832e
+	.short	35598                   @ 0x8b0e
+	.short	33582                   @ 0x832e
+	.short	33582                   @ 0x832e
+	.short	33614                   @ 0x834e
+	.short	33582                   @ 0x832e
+	.short	33582                   @ 0x832e
+	.short	33582                   @ 0x832e
+	.short	35630                   @ 0x8b2e
+	.short	33614                   @ 0x834e
+	.short	35630                   @ 0x8b2e
+	.short	29324                   @ 0x728c
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	35921                   @ 0x8c51
+	.short	40179                   @ 0x9cf3
+	.short	63422                   @ 0xf7be
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	63422                   @ 0xf7be
+	.short	44373                   @ 0xad55
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37969                   @ 0x9451
+	.short	37969                   @ 0x9451
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	37970                   @ 0x9452
+	.short	46486                   @ 0xb596
+	.short	63454                   @ 0xf7de
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65503                   @ 0xffdf
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.short	65535                   @ 0xffff
+	.size	_acNetworkConnected, 3200
+
+	.hidden	bmNetworkConnected      @ @bmNetworkConnected
+	.type	bmNetworkConnected,%object
+	.section	.rodata.bmNetworkConnected,"a",%progbits
+	.globl	bmNetworkConnected
+	.p2align	2
+bmNetworkConnected:
+	.short	40                      @ 0x28
+	.short	40                      @ 0x28
+	.short	80                      @ 0x50
+	.short	16                      @ 0x10
+	.long	_acNetworkConnected
+	.long	0
+	.long	GUI_BitmapMethods565
+	.size	bmNetworkConnected, 20
+
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../Application/Dsiplay\\NetworkConnected.c" @ string offset=55
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" @ string offset=97
+.Linfo_string3:
+	.asciz	"bmNetworkConnected"    @ string offset=175
+.Linfo_string4:
+	.asciz	"XSize"                 @ string offset=194
+.Linfo_string5:
+	.asciz	"unsigned short"        @ string offset=200
+.Linfo_string6:
+	.asciz	"YSize"                 @ string offset=215
+.Linfo_string7:
+	.asciz	"BytesPerLine"          @ string offset=221
+.Linfo_string8:
+	.asciz	"BitsPerPixel"          @ string offset=234
+.Linfo_string9:
+	.asciz	"pData"                 @ string offset=247
+.Linfo_string10:
+	.asciz	"unsigned char"         @ string offset=253
+.Linfo_string11:
+	.asciz	"pPal"                  @ string offset=267
+.Linfo_string12:
+	.asciz	"NumEntries"            @ string offset=272
+.Linfo_string13:
+	.asciz	"int"                   @ string offset=283
+.Linfo_string14:
+	.asciz	"HasTrans"              @ string offset=287
+.Linfo_string15:
+	.asciz	"char"                  @ string offset=296
+.Linfo_string16:
+	.asciz	"pPalEntries"           @ string offset=301
+.Linfo_string17:
+	.asciz	"long unsigned int"     @ string offset=313
+.Linfo_string18:
+	.asciz	"LCD_COLOR"             @ string offset=331
+.Linfo_string19:
+	.asciz	"LCD_LOGPALETTE"        @ string offset=341
+.Linfo_string20:
+	.asciz	"GUI_LOGPALETTE"        @ string offset=356
+.Linfo_string21:
+	.asciz	"pMethods"              @ string offset=371
+.Linfo_string22:
+	.asciz	"pfDraw"                @ string offset=380
+.Linfo_string23:
+	.asciz	"pfIndex2Color"         @ string offset=387
+.Linfo_string24:
+	.asciz	"GUI_COLOR"             @ string offset=401
+.Linfo_string25:
+	.asciz	"unsigned int"          @ string offset=411
+.Linfo_string26:
+	.asciz	"pfDrawHW"              @ string offset=424
+.Linfo_string27:
+	.asciz	"pColorConvAPI"         @ string offset=433
+.Linfo_string28:
+	.asciz	"pfColor2Index"         @ string offset=447
+.Linfo_string29:
+	.asciz	"tLCDDEV_Color2Index"   @ string offset=461
+.Linfo_string30:
+	.asciz	"tLCDDEV_Index2Color"   @ string offset=481
+.Linfo_string31:
+	.asciz	"pfGetIndexMask"        @ string offset=501
+.Linfo_string32:
+	.asciz	"tLCDDEV_GetIndexMask"  @ string offset=516
+.Linfo_string33:
+	.asciz	"NoAlpha"               @ string offset=537
+.Linfo_string34:
+	.asciz	"pfColor2IndexBulk"     @ string offset=545
+.Linfo_string35:
+	.asciz	"tLCDDEV_Color2IndexBulk" @ string offset=563
+.Linfo_string36:
+	.asciz	"pfIndex2ColorBulk"     @ string offset=587
+.Linfo_string37:
+	.asciz	"tLCDDEV_Index2ColorBulk" @ string offset=605
+.Linfo_string38:
+	.asciz	"LCD_API_COLOR_CONV"    @ string offset=629
+.Linfo_string39:
+	.asciz	"GUI_BITMAP_METHODS"    @ string offset=648
+.Linfo_string40:
+	.asciz	"GUI_BITMAP"            @ string offset=667
+.Linfo_string41:
+	.asciz	"_acNetworkConnected"   @ string offset=678
+.Linfo_string42:
+	.asciz	"__ARRAY_SIZE_TYPE__"   @ string offset=698
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	3                       @ Abbreviation Code
+	.byte	38                      @ DW_TAG_const_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	4                       @ Abbreviation Code
+	.byte	22                      @ DW_TAG_typedef
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	5                       @ Abbreviation Code
+	.byte	19                      @ DW_TAG_structure_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	6                       @ Abbreviation Code
+	.byte	13                      @ DW_TAG_member
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	56                      @ DW_AT_data_member_location
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	7                       @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	8                       @ Abbreviation Code
+	.byte	15                      @ DW_TAG_pointer_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	9                       @ Abbreviation Code
+	.byte	21                      @ DW_TAG_subroutine_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	10                      @ Abbreviation Code
+	.byte	5                       @ DW_TAG_formal_parameter
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	11                      @ Abbreviation Code
+	.byte	21                      @ DW_TAG_subroutine_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	12                      @ Abbreviation Code
+	.byte	21                      @ DW_TAG_subroutine_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	13                      @ Abbreviation Code
+	.byte	15                      @ DW_TAG_pointer_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	14                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	15                      @ Abbreviation Code
+	.byte	1                       @ DW_TAG_array_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	16                      @ Abbreviation Code
+	.byte	33                      @ DW_TAG_subrange_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	55                      @ DW_AT_count
+	.byte	5                       @ DW_FORM_data2
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	17                      @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	.Ldebug_info_end0-.Ldebug_info_start0 @ Length of Unit
+.Ldebug_info_start0:
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0x2ef DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.byte	2                       @ Abbrev [2] 0x1e:0x12 DW_TAG_variable
+	.long	.Linfo_string3          @ DW_AT_name
+	.long	48                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ DW_AT_decl_file
+	.byte	116                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	bmNetworkConnected
+	.byte	3                       @ Abbrev [3] 0x30:0x5 DW_TAG_const_type
+	.long	53                      @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x35:0xb DW_TAG_typedef
+	.long	64                      @ DW_AT_type
+	.long	.Linfo_string40         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	104                     @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x40:0x59 DW_TAG_structure_type
+	.byte	20                      @ DW_AT_byte_size
+	.byte	1                       @ DW_AT_decl_file
+	.byte	96                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x44:0xc DW_TAG_member
+	.long	.Linfo_string4          @ DW_AT_name
+	.long	153                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	97                      @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x50:0xc DW_TAG_member
+	.long	.Linfo_string6          @ DW_AT_name
+	.long	153                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	98                      @ DW_AT_decl_line
+	.byte	2                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x5c:0xc DW_TAG_member
+	.long	.Linfo_string7          @ DW_AT_name
+	.long	153                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	99                      @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x68:0xc DW_TAG_member
+	.long	.Linfo_string8          @ DW_AT_name
+	.long	153                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	100                     @ DW_AT_decl_line
+	.byte	6                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x74:0xc DW_TAG_member
+	.long	.Linfo_string9          @ DW_AT_name
+	.long	160                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	101                     @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x80:0xc DW_TAG_member
+	.long	.Linfo_string11         @ DW_AT_name
+	.long	177                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	102                     @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x8c:0xc DW_TAG_member
+	.long	.Linfo_string21         @ DW_AT_name
+	.long	292                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	103                     @ DW_AT_decl_line
+	.byte	16                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	7                       @ Abbrev [7] 0x99:0x7 DW_TAG_base_type
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	2                       @ DW_AT_byte_size
+	.byte	8                       @ Abbrev [8] 0xa0:0x5 DW_TAG_pointer_type
+	.long	165                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0xa5:0x5 DW_TAG_const_type
+	.long	170                     @ DW_AT_type
+	.byte	7                       @ Abbrev [7] 0xaa:0x7 DW_TAG_base_type
+	.long	.Linfo_string10         @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	8                       @ Abbrev [8] 0xb1:0x5 DW_TAG_pointer_type
+	.long	182                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0xb6:0x5 DW_TAG_const_type
+	.long	187                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0xbb:0xb DW_TAG_typedef
+	.long	198                     @ DW_AT_type
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	71                      @ DW_AT_decl_line
+	.byte	4                       @ Abbrev [4] 0xc6:0xb DW_TAG_typedef
+	.long	209                     @ DW_AT_type
+	.long	.Linfo_string19         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	128                     @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0xd1:0x29 DW_TAG_structure_type
+	.byte	12                      @ DW_AT_byte_size
+	.byte	2                       @ DW_AT_decl_file
+	.byte	124                     @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0xd5:0xc DW_TAG_member
+	.long	.Linfo_string12         @ DW_AT_name
+	.long	250                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	125                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0xe1:0xc DW_TAG_member
+	.long	.Linfo_string14         @ DW_AT_name
+	.long	257                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	126                     @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0xed:0xc DW_TAG_member
+	.long	.Linfo_string16         @ DW_AT_name
+	.long	264                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	127                     @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	7                       @ Abbrev [7] 0xfa:0x7 DW_TAG_base_type
+	.long	.Linfo_string13         @ DW_AT_name
+	.byte	5                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	7                       @ Abbrev [7] 0x101:0x7 DW_TAG_base_type
+	.long	.Linfo_string15         @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	8                       @ Abbrev [8] 0x108:0x5 DW_TAG_pointer_type
+	.long	269                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0x10d:0x5 DW_TAG_const_type
+	.long	274                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x112:0xb DW_TAG_typedef
+	.long	285                     @ DW_AT_type
+	.long	.Linfo_string18         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	115                     @ DW_AT_decl_line
+	.byte	7                       @ Abbrev [7] 0x11d:0x7 DW_TAG_base_type
+	.long	.Linfo_string17         @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	8                       @ Abbrev [8] 0x124:0x5 DW_TAG_pointer_type
+	.long	297                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0x129:0x5 DW_TAG_const_type
+	.long	302                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x12e:0xb DW_TAG_typedef
+	.long	313                     @ DW_AT_type
+	.long	.Linfo_string39         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	94                      @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x139:0x35 DW_TAG_structure_type
+	.byte	16                      @ DW_AT_byte_size
+	.byte	1                       @ DW_AT_decl_file
+	.byte	75                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x13d:0xc DW_TAG_member
+	.long	.Linfo_string22         @ DW_AT_name
+	.long	366                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	76                      @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x149:0xc DW_TAG_member
+	.long	.Linfo_string23         @ DW_AT_name
+	.long	424                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	84                      @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x155:0xc DW_TAG_member
+	.long	.Linfo_string26         @ DW_AT_name
+	.long	366                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	85                      @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x161:0xc DW_TAG_member
+	.long	.Linfo_string27         @ DW_AT_name
+	.long	459                     @ DW_AT_type
+	.byte	1                       @ DW_AT_decl_file
+	.byte	93                      @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x16e:0x5 DW_TAG_pointer_type
+	.long	371                     @ DW_AT_type
+	.byte	9                       @ Abbrev [9] 0x173:0x2b DW_TAG_subroutine_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x175:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x17a:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x17f:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x184:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x189:0x5 DW_TAG_formal_parameter
+	.long	160                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x18e:0x5 DW_TAG_formal_parameter
+	.long	414                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x193:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x198:0x5 DW_TAG_formal_parameter
+	.long	250                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x19e:0x5 DW_TAG_pointer_type
+	.long	419                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0x1a3:0x5 DW_TAG_const_type
+	.long	198                     @ DW_AT_type
+	.byte	8                       @ Abbrev [8] 0x1a8:0x5 DW_TAG_pointer_type
+	.long	429                     @ DW_AT_type
+	.byte	11                      @ Abbrev [11] 0x1ad:0xc DW_TAG_subroutine_type
+	.long	441                     @ DW_AT_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x1b3:0x5 DW_TAG_formal_parameter
+	.long	452                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	4                       @ Abbrev [4] 0x1b9:0xb DW_TAG_typedef
+	.long	274                     @ DW_AT_type
+	.long	.Linfo_string24         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	70                      @ DW_AT_decl_line
+	.byte	7                       @ Abbrev [7] 0x1c4:0x7 DW_TAG_base_type
+	.long	.Linfo_string25         @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	8                       @ Abbrev [8] 0x1cb:0x5 DW_TAG_pointer_type
+	.long	464                     @ DW_AT_type
+	.byte	3                       @ Abbrev [3] 0x1d0:0x5 DW_TAG_const_type
+	.long	469                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x1d5:0xb DW_TAG_typedef
+	.long	480                     @ DW_AT_type
+	.long	.Linfo_string38         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	163                     @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x1e0:0x4d DW_TAG_structure_type
+	.byte	24                      @ DW_AT_byte_size
+	.byte	2                       @ DW_AT_decl_file
+	.byte	156                     @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x1e4:0xc DW_TAG_member
+	.long	.Linfo_string28         @ DW_AT_name
+	.long	557                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	157                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x1f0:0xc DW_TAG_member
+	.long	.Linfo_string23         @ DW_AT_name
+	.long	585                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	158                     @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x1fc:0xc DW_TAG_member
+	.long	.Linfo_string31         @ DW_AT_name
+	.long	613                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	159                     @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x208:0xc DW_TAG_member
+	.long	.Linfo_string33         @ DW_AT_name
+	.long	250                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	160                     @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x214:0xc DW_TAG_member
+	.long	.Linfo_string34         @ DW_AT_name
+	.long	635                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	161                     @ DW_AT_decl_line
+	.byte	16                      @ DW_AT_data_member_location
+	.byte	6                       @ Abbrev [6] 0x220:0xc DW_TAG_member
+	.long	.Linfo_string36         @ DW_AT_name
+	.long	680                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	162                     @ DW_AT_decl_line
+	.byte	20                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x22d:0x5 DW_TAG_pointer_type
+	.long	562                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x232:0xb DW_TAG_typedef
+	.long	573                     @ DW_AT_type
+	.long	.Linfo_string29         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	146                     @ DW_AT_decl_line
+	.byte	11                      @ Abbrev [11] 0x23d:0xc DW_TAG_subroutine_type
+	.long	452                     @ DW_AT_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x243:0x5 DW_TAG_formal_parameter
+	.long	274                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x249:0x5 DW_TAG_pointer_type
+	.long	590                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x24e:0xb DW_TAG_typedef
+	.long	601                     @ DW_AT_type
+	.long	.Linfo_string30         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	145                     @ DW_AT_decl_line
+	.byte	11                      @ Abbrev [11] 0x259:0xc DW_TAG_subroutine_type
+	.long	274                     @ DW_AT_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x25f:0x5 DW_TAG_formal_parameter
+	.long	452                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x265:0x5 DW_TAG_pointer_type
+	.long	618                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x26a:0xb DW_TAG_typedef
+	.long	629                     @ DW_AT_type
+	.long	.Linfo_string32         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	147                     @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x275:0x6 DW_TAG_subroutine_type
+	.long	452                     @ DW_AT_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	8                       @ Abbrev [8] 0x27b:0x5 DW_TAG_pointer_type
+	.long	640                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x280:0xb DW_TAG_typedef
+	.long	651                     @ DW_AT_type
+	.long	.Linfo_string35         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	150                     @ DW_AT_decl_line
+	.byte	9                       @ Abbrev [9] 0x28b:0x17 DW_TAG_subroutine_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x28d:0x5 DW_TAG_formal_parameter
+	.long	674                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x292:0x5 DW_TAG_formal_parameter
+	.long	679                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x297:0x5 DW_TAG_formal_parameter
+	.long	285                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x29c:0x5 DW_TAG_formal_parameter
+	.long	170                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	8                       @ Abbrev [8] 0x2a2:0x5 DW_TAG_pointer_type
+	.long	274                     @ DW_AT_type
+	.byte	13                      @ Abbrev [13] 0x2a7:0x1 DW_TAG_pointer_type
+	.byte	8                       @ Abbrev [8] 0x2a8:0x5 DW_TAG_pointer_type
+	.long	685                     @ DW_AT_type
+	.byte	4                       @ Abbrev [4] 0x2ad:0xb DW_TAG_typedef
+	.long	696                     @ DW_AT_type
+	.long	.Linfo_string37         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	149                     @ DW_AT_decl_line
+	.byte	9                       @ Abbrev [9] 0x2b8:0x17 DW_TAG_subroutine_type
+	.byte	1                       @ DW_AT_prototyped
+	.byte	10                      @ Abbrev [10] 0x2ba:0x5 DW_TAG_formal_parameter
+	.long	679                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x2bf:0x5 DW_TAG_formal_parameter
+	.long	674                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x2c4:0x5 DW_TAG_formal_parameter
+	.long	285                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x2c9:0x5 DW_TAG_formal_parameter
+	.long	170                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	14                      @ Abbrev [14] 0x2cf:0x11 DW_TAG_variable
+	.long	.Linfo_string41         @ DW_AT_name
+	.long	736                     @ DW_AT_type
+	.byte	3                       @ DW_AT_decl_file
+	.byte	33                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	_acNetworkConnected
+	.byte	15                      @ Abbrev [15] 0x2e0:0xd DW_TAG_array_type
+	.long	749                     @ DW_AT_type
+	.byte	16                      @ Abbrev [16] 0x2e5:0x7 DW_TAG_subrange_type
+	.long	754                     @ DW_AT_type
+	.short	1600                    @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x2ed:0x5 DW_TAG_const_type
+	.long	153                     @ DW_AT_type
+	.byte	17                      @ Abbrev [17] 0x2f2:0x7 DW_TAG_base_type
+	.long	.Linfo_string42         @ DW_AT_name
+	.byte	8                       @ DW_AT_byte_size
+	.byte	7                       @ DW_AT_encoding
+	.byte	0                       @ End Of Children Mark
+.Ldebug_info_end0:
+	.section	.debug_macinfo,"",%progbits
+	.byte	0                       @ End Of Macro List Mark
+
+	.ident	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]"
+	.section	".note.GNU-stack","",%progbits
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

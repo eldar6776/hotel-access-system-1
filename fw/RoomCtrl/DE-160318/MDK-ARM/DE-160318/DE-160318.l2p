@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+".\de-160318\system_stm32f1xx.o"
+".\de-160318\stm32f1xx_hal_tim.o"
+".\de-160318\stm32f1xx_hal_spi.o"
+".\de-160318\stm32f1xx_hal_dma.o"
+".\de-160318\stm32f1xx_hal_cortex.o"
+".\de-160318\stm32f1xx_hal_iwdg.o"
+".\de-160318\stm32f1xx_hal_rtc_ex.o"
+".\de-160318\stm32f1xx_hal_i2c.o"
+".\de-160318\stm32f1xx_hal_rtc.o"
+".\de-160318\stm32f1xx_hal_rcc_ex.o"
+".\de-160318\stm32f1xx_hal_gpio.o"
+".\de-160318\stm32f1xx_hal_spi_ex.o"
+".\de-160318\stm32f1xx_hal_tim_ex.o"
+".\de-160318\stm32f1xx_hal_rcc.o"
+".\de-160318\stm32f1xx_hal_crc.o"
+".\de-160318\stm32f1xx_hal.o"
+".\de-160318\stm32f1xx_hal_flash_ex.o"
+".\de-160318\stm32f1xx_hal_pwr.o"
+".\de-160318\stm32f1xx_hal_flash.o"
+".\de-160318\startup_stm32f103xb.o"
+".\de-160318\stm32f1xx_hal_msp.o"
+".\de-160318\stm32f1xx_it.o"
+".\de-160318\main.o"
+--library_type=microlib --strict --scatter ".\DE-160318\DE-160318.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Lst\DE-160318.map" -o .\DE-160318\DE-160318.axf

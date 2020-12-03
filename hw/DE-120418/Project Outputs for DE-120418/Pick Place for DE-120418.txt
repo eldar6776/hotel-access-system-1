@@ -1,0 +1,26 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+U1         QFN32_N               3750mil       2170mil       3750mil       2170mil   3617.126mil   2259.567mil  T          0.00 WM8976         
+C11        0603                  3425mil       1825mil       3425mil       1825mil       3425mil   1791.536mil  B         90.00 100nF          
+C17        0603                  3535mil       2200mil       3535mil       2200mil       3535mil   2166.536mil  T         90.00 1uF            
+C12        0603                  3635mil       2430mil       3635mil       2430mil   3668.464mil       2430mil  B        180.00 100nF          
+C3         0603                  3810mil       2425mil       3810mil       2425mil       3810mil   2458.464mil  T        270.00 100nF          
+C16        0603                  3480mil       2295mil       3480mil       2295mil   3446.536mil       2295mil  T        360.00 1uF            
+C15        0603                  3465mil       2285mil       3465mil       2285mil   3498.464mil       2285mil  B        180.00 220pF          
+R3         ERA-0603              3535mil       2055mil       3535mil       2055mil       3535mil   2021.535mil  T         90.00 0R             
+R2         ERA-0603              3480mil       2355mil       3480mil       2355mil   3513.465mil       2355mil  T        180.00 680R           
+R1         ERA-0603              3485mil       2025mil       3485mil       2025mil   3451.535mil       2025mil  B        360.00 47K            
+P3         HDR2X5                3795mil       1820mil       3595mil       1770mil       3595mil       1770mil  T        360.00 AUDIO_CODEC    
+P2         HDR1X2                3445mil       2155mil       3445mil       2105mil       3445mil       2105mil  T         90.00 MIC            
+P1         HDR1X2                3990mil       2155mil       3990mil       2105mil       3990mil       2105mil  T         90.00 SPEAKER        
+L1         INDC1608L             3745mil       2320mil       3745mil       2320mil   3772.559mil       2320mil  B        180.00 BLM15AG121     
+C14        0805                  3480mil       2365mil       3480mil       2365mil   3442.598mil       2365mil  B        360.00 4u7            
+C13        0805                  3740mil       2415mil       3740mil       2415mil       3740mil   2452.402mil  T        270.00 4u7            
+C9         0805                  3495mil       1825mil       3495mil       1825mil       3495mil   1787.598mil  B         90.00 10uF           
+C8         3528                  3460mil       1840mil       3460mil       1840mil       3460mil   1899.055mil  T        270.00 100uF          
+C7         0805                  3605mil       2070mil       3605mil       2070mil       3605mil   2107.402mil  B        270.00 4u7            
+C6         0805                  3865mil       2030mil       3865mil       2030mil   3827.598mil       2030mil  B        360.00 4u7            
+C4         0805                  3605mil       2325mil       3605mil       2325mil       3605mil   2287.598mil  B         90.00 4u7            
+C2         0805                  3880mil       2420mil       3880mil       2420mil       3880mil   2457.402mil  T        270.00 10uF           
+C1         3528                  3995mil       2420mil       3995mil       2420mil       3995mil   2360.945mil  T         90.00 47uF/10V       
+

@@ -1,0 +1,385 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m4
+	.eabi_attribute	6, 13	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.fpu	fpv4-sp-d16
+	.eabi_attribute	27, 1	@ Tag_ABI_HardFP_use
+	.eabi_attribute	36, 1	@ Tag_FP_HP_extension
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	28, 1	@ Tag_ABI_VFP_args
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 2	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 1	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"GUI_X_Touch.c"
+	.section	.text.GUI_TOUCH_X_ActivateX,"ax",%progbits
+	.hidden	GUI_TOUCH_X_ActivateX   @ -- Begin function GUI_TOUCH_X_ActivateX
+	.globl	GUI_TOUCH_X_ActivateX
+	.p2align	1
+	.type	GUI_TOUCH_X_ActivateX,%function
+	.code	16                      @ @GUI_TOUCH_X_ActivateX
+	.thumb_func
+GUI_TOUCH_X_ActivateX:
+.Lfunc_begin0:
+	.file	1 "F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" "../Libraries/Config/GUI_X_Touch.c"
+	.loc	1 39 0                  @ ../Libraries/Config/GUI_X_Touch.c:39:0
+	.fnstart
+	.cfi_sections .debug_frame
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 40 1 prologue_end     @ ../Libraries/Config/GUI_X_Touch.c:40:1
+	bx	lr
+.Ltmp0:
+.Lfunc_end0:
+	.size	GUI_TOUCH_X_ActivateX, .Lfunc_end0-GUI_TOUCH_X_ActivateX
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.GUI_TOUCH_X_ActivateY,"ax",%progbits
+	.hidden	GUI_TOUCH_X_ActivateY   @ -- Begin function GUI_TOUCH_X_ActivateY
+	.globl	GUI_TOUCH_X_ActivateY
+	.p2align	1
+	.type	GUI_TOUCH_X_ActivateY,%function
+	.code	16                      @ @GUI_TOUCH_X_ActivateY
+	.thumb_func
+GUI_TOUCH_X_ActivateY:
+.Lfunc_begin1:
+	.loc	1 42 0                  @ ../Libraries/Config/GUI_X_Touch.c:42:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 43 1 prologue_end     @ ../Libraries/Config/GUI_X_Touch.c:43:1
+	bx	lr
+.Ltmp1:
+.Lfunc_end1:
+	.size	GUI_TOUCH_X_ActivateY, .Lfunc_end1-GUI_TOUCH_X_ActivateY
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.GUI_TOUCH_X_MeasureX,"ax",%progbits
+	.hidden	GUI_TOUCH_X_MeasureX    @ -- Begin function GUI_TOUCH_X_MeasureX
+	.globl	GUI_TOUCH_X_MeasureX
+	.p2align	1
+	.type	GUI_TOUCH_X_MeasureX,%function
+	.code	16                      @ @GUI_TOUCH_X_MeasureX
+	.thumb_func
+GUI_TOUCH_X_MeasureX:
+.Lfunc_begin2:
+	.loc	1 46 0                  @ ../Libraries/Config/GUI_X_Touch.c:46:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, lr}
+	push	{r4, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r4, -8
+.Ltmp2:
+	.loc	1 47 5 prologue_end     @ ../Libraries/Config/GUI_X_Touch.c:47:5
+	bl	FS5206_ReadXY
+.Ltmp3:
+	.loc	1 47 5 is_stmt 0        @ ../Libraries/Config/GUI_X_Touch.c:47:5
+	cbz	r0, .LBB2_2
+@ %bb.1:
+.Ltmp4:
+	.loc	1 49 11 is_stmt 1       @ ../Libraries/Config/GUI_X_Touch.c:49:11
+	movw	r4, :lower16:State
+	movw	r0, #257
+	movt	r4, :upper16:State
+	.loc	1 52 17                 @ ../Libraries/Config/GUI_X_Touch.c:52:17
+	strh	r0, [r4, #8]
+	.loc	1 49 22                 @ ../Libraries/Config/GUI_X_Touch.c:49:22
+	movw	r0, :lower16:ts_event
+	movt	r0, :upper16:ts_event
+	ldrh	r1, [r0, #2]
+	.loc	1 50 22                 @ ../Libraries/Config/GUI_X_Touch.c:50:22
+	ldrh	r0, [r0]
+	.loc	1 49 11                 @ ../Libraries/Config/GUI_X_Touch.c:49:11
+	strd	r1, r0, [r4]
+	.loc	1 53 3                  @ ../Libraries/Config/GUI_X_Touch.c:53:3
+	mov	r0, r4
+	bl	GUI_TOUCH_StoreStateEx
+	.loc	1 54 17                 @ ../Libraries/Config/GUI_X_Touch.c:54:17
+	ldr	r0, [r4]
+.Ltmp5:
+	.loc	1 63 1                  @ ../Libraries/Config/GUI_X_Touch.c:63:1
+	pop	{r4, pc}
+.LBB2_2:
+.Ltmp6:
+	.loc	1 58 15                 @ ../Libraries/Config/GUI_X_Touch.c:58:15
+	movw	r0, :lower16:State
+	mov.w	r1, #256
+	movt	r0, :upper16:State
+	.loc	1 59 17                 @ ../Libraries/Config/GUI_X_Touch.c:59:17
+	strh	r1, [r0, #8]
+	.loc	1 60 3                  @ ../Libraries/Config/GUI_X_Touch.c:60:3
+	bl	GUI_TOUCH_StoreStateEx
+	movs	r0, #0
+.Ltmp7:
+	.loc	1 63 1                  @ ../Libraries/Config/GUI_X_Touch.c:63:1
+	pop	{r4, pc}
+.Ltmp8:
+.Lfunc_end2:
+	.size	GUI_TOUCH_X_MeasureX, .Lfunc_end2-GUI_TOUCH_X_MeasureX
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.GUI_TOUCH_X_MeasureY,"ax",%progbits
+	.hidden	GUI_TOUCH_X_MeasureY    @ -- Begin function GUI_TOUCH_X_MeasureY
+	.globl	GUI_TOUCH_X_MeasureY
+	.p2align	1
+	.type	GUI_TOUCH_X_MeasureY,%function
+	.code	16                      @ @GUI_TOUCH_X_MeasureY
+	.thumb_func
+GUI_TOUCH_X_MeasureY:
+.Lfunc_begin3:
+	.loc	1 66 0                  @ ../Libraries/Config/GUI_X_Touch.c:66:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, lr}
+	push	{r4, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r4, -8
+.Ltmp9:
+	.loc	1 67 5 prologue_end     @ ../Libraries/Config/GUI_X_Touch.c:67:5
+	bl	FS5206_ReadXY
+.Ltmp10:
+	.loc	1 67 5 is_stmt 0        @ ../Libraries/Config/GUI_X_Touch.c:67:5
+	cbz	r0, .LBB3_2
+@ %bb.1:
+.Ltmp11:
+	.loc	1 69 11 is_stmt 1       @ ../Libraries/Config/GUI_X_Touch.c:69:11
+	movw	r4, :lower16:State
+	movw	r0, #257
+	movt	r4, :upper16:State
+	.loc	1 72 17                 @ ../Libraries/Config/GUI_X_Touch.c:72:17
+	strh	r0, [r4, #8]
+	.loc	1 69 22                 @ ../Libraries/Config/GUI_X_Touch.c:69:22
+	movw	r0, :lower16:ts_event
+	movt	r0, :upper16:ts_event
+	ldrh	r1, [r0, #2]
+	.loc	1 70 22                 @ ../Libraries/Config/GUI_X_Touch.c:70:22
+	ldrh	r0, [r0]
+	.loc	1 69 11                 @ ../Libraries/Config/GUI_X_Touch.c:69:11
+	strd	r1, r0, [r4]
+	.loc	1 73 3                  @ ../Libraries/Config/GUI_X_Touch.c:73:3
+	mov	r0, r4
+	bl	GUI_TOUCH_StoreStateEx
+	.loc	1 74 17                 @ ../Libraries/Config/GUI_X_Touch.c:74:17
+	ldr	r0, [r4, #4]
+.Ltmp12:
+	.loc	1 83 1                  @ ../Libraries/Config/GUI_X_Touch.c:83:1
+	pop	{r4, pc}
+.LBB3_2:
+.Ltmp13:
+	.loc	1 78 15                 @ ../Libraries/Config/GUI_X_Touch.c:78:15
+	movw	r0, :lower16:State
+	mov.w	r1, #256
+	movt	r0, :upper16:State
+	.loc	1 79 17                 @ ../Libraries/Config/GUI_X_Touch.c:79:17
+	strh	r1, [r0, #8]
+	.loc	1 80 3                  @ ../Libraries/Config/GUI_X_Touch.c:80:3
+	bl	GUI_TOUCH_StoreStateEx
+	movs	r0, #0
+.Ltmp14:
+	.loc	1 83 1                  @ ../Libraries/Config/GUI_X_Touch.c:83:1
+	pop	{r4, pc}
+.Ltmp15:
+.Lfunc_end3:
+	.size	GUI_TOUCH_X_MeasureY, .Lfunc_end3-GUI_TOUCH_X_MeasureY
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../Libraries/Config\\GUI_X_Touch.c" @ string offset=55
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\KontrolerHotela\\HC070318\\Project" @ string offset=89
+.Linfo_string3:
+	.asciz	"GUI_TOUCH_X_ActivateX" @ string offset=167
+.Linfo_string4:
+	.asciz	"GUI_TOUCH_X_ActivateY" @ string offset=189
+.Linfo_string5:
+	.asciz	"GUI_TOUCH_X_MeasureX"  @ string offset=211
+.Linfo_string6:
+	.asciz	"int"                   @ string offset=232
+.Linfo_string7:
+	.asciz	"GUI_TOUCH_X_MeasureY"  @ string offset=236
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	3                       @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	4                       @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	.Ldebug_info_end0-.Ldebug_info_start0 @ Length of Unit
+.Ldebug_info_start0:
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0x77 DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.long	0                       @ DW_AT_low_pc
+	.long	.Ldebug_ranges0         @ DW_AT_ranges
+	.byte	2                       @ Abbrev [2] 0x26:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin0           @ DW_AT_low_pc
+	.long	.Lfunc_end0             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string3          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	39                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x39:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin1           @ DW_AT_low_pc
+	.long	.Lfunc_end1             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string4          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	42                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ Abbrev [3] 0x4c:0x17 DW_TAG_subprogram
+	.long	.Lfunc_begin2           @ DW_AT_low_pc
+	.long	.Lfunc_end2             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	45                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	122                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ Abbrev [3] 0x63:0x17 DW_TAG_subprogram
+	.long	.Lfunc_begin3           @ DW_AT_low_pc
+	.long	.Lfunc_end3             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string7          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	65                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	122                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	4                       @ Abbrev [4] 0x7a:0x7 DW_TAG_base_type
+	.long	.Linfo_string6          @ DW_AT_name
+	.byte	5                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	0                       @ End Of Children Mark
+.Ldebug_info_end0:
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.long	.Lfunc_begin0
+	.long	.Lfunc_end0
+	.long	.Lfunc_begin1
+	.long	.Lfunc_end1
+	.long	.Lfunc_begin2
+	.long	.Lfunc_end2
+	.long	.Lfunc_begin3
+	.long	.Lfunc_end3
+	.long	0
+	.long	0
+	.section	.debug_macinfo,"",%progbits
+	.byte	0                       @ End Of Macro List Mark
+
+	.ident	"Component: ARM Compiler 6.12 Tool: armclang [5d624a00]"
+	.section	".note.GNU-stack","",%progbits
+	.eabi_attribute	30, 3	@ Tag_ABI_optimization_goals
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

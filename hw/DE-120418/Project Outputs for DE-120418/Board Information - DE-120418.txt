@@ -1,0 +1,151 @@
+Board Information Report
+Filename     : F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-120418\DE-120418.PcbDoc
+Date         : 13.4.2018.
+Time         : 14:25:55
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 690milsx830mils
+    Components on board, 23
+count : 2
+
+Routing Information
+    Routing completion, 98,15%
+    Connections, 54
+    Connections routed, 53
+    Connections remaining, 1
+count : 4
+
+Layer, Arcs, Pads, Vias, Tracks, Texts, Fills, Regions, ComponentBodies
+    Top Layer, 0, 51, 0, 98, 0, 0, 1, 0
+    Bottom Layer, 0, 20, 0, 87, 0, 1, 3, 0
+    Mechanical 1, 0, 0, 0, 0, 0, 0, 0, 6
+    Mechanical 13, 1, 0, 0, 8, 0, 0, 0, 2
+    Mechanical 15, 0, 0, 0, 12, 0, 0, 0, 0
+    Multi-Layer, 0, 14, 27, 0, 0, 0, 1, 0
+    Top Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Top Overlay, 3, 0, 0, 41, 30, 0, 0, 0
+    Top Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Overlay, 0, 0, 0, 9, 20, 0, 0, 0
+    Bottom Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Guide, 0, 0, 0, 0, 0, 0, 0, 0
+    Keep-Out Layer, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Drawing, 0, 0, 0, 0, 0, 0, 0, 0
+count : 15
+
+Drill Pairs, Vias
+    Top Layer - Bottom Layer, 27
+count : 1
+
+Non-Plated Hole Size, Pads, Vias
+count : 0
+
+Plated Hole Size, Pads, Vias
+    0mils, 71, 0
+    12.992mils, 0, 16
+    15.748mils, 0, 11
+    35.433mils, 14, 0
+count : 4
+
+Non-Plated Slot Size / Length, Pads
+count : 0
+
+Plated Slot Size / Length, Pads
+count : 0
+
+Non-Plated Square Hole Size, Pads
+count : 0
+
+Plated Square Hole Size, Pads
+count : 0
+
+Top Layer Annular Ring Size, Count
+    12.992mils, 16
+    15.748mils, 11
+    23.622mils, 14
+count : 3
+
+Mid Layer Annular Ring Size, Count
+    12.992mils, 16
+    15.748mils, 11
+    23.622mils, 14
+count : 3
+
+Bottom Layer Annular Ring Size, Count
+    12.992mils, 16
+    15.748mils, 11
+    23.622mils, 14
+count : 3
+
+Pad Solder Mask, Count
+    4mils, 85
+count : 1
+
+Pad Paste Mask, Count
+    0mils, 85
+count : 1
+
+Pad Pwr/Gnd Expansion, Count
+    20mils, 85
+count : 1
+
+Pad Relief Conductor Width, Count
+    10mils, 85
+count : 1
+
+Pad Relief Air Gap, Count
+    10mils, 85
+count : 1
+
+Pad Relief Entries, Count
+    4, 85
+count : 1
+
+Via Solder Mask, Count
+    4mils, 27
+count : 1
+
+Via Pwr/Gnd Expansion, Count
+    20mils, 27
+count : 1
+
+Track Width, Count
+    3.937mils, 20
+    7.874mils, 46
+    10mils, 106
+    20mils, 43
+    30mils, 40
+count : 5
+
+Arc Line Width, Count
+    3.937mils, 1
+    9.843mils, 3
+count : 2
+
+Arc Radius, Count
+    4.921mils, 3
+    19.685mils, 1
+count : 2
+
+Arc Degrees, Count
+    360, 4
+count : 1
+
+Text Height, Count
+    20mils, 48
+    60mils, 2
+count : 2
+
+Text Width, Count
+    3mils, 48
+    10mils, 2
+count : 2
+
+Net Track Width, Count
+    10mils, 19
+count : 1
+
+Net Via Size, Count
+    31.496mils, 19
+count : 1

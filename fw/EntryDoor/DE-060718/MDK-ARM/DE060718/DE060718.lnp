@@ -1,0 +1,28 @@
+--cpu Cortex-M0
+"de060718\startup_stm32f030x6.o"
+"de060718\main.o"
+"de060718\stm32f0xx_it.o"
+"de060718\stm32f0xx_hal_msp.o"
+"de060718\common.o"
+"de060718\rc522.o"
+"de060718\stm32f0xx_hal_tim.o"
+"de060718\stm32f0xx_hal_tim_ex.o"
+"de060718\stm32f0xx_hal_uart.o"
+"de060718\stm32f0xx_hal_uart_ex.o"
+"de060718\stm32f0xx_hal_rcc.o"
+"de060718\stm32f0xx_hal_rcc_ex.o"
+"de060718\stm32f0xx_hal.o"
+"de060718\stm32f0xx_hal_i2c.o"
+"de060718\stm32f0xx_hal_i2c_ex.o"
+"de060718\stm32f0xx_hal_gpio.o"
+"de060718\stm32f0xx_hal_dma.o"
+"de060718\stm32f0xx_hal_cortex.o"
+"de060718\stm32f0xx_hal_pwr.o"
+"de060718\stm32f0xx_hal_pwr_ex.o"
+"de060718\stm32f0xx_hal_flash.o"
+"de060718\stm32f0xx_hal_flash_ex.o"
+"de060718\system_stm32f0xx.o"
+--library_type=microlib --strict --scatter "DE060718\DE060718.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "DE060718.map" -o DE060718\DE060718.axf

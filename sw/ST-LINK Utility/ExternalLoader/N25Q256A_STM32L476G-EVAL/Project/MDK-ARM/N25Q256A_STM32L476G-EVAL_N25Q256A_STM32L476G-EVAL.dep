@@ -1,0 +1,70 @@
+Dependencies for Project 'N25Q256A_STM32L476G-EVAL', Target 'N25Q256A_STM32L476G-EVAL': (DO NOT MODIFY !)
+F (..\..\Sources\Loader_Files\Dev_Inf.c)(0x5587DE84)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\dev_inf.o --omf_browse .\dev_inf.crf --depend .\dev_inf.d)
+I (..\..\Includes\Loader_Files\Dev_Inf.h)(0x551A6134)
+F (..\..\Sources\Loader_Files\Loader_Src.c)(0x5B0A8FEE)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\loader_src.o --omf_browse .\loader_src.crf --depend .\loader_src.d)
+I (..\..\Includes\Library_Files\stm32l4xx_quadspi.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_rcc.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_conf.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_gpio.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_syscfg.h)(0x54E36C02)
+F (..\..\Sources\Library_Files\stm32l4xx_gpio.c)(0x551A6134)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\stm32l4xx_gpio.o --omf_browse .\stm32l4xx_gpio.crf --depend .\stm32l4xx_gpio.d)
+I (..\..\Includes\Library_Files\stm32l4xx_gpio.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_rcc.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_conf.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_quadspi.h)(0x54E36C02)
+F (..\..\Sources\Library_Files\stm32l4xx_quadspi.c)(0x551A6134)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\stm32l4xx_quadspi.o --omf_browse .\stm32l4xx_quadspi.crf --depend .\stm32l4xx_quadspi.d)
+I (..\..\Includes\Library_Files\stm32l4xx_quadspi.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_rcc.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_conf.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_gpio.h)(0x54E36C02)
+F (..\..\Sources\Library_Files\stm32l4xx_rcc.c)(0x551A6134)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\stm32l4xx_rcc.o --omf_browse .\stm32l4xx_rcc.crf --depend .\stm32l4xx_rcc.d)
+I (..\..\Includes\Library_Files\stm32l4xx_rcc.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_conf.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_gpio.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_quadspi.h)(0x54E36C02)
+F (..\..\Sources\Library_Files\stm32l4xx_syscfg.c)(0x551A6134)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\stm32l4xx_syscfg.o --omf_browse .\stm32l4xx_syscfg.crf --depend .\stm32l4xx_syscfg.d)
+I (..\..\Includes\Library_Files\stm32l4xx_syscfg.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\stm32l4xx_rcc.h)(0x54E36C02)
+F (..\..\Sources\Library_Files\system_stm32l4xx.c)(0x5587C74A)(-c --cpu Cortex-M4 --li -g -O0 --apcs=interwork --apcs /ropi/rwpi -I ..\..\Includes\CMSIS_Files -I ..\..\Includes\Library_Files -I ..\..\Includes\Loader_Files-IC:\Keil\ARM\RV31\INC-IC:\Keil\ARM\CMSIS\Include-IC:\Keil\ARM\INC\ST\STM32F4xx-D__UVISION_VERSION="525" -DFLASH_MEM -DSTM32L4xx -DSTM32L4XX-o .\system_stm32l4xx.o --omf_browse .\system_stm32l4xx.crf --depend .\system_stm32l4xx.d)
+I (..\..\Includes\Library_Files\stm32l4xx.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4.h)(0x54E36C02)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (..\..\Includes\CMSIS_Files\core_cmInstr.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cmFunc.h)(0x54E36C02)
+I (..\..\Includes\CMSIS_Files\core_cm4_simd.h)(0x54E36C02)
+I (..\..\Includes\Library_Files\system_stm32l4xx.h)(0x54E36C02)

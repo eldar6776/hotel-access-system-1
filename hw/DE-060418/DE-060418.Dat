@@ -1,0 +1,23 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~DE-060418.PrjPcb|ReportField=ProjectFullPath~F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-060418\DE-060418.PrjPcb|ReportField=Title~Bill of Materials For Project [DE-060418.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~53|ReportField=ReportTime~18:29:07|ReportField=ReportDate~8.4.2018.|ReportField=ReportDateTime~8.4.2018. 18:29:07|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~Topal Osman Paše 18|ReportField=Address2~71000 Sarajevo|ReportField=Address3~Federacija BiH|ReportField=Address4~Bosna i Hercegovina|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~Eldar Dedic|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~|ReportField=CurrentTime~|ReportField=Date~|ReportField=DocumentFullPathAndName~|ReportField=DocumentName~|ReportField=DocumentNumber~DE-060418|ReportField=DrawnBy~eldar6776@hotmail.com|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~|ReportField=Organization~I-MEDIA d.o.o.|ReportField=ProjectName~|ReportField=Revision~001|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~LUK FANCOIL INTERFACE|ReportField=DataSourceFileName~DE-060418.PrjPcb|ReportField=DataSourceFullPath~F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-060418\DE-060418.PrjPcb
+4u7|Ceramic Chip Capacitor - Standard|C1, C4|0805|C0805|2
+47nF/X2|Dipped Radial Multilayer Ceramic Capacitor COG (NPO): 10nF|C2, C5, C6|VP52-2.5|VP52BA103|3
+100nF|Ceramic Chip Capacitor - Standard|C3, C7|0603|C0603|2
+1N4148|General-purpose Diode|D1, D2, D3, D4, D5|SOD323|BAS321|5
+BTA16-600|Triacs, Silicon Bidirectional Thyristor, 3-Pin TO-220, Pb-Free, Tube|D6, D7|ONSC-TO-220-3-221A-07|BTA08-600BW3G|2
+THERMOSTAT|Right Angle, Standard Profile, RJ-45 Keyed, Unshielded PCB Jack|J1|15-43-8501|15-43-8501|1
+MOTOR_RPM_SENSOR|Header, 3-Pin|P1|HDR1X3|Header 3|1
+220VAC|Terminal blok konektor 3,5 mm|P2|TERMINAL BLOK 2|TERMINAL BLOK 2|1
+FAN_MOTOR|3 pinski terminal blok konektor|P3|TERMINAL BLOK 3|TERMINAL BLOK 3|1
+COOLING_VALVE|Terminal blok konektor 3,5 mm|P4|TERMINAL BLOK 2|TERMINAL BLOK 2|1
+NTC_2K_FANCOIL|Header, 2-Pin|P5|HDR1X2|Header 2|1
+STATUS_LED|Header, 2-Pin|P6|HDR1X2|Header 2|1
+BC817|NPN General-purpose Transistor|Q1|SOT23_N|BC817|1
+1K|Low Ohmic Value Thick Film Chip Resistor, 0.22 Ohm to 9.1 Ohm Range, 1%, 2% and 5% Tolerance, 0805 Size, 0.25 W|R1, R2, R3, R15, R21|6-0805|ERJ6BQ|5
+56K|Low Ohmic Value Thick Film Chip Resistor, 0.22 Ohm to 9.1 Ohm Range, 1%, 2% and 5% Tolerance, 0805 Size, 0.25 W|R4, R5, R6, R7, R11, R12, R13, R14|6-0805|ERJ6BQ|8
+10K|Low Ohmic Value Thick Film Chip Resistor, 0.22 Ohm to 9.1 Ohm Range, 1%, 2% and 5% Tolerance, 0805 Size, 0.25 W|R8|6-0805|ERJ6BQ|1
+220R|Low Ohmic Value Thick Film Chip Resistor, 0.22 Ohm to 9.1 Ohm Range, 1%, 2% and 5% Tolerance, 0805 Size, 0.25 W|R9, R10, R16, R17, R18, R19, R22, R23, R24, R25|6-0805|ERJ6BQ|10
+330R|Low Ohmic Value Thick Film Chip Resistor, 0.22 Ohm to 9.1 Ohm Range, 1%, 2% and 5% Tolerance, 0805 Size, 0.25 W|R20, R26, R27|6-0805|ERJ6BQ|3
+74AC14SC|Hex Schmitt-Trigger Inverter, 14-Pin SOIC, Commercial Grade|U1|M14A_N|74AC14SC|1
+PC817|4-Pin Phototransistor Optocoupler|U2|DIP-4|Optoisolator1|1
+MOC3052|Zero-Cross Optoisolator Triac Driver|U3|DIP6|MOC3081|1
+MOC3083|Zero-Cross Optoisolator Triac Driver|U4|DIP6|MOC3081|1

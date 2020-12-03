@@ -1,0 +1,5 @@
+Added Component: Designator=P4(HDR1X3)
+Added Pin To Net: NetName=COOLING_VALVE Pin=P4-1
+Added Pin To Net: NetName=HEATING_VALVE Pin=P4-2
+Added Pin To Net: NetName=GND Pin=P4-3
+Added Member To Class: ClassName=DE-130418 Member=Component P4 AUX

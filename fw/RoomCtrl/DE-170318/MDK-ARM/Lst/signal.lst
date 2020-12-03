@@ -1,0 +1,2375 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m3
+	.eabi_attribute	6, 10	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 4	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 2	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"signal.c"
+	.file	1 "../Inc" "signal.h"
+	.file	2 "../Src" "signal.c"
+	.file	3 "C:\\Keil\\ARM\\ARMCLANG\\Bin\\..\\include" "stdint.h"
+	.file	4 "../Inc" "rs485.h"
+	.file	5 "../Drivers/STM32F1xx_HAL_Driver/Inc" "stm32f1xx_hal_def.h"
+	.section	.text.SIGNAL_Service,"ax",%progbits
+	.hidden	SIGNAL_Service          @ -- Begin function SIGNAL_Service
+	.globl	SIGNAL_Service
+	.p2align	2
+	.type	SIGNAL_Service,%function
+	.code	16                      @ @SIGNAL_Service
+	.thumb_func
+SIGNAL_Service:
+.Lfunc_begin0:
+	.loc	2 44 0                  @ ../Src/signal.c:44:0
+	.fnstart
+	.cfi_sections .debug_frame
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r6, r7, r8, lr}
+	push.w	{r4, r5, r6, r7, r8, lr}
+	.cfi_def_cfa_offset 24
+	.cfi_offset lr, -4
+	.cfi_offset r8, -8
+	.cfi_offset r7, -12
+	.cfi_offset r6, -16
+	.cfi_offset r5, -20
+	.cfi_offset r4, -24
+	.pad	#24
+	sub	sp, #24
+	.cfi_def_cfa_offset 48
+.Ltmp0:
+	.loc	2 57 5 prologue_end     @ ../Src/signal.c:57:5
+	movw	r0, :lower16:eComState
+	movt	r0, :upper16:eComState
+	ldr	r0, [r0]
+.Ltmp1:
+	.loc	2 57 5 is_stmt 0        @ ../Src/signal.c:57:5
+	cmp	r0, #2
+.Ltmp2:
+	.loc	2 57 39                 @ ../Src/signal.c:57:39
+	it	eq
+	bleq	RS485_Service
+.Ltmp3:
+	.loc	2 61 5 is_stmt 1        @ ../Src/signal.c:61:5
+	movw	r0, :lower16:hrtc
+	movt	r0, :upper16:hrtc
+	add	r1, sp, #20
+.Ltmp4:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	movs	r2, #1
+	bl	HAL_RTC_GetTime
+.Ltmp5:
+	.loc	2 63 5                  @ ../Src/signal.c:63:5
+	movw	r0, :lower16:SIGNAL_Service.temp_minute
+	movt	r0, :upper16:SIGNAL_Service.temp_minute
+	ldr	r2, [r0]
+	.loc	2 63 20 is_stmt 0       @ ../Src/signal.c:63:20
+	ldrb.w	r1, [sp, #21]
+.Ltmp6:
+	.loc	2 63 5                  @ ../Src/signal.c:63:5
+	cmp	r2, r1
+	beq.w	.LBB0_14
+.Ltmp7:
+@ %bb.1:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 65 15 is_stmt 1       @ ../Src/signal.c:65:15
+	str	r1, [r0]
+	.loc	2 66 3                  @ ../Src/signal.c:66:3
+	movw	r0, :lower16:hrtc
+	movt	r0, :upper16:hrtc
+	add	r1, sp, #16
+.Ltmp8:
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	movs	r2, #1
+	bl	HAL_RTC_GetDate
+	.loc	2 68 42                 @ ../Src/signal.c:68:42
+	ldrb.w	r0, [sp, #17]
+	.loc	2 68 66 is_stmt 0       @ ../Src/signal.c:68:66
+	ldrb.w	r1, [sp, #18]
+	.loc	2 68 17                 @ ../Src/signal.c:68:17
+	ldrb.w	r2, [sp, #19]
+	.loc	2 68 57                 @ ../Src/signal.c:68:57
+	lsls	r0, r0, #8
+	.loc	2 68 39                 @ ../Src/signal.c:68:39
+	orr.w	r0, r0, r2, lsl #16
+	.loc	2 68 64                 @ ../Src/signal.c:68:64
+	orrs	r0, r1
+.Ltmp9:
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	.loc	2 67 17 is_stmt 1       @ ../Src/signal.c:67:17
+	movw	r1, :lower16:aRoomPowerExpiryDateTime
+	movt	r1, :upper16:aRoomPowerExpiryDateTime
+	.loc	2 67 94 is_stmt 0       @ ../Src/signal.c:67:94
+	ldrb	r2, [r1]
+	.loc	2 67 57                 @ ../Src/signal.c:67:57
+	ldrb	r3, [r1, #1]
+	.loc	2 67 17                 @ ../Src/signal.c:67:17
+	ldrb	r1, [r1, #2]
+	.loc	2 67 85                 @ ../Src/signal.c:67:85
+	lsls	r3, r3, #8
+	.loc	2 67 53                 @ ../Src/signal.c:67:53
+	orr.w	r1, r3, r1, lsl #16
+	.loc	2 67 92                 @ ../Src/signal.c:67:92
+	orrs	r1, r2
+.Ltmp10:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	.loc	2 71 4 is_stmt 1        @ ../Src/signal.c:71:4
+	cmp	r1, r0
+	bls	.LBB0_8
+.Ltmp11:
+@ %bb.2:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 71 17 is_stmt 0       @ ../Src/signal.c:71:17
+	ldrb.w	r2, [sp, #20]
+	.loc	2 72 4 is_stmt 1        @ ../Src/signal.c:72:4
+	cmp	r2, #8
+	bne	.LBB0_8
+.Ltmp12:
+@ %bb.3:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	ldrb.w	r2, [sp, #21]
+	cmp	r2, #0
+	bne	.LBB0_8
+.Ltmp13:
+@ %bb.4:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 74 8                  @ ../Src/signal.c:74:8
+	movw	r4, :lower16:ROOM_Status
+	movt	r4, :upper16:ROOM_Status
+	ldr	r2, [r4]
+	.loc	2 73 7                  @ ../Src/signal.c:73:7
+	movw	r3, :lower16:signal_flags
+	movt	r3, :upper16:signal_flags
+	ldr	r3, [r3]
+	.loc	2 74 4                  @ ../Src/signal.c:74:4
+	tst.w	r3, #1
+	beq	.LBB0_8
+.Ltmp14:
+@ %bb.5:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	cmp	r2, #2
+	bne	.LBB0_8
+.Ltmp15:
+@ %bb.6:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 77 16                 @ ../Src/signal.c:77:16
+	movs	r0, #3
+.Ltmp16:
+	str	r0, [r4]
+	.loc	2 79 12                 @ ../Src/signal.c:79:12
+	mov.w	r0, #14592
+	strh.w	r0, [sp, #6]
+.Ltmp17:
+	.loc	2 81 8                  @ ../Src/signal.c:81:8
+	movs	r5, #5
+	str	r5, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #6
+	movs	r1, #160
+.Ltmp18:
+	movs	r3, #2
+	bl	HAL_I2C_Master_Transmit
+.Ltmp19:
+	.loc	2 81 8 is_stmt 0        @ ../Src/signal.c:81:8
+	cmp	r0, #0
+.Ltmp20:
+	.loc	2 81 91                 @ ../Src/signal.c:81:91
+	it	ne
+	blne	Error_Handler
+.Ltmp21:
+	.loc	2 82 8 is_stmt 1        @ ../Src/signal.c:82:8
+	str	r5, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #14
+.Ltmp22:
+	@DEBUG_VALUE: SIGNAL_Service:br_tmp_period <- [DW_OP_plus_uconst 14] [$sp+0]
+	movs	r1, #161
+	movs	r3, #1
+	bl	HAL_I2C_Master_Receive
+.Ltmp23:
+	.loc	2 82 8 is_stmt 0        @ ../Src/signal.c:82:8
+	cmp	r0, #0
+.Ltmp24:
+	.loc	2 82 99                 @ ../Src/signal.c:82:99
+	it	ne
+	blne	Error_Handler
+.Ltmp25:
+	.loc	2 84 7 is_stmt 1        @ ../Src/signal.c:84:7
+	ldrb.w	r0, [sp, #14]
+.Ltmp26:
+	.loc	2 84 7 is_stmt 0        @ ../Src/signal.c:84:7
+	cmp	r0, #0
+	beq	.LBB0_14
+.Ltmp27:
+@ %bb.7:
+	@DEBUG_VALUE: SIGNAL_Service:br_tmp_period <- [DW_OP_plus_uconst 14] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 86 13 is_stmt 1       @ ../Src/signal.c:86:13
+	mov.w	r0, #14336
+	strh.w	r0, [sp, #6]
+.Ltmp28:
+	.loc	2 88 9                  @ ../Src/signal.c:88:9
+	movs	r5, #5
+	str	r5, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #6
+	movs	r1, #160
+	movs	r3, #2
+	bl	HAL_I2C_Master_Transmit
+.Ltmp29:
+	.loc	2 88 9 is_stmt 0        @ ../Src/signal.c:88:9
+	cmp	r0, #0
+.Ltmp30:
+	.loc	2 88 92                 @ ../Src/signal.c:88:92
+	it	ne
+	blne	Error_Handler
+.Ltmp31:
+	.loc	2 89 9 is_stmt 1        @ ../Src/signal.c:89:9
+	str	r5, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #15
+.Ltmp32:
+	@DEBUG_VALUE: SIGNAL_Service:br_tmp_cnt <- [DW_OP_plus_uconst 15] [$sp+0]
+	movs	r1, #161
+	movs	r3, #1
+	bl	HAL_I2C_Master_Receive
+.Ltmp33:
+	.loc	2 89 9 is_stmt 0        @ ../Src/signal.c:89:9
+	cmp	r0, #0
+.Ltmp34:
+	.loc	2 89 97                 @ ../Src/signal.c:89:97
+	it	ne
+	blne	Error_Handler
+.Ltmp35:
+	.loc	2 90 15 is_stmt 1       @ ../Src/signal.c:90:15
+	ldrb.w	r0, [sp, #15]
+	adds	r0, #1
+	strb.w	r0, [sp, #15]
+	uxtb	r1, r0
+.Ltmp36:
+	.loc	2 92 22                 @ ../Src/signal.c:92:22
+	ldrb.w	r2, [sp, #14]
+.Ltmp37:
+	.loc	2 92 8 is_stmt 0        @ ../Src/signal.c:92:8
+	cmp	r1, r2
+.Ltmp38:
+	.loc	2 94 18 is_stmt 1       @ ../Src/signal.c:94:18
+	ittt	hs
+	movhs	r0, #4
+	strhs	r0, [r4]
+	.loc	2 95 14                 @ ../Src/signal.c:95:14
+	movhs	r0, #0
+	strb.w	r0, [sp, #8]
+	b	.LBB0_14
+.Ltmp39:
+.LBB0_8:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 104 5                 @ ../Src/signal.c:104:5
+	cmp	r1, r0
+	bne	.LBB0_14
+.Ltmp40:
+@ %bb.9:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:real_time <- $r0
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 104 18 is_stmt 0      @ ../Src/signal.c:104:18
+	ldrb.w	r0, [sp, #20]
+.Ltmp41:
+	.loc	2 105 5 is_stmt 1       @ ../Src/signal.c:105:5
+	cmp	r0, #8
+	bne	.LBB0_14
+.Ltmp42:
+@ %bb.10:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	ldrb.w	r0, [sp, #21]
+	cbnz	r0, .LBB0_14
+.Ltmp43:
+@ %bb.11:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 106 8                 @ ../Src/signal.c:106:8
+	movw	r4, :lower16:signal_flags
+	movt	r4, :upper16:signal_flags
+	ldr	r0, [r4]
+	.loc	2 107 6                 @ ../Src/signal.c:107:6
+	tst.w	r0, #1
+	beq	.LBB0_14
+.Ltmp44:
+@ %bb.12:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 107 11 is_stmt 0      @ ../Src/signal.c:107:11
+	movw	r5, :lower16:ROOM_Status
+	movt	r5, :upper16:ROOM_Status
+	ldr	r0, [r5]
+	.loc	2 108 6 is_stmt 1       @ ../Src/signal.c:108:6
+	subs	r0, #2
+	cmp	r0, #2
+	bhi	.LBB0_14
+.Ltmp45:
+@ %bb.13:
+	@DEBUG_VALUE: SIGNAL_Service:room_time <- $r1
+	@DEBUG_VALUE: SIGNAL_Service:date_sig <- [DW_OP_plus_uconst 16] [$sp+0]
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 6 is_stmt 0         @ ../Src/signal.c:0:6
+	movs	r0, #0
+.Ltmp46:
+	.loc	2 113 12 is_stmt 1      @ ../Src/signal.c:113:12
+	strb.w	r0, [sp, #8]
+	.loc	2 111 12                @ ../Src/signal.c:111:12
+	mov.w	r0, #14336
+	strh.w	r0, [sp, #6]
+.Ltmp47:
+	.loc	2 114 8                 @ ../Src/signal.c:114:8
+	movs	r0, #5
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #6
+	movs	r1, #160
+.Ltmp48:
+	movs	r3, #3
+	bl	HAL_I2C_Master_Transmit
+.Ltmp49:
+	.loc	2 114 8 is_stmt 0       @ ../Src/signal.c:114:8
+	cmp	r0, #0
+.Ltmp50:
+	.loc	2 114 91                @ ../Src/signal.c:114:91
+	it	ne
+	blne	Error_Handler
+.Ltmp51:
+	.loc	2 115 8 is_stmt 1       @ ../Src/signal.c:115:8
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	movs	r1, #161
+	movs	r2, #100
+	movs	r3, #15
+	bl	HAL_I2C_IsDeviceReady
+.Ltmp52:
+	.loc	2 115 8 is_stmt 0       @ ../Src/signal.c:115:8
+	cmp	r0, #0
+.Ltmp53:
+	.loc	2 115 97                @ ../Src/signal.c:115:97
+	it	ne
+	blne	Error_Handler
+.Ltmp54:
+	.loc	2 116 16 is_stmt 1      @ ../Src/signal.c:116:16
+	movs	r0, #5
+	str	r0, [r5]
+	.loc	2 117 4                 @ ../Src/signal.c:117:4
+	ldr	r0, [r4]
+	bic	r0, r0, #1
+	str	r0, [r4]
+.Ltmp55:
+.LBB0_14:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 124 23                @ ../Src/signal.c:124:23
+	movw	r5, :lower16:ROOM_Status
+	movt	r5, :upper16:ROOM_Status
+	ldr	r0, [r5]
+	.loc	2 124 5 is_stmt 0       @ ../Src/signal.c:124:5
+	movw	r6, :lower16:ROOM_OldStatus
+	movt	r6, :upper16:ROOM_OldStatus
+	ldr	r1, [r6]
+.Ltmp56:
+	.loc	2 124 5                 @ ../Src/signal.c:124:5
+	cmp	r1, r0
+	beq.w	.LBB0_43
+.Ltmp57:
+@ %bb.15:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 126 13 is_stmt 1      @ ../Src/signal.c:126:13
+	bl	HAL_GetTick
+	.loc	2 126 29 is_stmt 0      @ ../Src/signal.c:126:29
+	movw	r4, :lower16:SIGNAL_Service.room_status_timer
+	movt	r4, :upper16:SIGNAL_Service.room_status_timer
+	ldr	r1, [r4]
+	.loc	2 126 27                @ ../Src/signal.c:126:27
+	subs	r0, r0, r1
+	movw	r7, :lower16:SIGNAL_Service.room_status_time
+	movt	r7, :upper16:SIGNAL_Service.room_status_time
+	ldrb	r1, [r7]
+	cmp	r1, #0
+	it	ne
+	movne.w	r1, #500
+.Ltmp58:
+	.loc	2 126 12                @ ../Src/signal.c:126:12
+	cmp	r0, r1
+	bls.w	.LBB0_43
+.Ltmp59:
+@ %bb.16:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 128 21 is_stmt 1      @ ../Src/signal.c:128:21
+	ldr	r0, [r5]
+	.loc	2 128 13 is_stmt 0      @ ../Src/signal.c:128:13
+	cmp	r0, #11
+	bhi.w	.LBB0_36
+.Ltmp60:
+@ %bb.17:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 13                  @ ../Src/signal.c:0:13
+.LCPI0_0:
+	tbh	[pc, r0, lsl #1]
+.Ltmp61:
+@ %bb.18:
+.LJTI0_0:
+	.short	(.LBB0_19-(.LCPI0_0+4))/2
+	.short	(.LBB0_20-(.LCPI0_0+4))/2
+	.short	(.LBB0_21-(.LCPI0_0+4))/2
+	.short	(.LBB0_23-(.LCPI0_0+4))/2
+	.short	(.LBB0_24-(.LCPI0_0+4))/2
+	.short	(.LBB0_25-(.LCPI0_0+4))/2
+	.short	(.LBB0_28-(.LCPI0_0+4))/2
+	.short	(.LBB0_29-(.LCPI0_0+4))/2
+	.short	(.LBB0_30-(.LCPI0_0+4))/2
+	.short	(.LBB0_36-(.LCPI0_0+4))/2
+	.short	(.LBB0_31-(.LCPI0_0+4))/2
+	.short	(.LBB0_32-(.LCPI0_0+4))/2
+	.p2align	1
+.LBB0_19:
+.Ltmp62:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	movs	r0, #0
+.Ltmp63:
+	.loc	2 134 29 is_stmt 1      @ ../Src/signal.c:134:29
+	strb.w	r0, [sp, #8]
+	.loc	2 132 29                @ ../Src/signal.c:132:29
+	mov.w	r0, #14336
+	strh.w	r0, [sp, #6]
+.Ltmp64:
+	.loc	2 135 25                @ ../Src/signal.c:135:25
+	movs	r0, #5
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r8, sp, #6
+	movs	r1, #160
+	mov	r2, r8
+	movs	r3, #3
+	bl	HAL_I2C_Master_Transmit
+.Ltmp65:
+	.loc	2 134 21                @ ../Src/signal.c:134:21
+	add.w	r8, r8, #2
+	.loc	2 135 25                @ ../Src/signal.c:135:25
+	cmp	r0, #0
+.Ltmp66:
+	.loc	2 135 108 is_stmt 0     @ ../Src/signal.c:135:108
+	it	ne
+	blne	Error_Handler
+.Ltmp67:
+	.loc	2 136 25 is_stmt 1      @ ../Src/signal.c:136:25
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	movs	r1, #161
+	movs	r2, #100
+	movs	r3, #15
+	bl	HAL_I2C_IsDeviceReady
+.Ltmp68:
+	.loc	2 136 25 is_stmt 0      @ ../Src/signal.c:136:25
+	cmp	r0, #0
+.Ltmp69:
+	.loc	2 136 114               @ ../Src/signal.c:136:114
+	it	ne
+	blne	Error_Handler
+.Ltmp70:
+	.loc	2 137 29 is_stmt 1      @ ../Src/signal.c:137:29
+	mov.w	r0, #12288
+	strh.w	r0, [sp, #6]
+	movs	r0, #0
+	.loc	2 140 29                @ ../Src/signal.c:140:29
+	strb.w	r0, [r8, #4]
+	str.w	r0, [r8]
+.Ltmp71:
+	.loc	2 144 25                @ ../Src/signal.c:144:25
+	movs	r0, #5
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #6
+	movs	r1, #160
+	movs	r3, #7
+	bl	HAL_I2C_Master_Transmit
+.Ltmp72:
+	.loc	2 144 25 is_stmt 0      @ ../Src/signal.c:144:25
+	cmp	r0, #0
+.Ltmp73:
+	.loc	2 144 108               @ ../Src/signal.c:144:108
+	it	ne
+	blne	Error_Handler
+.Ltmp74:
+	.loc	2 145 25 is_stmt 1      @ ../Src/signal.c:145:25
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	movs	r1, #161
+	movs	r2, #100
+	movs	r3, #15
+	bl	HAL_I2C_IsDeviceReady
+.Ltmp75:
+	.loc	2 145 25 is_stmt 0      @ ../Src/signal.c:145:25
+	cmp	r0, #0
+.Ltmp76:
+	.loc	2 145 114               @ ../Src/signal.c:145:114
+	it	ne
+	blne	Error_Handler
+.Ltmp77:
+	.loc	2 146 21 is_stmt 1      @ ../Src/signal.c:146:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 147 21                @ ../Src/signal.c:147:21
+	ldr	r1, [r0]
+	bic	r1, r1, #32
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 148 21                @ ../Src/signal.c:148:21
+	ldr	r1, [r0]
+	bic	r1, r1, #16
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 149 21                @ ../Src/signal.c:149:21
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 150 21                @ ../Src/signal.c:150:21
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 151 21                @ ../Src/signal.c:151:21
+	ldr	r1, [r0]
+	bic	r1, r1, #8192
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 152 21                @ ../Src/signal.c:152:21
+	ldr	r1, [r0]
+	bic	r1, r1, #16384
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 153 21                @ ../Src/signal.c:153:21
+	ldr	r1, [r0]
+	bic	r1, r1, #32768
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 154 21                @ ../Src/signal.c:154:21
+	movw	r0, :lower16:signal_flags
+	movt	r0, :upper16:signal_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #1
+	str	r1, [r0]
+	.loc	2 155 21                @ ../Src/signal.c:155:21
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	and	r1, r1, #253
+	strb	r1, [r0]
+	.loc	2 156 21                @ ../Src/signal.c:156:21
+	ldrb	r1, [r0]
+	orr	r1, r1, #1
+	strb	r1, [r0]
+	.loc	2 157 21                @ ../Src/signal.c:157:21
+	ldrb	r1, [r0]
+	and	r1, r1, #239
+	strb	r1, [r0]
+	b	.LBB0_35
+.Ltmp78:
+.LBB0_20:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 165 21                @ ../Src/signal.c:165:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 166 21                @ ../Src/signal.c:166:21
+	ldr	r1, [r0]
+	bic	r1, r1, #32
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 167 21                @ ../Src/signal.c:167:21
+	ldr	r1, [r0]
+	bic	r1, r1, #16
+	b	.LBB0_22
+.Ltmp79:
+.LBB0_21:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 182 21                @ ../Src/signal.c:182:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 183 21                @ ../Src/signal.c:183:21
+	ldr	r1, [r0]
+	bic	r1, r1, #32
+.Ltmp80:
+.LBB0_22:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 21 is_stmt 0        @ ../Src/signal.c:0:21
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #8192
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #16384
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #32768
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #8
+	b	.LBB0_27
+.Ltmp81:
+.LBB0_23:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 198 21 is_stmt 1      @ ../Src/signal.c:198:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 199 21                @ ../Src/signal.c:199:21
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 200 21                @ ../Src/signal.c:200:21
+	ldr	r1, [r0]
+	orr	r1, r1, #64
+	b	.LBB0_27
+.Ltmp82:
+.LBB0_24:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 209 21                @ ../Src/signal.c:209:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 210 21                @ ../Src/signal.c:210:21
+	ldr	r1, [r0]
+	orr	r1, r1, #131072
+	b	.LBB0_26
+.Ltmp83:
+.LBB0_25:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 220 21                @ ../Src/signal.c:220:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 221 21                @ ../Src/signal.c:221:21
+	ldr	r1, [r0]
+	orr	r1, r1, #128
+.Ltmp84:
+.LBB0_26:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 21 is_stmt 0        @ ../Src/signal.c:0:21
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+.Ltmp85:
+.LBB0_27:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	orr	r1, r1, #2
+	strb	r1, [r0]
+	b	.LBB0_35
+.Ltmp86:
+.LBB0_28:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 231 21 is_stmt 1      @ ../Src/signal.c:231:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 232 21                @ ../Src/signal.c:232:21
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 233 21                @ ../Src/signal.c:233:21
+	ldr	r1, [r0]
+	bic	r1, r1, #8192
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 234 21                @ ../Src/signal.c:234:21
+	ldr	r1, [r0]
+	orr	r1, r1, #4096
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 235 21                @ ../Src/signal.c:235:21
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 236 21                @ ../Src/signal.c:236:21
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	and	r1, r1, #253
+	strb	r1, [r0]
+	b	.LBB0_35
+.Ltmp87:
+.LBB0_29:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 244 21                @ ../Src/signal.c:244:21
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	orr	r1, r1, #2
+	strb	r1, [r0]
+	.loc	2 245 21                @ ../Src/signal.c:245:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #64
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 246 21                @ ../Src/signal.c:246:21
+	ldr	r1, [r0]
+	bic	r1, r1, #128
+	str	r1, [r0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+	.loc	2 247 21                @ ../Src/signal.c:247:21
+	ldr	r1, [r0]
+	bic	r1, r1, #131072
+	str	r1, [r0]
+	b	.LBB0_34
+.Ltmp88:
+.LBB0_30:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 255 21                @ ../Src/signal.c:255:21
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	and	r1, r1, #253
+	strb	r1, [r0]
+	movs	r0, #8
+	b	.LBB0_42
+.Ltmp89:
+.LBB0_31:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 277 21                @ ../Src/signal.c:277:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	orr	r1, r1, #32768
+	b	.LBB0_33
+.Ltmp90:
+.LBB0_32:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 268 21                @ ../Src/signal.c:268:21
+	movw	r0, :lower16:display_flags
+	movt	r0, :upper16:display_flags
+	ldr	r1, [r0]
+	orr	r1, r1, #16384
+.Ltmp91:
+.LBB0_33:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 21 is_stmt 0        @ ../Src/signal.c:0:21
+	str	r1, [r0]
+	movw	r1, :lower16:SignalBuzzer
+	movt	r1, :upper16:SignalBuzzer
+	movs	r2, #0
+	str	r2, [r1]
+.Ltmp92:
+.LBB0_34:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	ldr	r1, [r0]
+	orr	r1, r1, #-2147483648
+	str	r1, [r0]
+.Ltmp93:
+.LBB0_35:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	bl	SaveRoomStatus
+.Ltmp94:
+	.loc	2 284 16 is_stmt 1      @ ../Src/signal.c:284:16
+	ldr	r0, [r5]
+.Ltmp95:
+.LBB0_36:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 284 16 is_stmt 0      @ ../Src/signal.c:284:16
+	cmp	r0, #9
+	bne	.LBB0_42
+.Ltmp96:
+@ %bb.37:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 286 20 is_stmt 1      @ ../Src/signal.c:286:20
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+.Ltmp97:
+	.loc	2 286 20 is_stmt 0      @ ../Src/signal.c:286:20
+	tst.w	r1, #1
+	beq	.LBB0_39
+.Ltmp98:
+@ %bb.38:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 288 21 is_stmt 1      @ ../Src/signal.c:288:21
+	ldr	r1, [r0]
+	bic	r1, r1, #1
+	str	r1, [r0]
+	.loc	2 289 21                @ ../Src/signal.c:289:21
+	movw	r1, :lower16:display_flags
+	movt	r1, :upper16:display_flags
+	ldr	r2, [r1]
+	bic	r2, r2, #16
+	str	r2, [r1]
+	ldr	r2, [r1]
+	orr	r2, r2, #-2147483648
+	str	r2, [r1]
+.Ltmp99:
+.LBB0_39:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 295 21                @ ../Src/signal.c:295:21
+	ldr	r1, [r0]
+.Ltmp100:
+	.loc	2 295 21 is_stmt 0      @ ../Src/signal.c:295:21
+	tst.w	r1, #32
+	beq	.LBB0_41
+.Ltmp101:
+@ %bb.40:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 297 21 is_stmt 1      @ ../Src/signal.c:297:21
+	ldr	r1, [r0]
+	bic	r1, r1, #32
+	str	r1, [r0]
+	.loc	2 298 21                @ ../Src/signal.c:298:21
+	movw	r0, :lower16:hc595_dout
+	movt	r0, :upper16:hc595_dout
+	ldrb	r1, [r0]
+	and	r1, r1, #254
+	strb	r1, [r0]
+.Ltmp102:
+.LBB0_41:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 305 31                @ ../Src/signal.c:305:31
+	ldr	r0, [r6]
+	.loc	2 306 32                @ ../Src/signal.c:306:32
+	movs	r1, #9
+	str	r1, [r6]
+	.loc	2 305 29                @ ../Src/signal.c:305:29
+	str	r0, [r5]
+	.loc	2 304 17                @ ../Src/signal.c:304:17
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	and	r1, r1, #253
+	strb	r1, [r0]
+	.loc	2 307 37                @ ../Src/signal.c:307:37
+	bl	HAL_GetTick
+	.loc	2 307 35 is_stmt 0      @ ../Src/signal.c:307:35
+	str	r0, [r4]
+	movs	r0, #1
+	strb	r0, [r7]
+	b	.LBB0_43
+.Ltmp103:
+.LBB0_42:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 35                  @ ../Src/signal.c:0:35
+	movs	r1, #0
+.Ltmp104:
+	.loc	2 313 35 is_stmt 1      @ ../Src/signal.c:313:35
+	str	r1, [r4]
+	.loc	2 312 32                @ ../Src/signal.c:312:32
+	str	r0, [r6]
+	strb	r1, [r7]
+.Ltmp105:
+.LBB0_43:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 321 9                 @ ../Src/signal.c:321:9
+	bl	HAL_GetTick
+	.loc	2 321 25 is_stmt 0      @ ../Src/signal.c:321:25
+	movw	r6, :lower16:SIGNAL_Service.signal_timer
+	movt	r6, :upper16:SIGNAL_Service.signal_timer
+	ldr	r1, [r6]
+	.loc	2 321 23                @ ../Src/signal.c:321:23
+	subs	r0, r0, r1
+	.loc	2 321 41                @ ../Src/signal.c:321:41
+	movw	r4, :lower16:SIGNAL_Service.signal_time
+	movt	r4, :upper16:SIGNAL_Service.signal_time
+	ldr	r1, [r4]
+.Ltmp106:
+	.loc	2 321 8                 @ ../Src/signal.c:321:8
+	cmp	r0, r1
+	bls	.LBB0_50
+.Ltmp107:
+@ %bb.44:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 323 24 is_stmt 1      @ ../Src/signal.c:323:24
+	bl	HAL_GetTick
+	.loc	2 323 22 is_stmt 0      @ ../Src/signal.c:323:22
+	str	r0, [r6]
+	.loc	2 325 16 is_stmt 1      @ ../Src/signal.c:325:16
+	movw	r0, :lower16:SignalBuzzer
+	movt	r0, :upper16:SignalBuzzer
+	ldr	r1, [r0]
+	.loc	2 325 9 is_stmt 0       @ ../Src/signal.c:325:9
+	cmp	r1, #7
+	bhi	.LBB0_57
+.Ltmp108:
+@ %bb.45:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 9                   @ ../Src/signal.c:0:9
+.LCPI0_1:
+	tbb	[pc, r1]
+.Ltmp109:
+@ %bb.46:
+.LJTI0_1:
+	.byte	(.LBB0_47-(.LCPI0_1+4))/2
+	.byte	(.LBB0_49-(.LCPI0_1+4))/2
+	.byte	(.LBB0_51-(.LCPI0_1+4))/2
+	.byte	(.LBB0_52-(.LCPI0_1+4))/2
+	.byte	(.LBB0_53-(.LCPI0_1+4))/2
+	.byte	(.LBB0_57-(.LCPI0_1+4))/2
+	.byte	(.LBB0_61-(.LCPI0_1+4))/2
+	.byte	(.LBB0_58-(.LCPI0_1+4))/2
+	.p2align	1
+.LBB0_47:
+.Ltmp110:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	movs	r0, #0
+.Ltmp111:
+	.loc	2 330 30 is_stmt 1      @ ../Src/signal.c:330:30
+	str	r0, [r6]
+	.loc	2 331 29                @ ../Src/signal.c:331:29
+	str	r0, [r4]
+	.loc	2 332 29                @ ../Src/signal.c:332:29
+	movw	r1, :lower16:SIGNAL_Service.signal_pcnt
+	movt	r1, :upper16:SIGNAL_Service.signal_pcnt
+	str	r0, [r1]
+	.loc	2 329 17                @ ../Src/signal.c:329:17
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+.Ltmp112:
+.LBB0_48:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 17 is_stmt 0        @ ../Src/signal.c:0:17
+	and	r1, r1, #127
+	b	.LBB0_56
+.Ltmp113:
+.LBB0_49:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 341 29 is_stmt 1      @ ../Src/signal.c:341:29
+	movs	r1, #50
+	str	r1, [r4]
+	.loc	2 342 17                @ ../Src/signal.c:342:17
+	movw	r1, :lower16:SIGNAL_Service.signal_pcnt
+	movt	r1, :upper16:SIGNAL_Service.signal_pcnt
+	ldr	r2, [r1]
+	adds	r2, #1
+	str	r2, [r1]
+.Ltmp114:
+	.loc	2 339 21                @ ../Src/signal.c:339:21
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrsb.w	r3, [r1]
+	ldrb	r7, [r1]
+	.loc	2 339 38 is_stmt 0      @ ../Src/signal.c:339:38
+	orr	r6, r7, #128
+.Ltmp115:
+	.loc	2 339 20                @ ../Src/signal.c:339:20
+	cmp	r3, #0
+	it	lt
+	andlt	r6, r7, #127
+	strb	r6, [r1]
+	.loc	2 343 20 is_stmt 1      @ ../Src/signal.c:343:20
+	cmp	r2, #5
+	bhs	.LBB0_61
+.Ltmp116:
+.LBB0_50:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 413 1                 @ ../Src/signal.c:413:1
+	add	sp, #24
+.Ltmp117:
+	pop.w	{r4, r5, r6, r7, r8, pc}
+.LBB0_51:
+.Ltmp118:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 352 29                @ ../Src/signal.c:352:29
+	movs	r1, #50
+	str	r1, [r4]
+	.loc	2 353 17                @ ../Src/signal.c:353:17
+	movw	r1, :lower16:SIGNAL_Service.signal_pcnt
+	movt	r1, :upper16:SIGNAL_Service.signal_pcnt
+	ldr	r2, [r1]
+	adds	r2, #1
+	str	r2, [r1]
+.Ltmp119:
+	.loc	2 350 21                @ ../Src/signal.c:350:21
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrsb.w	r3, [r1]
+	ldrb	r7, [r1]
+	.loc	2 350 38 is_stmt 0      @ ../Src/signal.c:350:38
+	orr	r6, r7, #128
+.Ltmp120:
+	.loc	2 350 20                @ ../Src/signal.c:350:20
+	cmp	r3, #0
+	it	lt
+	andlt	r6, r7, #127
+	strb	r6, [r1]
+	.loc	2 354 20 is_stmt 1      @ ../Src/signal.c:354:20
+	cmp	r2, #3
+	blo	.LBB0_50
+	b	.LBB0_61
+.Ltmp121:
+.LBB0_52:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 362 29                @ ../Src/signal.c:362:29
+	movs	r1, #20
+	b	.LBB0_54
+.Ltmp122:
+.LBB0_53:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 371 29                @ ../Src/signal.c:371:29
+	mov.w	r1, #700
+.Ltmp123:
+.LBB0_54:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 29 is_stmt 0        @ ../Src/signal.c:0:29
+	str	r1, [r4]
+	movs	r1, #0
+	str	r1, [r0]
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+.Ltmp124:
+.LBB0_55:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	orr	r1, r1, #128
+.Ltmp125:
+.LBB0_56:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	strb	r1, [r0]
+	.loc	2 413 1 is_stmt 1       @ ../Src/signal.c:413:1
+	add	sp, #24
+.Ltmp126:
+	pop.w	{r4, r5, r6, r7, r8, pc}
+.LBB0_57:
+.Ltmp127:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 408 30                @ ../Src/signal.c:408:30
+	movs	r1, #0
+	str	r1, [r0]
+.Ltmp128:
+	.loc	2 413 1                 @ ../Src/signal.c:413:1
+	add	sp, #24
+.Ltmp129:
+	pop.w	{r4, r5, r6, r7, r8, pc}
+.LBB0_58:
+.Ltmp130:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 386 21                @ ../Src/signal.c:386:21
+	ldr	r1, [r5]
+	.loc	2 386 53 is_stmt 0      @ ../Src/signal.c:386:53
+	orr	r1, r1, #1
+	cmp	r1, #11
+	bne	.LBB0_61
+.Ltmp131:
+@ %bb.59:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 392 25 is_stmt 1      @ ../Src/signal.c:392:25
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrsb.w	r2, [r0]
+	ldrb	r1, [r0]
+.Ltmp132:
+	.loc	2 392 24 is_stmt 0      @ ../Src/signal.c:392:24
+	cmp	r2, #0
+	blt	.LBB0_62
+.Ltmp133:
+@ %bb.60:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 395 37 is_stmt 1      @ ../Src/signal.c:395:37
+	movs	r2, #50
+	str	r2, [r4]
+	b	.LBB0_55
+.Ltmp134:
+.LBB0_61:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 0 37 is_stmt 0        @ ../Src/signal.c:0:37
+	movs	r1, #0
+	str	r1, [r0]
+	.loc	2 413 1 is_stmt 1       @ ../Src/signal.c:413:1
+	add	sp, #24
+.Ltmp135:
+	pop.w	{r4, r5, r6, r7, r8, pc}
+.LBB0_62:
+.Ltmp136:
+	@DEBUG_VALUE: SIGNAL_Service:time_sig <- [DW_OP_plus_uconst 20] [$sp+0]
+	.loc	2 400 37                @ ../Src/signal.c:400:37
+	mov.w	r2, #600
+	str	r2, [r4]
+	b	.LBB0_48
+.Ltmp137:
+.Lfunc_end0:
+	.size	SIGNAL_Service, .Lfunc_end0-SIGNAL_Service
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.SaveRoomStatus,"ax",%progbits
+	.p2align	2               @ -- Begin function SaveRoomStatus
+	.type	SaveRoomStatus,%function
+	.code	16                      @ @SaveRoomStatus
+	.thumb_func
+SaveRoomStatus:
+.Lfunc_begin1:
+	.loc	2 417 0                 @ ../Src/signal.c:417:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r7, lr}
+	push	{r7, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+	.pad	#8
+	sub	sp, #8
+	.cfi_def_cfa_offset 16
+.Ltmp138:
+	.loc	2 420 13 prologue_end   @ ../Src/signal.c:420:13
+	mov.w	r0, #8192
+	strh.w	r0, [sp, #5]
+	.loc	2 422 15                @ ../Src/signal.c:422:15
+	movw	r0, :lower16:ROOM_Status
+	movt	r0, :upper16:ROOM_Status
+	ldr	r0, [r0]
+	.loc	2 422 13 is_stmt 0      @ ../Src/signal.c:422:13
+	strb.w	r0, [sp, #7]
+.Ltmp139:
+	.loc	2 423 9 is_stmt 1       @ ../Src/signal.c:423:9
+	movs	r0, #5
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #5
+	movs	r1, #160
+	movs	r3, #3
+	bl	HAL_I2C_Master_Transmit
+.Ltmp140:
+	.loc	2 423 9 is_stmt 0       @ ../Src/signal.c:423:9
+	cmp	r0, #0
+.Ltmp141:
+	.loc	2 423 92                @ ../Src/signal.c:423:92
+	it	ne
+	blne	Error_Handler
+.Ltmp142:
+	.loc	2 424 9 is_stmt 1       @ ../Src/signal.c:424:9
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	movs	r1, #161
+	movs	r2, #100
+	movs	r3, #15
+	bl	HAL_I2C_IsDeviceReady
+.Ltmp143:
+	.loc	2 424 9 is_stmt 0       @ ../Src/signal.c:424:9
+	cmp	r0, #0
+.Ltmp144:
+	.loc	2 424 98                @ ../Src/signal.c:424:98
+	it	ne
+	blne	Error_Handler
+.Ltmp145:
+	.loc	2 425 1 is_stmt 1       @ ../Src/signal.c:425:1
+	add	sp, #8
+	pop	{r7, pc}
+.Ltmp146:
+.Lfunc_end1:
+	.size	SaveRoomStatus, .Lfunc_end1-SaveRoomStatus
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.hidden	SignalBuzzer            @ @SignalBuzzer
+	.type	SignalBuzzer,%object
+	.section	.bss.SignalBuzzer,"aw",%nobits
+	.globl	SignalBuzzer
+	.p2align	2
+SignalBuzzer:
+	.long	0                       @ 0x0
+	.size	SignalBuzzer, 4
+
+	.hidden	ROOM_Status             @ @ROOM_Status
+	.type	ROOM_Status,%object
+	.section	.data.ROOM_Status,"aw",%progbits
+	.globl	ROOM_Status
+	.p2align	2
+ROOM_Status:
+	.long	1                       @ 0x1
+	.size	ROOM_Status, 4
+
+	.hidden	ROOM_OldStatus          @ @ROOM_OldStatus
+	.type	ROOM_OldStatus,%object
+	.section	.bss.ROOM_OldStatus,"aw",%nobits
+	.globl	ROOM_OldStatus
+	.p2align	2
+ROOM_OldStatus:
+	.long	0                       @ 0x0
+	.size	ROOM_OldStatus, 4
+
+	.type	SIGNAL_Service.signal_pcnt,%object @ @SIGNAL_Service.signal_pcnt
+	.section	.bss.SIGNAL_Service.signal_pcnt,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.signal_pcnt:
+	.long	0                       @ 0x0
+	.size	SIGNAL_Service.signal_pcnt, 4
+
+	.type	SIGNAL_Service.temp_minute,%object @ @SIGNAL_Service.temp_minute
+	.section	.bss.SIGNAL_Service.temp_minute,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.temp_minute:
+	.long	0                       @ 0x0
+	.size	SIGNAL_Service.temp_minute, 4
+
+	.type	SIGNAL_Service.signal_timer,%object @ @SIGNAL_Service.signal_timer
+	.section	.bss.SIGNAL_Service.signal_timer,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.signal_timer:
+	.long	0                       @ 0x0
+	.size	SIGNAL_Service.signal_timer, 4
+
+	.type	SIGNAL_Service.signal_time,%object @ @SIGNAL_Service.signal_time
+	.section	.bss.SIGNAL_Service.signal_time,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.signal_time:
+	.long	0                       @ 0x0
+	.size	SIGNAL_Service.signal_time, 4
+
+	.type	SIGNAL_Service.room_status_timer,%object @ @SIGNAL_Service.room_status_timer
+	.section	.bss.SIGNAL_Service.room_status_timer,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.room_status_timer:
+	.long	0                       @ 0x0
+	.size	SIGNAL_Service.room_status_timer, 4
+
+	.type	SIGNAL_Service.room_status_time,%object @ @SIGNAL_Service.room_status_time
+	.section	.bss.SIGNAL_Service.room_status_time,"aw",%nobits
+	.p2align	2
+SIGNAL_Service.room_status_time:
+	.byte	0                       @ 0x0
+	.size	SIGNAL_Service.room_status_time, 1
+
+	.hidden	aRoomPowerExpiryDateTime @ @aRoomPowerExpiryDateTime
+	.type	aRoomPowerExpiryDateTime,%object
+	.section	.bss.aRoomPowerExpiryDateTime,"aw",%nobits
+	.globl	aRoomPowerExpiryDateTime
+aRoomPowerExpiryDateTime:
+	.zero	6
+	.size	aRoomPowerExpiryDateTime, 6
+
+	.hidden	signal_flags            @ @signal_flags
+	.type	signal_flags,%object
+	.section	.bss.signal_flags,"aw",%nobits
+	.globl	signal_flags
+	.p2align	2
+signal_flags:
+	.long	0                       @ 0x0
+	.size	signal_flags, 4
+
+	.file	6 "../Drivers/STM32F1xx_HAL_Driver/Inc" "stm32f1xx_hal_rtc.h"
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../Src\\signal.c"      @ string offset=57
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\RoomController\\DE-170318\\MDK-ARM" @ string offset=73
+.Linfo_string3:
+	.asciz	"SignalBuzzer"          @ string offset=151
+.Linfo_string4:
+	.asciz	"unsigned int"          @ string offset=164
+.Linfo_string5:
+	.asciz	"BUZZ_OFF"              @ string offset=177
+.Linfo_string6:
+	.asciz	"BUZZ_CARD_INVALID"     @ string offset=186
+.Linfo_string7:
+	.asciz	"BUZZ_CARD_VALID"       @ string offset=204
+.Linfo_string8:
+	.asciz	"BUZZ_DOOR_BELL"        @ string offset=220
+.Linfo_string9:
+	.asciz	"BUZZ_HANDMAID_FINISH"  @ string offset=235
+.Linfo_string10:
+	.asciz	"BUZZ_ROOM_BUSY"        @ string offset=256
+.Linfo_string11:
+	.asciz	"BUZZ_SOS_ALARM"        @ string offset=271
+.Linfo_string12:
+	.asciz	"BUZZ_FIRE_ALARM"       @ string offset=286
+.Linfo_string13:
+	.asciz	"SIG_BUZZER_TypeDef"    @ string offset=302
+.Linfo_string14:
+	.asciz	"ROOM_Status"           @ string offset=321
+.Linfo_string15:
+	.asciz	"ROOM_IDLE"             @ string offset=333
+.Linfo_string16:
+	.asciz	"ROOM_READY"            @ string offset=343
+.Linfo_string17:
+	.asciz	"ROOM_BUSY"             @ string offset=354
+.Linfo_string18:
+	.asciz	"ROOM_CLEANING"         @ string offset=364
+.Linfo_string19:
+	.asciz	"ROOM_BEDDING_REPLACEMENT" @ string offset=378
+.Linfo_string20:
+	.asciz	"ROOM_GENERAL_CLEANING" @ string offset=403
+.Linfo_string21:
+	.asciz	"ROOM_OUT_OF_ORDER"     @ string offset=425
+.Linfo_string22:
+	.asciz	"ROOM_LATE_CHECKOUT"    @ string offset=443
+.Linfo_string23:
+	.asciz	"ROOM_HANDMAID_IN"      @ string offset=462
+.Linfo_string24:
+	.asciz	"ROOM_FORCING_DND"      @ string offset=479
+.Linfo_string25:
+	.asciz	"ROOM_FIRE_ALARM"       @ string offset=496
+.Linfo_string26:
+	.asciz	"ROOM_FIRE_EXIT"        @ string offset=512
+.Linfo_string27:
+	.asciz	"ROOM_StatusTypeDef"    @ string offset=527
+.Linfo_string28:
+	.asciz	"ROOM_OldStatus"        @ string offset=546
+.Linfo_string29:
+	.asciz	"signal_pcnt"           @ string offset=561
+.Linfo_string30:
+	.asciz	"uint32_t"              @ string offset=573
+.Linfo_string31:
+	.asciz	"temp_minute"           @ string offset=582
+.Linfo_string32:
+	.asciz	"signal_timer"          @ string offset=594
+.Linfo_string33:
+	.asciz	"signal_time"           @ string offset=607
+.Linfo_string34:
+	.asciz	"room_status_timer"     @ string offset=619
+.Linfo_string35:
+	.asciz	"room_status_time"      @ string offset=637
+.Linfo_string36:
+	.asciz	"signal_flags"          @ string offset=654
+.Linfo_string37:
+	.asciz	"aRoomPowerExpiryDateTime" @ string offset=667
+.Linfo_string38:
+	.asciz	"unsigned char"         @ string offset=692
+.Linfo_string39:
+	.asciz	"uint8_t"               @ string offset=706
+.Linfo_string40:
+	.asciz	"sizetype"              @ string offset=714
+.Linfo_string41:
+	.asciz	"COM_INIT"              @ string offset=723
+.Linfo_string42:
+	.asciz	"COM_PACKET_PENDING"    @ string offset=732
+.Linfo_string43:
+	.asciz	"COM_PACKET_RECEIVED"   @ string offset=751
+.Linfo_string44:
+	.asciz	"COM_RECEIVE_SUSPEND"   @ string offset=771
+.Linfo_string45:
+	.asciz	"COM_ERROR"             @ string offset=791
+.Linfo_string46:
+	.asciz	"HAL_OK"                @ string offset=801
+.Linfo_string47:
+	.asciz	"HAL_ERROR"             @ string offset=808
+.Linfo_string48:
+	.asciz	"HAL_BUSY"              @ string offset=818
+.Linfo_string49:
+	.asciz	"HAL_TIMEOUT"           @ string offset=827
+.Linfo_string50:
+	.asciz	"unsigned short"        @ string offset=839
+.Linfo_string51:
+	.asciz	"uint16_t"              @ string offset=854
+.Linfo_string52:
+	.asciz	"SIGNAL_Service"        @ string offset=863
+.Linfo_string53:
+	.asciz	"SaveRoomStatus"        @ string offset=878
+.Linfo_string54:
+	.asciz	"buff"                  @ string offset=893
+.Linfo_string55:
+	.asciz	"time_sig"              @ string offset=898
+.Linfo_string56:
+	.asciz	"Hours"                 @ string offset=907
+.Linfo_string57:
+	.asciz	"Minutes"               @ string offset=913
+.Linfo_string58:
+	.asciz	"Seconds"               @ string offset=921
+.Linfo_string59:
+	.asciz	"RTC_TimeTypeDef"       @ string offset=929
+.Linfo_string60:
+	.asciz	"date_sig"              @ string offset=945
+.Linfo_string61:
+	.asciz	"WeekDay"               @ string offset=954
+.Linfo_string62:
+	.asciz	"Month"                 @ string offset=962
+.Linfo_string63:
+	.asciz	"Date"                  @ string offset=968
+.Linfo_string64:
+	.asciz	"Year"                  @ string offset=973
+.Linfo_string65:
+	.asciz	"RTC_DateTypeDef"       @ string offset=978
+.Linfo_string66:
+	.asciz	"real_time"             @ string offset=994
+.Linfo_string67:
+	.asciz	"room_time"             @ string offset=1004
+.Linfo_string68:
+	.asciz	"br_tmp_period"         @ string offset=1014
+.Linfo_string69:
+	.asciz	"br_tmp_cnt"            @ string offset=1028
+	.section	.debug_loc,"",%progbits
+.Ldebug_loc0:
+	.long	.Ltmp4
+	.long	.Ltmp61
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp62
+	.long	.Ltmp109
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp110
+	.long	.Ltmp117
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp118
+	.long	.Ltmp126
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp127
+	.long	.Ltmp129
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp130
+	.long	.Ltmp135
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	.Ltmp136
+	.long	.Lfunc_end0
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	20                      @ 20
+	.long	0
+	.long	0
+.Ldebug_loc1:
+	.long	.Ltmp8
+	.long	.Ltmp55
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	16                      @ 16
+	.long	0
+	.long	0
+.Ldebug_loc2:
+	.long	.Ltmp9
+	.long	.Ltmp16
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	.Ltmp39
+	.long	.Ltmp41
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+.Ldebug_loc3:
+	.long	.Ltmp10
+	.long	.Ltmp18
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	.Ltmp39
+	.long	.Ltmp48
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	0
+	.long	0
+.Ldebug_loc4:
+	.long	.Ltmp22
+	.long	.Ltmp39
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	14                      @ 14
+	.long	0
+	.long	0
+.Ldebug_loc5:
+	.long	.Ltmp32
+	.long	.Ltmp39
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	15                      @ 15
+	.long	0
+	.long	0
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.ascii	"\264B"                 @ DW_AT_GNU_pubnames
+	.byte	12                      @ DW_FORM_flag
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	3                       @ Abbreviation Code
+	.byte	22                      @ DW_TAG_typedef
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	4                       @ Abbreviation Code
+	.byte	4                       @ DW_TAG_enumeration_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	5                       @ Abbreviation Code
+	.byte	40                      @ DW_TAG_enumerator
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	28                      @ DW_AT_const_value
+	.byte	15                      @ DW_FORM_udata
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	6                       @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	7                       @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	8                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	9                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	10                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	11                      @ Abbreviation Code
+	.byte	53                      @ DW_TAG_volatile_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	12                      @ Abbreviation Code
+	.byte	1                       @ DW_TAG_array_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	13                      @ Abbreviation Code
+	.byte	33                      @ DW_TAG_subrange_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	55                      @ DW_AT_count
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	14                      @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	15                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	16                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	17                      @ Abbreviation Code
+	.byte	19                      @ DW_TAG_structure_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	18                      @ Abbreviation Code
+	.byte	13                      @ DW_TAG_member
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	56                      @ DW_AT_data_member_location
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	845                     @ Length of Unit
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0x346 DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.byte	1                       @ DW_AT_GNU_pubnames
+	.long	0                       @ DW_AT_low_pc
+	.long	.Ldebug_ranges0         @ DW_AT_ranges
+	.byte	2                       @ Abbrev [2] 0x27:0x12 DW_TAG_variable
+	.long	.Linfo_string3          @ DW_AT_name
+	.long	57                      @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	27                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SignalBuzzer
+	.byte	3                       @ Abbrev [3] 0x39:0xb DW_TAG_typedef
+	.long	68                      @ DW_AT_type
+	.long	.Linfo_string13         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	55                      @ DW_AT_decl_line
+	.byte	4                       @ Abbrev [4] 0x44:0x39 DW_TAG_enumeration_type
+	.long	125                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	1                       @ DW_AT_decl_file
+	.byte	44                      @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x4c:0x6 DW_TAG_enumerator
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x52:0x6 DW_TAG_enumerator
+	.long	.Linfo_string6          @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x58:0x6 DW_TAG_enumerator
+	.long	.Linfo_string7          @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x5e:0x6 DW_TAG_enumerator
+	.long	.Linfo_string8          @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x64:0x6 DW_TAG_enumerator
+	.long	.Linfo_string9          @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x6a:0x6 DW_TAG_enumerator
+	.long	.Linfo_string10         @ DW_AT_name
+	.byte	5                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x70:0x6 DW_TAG_enumerator
+	.long	.Linfo_string11         @ DW_AT_name
+	.byte	6                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x76:0x6 DW_TAG_enumerator
+	.long	.Linfo_string12         @ DW_AT_name
+	.byte	7                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	6                       @ Abbrev [6] 0x7d:0x7 DW_TAG_base_type
+	.long	.Linfo_string4          @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	2                       @ Abbrev [2] 0x84:0x12 DW_TAG_variable
+	.long	.Linfo_string14         @ DW_AT_name
+	.long	150                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	28                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	ROOM_Status
+	.byte	3                       @ Abbrev [3] 0x96:0xb DW_TAG_typedef
+	.long	161                     @ DW_AT_type
+	.long	.Linfo_string27         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	41                      @ DW_AT_decl_line
+	.byte	4                       @ Abbrev [4] 0xa1:0x51 DW_TAG_enumeration_type
+	.long	125                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	1                       @ DW_AT_decl_file
+	.byte	26                      @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0xa9:0x6 DW_TAG_enumerator
+	.long	.Linfo_string15         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xaf:0x6 DW_TAG_enumerator
+	.long	.Linfo_string16         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xb5:0x6 DW_TAG_enumerator
+	.long	.Linfo_string17         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xbb:0x6 DW_TAG_enumerator
+	.long	.Linfo_string18         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xc1:0x6 DW_TAG_enumerator
+	.long	.Linfo_string19         @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xc7:0x6 DW_TAG_enumerator
+	.long	.Linfo_string20         @ DW_AT_name
+	.byte	5                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xcd:0x6 DW_TAG_enumerator
+	.long	.Linfo_string21         @ DW_AT_name
+	.byte	6                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xd3:0x6 DW_TAG_enumerator
+	.long	.Linfo_string22         @ DW_AT_name
+	.byte	7                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xd9:0x6 DW_TAG_enumerator
+	.long	.Linfo_string23         @ DW_AT_name
+	.byte	8                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xdf:0x6 DW_TAG_enumerator
+	.long	.Linfo_string24         @ DW_AT_name
+	.byte	9                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xe5:0x6 DW_TAG_enumerator
+	.long	.Linfo_string25         @ DW_AT_name
+	.byte	10                      @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0xeb:0x6 DW_TAG_enumerator
+	.long	.Linfo_string26         @ DW_AT_name
+	.byte	11                      @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	2                       @ Abbrev [2] 0xf2:0x12 DW_TAG_variable
+	.long	.Linfo_string28         @ DW_AT_name
+	.long	150                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	29                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	ROOM_OldStatus
+	.byte	7                       @ Abbrev [7] 0x104:0xea DW_TAG_subprogram
+	.long	.Lfunc_begin0           @ DW_AT_low_pc
+	.long	.Lfunc_end0             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string52         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	43                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	8                       @ Abbrev [8] 0x117:0x11 DW_TAG_variable
+	.long	.Linfo_string29         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	47                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.signal_pcnt
+	.byte	8                       @ Abbrev [8] 0x128:0x11 DW_TAG_variable
+	.long	.Linfo_string31         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	48                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.temp_minute
+	.byte	8                       @ Abbrev [8] 0x139:0x11 DW_TAG_variable
+	.long	.Linfo_string32         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	49                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.signal_timer
+	.byte	8                       @ Abbrev [8] 0x14a:0x11 DW_TAG_variable
+	.long	.Linfo_string33         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	50                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.signal_time
+	.byte	8                       @ Abbrev [8] 0x15b:0x11 DW_TAG_variable
+	.long	.Linfo_string34         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	51                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.room_status_timer
+	.byte	8                       @ Abbrev [8] 0x16c:0x19 DW_TAG_variable
+	.long	.Linfo_string35         @ DW_AT_name
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	52                      @ DW_AT_decl_line
+	.byte	13                      @ DW_AT_location
+	.byte	3
+	.long	SIGNAL_Service.room_status_time
+	.byte	6
+	.byte	16
+	.ascii	"\364\003"
+	.byte	30
+	.byte	16
+	.byte	0
+	.byte	34
+	.byte	9                       @ Abbrev [9] 0x185:0xe DW_TAG_variable
+	.byte	2                       @ DW_AT_location
+	.byte	145
+	.byte	6
+	.long	.Linfo_string54         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	55                      @ DW_AT_decl_line
+	.long	708                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x193:0xf DW_TAG_variable
+	.long	.Ldebug_loc0            @ DW_AT_location
+	.long	.Linfo_string55         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	45                      @ DW_AT_decl_line
+	.long	720                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x1a2:0xf DW_TAG_variable
+	.long	.Ldebug_loc1            @ DW_AT_location
+	.long	.Linfo_string60         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	46                      @ DW_AT_decl_line
+	.long	772                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x1b1:0xf DW_TAG_variable
+	.long	.Ldebug_loc2            @ DW_AT_location
+	.long	.Linfo_string66         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	54                      @ DW_AT_decl_line
+	.long	494                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x1c0:0xf DW_TAG_variable
+	.long	.Ldebug_loc3            @ DW_AT_location
+	.long	.Linfo_string67         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	54                      @ DW_AT_decl_line
+	.long	494                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x1cf:0xf DW_TAG_variable
+	.long	.Ldebug_loc4            @ DW_AT_location
+	.long	.Linfo_string68         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	53                      @ DW_AT_decl_line
+	.long	558                     @ DW_AT_type
+	.byte	10                      @ Abbrev [10] 0x1de:0xf DW_TAG_variable
+	.long	.Ldebug_loc5            @ DW_AT_location
+	.long	.Linfo_string69         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	53                      @ DW_AT_decl_line
+	.long	558                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x1ee:0xb DW_TAG_typedef
+	.long	125                     @ DW_AT_type
+	.long	.Linfo_string30         @ DW_AT_name
+	.byte	3                       @ DW_AT_decl_file
+	.byte	64                      @ DW_AT_decl_line
+	.byte	2                       @ Abbrev [2] 0x1f9:0x12 DW_TAG_variable
+	.long	.Linfo_string36         @ DW_AT_name
+	.long	523                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	34                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	signal_flags
+	.byte	11                      @ Abbrev [11] 0x20b:0x5 DW_TAG_volatile_type
+	.long	494                     @ DW_AT_type
+	.byte	2                       @ Abbrev [2] 0x210:0x12 DW_TAG_variable
+	.long	.Linfo_string37         @ DW_AT_name
+	.long	546                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	35                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	aRoomPowerExpiryDateTime
+	.byte	12                      @ Abbrev [12] 0x222:0xc DW_TAG_array_type
+	.long	558                     @ DW_AT_type
+	.byte	13                      @ Abbrev [13] 0x227:0x6 DW_TAG_subrange_type
+	.long	576                     @ DW_AT_type
+	.byte	6                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x22e:0xb DW_TAG_typedef
+	.long	569                     @ DW_AT_type
+	.long	.Linfo_string39         @ DW_AT_name
+	.byte	3                       @ DW_AT_decl_file
+	.byte	62                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x239:0x7 DW_TAG_base_type
+	.long	.Linfo_string38         @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	14                      @ Abbrev [14] 0x240:0x7 DW_TAG_base_type
+	.long	.Linfo_string40         @ DW_AT_name
+	.byte	8                       @ DW_AT_byte_size
+	.byte	7                       @ DW_AT_encoding
+	.byte	4                       @ Abbrev [4] 0x247:0x27 DW_TAG_enumeration_type
+	.long	125                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	4                       @ DW_AT_decl_file
+	.byte	37                      @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x24f:0x6 DW_TAG_enumerator
+	.long	.Linfo_string41         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x255:0x6 DW_TAG_enumerator
+	.long	.Linfo_string42         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x25b:0x6 DW_TAG_enumerator
+	.long	.Linfo_string43         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x261:0x6 DW_TAG_enumerator
+	.long	.Linfo_string44         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x267:0x6 DW_TAG_enumerator
+	.long	.Linfo_string45         @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	4                       @ Abbrev [4] 0x26e:0x21 DW_TAG_enumeration_type
+	.long	125                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	5                       @ DW_AT_decl_file
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ Abbrev [5] 0x276:0x6 DW_TAG_enumerator
+	.long	.Linfo_string46         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x27c:0x6 DW_TAG_enumerator
+	.long	.Linfo_string47         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x282:0x6 DW_TAG_enumerator
+	.long	.Linfo_string48         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	5                       @ Abbrev [5] 0x288:0x6 DW_TAG_enumerator
+	.long	.Linfo_string49         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x28f:0xb DW_TAG_typedef
+	.long	666                     @ DW_AT_type
+	.long	.Linfo_string51         @ DW_AT_name
+	.byte	3                       @ DW_AT_decl_file
+	.byte	63                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x29a:0x7 DW_TAG_base_type
+	.long	.Linfo_string50         @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	2                       @ DW_AT_byte_size
+	.byte	15                      @ Abbrev [15] 0x2a1:0x23 DW_TAG_subprogram
+	.long	.Lfunc_begin1           @ DW_AT_low_pc
+	.long	.Lfunc_end1             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string53         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	416                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	16                      @ Abbrev [16] 0x2b4:0xf DW_TAG_variable
+	.byte	2                       @ DW_AT_location
+	.byte	145
+	.byte	5
+	.long	.Linfo_string54         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	418                     @ DW_AT_decl_line
+	.long	836                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	12                      @ Abbrev [12] 0x2c4:0xc DW_TAG_array_type
+	.long	558                     @ DW_AT_type
+	.byte	13                      @ Abbrev [13] 0x2c9:0x6 DW_TAG_subrange_type
+	.long	576                     @ DW_AT_type
+	.byte	8                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x2d0:0xb DW_TAG_typedef
+	.long	731                     @ DW_AT_type
+	.long	.Linfo_string59         @ DW_AT_name
+	.byte	6                       @ DW_AT_decl_file
+	.byte	122                     @ DW_AT_decl_line
+	.byte	17                      @ Abbrev [17] 0x2db:0x29 DW_TAG_structure_type
+	.byte	3                       @ DW_AT_byte_size
+	.byte	6                       @ DW_AT_decl_file
+	.byte	111                     @ DW_AT_decl_line
+	.byte	18                      @ Abbrev [18] 0x2df:0xc DW_TAG_member
+	.long	.Linfo_string56         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	113                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	18                      @ Abbrev [18] 0x2eb:0xc DW_TAG_member
+	.long	.Linfo_string57         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	116                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_data_member_location
+	.byte	18                      @ Abbrev [18] 0x2f7:0xc DW_TAG_member
+	.long	.Linfo_string58         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	119                     @ DW_AT_decl_line
+	.byte	2                       @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	3                       @ Abbrev [3] 0x304:0xb DW_TAG_typedef
+	.long	783                     @ DW_AT_type
+	.long	.Linfo_string65         @ DW_AT_name
+	.byte	6                       @ DW_AT_decl_file
+	.byte	179                     @ DW_AT_decl_line
+	.byte	17                      @ Abbrev [17] 0x30f:0x35 DW_TAG_structure_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	6                       @ DW_AT_decl_file
+	.byte	165                     @ DW_AT_decl_line
+	.byte	18                      @ Abbrev [18] 0x313:0xc DW_TAG_member
+	.long	.Linfo_string61         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	167                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	18                      @ Abbrev [18] 0x31f:0xc DW_TAG_member
+	.long	.Linfo_string62         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	170                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_data_member_location
+	.byte	18                      @ Abbrev [18] 0x32b:0xc DW_TAG_member
+	.long	.Linfo_string63         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	173                     @ DW_AT_decl_line
+	.byte	2                       @ DW_AT_data_member_location
+	.byte	18                      @ Abbrev [18] 0x337:0xc DW_TAG_member
+	.long	.Linfo_string64         @ DW_AT_name
+	.long	558                     @ DW_AT_type
+	.byte	6                       @ DW_AT_decl_file
+	.byte	176                     @ DW_AT_decl_line
+	.byte	3                       @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	12                      @ Abbrev [12] 0x344:0xc DW_TAG_array_type
+	.long	558                     @ DW_AT_type
+	.byte	13                      @ Abbrev [13] 0x349:0x6 DW_TAG_subrange_type
+	.long	576                     @ DW_AT_type
+	.byte	3                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	0                       @ End Of Children Mark
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.long	.Lfunc_begin0
+	.long	.Lfunc_end0
+	.long	.Lfunc_begin1
+	.long	.Lfunc_end1
+	.long	0
+	.long	0
+	.section	.debug_macinfo,"",%progbits
+.Lcu_macro_begin0:
+	.byte	0                       @ End Of Macro List Mark
+	.section	.debug_pubnames,"",%progbits
+	.long	.LpubNames_end0-.LpubNames_begin0 @ Length of Public Names Info
+.LpubNames_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	849                     @ Compilation Unit Length
+	.long	39                      @ DIE offset
+	.asciz	"SignalBuzzer"          @ External Name
+	.long	132                     @ DIE offset
+	.asciz	"ROOM_Status"           @ External Name
+	.long	347                     @ DIE offset
+	.asciz	"room_status_timer"     @ External Name
+	.long	296                     @ DIE offset
+	.asciz	"temp_minute"           @ External Name
+	.long	505                     @ DIE offset
+	.asciz	"signal_flags"          @ External Name
+	.long	330                     @ DIE offset
+	.asciz	"signal_time"           @ External Name
+	.long	364                     @ DIE offset
+	.asciz	"room_status_time"      @ External Name
+	.long	260                     @ DIE offset
+	.asciz	"SIGNAL_Service"        @ External Name
+	.long	673                     @ DIE offset
+	.asciz	"SaveRoomStatus"        @ External Name
+	.long	279                     @ DIE offset
+	.asciz	"signal_pcnt"           @ External Name
+	.long	528                     @ DIE offset
+	.asciz	"aRoomPowerExpiryDateTime" @ External Name
+	.long	313                     @ DIE offset
+	.asciz	"signal_timer"          @ External Name
+	.long	242                     @ DIE offset
+	.asciz	"ROOM_OldStatus"        @ External Name
+	.long	0                       @ End Mark
+.LpubNames_end0:
+	.section	.debug_pubtypes,"",%progbits
+	.long	.LpubTypes_end0-.LpubTypes_begin0 @ Length of Public Types Info
+.LpubTypes_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	849                     @ Compilation Unit Length
+	.long	150                     @ DIE offset
+	.asciz	"ROOM_StatusTypeDef"    @ External Name
+	.long	57                      @ DIE offset
+	.asciz	"SIG_BUZZER_TypeDef"    @ External Name
+	.long	772                     @ DIE offset
+	.asciz	"RTC_DateTypeDef"       @ External Name
+	.long	125                     @ DIE offset
+	.asciz	"unsigned int"          @ External Name
+	.long	494                     @ DIE offset
+	.asciz	"uint32_t"              @ External Name
+	.long	655                     @ DIE offset
+	.asciz	"uint16_t"              @ External Name
+	.long	558                     @ DIE offset
+	.asciz	"uint8_t"               @ External Name
+	.long	569                     @ DIE offset
+	.asciz	"unsigned char"         @ External Name
+	.long	666                     @ DIE offset
+	.asciz	"unsigned short"        @ External Name
+	.long	720                     @ DIE offset
+	.asciz	"RTC_TimeTypeDef"       @ External Name
+	.long	0                       @ End Mark
+.LpubTypes_end0:
+
+	.ident	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]"
+	.section	".note.GNU-stack","",%progbits
+	.eabi_attribute	30, 1	@ Tag_ABI_optimization_goals
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

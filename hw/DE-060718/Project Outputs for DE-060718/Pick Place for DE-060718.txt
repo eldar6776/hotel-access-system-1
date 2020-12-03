@@ -1,0 +1,71 @@
+Altium Designer Pick and Place Locations
+F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-060718\Project Outputs for DE-060718\Pick Place for DE-060718.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       09.07.18
+Time:       21:40
+Revision:   0
+Variant:    No variations
+Units used: mil
+
+Designator Comment       Layer       Footprint               Center-X(mil) Center-Y(mil) Rotation Description                                                                                                   
+R9         1K            TopLayer    ERA-0603                718.000       140.000       90       Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R8         120R          TopLayer    ERA-0603                343.000       310.000       0        Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R7         120R          TopLayer    ERA-0603                1128.000      800.000       180      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R6         120R          TopLayer    ERA-0603                1128.000      740.000       180      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R5         1R8           TopLayer    ERA-0603                2180.000      565.000       180      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R4         1R8           TopLayer    ERA-0603                2183.000      467.000       180      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R3         1K8           TopLayer    ERA-0603                2107.000      875.000       180      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R2         10K           TopLayer    ERA-0603                1874.000      263.000       360      Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+R1         1K8           TopLayer    ERA-0603                2004.000      842.000       90       Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W 
+C23        10uF          TopLayer    0805                    539.000       741.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C20        10uF          TopLayer    0805                    568.000       460.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C16        10uF          TopLayer    0805                    1543.000      315.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C31        10nF          TopLayer    0603                    978.000       585.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C30        1uF           TopLayer    0603                    1038.000      585.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C29        100nF         TopLayer    0603                    1048.000      395.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C28        100nF         TopLayer    0603                    993.000       395.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C26        100nF         TopLayer    0603                    208.000       735.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C22        100nF         TopLayer    0603                    599.000       742.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C19        100nF         TopLayer    0603                    918.000       585.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C13        15pF          TopLayer    0603                    1543.000      890.000       180      Ceramic Chip Capacitor - Standard                                                                             
+C12        15pF          TopLayer    0603                    1698.000      890.000       360      Ceramic Chip Capacitor - Standard                                                                             
+C18        100nF         TopLayer    0603                    1473.000      307.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C14        100nF         TopLayer    0603                    1508.000      510.000       180      Ceramic Chip Capacitor - Standard                                                                             
+C11        22pF          TopLayer    0603                    2086.000      599.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C10        100pF         TopLayer    0603                    2143.000      667.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C9         NF            TopLayer    0603                    2213.000      666.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C8         220pF         TopLayer    0603                    2038.000      748.000       360      Ceramic Chip Capacitor - Standard                                                                             
+C7         100pF         TopLayer    0603                    2143.000      375.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C6         NF            TopLayer    0603                    2215.000      374.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C5         220pF         TopLayer    0603                    2038.000      280.000       180      Ceramic Chip Capacitor - Standard                                                                             
+C4         22pF          TopLayer    0603                    2083.000      375.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C2         1nF           TopLayer    0603                    2213.000      807.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C1         100nF         TopLayer    0603                    2108.000      816.000       180      Ceramic Chip Capacitor - Standard                                                                             
+Y1         27,12 MHz     TopLayer    HC49/4H_SMX             1614.000      750.000       180      Surface Mount Quartz Crystal                                                                                  
+U1         MFRC522       TopLayer    QFN32                   1793.000      495.000       90       MIFARE reader writer                                                                                          
+Q2         MMBT2222      TopLayer    SOT23_N                 823.000       145.000       90       NPN General-purpose Transistor                                                                                
+Q1         MMBT2222      TopLayer    SOT23_N                 123.000       175.000       270      NPN General-purpose Transistor                                                                                
+P4         CON1          TopLayer    HDR1X5                  108.000       565.000       90       Header, 5-Pin                                                                                                 
+P3         ICSP          BottomLayer ICSP                    823.000       230.000       180      ICSP connection pads                                                                                          
+P2         MFRC          TopLayer    HDR1X4                  1148.000      460.000       90       Header, 4-Pin                                                                                                 
+P1         uC            TopLayer    HDR1X4                  1390.000      435.000       270      Header, 4-Pin                                                                                                 
+D4         ZD6V8         TopLayer    ONSC-SOD-123-2-425-04_V 328.000       695.000       360      Zener Voltage Regulator, 500 mW, 2-Pin SOD-123, Pb-Free, Tape and Reel                                        
+D3         LED_2         TopLayer    LED_3mm                 748.000       760.000       180                                                                                                                    
+D2         LED_1         TopLayer    LED_3mm                 948.000       760.000       360                                                                                                                    
+D1         1N4148        TopLayer    SOD323                  1880.000      329.000       360      Schottky Barrier Diode                                                                                        
+C25        10uF          TopLayer    0805                    338.000       775.000       180      Ceramic Chip Capacitor - Standard                                                                             
+C24        10uF          TopLayer    0805                    463.000       740.000       270      Ceramic Chip Capacitor - Standard                                                                             
+C3         1uF           TopLayer    0603                    1744.000      263.000       360      Ceramic Chip Capacitor - Standard                                                                             
+C27        10uF          TopLayer    0805                    928.000       405.000       90       Ceramic Chip Capacitor - Standard                                                                             
+C15        10uF          TopLayer    0805                    1513.000      585.000       180      Ceramic Chip Capacitor - Standard                                                                             
+C17        10uF          TopLayer    0805                    1623.000      315.000       90       Ceramic Chip Capacitor - Standard                                                                             
+L1         560nH         TopLayer    SMD-0805                2006.000      384.000       270      SMD EMI Suppression Ferrite Bead WE-CBF, Z = 100 Ohm                                                          
+L2         560nH         TopLayer    SMD-0805                2005.000      637.000       90       SMD EMI Suppression Ferrite Bead WE-CBF, Z = 100 Ohm                                                          
+L3         74279207      TopLayer    SMD-0805                1528.000      430.000       360      SMD EMI Suppression Ferrite Bead WE-CBF, Z = 100 Ohm                                                          
+U3         STM32F030F4P6 TopLayer    STM-TSSOP20_N           743.000       485.000       270      ARM Cortex-M0 32-bit MCU, 16 KB Flash, 4 KB Internal RAM, 15 I/Os, 20-pin TSSOP, -40 to 85 degC, Tube         
+U4         AMS1117-3.3   TopLayer    SOT-223_N               364.000       507.000       180      1A, Low Drop Positive Voltage Regulator, 3.3V, 4-Pin SOT-223, Tape and Reel                                   
+U2         PC817         TopLayer    SOP4                    440.500       170.000       180      4-Pin Phototransistor Optocoupler                                                                             
+C21        10uF          TopLayer    0805                    478.000       320.000       180      Ceramic Chip Capacitor - Standard                                                                             

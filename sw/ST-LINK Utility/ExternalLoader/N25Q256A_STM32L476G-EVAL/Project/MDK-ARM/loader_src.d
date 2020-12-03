@@ -1,0 +1,13 @@
+.\loader_src.o: ..\..\Sources\Loader_Files\Loader_Src.c
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx_quadspi.h
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx.h
+.\loader_src.o: ..\..\Includes\CMSIS_Files\core_cm4.h
+.\loader_src.o: C:\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\loader_src.o: ..\..\Includes\CMSIS_Files\core_cmInstr.h
+.\loader_src.o: ..\..\Includes\CMSIS_Files\core_cmFunc.h
+.\loader_src.o: ..\..\Includes\CMSIS_Files\core_cm4_simd.h
+.\loader_src.o: ..\..\Includes\Library_Files\system_stm32l4xx.h
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx_rcc.h
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx_conf.h
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx_gpio.h
+.\loader_src.o: ..\..\Includes\Library_Files\stm32l4xx_syscfg.h

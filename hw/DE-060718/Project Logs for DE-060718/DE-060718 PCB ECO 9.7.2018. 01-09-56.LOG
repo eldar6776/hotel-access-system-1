@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=+5V Pin=LS1-1
+Removed Pin From Net: NetName=OUT_C Pin=P5-1
+Removed Pin From Net: NetName=OUT_E Pin=P5-2
+Removed Pin From Net: NetName=+12V Pin=P5-3
+Removed Pin From Net: NetName=VSS Pin=P5-4
+Removed Member From Class: ClassName=DE-060718 Member=LS1
+Change Component Footprint: Designator=P5 Old Footprint=HDR1X4 New Footprint=HDR1X5
+Change Component Comment : Designator=P5 Old Comment=CON 1 New Comment=CON1
+Added Pin To Net: NetName=OUT_C Pin=P5-2
+Added Pin To Net: NetName=OUT_E Pin=P5-3
+Added Pin To Net: NetName=+12V Pin=P5-4
+Added Pin To Net: NetName=VSS Pin=P5-5
+Change Net Name : Old Net Name=BUZZER New Net Name=BUZZ
+Added Pin To Net: NetName=BUZZER Pin=P5-1
+Added Pin To Net: NetName=BUZZER Pin=Q2-3
+Added Net: Name=BUZZER

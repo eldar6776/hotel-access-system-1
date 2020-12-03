@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=VSS Pin=P6-1
+Removed Pin From Net: NetName=PIPE_NTC Pin=P6-2
+Removed Pin From Net: NetName=FANCOIL_NTC Pin=P6-3
+Removed Pin From Net: NetName=MOTOR_RPM Pin=P6-4
+Removed Pin From Net: NetName=ZERO_CROSS Pin=P6-5
+Removed Pin From Net: NetName=VALVE_TRIAC Pin=P6-6
+Removed Pin From Net: NetName=MOTOR_TRIAC Pin=P6-7
+Removed Pin From Net: NetName=VDD Pin=P6-8
+Removed Member From Class: ClassName=DE-060418 Member=P6
+Added Component: Designator=J1(15-43-8501)
+Added Pin To Net: NetName=VSS Pin=J1-1
+Added Pin To Net: NetName=PIPE_NTC Pin=J1-2
+Added Pin To Net: NetName=FANCOIL_NTC Pin=J1-3
+Added Pin To Net: NetName=MOTOR_RPM Pin=J1-4
+Added Pin To Net: NetName=ZERO_CROSS Pin=J1-5
+Added Pin To Net: NetName=VALVE_TRIAC Pin=J1-6
+Added Pin To Net: NetName=MOTOR_TRIAC Pin=J1-7
+Added Pin To Net: NetName=VDD Pin=J1-8
+Added Member To Class: ClassName=DE-060418 Member=Component J1 THERMOSTAT

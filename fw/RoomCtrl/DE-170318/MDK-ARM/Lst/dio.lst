@@ -1,0 +1,4491 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m3
+	.eabi_attribute	6, 10	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 4	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 2	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"dio.c"
+	.file	1 "C:\\Keil\\ARM\\ARMCLANG\\Bin\\..\\include" "stdint.h"
+	.file	2 "../Src" "dio.c"
+	.file	3 "../Inc" "rs485.h"
+	.file	4 "../Drivers/STM32F1xx_HAL_Driver/Inc" "stm32f1xx_hal_gpio.h"
+	.file	5 "../Inc" "signal.h"
+	.file	6 "../Drivers/STM32F1xx_HAL_Driver/Inc" "stm32f1xx_hal_def.h"
+	.file	7 "../Drivers/CMSIS/Device/ST/STM32F1xx/Include" "stm32f103xb.h"
+	.section	.text.DIO_Init,"ax",%progbits
+	.hidden	DIO_Init                @ -- Begin function DIO_Init
+	.globl	DIO_Init
+	.p2align	2
+	.type	DIO_Init,%function
+	.code	16                      @ @DIO_Init
+	.thumb_func
+DIO_Init:
+.Lfunc_begin0:
+	.loc	2 124 0                 @ ../Src/dio.c:124:0
+	.fnstart
+	.cfi_sections .debug_frame
+	.cfi_startproc
+@ %bb.0:
+	.save	{r7, lr}
+	push	{r7, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+.Ltmp0:
+	.loc	2 125 2 prologue_end    @ ../Src/dio.c:125:2
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+	bic	r1, r1, #16
+	str	r1, [r0]
+	.loc	2 127 2                 @ ../Src/dio.c:127:2
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	orr	r1, r1, #2
+	strb	r1, [r0]
+	.loc	2 126 2                 @ ../Src/dio.c:126:2
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	orr	r2, r2, #4
+	strb	r2, [r1]
+	.loc	2 128 2                 @ ../Src/dio.c:128:2
+	ldrb	r1, [r0]
+	and	r1, r1, #254
+	strb	r1, [r0]
+	.loc	2 129 2                 @ ../Src/dio.c:129:2
+	bl	DIO_SetOuput
+	.loc	2 130 2                 @ ../Src/dio.c:130:2
+	pop.w	{r7, lr}
+	b	CAP1293_Init
+.Ltmp1:
+.Lfunc_end0:
+	.size	DIO_Init, .Lfunc_end0-DIO_Init
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.DIO_SetOuput,"ax",%progbits
+	.hidden	DIO_SetOuput            @ -- Begin function DIO_SetOuput
+	.globl	DIO_SetOuput
+	.p2align	2
+	.type	DIO_SetOuput,%function
+	.code	16                      @ @DIO_SetOuput
+	.thumb_func
+DIO_SetOuput:
+.Lfunc_begin1:
+	.loc	2 857 0                 @ ../Src/dio.c:857:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, lr}
+	push	{r4, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r4, -8
+.Ltmp2:
+	.loc	2 858 2 prologue_end    @ ../Src/dio.c:858:2
+	movw	r0, :lower16:hspi2
+	movt	r0, :upper16:hspi2
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	movs	r2, #1
+	movs	r3, #10
+	bl	HAL_SPI_Transmit
+	movw	r4, #2048
+	movt	r4, #16385
+	.loc	2 859 2                 @ ../Src/dio.c:859:2
+	mov	r0, r4
+	mov.w	r1, #4096
+	movs	r2, #0
+	bl	HAL_GPIO_WritePin
+	.loc	2 860 2                 @ ../Src/dio.c:860:2
+	mov	r0, r4
+	mov.w	r1, #4096
+	movs	r2, #1
+	pop.w	{r4, lr}
+	b	HAL_GPIO_WritePin
+.Ltmp3:
+.Lfunc_end1:
+	.size	DIO_SetOuput, .Lfunc_end1-DIO_SetOuput
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.CAP1293_Init,"ax",%progbits
+	.hidden	CAP1293_Init            @ -- Begin function CAP1293_Init
+	.globl	CAP1293_Init
+	.p2align	2
+	.type	CAP1293_Init,%function
+	.code	16                      @ @CAP1293_Init
+	.thumb_func
+CAP1293_Init:
+.Lfunc_begin2:
+	.loc	2 865 0                 @ ../Src/dio.c:865:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r6, lr}
+	push	{r4, r5, r6, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset lr, -4
+	.cfi_offset r6, -8
+	.cfi_offset r5, -12
+	.cfi_offset r4, -16
+	.pad	#8
+	sub	sp, #8
+	.cfi_def_cfa_offset 24
+.Ltmp4:
+	.loc	2 868 12 prologue_end   @ ../Src/dio.c:868:12
+	movs	r0, #0
+.Ltmp5:
+	@DEBUG_VALUE: CAP1293_Init:product_id <- 0
+	.loc	2 869 13                @ ../Src/dio.c:869:13
+	strb.w	r0, [sp, #6]
+.Ltmp6:
+	@DEBUG_VALUE: CAP1293_Init:vendor_id <- 0
+	.loc	2 868 12                @ ../Src/dio.c:868:12
+	strb.w	r0, [sp, #7]
+	.loc	2 870 12                @ ../Src/dio.c:870:12
+	movs	r0, #253
+	strb.w	r0, [sp, #4]
+	.loc	2 871 2                 @ ../Src/dio.c:871:2
+	movs	r6, #10
+	str	r6, [sp]
+	movw	r4, :lower16:hi2c1
+	movt	r4, :upper16:hi2c1
+	add	r5, sp, #4
+	mov	r0, r4
+	movs	r1, #80
+	mov	r2, r5
+	movs	r3, #1
+	bl	HAL_I2C_Master_Transmit
+	.loc	2 872 2                 @ ../Src/dio.c:872:2
+	str	r6, [sp]
+	add.w	r2, sp, #6
+.Ltmp7:
+	@DEBUG_VALUE: CAP1293_Init:product_id <- [DW_OP_plus_uconst 6] [$sp+0]
+	mov	r0, r4
+	movs	r1, #81
+	movs	r3, #1
+	bl	HAL_I2C_Master_Receive
+	.loc	2 873 12                @ ../Src/dio.c:873:12
+	movs	r0, #254
+	strb.w	r0, [sp, #4]
+	.loc	2 874 2                 @ ../Src/dio.c:874:2
+	str	r6, [sp]
+	mov	r0, r4
+	movs	r1, #80
+	mov	r2, r5
+	movs	r3, #1
+	bl	HAL_I2C_Master_Transmit
+	.loc	2 875 2                 @ ../Src/dio.c:875:2
+	str	r6, [sp]
+	add.w	r2, sp, #7
+.Ltmp8:
+	@DEBUG_VALUE: CAP1293_Init:vendor_id <- [DW_OP_plus_uconst 7] [$sp+0]
+	mov	r0, r4
+	movs	r1, #81
+	movs	r3, #1
+	bl	HAL_I2C_Master_Receive
+	movw	r0, :lower16:din_cap_sen
+	movt	r0, :upper16:din_cap_sen
+	ldrb	r1, [r0]
+.Ltmp9:
+	.loc	2 877 6                 @ ../Src/dio.c:877:6
+	ldrb.w	r2, [sp, #6]
+	.loc	2 877 40 is_stmt 0      @ ../Src/dio.c:877:40
+	cmp	r2, #111
+	bne	.LBB2_3
+.Ltmp10:
+@ %bb.1:
+	@DEBUG_VALUE: CAP1293_Init:vendor_id <- [DW_OP_plus_uconst 7] [$sp+0]
+	@DEBUG_VALUE: CAP1293_Init:product_id <- [DW_OP_plus_uconst 6] [$sp+0]
+	ldrb.w	r2, [sp, #7]
+	cmp	r2, #93
+	bne	.LBB2_3
+.Ltmp11:
+@ %bb.2:
+	@DEBUG_VALUE: CAP1293_Init:vendor_id <- [DW_OP_plus_uconst 7] [$sp+0]
+	@DEBUG_VALUE: CAP1293_Init:product_id <- [DW_OP_plus_uconst 6] [$sp+0]
+	.loc	2 879 3 is_stmt 1       @ ../Src/dio.c:879:3
+	orr	r1, r1, #128
+	strb	r1, [r0]
+	.loc	2 880 3                 @ ../Src/dio.c:880:3
+	movs	r0, #42
+	movs	r1, #0
+	bl	CAP1293_WriteRegister
+	.loc	2 881 3                 @ ../Src/dio.c:881:3
+	movs	r0, #33
+	movs	r1, #5
+	bl	CAP1293_WriteRegister
+	.loc	2 882 3                 @ ../Src/dio.c:882:3
+	movs	r0, #39
+	movs	r1, #5
+	bl	CAP1293_WriteRegister
+	.loc	2 883 3                 @ ../Src/dio.c:883:3
+	movs	r0, #68
+	movs	r1, #64
+	bl	CAP1293_WriteRegister
+	.loc	2 884 3                 @ ../Src/dio.c:884:3
+	movs	r0, #40
+	movs	r1, #0
+	bl	CAP1293_WriteRegister
+	.loc	2 885 3                 @ ../Src/dio.c:885:3
+	movs	r0, #41
+	movs	r1, #5
+	bl	CAP1293_WriteRegister
+	.loc	2 886 3                 @ ../Src/dio.c:886:3
+	movs	r0, #31
+	movs	r1, #15
+	bl	CAP1293_WriteRegister
+	.loc	2 887 3                 @ ../Src/dio.c:887:3
+	movs	r0, #128
+	movs	r1, #0
+	bl	CAP1293_WriteRegister
+	.loc	2 888 3                 @ ../Src/dio.c:888:3
+	movs	r0, #0
+	movs	r1, #0
+	bl	CAP1293_WriteRegister
+.Ltmp12:
+	.loc	2 891 1                 @ ../Src/dio.c:891:1
+	add	sp, #8
+.Ltmp13:
+	pop	{r4, r5, r6, pc}
+.LBB2_3:
+.Ltmp14:
+	@DEBUG_VALUE: CAP1293_Init:vendor_id <- [DW_OP_plus_uconst 7] [$sp+0]
+	@DEBUG_VALUE: CAP1293_Init:product_id <- [DW_OP_plus_uconst 6] [$sp+0]
+	.loc	2 890 7                 @ ../Src/dio.c:890:7
+	and	r1, r1, #127
+	strb	r1, [r0]
+.Ltmp15:
+	.loc	2 891 1                 @ ../Src/dio.c:891:1
+	add	sp, #8
+.Ltmp16:
+	pop	{r4, r5, r6, pc}
+.Ltmp17:
+.Lfunc_end2:
+	.size	CAP1293_Init, .Lfunc_end2-CAP1293_Init
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.DIO_Service,"ax",%progbits
+	.hidden	DIO_Service             @ -- Begin function DIO_Service
+	.globl	DIO_Service
+	.p2align	2
+	.type	DIO_Service,%function
+	.code	16                      @ @DIO_Service
+	.thumb_func
+DIO_Service:
+.Lfunc_begin3:
+	.loc	2 134 0                 @ ../Src/dio.c:134:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r6, lr}
+	push	{r4, r5, r6, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset lr, -4
+	.cfi_offset r6, -8
+	.cfi_offset r5, -12
+	.cfi_offset r4, -16
+.Ltmp18:
+	.loc	2 139 5 prologue_end    @ ../Src/dio.c:139:5
+	movw	r0, :lower16:eComState
+	movt	r0, :upper16:eComState
+	ldr	r0, [r0]
+.Ltmp19:
+	.loc	2 139 5 is_stmt 0       @ ../Src/dio.c:139:5
+	cmp	r0, #2
+.Ltmp20:
+	.loc	2 139 39                @ ../Src/dio.c:139:39
+	it	eq
+	bleq	RS485_Service
+.Ltmp21:
+	.loc	2 140 5 is_stmt 1       @ ../Src/dio.c:140:5
+	movw	r0, :lower16:rs485_flags
+	movt	r0, :upper16:rs485_flags
+	ldr	r0, [r0]
+.Ltmp22:
+	.loc	2 140 5 is_stmt 0       @ ../Src/dio.c:140:5
+	tst.w	r0, #1
+	.loc	2 224 1 is_stmt 1       @ ../Src/dio.c:224:1
+	it	ne
+	popne	{r4, r5, r6, pc}
+.Ltmp23:
+	.loc	2 144 5                 @ ../Src/dio.c:144:5
+	movw	r0, :lower16:dout_0_7_remote
+	movt	r0, :upper16:dout_0_7_remote
+	ldrh	r2, [r0]
+	ldrh	r1, [r0]
+	and	r1, r1, #512
+.Ltmp24:
+	.loc	2 144 5 is_stmt 0       @ ../Src/dio.c:144:5
+	tst.w	r2, #256
+	bne	.LBB3_3
+@ %bb.1:
+.Ltmp25:
+	.loc	2 168 10 is_stmt 1      @ ../Src/dio.c:168:10
+	cbz	r1, .LBB3_11
+@ %bb.2:
+.Ltmp26:
+	.loc	2 170 14                @ ../Src/dio.c:170:14
+	movw	r1, :lower16:DIO_Service.dout_0_7_mem
+	movt	r1, :upper16:DIO_Service.dout_0_7_mem
+	ldrb	r1, [r1]
+	.loc	2 170 12 is_stmt 0      @ ../Src/dio.c:170:12
+	movw	r2, :lower16:dout_0_7
+	movt	r2, :upper16:dout_0_7
+	strb	r1, [r2]
+	.loc	2 171 19 is_stmt 1      @ ../Src/dio.c:171:19
+	movs	r1, #0
+	b	.LBB3_10
+.Ltmp27:
+.LBB3_3:
+	.loc	2 146 6                 @ ../Src/dio.c:146:6
+	cbnz	r1, .LBB3_5
+@ %bb.4:
+.Ltmp28:
+	.loc	2 148 19                @ ../Src/dio.c:148:19
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r1, [r1]
+	.loc	2 148 17 is_stmt 0      @ ../Src/dio.c:148:17
+	movw	r2, :lower16:DIO_Service.dout_0_7_mem
+	movt	r2, :upper16:DIO_Service.dout_0_7_mem
+	strb	r1, [r2]
+	.loc	2 149 20 is_stmt 1      @ ../Src/dio.c:149:20
+	ldrh	r1, [r0]
+	orr	r1, r1, #512
+	strh	r1, [r0]
+.Ltmp29:
+.LBB3_5:
+	.loc	2 152 15                @ ../Src/dio.c:152:15
+	ldrh	r1, [r0]
+	.loc	2 152 12 is_stmt 0      @ ../Src/dio.c:152:12
+	movw	r4, :lower16:dout_0_7
+	movt	r4, :upper16:dout_0_7
+	strb	r1, [r4]
+.Ltmp30:
+	.loc	2 154 7 is_stmt 1       @ ../Src/dio.c:154:7
+	ldrh	r1, [r0]
+	.loc	2 154 36 is_stmt 0      @ ../Src/dio.c:154:36
+	tst.w	r1, #64
+	beq	.LBB3_8
+@ %bb.6:
+	.loc	2 154 41                @ ../Src/dio.c:154:41
+	ldrh	r1, [r0]
+.Ltmp31:
+	.loc	2 154 6                 @ ../Src/dio.c:154:6
+	tst.w	r1, #4096
+	bne	.LBB3_8
+@ %bb.7:
+.Ltmp32:
+	.loc	2 156 20 is_stmt 1      @ ../Src/dio.c:156:20
+	ldrh	r1, [r0]
+	orr	r1, r1, #4096
+	strh	r1, [r0]
+	.loc	2 157 21                @ ../Src/dio.c:157:21
+	bl	HAL_GetTick
+	.loc	2 157 19 is_stmt 0      @ ../Src/dio.c:157:19
+	movw	r1, :lower16:DIO_Service.doorlock_timer
+	movt	r1, :upper16:DIO_Service.doorlock_timer
+	str	r0, [r1]
+	b	.LBB3_11
+.Ltmp33:
+.LBB3_8:
+	.loc	2 159 13 is_stmt 1      @ ../Src/dio.c:159:13
+	ldrh	r2, [r0]
+	ldrh	r1, [r0]
+.Ltmp34:
+	.loc	2 159 11 is_stmt 0      @ ../Src/dio.c:159:11
+	tst.w	r2, #64
+	bne.w	.LBB3_15
+@ %bb.9:
+.Ltmp35:
+	.loc	2 161 20 is_stmt 1      @ ../Src/dio.c:161:20
+	bic	r1, r1, #4096
+.Ltmp36:
+.LBB3_10:
+	.loc	2 0 20 is_stmt 0        @ ../Src/dio.c:0:20
+	strh	r1, [r0]
+.LBB3_11:
+.Ltmp37:
+	.loc	2 176 5 is_stmt 1       @ ../Src/dio.c:176:5
+	movw	r4, :lower16:din_cap_sen
+	movt	r4, :upper16:din_cap_sen
+	ldrsb.w	r0, [r4]
+.Ltmp38:
+	.loc	2 176 5 is_stmt 0       @ ../Src/dio.c:176:5
+	cmp.w	r0, #-1
+	bgt	.LBB3_14
+@ %bb.12:
+.Ltmp39:
+	.loc	2 178 12 is_stmt 1      @ ../Src/dio.c:178:12
+	movs	r0, #3
+	bl	CAP1293_ReadRegister
+	.loc	2 179 15                @ ../Src/dio.c:179:15
+	ldrb	r1, [r4]
+	and	r1, r1, #248
+	strb	r1, [r4]
+	.loc	2 180 26                @ ../Src/dio.c:180:26
+	and	r0, r0, #7
+	.loc	2 180 15 is_stmt 0      @ ../Src/dio.c:180:15
+	ldrb	r1, [r4]
+	orrs	r0, r1
+	strb	r0, [r4]
+	.loc	2 181 12 is_stmt 1      @ ../Src/dio.c:181:12
+	movs	r0, #0
+	bl	CAP1293_ReadRegister
+	.loc	2 182 6                 @ ../Src/dio.c:182:6
+	lsls	r0, r0, #31
+	beq	.LBB3_14
+@ %bb.13:
+.Ltmp40:
+	.loc	2 182 26 is_stmt 0      @ ../Src/dio.c:182:26
+	movs	r0, #0
+	movs	r1, #0
+	bl	CAP1293_WriteRegister
+.Ltmp41:
+.LBB3_14:
+	.loc	2 187 12 is_stmt 1      @ ../Src/dio.c:187:12
+	movw	r6, :lower16:din_state
+	movt	r6, :upper16:din_state
+	movs	r0, #0
+	strb	r0, [r6]
+	movw	r4, #2048
+	movt	r4, #16385
+.Ltmp42:
+	.loc	2 188 5                 @ ../Src/dio.c:188:5
+	add.w	r5, r4, #1024
+	mov	r0, r5
+	movs	r1, #1
+	bl	HAL_GPIO_ReadPin
+.Ltmp43:
+	.loc	2 188 5 is_stmt 0       @ ../Src/dio.c:188:5
+	cmp	r0, #1
+.Ltmp44:
+	.loc	2 188 73                @ ../Src/dio.c:188:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #1
+	strbeq	r0, [r6]
+.Ltmp45:
+	.loc	2 189 5 is_stmt 1       @ ../Src/dio.c:189:5
+	mov	r0, r5
+	movs	r1, #2
+	bl	HAL_GPIO_ReadPin
+.Ltmp46:
+	.loc	2 189 5 is_stmt 0       @ ../Src/dio.c:189:5
+	cmp	r0, #1
+.Ltmp47:
+	.loc	2 189 73                @ ../Src/dio.c:189:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #2
+	strbeq	r0, [r6]
+.Ltmp48:
+	.loc	2 190 5 is_stmt 1       @ ../Src/dio.c:190:5
+	mov	r0, r5
+	movs	r1, #4
+	bl	HAL_GPIO_ReadPin
+.Ltmp49:
+	.loc	2 190 5 is_stmt 0       @ ../Src/dio.c:190:5
+	cmp	r0, #1
+.Ltmp50:
+	.loc	2 190 73                @ ../Src/dio.c:190:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #4
+	strbeq	r0, [r6]
+.Ltmp51:
+	.loc	2 191 5 is_stmt 1       @ ../Src/dio.c:191:5
+	mov	r0, r5
+	movs	r1, #8
+	bl	HAL_GPIO_ReadPin
+.Ltmp52:
+	.loc	2 191 5 is_stmt 0       @ ../Src/dio.c:191:5
+	cmp	r0, #1
+.Ltmp53:
+	.loc	2 191 73                @ ../Src/dio.c:191:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #8
+	strbeq	r0, [r6]
+.Ltmp54:
+	.loc	2 192 5 is_stmt 1       @ ../Src/dio.c:192:5
+	mov	r0, r5
+	movs	r1, #16
+	bl	HAL_GPIO_ReadPin
+.Ltmp55:
+	.loc	2 192 5 is_stmt 0       @ ../Src/dio.c:192:5
+	cmp	r0, #1
+.Ltmp56:
+	.loc	2 192 73                @ ../Src/dio.c:192:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #16
+	strbeq	r0, [r6]
+.Ltmp57:
+	.loc	2 193 5 is_stmt 1       @ ../Src/dio.c:193:5
+	mov	r0, r5
+	movs	r1, #32
+	bl	HAL_GPIO_ReadPin
+.Ltmp58:
+	.loc	2 193 5 is_stmt 0       @ ../Src/dio.c:193:5
+	cmp	r0, #1
+.Ltmp59:
+	.loc	2 193 73                @ ../Src/dio.c:193:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #32
+	strbeq	r0, [r6]
+.Ltmp60:
+	.loc	2 194 5 is_stmt 1       @ ../Src/dio.c:194:5
+	mov	r0, r5
+	movs	r1, #64
+	bl	HAL_GPIO_ReadPin
+.Ltmp61:
+	.loc	2 194 5 is_stmt 0       @ ../Src/dio.c:194:5
+	cmp	r0, #1
+.Ltmp62:
+	.loc	2 194 73                @ ../Src/dio.c:194:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #64
+	strbeq	r0, [r6]
+.Ltmp63:
+	.loc	2 195 5 is_stmt 1       @ ../Src/dio.c:195:5
+	mov	r0, r5
+	movs	r1, #128
+	bl	HAL_GPIO_ReadPin
+.Ltmp64:
+	.loc	2 195 5 is_stmt 0       @ ../Src/dio.c:195:5
+	cmp	r0, #1
+.Ltmp65:
+	.loc	2 195 73                @ ../Src/dio.c:195:73
+	ittt	eq
+	ldrbeq	r0, [r6]
+	orreq	r0, r0, #128
+	strbeq	r0, [r6]
+.Ltmp66:
+	.loc	2 196 2 is_stmt 1       @ ../Src/dio.c:196:2
+	bl	DIO_DebounceDigitalInput
+.Ltmp67:
+	.loc	2 200 5                 @ ../Src/dio.c:200:5
+	movw	r5, :lower16:dout_0_7
+	movt	r5, :upper16:dout_0_7
+	ldrb	r0, [r5]
+.Ltmp68:
+	.loc	2 200 5 is_stmt 0       @ ../Src/dio.c:200:5
+	tst.w	r0, #1
+.Ltmp69:
+	.loc	2 201 7 is_stmt 1       @ ../Src/dio.c:201:7
+	mov	r0, r4
+	mov.w	r1, #16
+	ite	eq
+	moveq	r2, #0
+	.loc	2 200 27                @ ../Src/dio.c:200:27
+	movne	r2, #1
+	bl	HAL_GPIO_WritePin
+.Ltmp70:
+	.loc	2 202 5                 @ ../Src/dio.c:202:5
+	ldrb	r0, [r5]
+.Ltmp71:
+	.loc	2 202 5 is_stmt 0       @ ../Src/dio.c:202:5
+	tst.w	r0, #2
+.Ltmp72:
+	.loc	2 203 7 is_stmt 1       @ ../Src/dio.c:203:7
+	mov	r0, r4
+	mov.w	r1, #32
+	ite	eq
+	moveq	r2, #0
+	.loc	2 202 27                @ ../Src/dio.c:202:27
+	movne	r2, #1
+	bl	HAL_GPIO_WritePin
+.Ltmp73:
+	.loc	2 204 5                 @ ../Src/dio.c:204:5
+	ldrb	r0, [r5]
+.Ltmp74:
+	.loc	2 204 5 is_stmt 0       @ ../Src/dio.c:204:5
+	tst.w	r0, #8
+.Ltmp75:
+	.loc	2 205 7 is_stmt 1       @ ../Src/dio.c:205:7
+	mov	r0, r4
+	mov.w	r1, #128
+	ite	eq
+	moveq	r2, #0
+	.loc	2 204 27                @ ../Src/dio.c:204:27
+	movne	r2, #1
+	bl	HAL_GPIO_WritePin
+.Ltmp76:
+	.loc	2 206 5                 @ ../Src/dio.c:206:5
+	ldrb	r0, [r5]
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	.loc	2 206 27 is_stmt 0      @ ../Src/dio.c:206:27
+	orr	r3, r2, #16
+.Ltmp77:
+	.loc	2 206 5                 @ ../Src/dio.c:206:5
+	tst.w	r0, #16
+	it	eq
+	biceq	r3, r2, #16
+.Ltmp78:
+	.loc	2 208 27 is_stmt 1      @ ../Src/dio.c:208:27
+	orr	r0, r3, #32
+	.loc	2 208 5 is_stmt 0       @ ../Src/dio.c:208:5
+	ldrb	r2, [r5]
+.Ltmp79:
+	.loc	2 208 5                 @ ../Src/dio.c:208:5
+	tst.w	r2, #32
+	it	eq
+	andeq	r0, r3, #223
+	strb	r0, [r1]
+.Ltmp80:
+	.loc	2 211 5 is_stmt 1       @ ../Src/dio.c:211:5
+	ldrb	r0, [r5]
+.Ltmp81:
+	.loc	2 211 5 is_stmt 0       @ ../Src/dio.c:211:5
+	tst.w	r0, #64
+.Ltmp82:
+	.loc	2 217 3 is_stmt 1       @ ../Src/dio.c:217:3
+	mov	r0, r4
+	mov.w	r1, #64
+	ite	eq
+	moveq	r2, #0
+.Ltmp83:
+	.loc	2 213 3                 @ ../Src/dio.c:213:3
+	movne	r2, #1
+	bl	HAL_GPIO_WritePin
+.Ltmp84:
+	.loc	2 220 5                 @ ../Src/dio.c:220:5
+	ldrsb.w	r0, [r5]
+.Ltmp85:
+	.loc	2 220 5 is_stmt 0       @ ../Src/dio.c:220:5
+	cmp.w	r0, #-1
+.Ltmp86:
+	.loc	2 220 27                @ ../Src/dio.c:220:27
+	mov	r0, r4
+	mov.w	r1, #256
+	ite	le
+	movle	r2, #1
+	.loc	2 221 7 is_stmt 1       @ ../Src/dio.c:221:7
+	movgt	r2, #0
+	bl	HAL_GPIO_WritePin
+.Ltmp87:
+	.loc	2 223 2                 @ ../Src/dio.c:223:2
+	pop.w	{r4, r5, r6, lr}
+	b	DIO_SetOuput
+.LBB3_15:
+.Ltmp88:
+	.loc	2 163 41                @ ../Src/dio.c:163:41
+	lsls	r1, r1, #25
+	bpl.w	.LBB3_11
+@ %bb.16:
+	.loc	2 163 45 is_stmt 0      @ ../Src/dio.c:163:45
+	ldrh	r0, [r0]
+.Ltmp89:
+	.loc	2 163 11                @ ../Src/dio.c:163:11
+	tst.w	r0, #4096
+	beq.w	.LBB3_11
+@ %bb.17:
+.Ltmp90:
+	.loc	2 165 8 is_stmt 1       @ ../Src/dio.c:165:8
+	bl	HAL_GetTick
+	.loc	2 165 24 is_stmt 0      @ ../Src/dio.c:165:24
+	movw	r1, :lower16:DIO_Service.doorlock_timer
+	movt	r1, :upper16:DIO_Service.doorlock_timer
+	ldr	r1, [r1]
+	.loc	2 165 22                @ ../Src/dio.c:165:22
+	subs	r0, r0, r1
+.Ltmp91:
+	.loc	2 165 7                 @ ../Src/dio.c:165:7
+	movw	r1, #5112
+	cmp	r0, r1
+	blo.w	.LBB3_11
+@ %bb.18:
+.Ltmp92:
+	.loc	2 165 78                @ ../Src/dio.c:165:78
+	ldrb	r0, [r4]
+	and	r0, r0, #191
+	strb	r0, [r4]
+	b	.LBB3_11
+.Ltmp93:
+.Lfunc_end3:
+	.size	DIO_Service, .Lfunc_end3-DIO_Service
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.CAP1293_ReadRegister,"ax",%progbits
+	.hidden	CAP1293_ReadRegister    @ -- Begin function CAP1293_ReadRegister
+	.globl	CAP1293_ReadRegister
+	.p2align	2
+	.type	CAP1293_ReadRegister,%function
+	.code	16                      @ @CAP1293_ReadRegister
+	.thumb_func
+CAP1293_ReadRegister:
+.Lfunc_begin4:
+	.loc	2 895 0 is_stmt 1       @ ../Src/dio.c:895:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r4, r5, r7, lr}
+	push	{r4, r5, r7, lr}
+	.cfi_def_cfa_offset 16
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+	.cfi_offset r5, -12
+	.cfi_offset r4, -16
+	.pad	#8
+	sub	sp, #8
+	.cfi_def_cfa_offset 24
+	@DEBUG_VALUE: CAP1293_ReadRegister:register_address <- $r0
+	@DEBUG_VALUE: CAP1293_ReadRegister:register_address <- $r0
+	strb.w	r0, [sp, #7]
+.Ltmp94:
+	.loc	2 898 2 prologue_end    @ ../Src/dio.c:898:2
+	movs	r5, #10
+	str	r5, [sp]
+	movw	r4, :lower16:hi2c1
+	movt	r4, :upper16:hi2c1
+	add.w	r2, sp, #7
+.Ltmp95:
+	@DEBUG_VALUE: CAP1293_ReadRegister:register_address <- [DW_OP_plus_uconst 7] [$sp+0]
+	mov	r0, r4
+	movs	r1, #80
+	movs	r3, #1
+	bl	HAL_I2C_Master_Transmit
+	.loc	2 899 2                 @ ../Src/dio.c:899:2
+	str	r5, [sp]
+	add.w	r2, sp, #6
+.Ltmp96:
+	@DEBUG_VALUE: CAP1293_ReadRegister:ret_val <- [DW_OP_plus_uconst 6] [$sp+0]
+	mov	r0, r4
+	movs	r1, #81
+	movs	r3, #1
+	bl	HAL_I2C_Master_Receive
+	.loc	2 900 2                 @ ../Src/dio.c:900:2
+	ldrb.w	r0, [sp, #6]
+	add	sp, #8
+.Ltmp97:
+	pop	{r4, r5, r7, pc}
+.Ltmp98:
+.Lfunc_end4:
+	.size	CAP1293_ReadRegister, .Lfunc_end4-CAP1293_ReadRegister
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.CAP1293_WriteRegister,"ax",%progbits
+	.hidden	CAP1293_WriteRegister   @ -- Begin function CAP1293_WriteRegister
+	.globl	CAP1293_WriteRegister
+	.p2align	2
+	.type	CAP1293_WriteRegister,%function
+	.code	16                      @ @CAP1293_WriteRegister
+	.thumb_func
+CAP1293_WriteRegister:
+.Lfunc_begin5:
+	.loc	2 905 0                 @ ../Src/dio.c:905:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.save	{r7, lr}
+	push	{r7, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+	.pad	#8
+	sub	sp, #8
+	.cfi_def_cfa_offset 16
+	@DEBUG_VALUE: CAP1293_WriteRegister:register_address <- $r0
+	@DEBUG_VALUE: CAP1293_WriteRegister:register_address <- $r0
+	@DEBUG_VALUE: CAP1293_WriteRegister:register_data <- $r1
+	@DEBUG_VALUE: CAP1293_WriteRegister:register_data <- $r1
+.Ltmp99:
+	.loc	2 909 13 prologue_end   @ ../Src/dio.c:909:13
+	strb.w	r1, [sp, #7]
+	.loc	2 908 13                @ ../Src/dio.c:908:13
+	strb.w	r0, [sp, #6]
+	.loc	2 910 2                 @ ../Src/dio.c:910:2
+	movs	r0, #10
+.Ltmp100:
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add.w	r2, sp, #6
+	movs	r1, #80
+.Ltmp101:
+	movs	r3, #2
+	bl	HAL_I2C_Master_Transmit
+	.loc	2 911 1                 @ ../Src/dio.c:911:1
+	add	sp, #8
+	pop	{r7, pc}
+.Ltmp102:
+.Lfunc_end5:
+	.size	CAP1293_WriteRegister, .Lfunc_end5-CAP1293_WriteRegister
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.DIO_DebounceDigitalInput,"ax",%progbits
+	.hidden	DIO_DebounceDigitalInput @ -- Begin function DIO_DebounceDigitalInput
+	.globl	DIO_DebounceDigitalInput
+	.p2align	2
+	.type	DIO_DebounceDigitalInput,%function
+	.code	16                      @ @DIO_DebounceDigitalInput
+	.thumb_func
+DIO_DebounceDigitalInput:
+.Lfunc_begin6:
+	.loc	2 228 0                 @ ../Src/dio.c:228:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	2 250 6 prologue_end    @ ../Src/dio.c:250:6
+	movw	r0, :lower16:din_state
+	movt	r0, :upper16:din_state
+	ldrb	r1, [r0]
+	.loc	2 250 29 is_stmt 0      @ ../Src/dio.c:250:29
+	tst.w	r1, #1
+	beq	.LBB6_8
+@ %bb.1:
+	.loc	2 250 35                @ ../Src/dio.c:250:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp103:
+	.loc	2 250 5                 @ ../Src/dio.c:250:5
+	tst.w	r2, #1
+	bne	.LBB6_8
+@ %bb.2:
+.Ltmp104:
+	.loc	2 252 6 is_stmt 1       @ ../Src/dio.c:252:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_0_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_0_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp105:
+	.loc	2 252 6 is_stmt 0       @ ../Src/dio.c:252:6
+	cmp	r3, #100
+	blo	.LBB6_12
+@ %bb.3:
+	.loc	2 0 6                   @ ../Src/dio.c:0:6
+	movs	r3, #0
+.Ltmp106:
+	.loc	2 254 16 is_stmt 1      @ ../Src/dio.c:254:16
+	strb	r3, [r2]
+	.loc	2 255 12                @ ../Src/dio.c:255:12
+	ldrb	r2, [r1]
+	orr	r2, r2, #1
+	strb	r2, [r1]
+.Ltmp107:
+	.loc	2 257 7                 @ ../Src/dio.c:257:7
+	movw	r2, :lower16:ROOM_Status
+	movt	r2, :upper16:ROOM_Status
+	ldr	r2, [r2]
+.Ltmp108:
+	.loc	2 257 7 is_stmt 0       @ ../Src/dio.c:257:7
+	cmp	r2, #8
+	beq	.LBB6_5
+@ %bb.4:
+.Ltmp109:
+	.loc	2 257 40                @ ../Src/dio.c:257:40
+	movw	r2, :lower16:dout_0_7
+	movt	r2, :upper16:dout_0_7
+	ldrb	r3, [r2]
+	orr	r3, r3, #2
+	strb	r3, [r2]
+.Ltmp110:
+.LBB6_5:
+	.loc	2 258 8 is_stmt 1       @ ../Src/dio.c:258:8
+	ldrb	r1, [r1]
+.Ltmp111:
+	.loc	2 258 7 is_stmt 0       @ ../Src/dio.c:258:7
+	tst.w	r1, #32
+	beq	.LBB6_7
+@ %bb.6:
+.Ltmp112:
+	.loc	2 258 36                @ ../Src/dio.c:258:36
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r2, [r1]
+	orr	r2, r2, #16
+	strb	r2, [r1]
+.Ltmp113:
+.LBB6_7:
+	.loc	2 259 4 is_stmt 1       @ ../Src/dio.c:259:4
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	orr	r2, r2, #2
+	b	.LBB6_11
+.Ltmp114:
+.LBB6_8:
+	.loc	2 262 13                @ ../Src/dio.c:262:13
+	ldrb	r1, [r0]
+	.loc	2 262 37 is_stmt 0      @ ../Src/dio.c:262:37
+	tst.w	r1, #1
+	bne	.LBB6_10
+@ %bb.9:
+	.loc	2 262 41                @ ../Src/dio.c:262:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp115:
+	.loc	2 262 10                @ ../Src/dio.c:262:10
+	tst.w	r2, #1
+	bne.w	.LBB6_80
+.LBB6_10:
+.Ltmp116:
+	.loc	2 276 15 is_stmt 1      @ ../Src/dio.c:276:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_0_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_0_timer
+	movs	r2, #0
+.Ltmp117:
+.LBB6_11:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_12:
+.Ltmp118:
+	.loc	2 282 6 is_stmt 1       @ ../Src/dio.c:282:6
+	ldrb	r1, [r0]
+	.loc	2 282 29 is_stmt 0      @ ../Src/dio.c:282:29
+	tst.w	r1, #2
+	beq	.LBB6_16
+@ %bb.13:
+	.loc	2 282 35                @ ../Src/dio.c:282:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp119:
+	.loc	2 282 5                 @ ../Src/dio.c:282:5
+	tst.w	r2, #2
+	bne	.LBB6_16
+@ %bb.14:
+.Ltmp120:
+	.loc	2 284 6 is_stmt 1       @ ../Src/dio.c:284:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_1_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_1_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp121:
+	.loc	2 284 6 is_stmt 0       @ ../Src/dio.c:284:6
+	cmp	r3, #50
+	blo	.LBB6_20
+@ %bb.15:
+.Ltmp122:
+	.loc	2 286 16 is_stmt 1      @ ../Src/dio.c:286:16
+	movs	r3, #0
+	strb	r3, [r2]
+	.loc	2 287 12                @ ../Src/dio.c:287:12
+	ldrb	r2, [r1]
+	orr	r2, r2, #2
+	b	.LBB6_19
+.Ltmp123:
+.LBB6_16:
+	.loc	2 290 13                @ ../Src/dio.c:290:13
+	ldrb	r1, [r0]
+	.loc	2 290 37 is_stmt 0      @ ../Src/dio.c:290:37
+	tst.w	r1, #2
+	bne	.LBB6_18
+@ %bb.17:
+	.loc	2 290 41                @ ../Src/dio.c:290:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp124:
+	.loc	2 290 10                @ ../Src/dio.c:290:10
+	tst.w	r2, #2
+	bne.w	.LBB6_82
+.LBB6_18:
+.Ltmp125:
+	.loc	2 306 15 is_stmt 1      @ ../Src/dio.c:306:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_1_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_1_timer
+	movs	r2, #0
+.Ltmp126:
+.LBB6_19:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_20:
+.Ltmp127:
+	.loc	2 312 6 is_stmt 1       @ ../Src/dio.c:312:6
+	ldrb	r1, [r0]
+	.loc	2 312 29 is_stmt 0      @ ../Src/dio.c:312:29
+	tst.w	r1, #4
+	beq	.LBB6_25
+@ %bb.21:
+	.loc	2 312 35                @ ../Src/dio.c:312:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp128:
+	.loc	2 312 5                 @ ../Src/dio.c:312:5
+	tst.w	r2, #4
+	bne	.LBB6_25
+@ %bb.22:
+.Ltmp129:
+	.loc	2 314 6 is_stmt 1       @ ../Src/dio.c:314:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_2_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_2_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp130:
+	.loc	2 314 6 is_stmt 0       @ ../Src/dio.c:314:6
+	cmp	r3, #50
+	blo	.LBB6_29
+@ %bb.23:
+.Ltmp131:
+	.loc	2 317 12 is_stmt 1      @ ../Src/dio.c:317:12
+	ldrb	r3, [r1]
+	orr	r3, r3, #4
+	strb	r3, [r1]
+	movs	r1, #0
+	.loc	2 316 16                @ ../Src/dio.c:316:16
+	strb	r1, [r2]
+.Ltmp132:
+	.loc	2 319 7                 @ ../Src/dio.c:319:7
+	movw	r2, :lower16:dio_flags
+	movt	r2, :upper16:dio_flags
+	ldr	r3, [r2]
+.Ltmp133:
+	.loc	2 319 7 is_stmt 0       @ ../Src/dio.c:319:7
+	tst.w	r3, #8
+	beq	.LBB6_29
+@ %bb.24:
+.Ltmp134:
+	.loc	2 321 5 is_stmt 1       @ ../Src/dio.c:321:5
+	ldr	r3, [r2]
+	bic	r3, r3, #8
+	str	r3, [r2]
+	.loc	2 323 5                 @ ../Src/dio.c:323:5
+	movw	r2, :lower16:display_flags
+	movt	r2, :upper16:display_flags
+	ldr	r3, [r2]
+	bic	r3, r3, #32
+	str	r3, [r2]
+	.loc	2 322 18                @ ../Src/dio.c:322:18
+	movw	r3, :lower16:SignalBuzzer
+	movt	r3, :upper16:SignalBuzzer
+	str	r1, [r3]
+	.loc	2 323 5                 @ ../Src/dio.c:323:5
+	ldr	r1, [r2]
+	orr	r1, r1, #-2147483648
+	str	r1, [r2]
+	b	.LBB6_29
+.Ltmp135:
+.LBB6_25:
+	.loc	2 327 13                @ ../Src/dio.c:327:13
+	ldrb	r1, [r0]
+	.loc	2 327 37 is_stmt 0      @ ../Src/dio.c:327:37
+	tst.w	r1, #4
+	bne	.LBB6_27
+@ %bb.26:
+	.loc	2 327 41                @ ../Src/dio.c:327:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp136:
+	.loc	2 327 10                @ ../Src/dio.c:327:10
+	tst.w	r2, #4
+	bne.w	.LBB6_85
+.LBB6_27:
+.Ltmp137:
+	.loc	2 337 15 is_stmt 1      @ ../Src/dio.c:337:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_2_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_2_timer
+	movs	r2, #0
+.Ltmp138:
+.LBB6_28:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_29:
+.Ltmp139:
+	.loc	2 343 6 is_stmt 1       @ ../Src/dio.c:343:6
+	ldrb	r1, [r0]
+	.loc	2 343 29 is_stmt 0      @ ../Src/dio.c:343:29
+	tst.w	r1, #8
+	beq	.LBB6_34
+@ %bb.30:
+	.loc	2 343 35                @ ../Src/dio.c:343:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp140:
+	.loc	2 343 5                 @ ../Src/dio.c:343:5
+	tst.w	r2, #8
+	bne	.LBB6_34
+@ %bb.31:
+.Ltmp141:
+	.loc	2 345 6 is_stmt 1       @ ../Src/dio.c:345:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_3_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_3_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp142:
+	.loc	2 345 6 is_stmt 0       @ ../Src/dio.c:345:6
+	cmp	r3, #100
+	blo	.LBB6_38
+@ %bb.32:
+.Ltmp143:
+	.loc	2 348 12 is_stmt 1      @ ../Src/dio.c:348:12
+	ldrb	r3, [r1]
+	orr	r3, r3, #8
+	strb	r3, [r1]
+	movs	r1, #0
+	.loc	2 347 16                @ ../Src/dio.c:347:16
+	strb	r1, [r2]
+.Ltmp144:
+	.loc	2 350 8                 @ ../Src/dio.c:350:8
+	movw	r1, :lower16:dio_flags
+	movt	r1, :upper16:dio_flags
+	ldr	r2, [r1]
+.Ltmp145:
+	.loc	2 350 8 is_stmt 0       @ ../Src/dio.c:350:8
+	tst.w	r2, #32
+	beq	.LBB6_38
+@ %bb.33:
+.Ltmp146:
+	.loc	2 352 5 is_stmt 1       @ ../Src/dio.c:352:5
+	ldr	r2, [r1]
+	bic	r2, r2, #32
+	str	r2, [r1]
+	.loc	2 353 5                 @ ../Src/dio.c:353:5
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	and	r2, r2, #254
+	b	.LBB6_37
+.Ltmp147:
+.LBB6_34:
+	.loc	2 357 13                @ ../Src/dio.c:357:13
+	ldrb	r1, [r0]
+	.loc	2 357 37 is_stmt 0      @ ../Src/dio.c:357:37
+	tst.w	r1, #8
+	bne	.LBB6_36
+@ %bb.35:
+	.loc	2 357 41                @ ../Src/dio.c:357:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp148:
+	.loc	2 357 10                @ ../Src/dio.c:357:10
+	tst.w	r2, #8
+	bne.w	.LBB6_87
+.LBB6_36:
+.Ltmp149:
+	.loc	2 369 15 is_stmt 1      @ ../Src/dio.c:369:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_3_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_3_timer
+	movs	r2, #0
+.Ltmp150:
+.LBB6_37:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_38:
+.Ltmp151:
+	.loc	2 375 6 is_stmt 1       @ ../Src/dio.c:375:6
+	ldrb	r1, [r0]
+	.loc	2 375 29 is_stmt 0      @ ../Src/dio.c:375:29
+	tst.w	r1, #16
+	beq	.LBB6_42
+@ %bb.39:
+	.loc	2 375 35                @ ../Src/dio.c:375:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp152:
+	.loc	2 375 5                 @ ../Src/dio.c:375:5
+	tst.w	r2, #16
+	bne	.LBB6_42
+@ %bb.40:
+.Ltmp153:
+	.loc	2 377 6 is_stmt 1       @ ../Src/dio.c:377:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_4_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_4_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp154:
+	.loc	2 377 6 is_stmt 0       @ ../Src/dio.c:377:6
+	cmp	r3, #50
+	blo	.LBB6_46
+@ %bb.41:
+.Ltmp155:
+	.loc	2 379 16 is_stmt 1      @ ../Src/dio.c:379:16
+	movs	r3, #0
+	strb	r3, [r2]
+	.loc	2 380 12                @ ../Src/dio.c:380:12
+	ldrb	r2, [r1]
+	orr	r2, r2, #16
+	b	.LBB6_45
+.Ltmp156:
+.LBB6_42:
+	.loc	2 383 13                @ ../Src/dio.c:383:13
+	ldrb	r1, [r0]
+	.loc	2 383 37 is_stmt 0      @ ../Src/dio.c:383:37
+	tst.w	r1, #16
+	bne	.LBB6_44
+@ %bb.43:
+	.loc	2 383 41                @ ../Src/dio.c:383:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp157:
+	.loc	2 383 10                @ ../Src/dio.c:383:10
+	tst.w	r2, #16
+	bne.w	.LBB6_89
+.LBB6_44:
+.Ltmp158:
+	.loc	2 398 15 is_stmt 1      @ ../Src/dio.c:398:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_4_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_4_timer
+	movs	r2, #0
+.Ltmp159:
+.LBB6_45:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_46:
+.Ltmp160:
+	.loc	2 404 6 is_stmt 1       @ ../Src/dio.c:404:6
+	ldrb	r1, [r0]
+	.loc	2 404 29 is_stmt 0      @ ../Src/dio.c:404:29
+	tst.w	r1, #32
+	beq	.LBB6_51
+@ %bb.47:
+	.loc	2 404 35                @ ../Src/dio.c:404:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp161:
+	.loc	2 404 5                 @ ../Src/dio.c:404:5
+	tst.w	r2, #32
+	bne	.LBB6_51
+@ %bb.48:
+.Ltmp162:
+	.loc	2 406 6 is_stmt 1       @ ../Src/dio.c:406:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_5_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_5_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp163:
+	.loc	2 406 6 is_stmt 0       @ ../Src/dio.c:406:6
+	cmp	r3, #100
+	blo	.LBB6_55
+@ %bb.49:
+.Ltmp164:
+	.loc	2 409 12 is_stmt 1      @ ../Src/dio.c:409:12
+	ldrb	r3, [r1]
+	orr	r3, r3, #32
+	strb	r3, [r1]
+	movs	r3, #0
+	.loc	2 408 16                @ ../Src/dio.c:408:16
+	strb	r3, [r2]
+.Ltmp165:
+	.loc	2 410 7                 @ ../Src/dio.c:410:7
+	ldrb	r1, [r1]
+.Ltmp166:
+	.loc	2 410 7 is_stmt 0       @ ../Src/dio.c:410:7
+	tst.w	r1, #1
+	beq	.LBB6_55
+@ %bb.50:
+.Ltmp167:
+	.loc	2 410 33                @ ../Src/dio.c:410:33
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r2, [r1]
+	orr	r2, r2, #16
+	b	.LBB6_54
+.Ltmp168:
+.LBB6_51:
+	.loc	2 413 13 is_stmt 1      @ ../Src/dio.c:413:13
+	ldrb	r1, [r0]
+	.loc	2 413 37 is_stmt 0      @ ../Src/dio.c:413:37
+	tst.w	r1, #32
+	bne	.LBB6_53
+@ %bb.52:
+	.loc	2 413 41                @ ../Src/dio.c:413:41
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp169:
+	.loc	2 413 10                @ ../Src/dio.c:413:10
+	tst.w	r2, #32
+	bne.w	.LBB6_92
+.LBB6_53:
+.Ltmp170:
+	.loc	2 424 15 is_stmt 1      @ ../Src/dio.c:424:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_5_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_5_timer
+	movs	r2, #0
+.Ltmp171:
+.LBB6_54:
+	.loc	2 0 15 is_stmt 0        @ ../Src/dio.c:0:15
+	strb	r2, [r1]
+.LBB6_55:
+.Ltmp172:
+	.loc	2 430 6 is_stmt 1       @ ../Src/dio.c:430:6
+	ldrb	r1, [r0]
+	.loc	2 430 29 is_stmt 0      @ ../Src/dio.c:430:29
+	tst.w	r1, #64
+	beq	.LBB6_60
+@ %bb.56:
+	.loc	2 430 35                @ ../Src/dio.c:430:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrb	r2, [r1]
+.Ltmp173:
+	.loc	2 430 5                 @ ../Src/dio.c:430:5
+	tst.w	r2, #64
+	bne	.LBB6_60
+@ %bb.57:
+.Ltmp174:
+	.loc	2 432 6 is_stmt 1       @ ../Src/dio.c:432:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_6_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_6_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp175:
+	.loc	2 432 6 is_stmt 0       @ ../Src/dio.c:432:6
+	cmp	r3, #100
+	blo	.LBB6_63
+@ %bb.58:
+.Ltmp176:
+	.loc	2 435 12 is_stmt 1      @ ../Src/dio.c:435:12
+	ldrb	r3, [r1]
+	orr	r3, r3, #64
+	strb	r3, [r1]
+	movs	r1, #0
+	.loc	2 434 16                @ ../Src/dio.c:434:16
+	strb	r1, [r2]
+.Ltmp177:
+	.loc	2 437 7                 @ ../Src/dio.c:437:7
+	movw	r1, :lower16:dio_flags
+	movt	r1, :upper16:dio_flags
+	ldr	r2, [r1]
+.Ltmp178:
+	.loc	2 437 7 is_stmt 0       @ ../Src/dio.c:437:7
+	tst.w	r2, #1
+	beq	.LBB6_63
+@ %bb.59:
+.Ltmp179:
+	.loc	2 439 5 is_stmt 1       @ ../Src/dio.c:439:5
+	ldr	r2, [r1]
+	bic	r2, r2, #1
+	str	r2, [r1]
+	.loc	2 440 5                 @ ../Src/dio.c:440:5
+	movw	r1, :lower16:display_flags
+	movt	r1, :upper16:display_flags
+	ldr	r2, [r1]
+	bic	r2, r2, #16
+	str	r2, [r1]
+	ldr	r2, [r1]
+	orr	r2, r2, #-2147483648
+	str	r2, [r1]
+	b	.LBB6_63
+.Ltmp180:
+.LBB6_60:
+	.loc	2 444 13                @ ../Src/dio.c:444:13
+	ldrb	r1, [r0]
+	.loc	2 444 37 is_stmt 0      @ ../Src/dio.c:444:37
+	tst.w	r1, #64
+	bne	.LBB6_62
+@ %bb.61:
+	.loc	2 444 41                @ ../Src/dio.c:444:41
+	movw	r2, :lower16:din_0_7
+	movt	r2, :upper16:din_0_7
+	ldrb	r1, [r2]
+.Ltmp181:
+	.loc	2 444 10                @ ../Src/dio.c:444:10
+	tst.w	r1, #64
+	bne.w	.LBB6_94
+.LBB6_62:
+.Ltmp182:
+	.loc	2 456 15 is_stmt 1      @ ../Src/dio.c:456:15
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_6_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_6_timer
+	movs	r2, #0
+	strb	r2, [r1]
+.Ltmp183:
+.LBB6_63:
+	.loc	2 461 6                 @ ../Src/dio.c:461:6
+	ldrsb.w	r1, [r0]
+	.loc	2 461 29 is_stmt 0      @ ../Src/dio.c:461:29
+	cmp.w	r1, #-1
+	ble.w	.LBB6_77
+.LBB6_64:
+.Ltmp184:
+	.loc	2 470 13 is_stmt 1      @ ../Src/dio.c:470:13
+	ldrsb.w	r0, [r0]
+	.loc	2 470 37 is_stmt 0      @ ../Src/dio.c:470:37
+	cmp	r0, #0
+	blt	.LBB6_66
+@ %bb.65:
+	.loc	2 470 41                @ ../Src/dio.c:470:41
+	movw	r0, :lower16:din_0_7
+	movt	r0, :upper16:din_0_7
+	ldrsb.w	r1, [r0]
+.Ltmp185:
+	.loc	2 470 10                @ ../Src/dio.c:470:10
+	cmp.w	r1, #-1
+	ble.w	.LBB6_97
+.LBB6_66:
+.Ltmp186:
+	.loc	2 480 21 is_stmt 1      @ ../Src/dio.c:480:21
+	movw	r0, :lower16:DIO_DebounceDigitalInput.din_7_timer
+	movt	r0, :upper16:DIO_DebounceDigitalInput.din_7_timer
+	movs	r1, #0
+.Ltmp187:
+.LBB6_67:
+	.loc	2 0 21 is_stmt 0        @ ../Src/dio.c:0:21
+	strb	r1, [r0]
+.LBB6_68:
+	.save	{r4, r5, r6, r7, lr}
+	push	{r4, r5, r6, r7, lr}
+	.cfi_def_cfa_offset 20
+	.cfi_offset lr, -4
+	.cfi_offset r7, -8
+	.cfi_offset r6, -12
+	.cfi_offset r5, -16
+	.cfi_offset r4, -20
+	.pad	#20
+	sub	sp, #20
+	.cfi_def_cfa_offset 40
+.Ltmp188:
+	.loc	2 488 5 is_stmt 1       @ ../Src/dio.c:488:5
+	movw	r4, :lower16:din_cap_sen
+	movt	r4, :upper16:din_cap_sen
+	ldrb	r0, [r4]
+	.loc	2 488 29 is_stmt 0      @ ../Src/dio.c:488:29
+	tst.w	r0, #4
+	beq	.LBB6_72
+@ %bb.69:
+	.loc	2 488 33                @ ../Src/dio.c:488:33
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+.Ltmp189:
+	.loc	2 488 5                 @ ../Src/dio.c:488:5
+	tst.w	r1, #2
+	bne	.LBB6_72
+@ %bb.70:
+.Ltmp190:
+	.loc	2 490 3 is_stmt 1       @ ../Src/dio.c:490:3
+	ldr	r1, [r0]
+	orr	r1, r1, #2
+	str	r1, [r0]
+.Ltmp191:
+	.loc	2 492 17                @ ../Src/dio.c:492:17
+	movw	r5, :lower16:servisMenu
+	movt	r5, :upper16:servisMenu
+	ldrb	r0, [r5]
+.Ltmp192:
+	.loc	2 492 6 is_stmt 0       @ ../Src/dio.c:492:6
+	cmp	r0, #1
+	bhi.w	.LBB6_99
+@ %bb.71:
+.Ltmp193:
+	.loc	2 495 17 is_stmt 1      @ ../Src/dio.c:495:17
+	movw	r0, :lower16:SignalBuzzer
+	movt	r0, :upper16:SignalBuzzer
+	movs	r1, #3
+	str	r1, [r0]
+	.loc	2 496 22                @ ../Src/dio.c:496:22
+	movw	r0, :lower16:DIO_DebounceDigitalInput.door_bell_sw_time
+	movt	r0, :upper16:DIO_DebounceDigitalInput.door_bell_sw_time
+	mov.w	r1, #2112
+	str	r1, [r0]
+	.loc	2 494 4                 @ ../Src/dio.c:494:4
+	movw	r0, :lower16:dout_0_7
+	movt	r0, :upper16:dout_0_7
+	ldrb	r1, [r0]
+	orr	r1, r1, #8
+	strb	r1, [r0]
+	.loc	2 497 34                @ ../Src/dio.c:497:34
+	bl	HAL_GetTick
+	.loc	2 497 32 is_stmt 0      @ ../Src/dio.c:497:32
+	movw	r1, :lower16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	str	r0, [r1]
+	b	.LBB6_108
+.Ltmp194:
+.LBB6_72:
+	.loc	2 534 11 is_stmt 1      @ ../Src/dio.c:534:11
+	bl	HAL_GetTick
+	.loc	2 534 27 is_stmt 0      @ ../Src/dio.c:534:27
+	movw	r5, :lower16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	movt	r5, :upper16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	ldr	r1, [r5]
+	.loc	2 534 25                @ ../Src/dio.c:534:25
+	subs	r1, r0, r1
+	.loc	2 534 50                @ ../Src/dio.c:534:50
+	movw	r0, :lower16:DIO_DebounceDigitalInput.door_bell_sw_time
+	movt	r0, :upper16:DIO_DebounceDigitalInput.door_bell_sw_time
+	ldr	r2, [r0]
+.Ltmp195:
+	.loc	2 534 10                @ ../Src/dio.c:534:10
+	cmp	r1, r2
+	blo.w	.LBB6_108
+@ %bb.73:
+.Ltmp196:
+	.loc	2 536 8 is_stmt 1       @ ../Src/dio.c:536:8
+	movw	r1, :lower16:dout_0_7_remote
+	movt	r1, :upper16:dout_0_7_remote
+	ldrh	r1, [r1]
+.Ltmp197:
+	.loc	2 536 6 is_stmt 0       @ ../Src/dio.c:536:6
+	tst.w	r1, #8
+	bne	.LBB6_75
+@ %bb.74:
+.Ltmp198:
+	.loc	2 538 13 is_stmt 1      @ ../Src/dio.c:538:13
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r2, [r1]
+	and	r2, r2, #247
+	strb	r2, [r1]
+.Ltmp199:
+.LBB6_75:
+	.loc	2 541 6                 @ ../Src/dio.c:541:6
+	ldrb	r1, [r4]
+.Ltmp200:
+	.loc	2 541 6 is_stmt 0       @ ../Src/dio.c:541:6
+	tst.w	r1, #4
+	bne.w	.LBB6_96
+@ %bb.76:
+.Ltmp201:
+	.loc	2 546 11 is_stmt 1      @ ../Src/dio.c:546:11
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+.Ltmp202:
+	.loc	2 546 11 is_stmt 0      @ ../Src/dio.c:546:11
+	tst.w	r1, #2
+.Ltmp203:
+	.loc	2 548 4 is_stmt 1       @ ../Src/dio.c:548:4
+	ittt	ne
+	ldrne	r1, [r0]
+	bicne	r1, r1, #2
+	strne	r1, [r0]
+	b	.LBB6_108
+.Ltmp204:
+.LBB6_77:
+	.loc	2 461 35                @ ../Src/dio.c:461:35
+	movw	r1, :lower16:din_0_7
+	movt	r1, :upper16:din_0_7
+	ldrsb.w	r2, [r1]
+.Ltmp205:
+	.loc	2 461 5 is_stmt 0       @ ../Src/dio.c:461:5
+	cmp	r2, #0
+	blt.w	.LBB6_64
+@ %bb.78:
+.Ltmp206:
+	.loc	2 463 6 is_stmt 1       @ ../Src/dio.c:463:6
+	movw	r0, :lower16:DIO_DebounceDigitalInput.din_7_timer
+	movt	r0, :upper16:DIO_DebounceDigitalInput.din_7_timer
+	ldrb	r2, [r0]
+	adds	r2, #1
+	strb	r2, [r0]
+	uxtb	r2, r2
+.Ltmp207:
+	.loc	2 463 6 is_stmt 0       @ ../Src/dio.c:463:6
+	cmp	r2, #50
+	blo.w	.LBB6_68
+@ %bb.79:
+.Ltmp208:
+	.loc	2 466 12 is_stmt 1      @ ../Src/dio.c:466:12
+	ldrb	r2, [r1]
+	orr	r2, r2, #128
+	strb	r2, [r1]
+	.loc	2 465 16                @ ../Src/dio.c:465:16
+	movs	r1, #0
+	strb	r1, [r0]
+	.loc	2 467 4                 @ ../Src/dio.c:467:4
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+	orr	r1, r1, #16
+	str	r1, [r0]
+	b	.LBB6_68
+.Ltmp209:
+.LBB6_80:
+	.loc	2 264 6                 @ ../Src/dio.c:264:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_0_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_0_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp210:
+	.loc	2 264 6 is_stmt 0       @ ../Src/dio.c:264:6
+	cmp	r3, #100
+	blo.w	.LBB6_12
+@ %bb.81:
+.Ltmp211:
+	.loc	2 267 21 is_stmt 1      @ ../Src/dio.c:267:21
+	ldrb	r3, [r1]
+	and	r3, r3, #254
+	strb	r3, [r1]
+	.loc	2 266 25                @ ../Src/dio.c:266:25
+	movs	r1, #0
+	strb	r1, [r2]
+	.loc	2 269 4                 @ ../Src/dio.c:269:4
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r2, [r1]
+	and	r2, r2, #239
+	strb	r2, [r1]
+.Ltmp212:
+	.loc	2 270 7                 @ ../Src/dio.c:270:7
+	movw	r2, :lower16:ROOM_Status
+	movt	r2, :upper16:ROOM_Status
+	ldr	r2, [r2]
+.Ltmp213:
+	.loc	2 270 7 is_stmt 0       @ ../Src/dio.c:270:7
+	cmp	r2, #2
+.Ltmp214:
+	.loc	2 270 33                @ ../Src/dio.c:270:33
+	ittt	eq
+	ldrbeq	r2, [r1]
+	andeq	r2, r2, #253
+	strbeq	r2, [r1]
+.Ltmp215:
+	.loc	2 271 4 is_stmt 1       @ ../Src/dio.c:271:4
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	and	r2, r2, #253
+	b	.LBB6_11
+.Ltmp216:
+.LBB6_82:
+	.loc	2 292 6                 @ ../Src/dio.c:292:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_1_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_1_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp217:
+	.loc	2 292 6 is_stmt 0       @ ../Src/dio.c:292:6
+	cmp	r3, #50
+	blo.w	.LBB6_20
+@ %bb.83:
+.Ltmp218:
+	.loc	2 295 12 is_stmt 1      @ ../Src/dio.c:295:12
+	ldrb	r3, [r1]
+	and	r3, r3, #253
+	strb	r3, [r1]
+	movs	r1, #0
+	.loc	2 294 16                @ ../Src/dio.c:294:16
+	strb	r1, [r2]
+.Ltmp219:
+	.loc	2 297 8                 @ ../Src/dio.c:297:8
+	movw	r1, :lower16:dio_flags
+	movt	r1, :upper16:dio_flags
+	ldr	r2, [r1]
+.Ltmp220:
+	.loc	2 297 7 is_stmt 0       @ ../Src/dio.c:297:7
+	tst.w	r2, #8
+	bne.w	.LBB6_20
+@ %bb.84:
+.Ltmp221:
+	.loc	2 299 5 is_stmt 1       @ ../Src/dio.c:299:5
+	ldr	r2, [r1]
+	orr	r2, r2, #8
+	str	r2, [r1]
+	.loc	2 300 5                 @ ../Src/dio.c:300:5
+	movw	r1, :lower16:display_flags
+	movt	r1, :upper16:display_flags
+	ldr	r2, [r1]
+	orr	r2, r2, #32
+	str	r2, [r1]
+	ldr	r2, [r1]
+	orr	r2, r2, #-2147483648
+	str	r2, [r1]
+	b	.LBB6_20
+.Ltmp222:
+.LBB6_85:
+	.loc	2 329 6                 @ ../Src/dio.c:329:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_2_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_2_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp223:
+	.loc	2 329 6 is_stmt 0       @ ../Src/dio.c:329:6
+	cmp	r3, #50
+	blo.w	.LBB6_29
+@ %bb.86:
+.Ltmp224:
+	.loc	2 331 16 is_stmt 1      @ ../Src/dio.c:331:16
+	movs	r3, #0
+	strb	r3, [r2]
+	.loc	2 332 12                @ ../Src/dio.c:332:12
+	ldrb	r2, [r1]
+	and	r2, r2, #251
+	b	.LBB6_28
+.Ltmp225:
+.LBB6_87:
+	.loc	2 359 6                 @ ../Src/dio.c:359:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_3_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_3_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp226:
+	.loc	2 359 6 is_stmt 0       @ ../Src/dio.c:359:6
+	cmp	r3, #100
+	blo.w	.LBB6_38
+@ %bb.88:
+.Ltmp227:
+	.loc	2 362 12 is_stmt 1      @ ../Src/dio.c:362:12
+	ldrb	r3, [r1]
+	and	r3, r3, #247
+	strb	r3, [r1]
+	.loc	2 361 16                @ ../Src/dio.c:361:16
+	movs	r1, #0
+	strb	r1, [r2]
+	.loc	2 364 4                 @ ../Src/dio.c:364:4
+	movw	r1, :lower16:hc595_dout
+	movt	r1, :upper16:hc595_dout
+	ldrb	r2, [r1]
+	orr	r2, r2, #1
+	strb	r2, [r1]
+	.loc	2 363 4                 @ ../Src/dio.c:363:4
+	movw	r1, :lower16:dio_flags
+	movt	r1, :upper16:dio_flags
+	ldr	r2, [r1]
+	orr	r2, r2, #32
+	str	r2, [r1]
+	b	.LBB6_38
+.Ltmp228:
+.LBB6_89:
+	.loc	2 385 6                 @ ../Src/dio.c:385:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_4_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_4_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp229:
+	.loc	2 385 6 is_stmt 0       @ ../Src/dio.c:385:6
+	cmp	r3, #50
+	blo.w	.LBB6_46
+@ %bb.90:
+.Ltmp230:
+	.loc	2 387 16 is_stmt 1      @ ../Src/dio.c:387:16
+	movs	r3, #0
+	strb	r3, [r2]
+	.loc	2 388 12                @ ../Src/dio.c:388:12
+	ldrb	r2, [r1]
+	and	r2, r2, #239
+	strb	r2, [r1]
+.Ltmp231:
+	.loc	2 390 19                @ ../Src/dio.c:390:19
+	movw	r1, :lower16:servisMenu
+	movt	r1, :upper16:servisMenu
+	ldrb	r1, [r1]
+.Ltmp232:
+	.loc	2 390 8 is_stmt 0       @ ../Src/dio.c:390:8
+	cmp	r1, #1
+	bhi.w	.LBB6_46
+@ %bb.91:
+.Ltmp233:
+	.loc	2 392 5 is_stmt 1       @ ../Src/dio.c:392:5
+	movw	r1, :lower16:display_flags
+	movt	r1, :upper16:display_flags
+	ldr	r2, [r1]
+	orr	r2, r2, #8192
+	str	r2, [r1]
+	ldr	r2, [r1]
+	orr	r2, r2, #-2147483648
+	str	r2, [r1]
+	b	.LBB6_46
+.Ltmp234:
+.LBB6_92:
+	.loc	2 415 6                 @ ../Src/dio.c:415:6
+	movw	r2, :lower16:DIO_DebounceDigitalInput.din_5_timer
+	movt	r2, :upper16:DIO_DebounceDigitalInput.din_5_timer
+	ldrb	r3, [r2]
+	adds	r3, #1
+	strb	r3, [r2]
+	uxtb	r3, r3
+.Ltmp235:
+	.loc	2 415 6 is_stmt 0       @ ../Src/dio.c:415:6
+	cmp	r3, #100
+	blo.w	.LBB6_55
+@ %bb.93:
+.Ltmp236:
+	.loc	2 418 12 is_stmt 1      @ ../Src/dio.c:418:12
+	ldrb	r3, [r1]
+	and	r3, r3, #223
+	strb	r3, [r1]
+	.loc	2 417 16                @ ../Src/dio.c:417:16
+	movs	r1, #0
+	strb	r1, [r2]
+	.loc	2 419 4                 @ ../Src/dio.c:419:4
+	movw	r1, :lower16:dout_0_7
+	movt	r1, :upper16:dout_0_7
+	ldrb	r2, [r1]
+	and	r2, r2, #239
+	b	.LBB6_54
+.Ltmp237:
+.LBB6_94:
+	.loc	2 446 7                 @ ../Src/dio.c:446:7
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_6_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_6_timer
+	ldrb	r3, [r1]
+	adds	r3, #1
+	strb	r3, [r1]
+	uxtb	r3, r3
+.Ltmp238:
+	.loc	2 446 7 is_stmt 0       @ ../Src/dio.c:446:7
+	cmp	r3, #100
+	blo.w	.LBB6_63
+@ %bb.95:
+.Ltmp239:
+	.loc	2 449 12 is_stmt 1      @ ../Src/dio.c:449:12
+	ldrb	r3, [r2]
+	and	r3, r3, #191
+	strb	r3, [r2]
+	.loc	2 450 4                 @ ../Src/dio.c:450:4
+	movw	r2, :lower16:dio_flags
+	movt	r2, :upper16:dio_flags
+	ldr	r3, [r2]
+	orr	r3, r3, #1
+	str	r3, [r2]
+	.loc	2 451 4                 @ ../Src/dio.c:451:4
+	movw	r2, :lower16:display_flags
+	movt	r2, :upper16:display_flags
+	ldr	r3, [r2]
+	orr	r3, r3, #16
+	str	r3, [r2]
+	.loc	2 448 16                @ ../Src/dio.c:448:16
+	movs	r3, #0
+	strb	r3, [r1]
+	.loc	2 451 4                 @ ../Src/dio.c:451:4
+	ldr	r1, [r2]
+	orr	r1, r1, #-2147483648
+	str	r1, [r2]
+	b	.LBB6_63
+.Ltmp240:
+.LBB6_96:
+	.loc	2 543 31                @ ../Src/dio.c:543:31
+	mov.w	r1, #2112
+	str	r1, [r0]
+	.loc	2 544 34                @ ../Src/dio.c:544:34
+	bl	HAL_GetTick
+	.loc	2 544 32 is_stmt 0      @ ../Src/dio.c:544:32
+	str	r0, [r5]
+	b	.LBB6_108
+.Ltmp241:
+.LBB6_97:
+	.loc	2 472 6 is_stmt 1       @ ../Src/dio.c:472:6
+	movw	r1, :lower16:DIO_DebounceDigitalInput.din_7_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.din_7_timer
+	ldrb	r2, [r1]
+	adds	r2, #1
+	strb	r2, [r1]
+	uxtb	r2, r2
+.Ltmp242:
+	.loc	2 472 6 is_stmt 0       @ ../Src/dio.c:472:6
+	cmp	r2, #50
+	blo.w	.LBB6_68
+@ %bb.98:
+.Ltmp243:
+	.loc	2 474 16 is_stmt 1      @ ../Src/dio.c:474:16
+	movs	r2, #0
+	strb	r2, [r1]
+	.loc	2 475 12                @ ../Src/dio.c:475:12
+	ldrb	r1, [r0]
+	and	r1, r1, #127
+	b	.LBB6_67
+.Ltmp244:
+.LBB6_99:
+	.loc	2 499 12                @ ../Src/dio.c:499:12
+	cmp	r0, #2
+	beq	.LBB6_108
+@ %bb.100:
+.Ltmp245:
+	.loc	2 501 34                @ ../Src/dio.c:501:34
+	bl	HAL_GetTick
+	.loc	2 501 32 is_stmt 0      @ ../Src/dio.c:501:32
+	movw	r1, :lower16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.door_bell_sw_timer
+	str	r0, [r1]
+	.loc	2 502 31 is_stmt 1      @ ../Src/dio.c:502:31
+	movw	r0, :lower16:DIO_DebounceDigitalInput.door_bell_sw_time
+	movt	r0, :upper16:DIO_DebounceDigitalInput.door_bell_sw_time
+	movw	r1, #523
+	str	r1, [r0]
+	.loc	2 503 42                @ ../Src/dio.c:503:42
+	bl	HAL_GetTick
+	.loc	2 503 40 is_stmt 0      @ ../Src/dio.c:503:40
+	movw	r1, :lower16:display_menu_timeout_timer
+	movt	r1, :upper16:display_menu_timeout_timer
+	str	r0, [r1]
+	movs	r0, #2
+	.loc	2 506 20 is_stmt 1      @ ../Src/dio.c:506:20
+	strb	r0, [r5]
+	.loc	2 504 39                @ ../Src/dio.c:504:39
+	movw	r0, :lower16:display_menu_timeout_time
+	movt	r0, :upper16:display_menu_timeout_time
+	movw	r1, #30000
+	str	r1, [r0]
+.Ltmp246:
+	.loc	2 509 18                @ ../Src/dio.c:509:18
+	ldrb	r0, [r5, #1]
+.Ltmp247:
+	.loc	2 507 47                @ ../Src/dio.c:507:47
+	ldrb	r1, [r5, #2]
+	.loc	2 507 35 is_stmt 0      @ ../Src/dio.c:507:35
+	clz	r1, r1
+	lsrs	r1, r1, #5
+	.loc	2 507 33                @ ../Src/dio.c:507:33
+	strb	r1, [r5, #2]
+	.loc	2 509 7 is_stmt 1       @ ../Src/dio.c:509:7
+	cmp	r0, #14
+	bhi	.LBB6_108
+@ %bb.101:
+	.loc	2 0 7 is_stmt 0         @ ../Src/dio.c:0:7
+.LCPI6_0:
+	tbb	[pc, r0]
+@ %bb.102:
+.LJTI6_0:
+	.byte	(.LBB6_103-(.LCPI6_0+4))/2
+	.byte	(.LBB6_104-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_108-(.LCPI6_0+4))/2
+	.byte	(.LBB6_103-(.LCPI6_0+4))/2
+	.byte	(.LBB6_105-(.LCPI6_0+4))/2
+	.byte	(.LBB6_106-(.LCPI6_0+4))/2
+	.p2align	1
+.LBB6_103:
+	movs	r0, #0
+	strb	r0, [r5]
+	b	.LBB6_108
+.LBB6_104:
+.Ltmp248:
+	.loc	2 515 17 is_stmt 1      @ ../Src/dio.c:515:17
+	bl	Error_Handler
+	b	.LBB6_108
+.Ltmp249:
+.LBB6_105:
+	.loc	2 524 33                @ ../Src/dio.c:524:33
+	movs	r0, #0
+	strb	r0, [r5]
+	.loc	2 525 17                @ ../Src/dio.c:525:17
+	movw	r0, :lower16:sys_status
+	movt	r0, :upper16:sys_status
+	ldrb	r1, [r0]
+	orr	r1, r1, #64
+	b	.LBB6_107
+.Ltmp250:
+.LBB6_106:
+	.loc	2 529 33                @ ../Src/dio.c:529:33
+	movs	r0, #0
+	strb	r0, [r5]
+	.loc	2 530 5                 @ ../Src/dio.c:530:5
+	movw	r0, :lower16:sys_status
+	movt	r0, :upper16:sys_status
+	ldrb	r1, [r0]
+	orr	r1, r1, #128
+.Ltmp251:
+.LBB6_107:
+	.loc	2 0 5 is_stmt 0         @ ../Src/dio.c:0:5
+	strb	r1, [r0]
+.LBB6_108:
+.Ltmp252:
+	.loc	2 554 5 is_stmt 1       @ ../Src/dio.c:554:5
+	ldrb	r0, [r4]
+	.loc	2 554 29 is_stmt 0      @ ../Src/dio.c:554:29
+	tst.w	r0, #1
+	beq	.LBB6_112
+@ %bb.109:
+	.loc	2 554 33                @ ../Src/dio.c:554:33
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r1, [r0]
+.Ltmp253:
+	.loc	2 554 5                 @ ../Src/dio.c:554:5
+	tst.w	r1, #4
+	bne	.LBB6_112
+@ %bb.110:
+.Ltmp254:
+	.loc	2 556 3 is_stmt 1       @ ../Src/dio.c:556:3
+	ldr	r1, [r0]
+	orr	r1, r1, #4
+	str	r1, [r0]
+.Ltmp255:
+	.loc	2 558 17                @ ../Src/dio.c:558:17
+	movw	r6, :lower16:servisMenu
+	movt	r6, :upper16:servisMenu
+	ldrb	r0, [r6]
+.Ltmp256:
+	.loc	2 558 6 is_stmt 0       @ ../Src/dio.c:558:6
+	cmp	r0, #1
+	bne	.LBB6_120
+@ %bb.111:
+.Ltmp257:
+	.loc	2 560 30 is_stmt 1      @ ../Src/dio.c:560:30
+	movw	r0, :lower16:display_menu_timeout_time
+	movt	r0, :upper16:display_menu_timeout_time
+	movw	r1, #30000
+	str	r1, [r0]
+	.loc	2 561 42                @ ../Src/dio.c:561:42
+	bl	HAL_GetTick
+	.loc	2 561 40 is_stmt 0      @ ../Src/dio.c:561:40
+	movw	r1, :lower16:display_menu_timeout_timer
+	movt	r1, :upper16:display_menu_timeout_timer
+	str	r0, [r1]
+	.loc	2 562 30 is_stmt 1      @ ../Src/dio.c:562:30
+	movw	r0, :lower16:DIO_DebounceDigitalInput.handmaid_sw_time
+	movt	r0, :upper16:DIO_DebounceDigitalInput.handmaid_sw_time
+	movw	r1, #1122
+	str	r1, [r0]
+	.loc	2 563 33                @ ../Src/dio.c:563:33
+	bl	HAL_GetTick
+	.loc	2 563 31 is_stmt 0      @ ../Src/dio.c:563:31
+	movw	r1, :lower16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	str	r0, [r1]
+	.loc	2 564 26 is_stmt 1      @ ../Src/dio.c:564:26
+	movw	r0, :lower16:SignalBuzzer
+	movt	r0, :upper16:SignalBuzzer
+	movs	r1, #3
+	str	r1, [r0]
+	.loc	2 565 20                @ ../Src/dio.c:565:20
+	movs	r0, #2
+	strb	r0, [r6]
+	b	.LBB6_114
+.Ltmp258:
+.LBB6_112:
+	.loc	2 826 10                @ ../Src/dio.c:826:10
+	movw	r4, :lower16:dio_flags
+	movt	r4, :upper16:dio_flags
+	ldr	r0, [r4]
+.Ltmp259:
+	.loc	2 826 10 is_stmt 0      @ ../Src/dio.c:826:10
+	tst.w	r0, #4
+	beq	.LBB6_114
+@ %bb.113:
+.Ltmp260:
+	.loc	2 828 7 is_stmt 1       @ ../Src/dio.c:828:7
+	bl	HAL_GetTick
+	.loc	2 828 23 is_stmt 0      @ ../Src/dio.c:828:23
+	movw	r1, :lower16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	ldr	r1, [r1]
+	.loc	2 828 21                @ ../Src/dio.c:828:21
+	subs	r0, r0, r1
+	.loc	2 828 45                @ ../Src/dio.c:828:45
+	movw	r1, :lower16:DIO_DebounceDigitalInput.handmaid_sw_time
+	movt	r1, :upper16:DIO_DebounceDigitalInput.handmaid_sw_time
+	ldr	r1, [r1]
+.Ltmp261:
+	.loc	2 828 6                 @ ../Src/dio.c:828:6
+	cmp	r0, r1
+.Ltmp262:
+	.loc	2 830 13 is_stmt 1      @ ../Src/dio.c:830:13
+	ittt	hs
+	ldrhs	r0, [r4]
+	bichs	r0, r0, #4
+	strhs	r0, [r4]
+.Ltmp263:
+.LBB6_114:
+	.loc	2 836 5                 @ ../Src/dio.c:836:5
+	movw	r0, :lower16:din_0_7
+	movt	r0, :upper16:din_0_7
+	ldrsb.w	r0, [r0]
+	.loc	2 836 30 is_stmt 0      @ ../Src/dio.c:836:30
+	cmp	r0, #0
+	blt	.LBB6_116
+@ %bb.115:
+	.loc	2 836 33                @ ../Src/dio.c:836:33
+	movw	r0, :lower16:dio_flags
+	movt	r0, :upper16:dio_flags
+	ldr	r0, [r0]
+.Ltmp264:
+	.loc	2 836 5                 @ ../Src/dio.c:836:5
+	tst.w	r0, #16
+	bne	.LBB6_118
+.LBB6_116:
+.Ltmp265:
+	.loc	2 850 19 is_stmt 1      @ ../Src/dio.c:850:19
+	movw	r0, :lower16:DIO_DebounceDigitalInput.entry_door_pcnt
+	movt	r0, :upper16:DIO_DebounceDigitalInput.entry_door_pcnt
+	movs	r1, #0
+	str	r1, [r0]
+	.loc	2 851 22                @ ../Src/dio.c:851:22
+	bl	HAL_GetTick
+	.loc	2 851 20 is_stmt 0      @ ../Src/dio.c:851:20
+	movw	r1, :lower16:DIO_DebounceDigitalInput.entry_door_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.entry_door_timer
+	str	r0, [r1]
+.Ltmp266:
+.LBB6_117:
+	.loc	2 853 1 is_stmt 1       @ ../Src/dio.c:853:1
+	add	sp, #20
+	pop	{r4, r5, r6, r7, pc}
+.LBB6_118:
+.Ltmp267:
+	.loc	2 838 7                 @ ../Src/dio.c:838:7
+	bl	HAL_GetTick
+	.loc	2 838 23 is_stmt 0      @ ../Src/dio.c:838:23
+	movw	r4, :lower16:DIO_DebounceDigitalInput.entry_door_timer
+	movt	r4, :upper16:DIO_DebounceDigitalInput.entry_door_timer
+	ldr	r1, [r4]
+	.loc	2 838 21                @ ../Src/dio.c:838:21
+	subs	r0, r0, r1
+.Ltmp268:
+	.loc	2 838 6                 @ ../Src/dio.c:838:6
+	movw	r1, #1111
+	cmp	r0, r1
+	blo	.LBB6_117
+@ %bb.119:
+.Ltmp269:
+	.loc	2 840 23 is_stmt 1      @ ../Src/dio.c:840:23
+	bl	HAL_GetTick
+	.loc	2 840 21 is_stmt 0      @ ../Src/dio.c:840:21
+	str	r0, [r4]
+.Ltmp270:
+	.loc	2 842 7 is_stmt 1       @ ../Src/dio.c:842:7
+	movw	r0, :lower16:DIO_DebounceDigitalInput.entry_door_pcnt
+	movt	r0, :upper16:DIO_DebounceDigitalInput.entry_door_pcnt
+	ldr	r1, [r0]
+	adds	r1, #1
+.Ltmp271:
+	.loc	2 842 7 is_stmt 0       @ ../Src/dio.c:842:7
+	cmp	r1, #59
+	it	hi
+	movhi	r1, #0
+	str	r1, [r0]
+.Ltmp272:
+	.loc	2 853 1 is_stmt 1       @ ../Src/dio.c:853:1
+	add	sp, #20
+	pop	{r4, r5, r6, r7, pc}
+.LBB6_120:
+.Ltmp273:
+	.loc	2 567 12                @ ../Src/dio.c:567:12
+	cmp	r0, #3
+	blo	.LBB6_114
+@ %bb.121:
+.Ltmp274:
+	.loc	2 569 39                @ ../Src/dio.c:569:39
+	movw	r0, :lower16:display_menu_timeout_time
+	movt	r0, :upper16:display_menu_timeout_time
+	movw	r1, #30000
+	str	r1, [r0]
+	.loc	2 570 42                @ ../Src/dio.c:570:42
+	bl	HAL_GetTick
+	.loc	2 570 40 is_stmt 0      @ ../Src/dio.c:570:40
+	movw	r1, :lower16:display_menu_timeout_timer
+	movt	r1, :upper16:display_menu_timeout_timer
+	str	r0, [r1]
+	.loc	2 571 30 is_stmt 1      @ ../Src/dio.c:571:30
+	movw	r0, :lower16:DIO_DebounceDigitalInput.handmaid_sw_time
+	movt	r0, :upper16:DIO_DebounceDigitalInput.handmaid_sw_time
+	mov.w	r1, #524
+	str	r1, [r0]
+	.loc	2 572 33                @ ../Src/dio.c:572:33
+	bl	HAL_GetTick
+	.loc	2 572 31 is_stmt 0      @ ../Src/dio.c:572:31
+	movw	r1, :lower16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	movt	r1, :upper16:DIO_DebounceDigitalInput.handmaid_sw_timer
+	str	r0, [r1]
+.Ltmp275:
+	.loc	2 574 18 is_stmt 1      @ ../Src/dio.c:574:18
+	ldrb	r0, [r6]
+.Ltmp276:
+	.loc	2 574 7 is_stmt 0       @ ../Src/dio.c:574:7
+	cmp	r0, #4
+	bne	.LBB6_114
+@ %bb.122:
+.Ltmp277:
+	.loc	2 576 33 is_stmt 1      @ ../Src/dio.c:576:33
+	movs	r0, #3
+	strb	r0, [r6]
+	ldrb	r0, [r6, #1]
+.Ltmp278:
+	.loc	2 578 19                @ ../Src/dio.c:578:19
+	ldrb	r1, [r6, #2]
+.Ltmp279:
+	.loc	2 578 8 is_stmt 0       @ ../Src/dio.c:578:8
+	cbz	r1, .LBB6_128
+@ %bb.123:
+.Ltmp280:
+	.loc	2 629 24 is_stmt 1      @ ../Src/dio.c:629:24
+	subs	r0, #2
+	cmp	r0, #17
+	bhi	.LBB6_114
+@ %bb.124:
+	.loc	2 0 24 is_stmt 0        @ ../Src/dio.c:0:24
+.LCPI6_1:
+	tbh	[pc, r0, lsl #1]
+@ %bb.125:
+.LJTI6_1:
+	.short	(.LBB6_127-(.LCPI6_1+4))/2
+	.short	(.LBB6_139-(.LCPI6_1+4))/2
+	.short	(.LBB6_140-(.LCPI6_1+4))/2
+	.short	(.LBB6_154-(.LCPI6_1+4))/2
+	.short	(.LBB6_155-(.LCPI6_1+4))/2
+	.short	(.LBB6_141-(.LCPI6_1+4))/2
+	.short	(.LBB6_142-(.LCPI6_1+4))/2
+	.short	(.LBB6_143-(.LCPI6_1+4))/2
+	.short	(.LBB6_156-(.LCPI6_1+4))/2
+	.short	(.LBB6_157-(.LCPI6_1+4))/2
+	.short	(.LBB6_126-(.LCPI6_1+4))/2
+	.short	(.LBB6_126-(.LCPI6_1+4))/2
+	.short	(.LBB6_126-(.LCPI6_1+4))/2
+	.short	(.LBB6_144-(.LCPI6_1+4))/2
+	.short	(.LBB6_146-(.LCPI6_1+4))/2
+	.short	(.LBB6_148-(.LCPI6_1+4))/2
+	.short	(.LBB6_150-(.LCPI6_1+4))/2
+	.short	(.LBB6_152-(.LCPI6_1+4))/2
+	.p2align	1
+.LBB6_126:
+	b	.LBB6_114
+.LBB6_127:
+.Ltmp281:
+	.loc	2 631 25 is_stmt 1      @ ../Src/dio.c:631:25
+	ldrb	r0, [r6, #3]
+	.loc	2 632 25                @ ../Src/dio.c:632:25
+	ldrb	r1, [r6, #9]
+	.loc	2 631 25                @ ../Src/dio.c:631:25
+	adds	r0, #1
+	strb	r0, [r6, #3]
+	.loc	2 632 25                @ ../Src/dio.c:632:25
+	adds	r1, #1
+	strb	r1, [r6, #9]
+	.loc	2 631 25                @ ../Src/dio.c:631:25
+	uxtb	r0, r0
+	.loc	2 634 10                @ ../Src/dio.c:634:10
+	cmp	r0, #55
+.Ltmp282:
+	.loc	2 636 53                @ ../Src/dio.c:636:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #3]
+	b	.LBB6_114
+.Ltmp283:
+.LBB6_128:
+	.loc	2 580 21                @ ../Src/dio.c:580:21
+	adds	r0, #1
+	strb	r0, [r6, #1]
+	uxtb	r0, r0
+	.loc	2 582 9                 @ ../Src/dio.c:582:9
+	cmp	r0, #20
+	blo	.LBB6_131
+@ %bb.129:
+	.loc	2 0 9 is_stmt 0         @ ../Src/dio.c:0:9
+	movs	r7, #0
+.Ltmp284:
+	.loc	2 584 41 is_stmt 1      @ ../Src/dio.c:584:41
+	strb	r7, [r6, #1]
+.Ltmp285:
+	.loc	2 586 28                @ ../Src/dio.c:586:28
+	ldrb	r0, [r6, #29]
+.Ltmp286:
+	.loc	2 586 28 is_stmt 0      @ ../Src/dio.c:586:28
+	cmp	r0, #0
+	beq.w	.LBB6_114
+@ %bb.130:
+.Ltmp287:
+	.loc	2 588 54 is_stmt 1      @ ../Src/dio.c:588:54
+	strb	r7, [r6, #29]
+	add.w	r0, r6, #19
+	add	r4, sp, #4
+.Ltmp288:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:date_dio <- [DW_OP_plus_uconst 4] [$sp+0]
+	.loc	2 589 77                @ ../Src/dio.c:589:77
+	orr	r2, r4, #2
+	.loc	2 589 29 is_stmt 0      @ ../Src/dio.c:589:29
+	movs	r1, #1
+	bl	Str2Hex
+	.loc	2 590 29 is_stmt 1      @ ../Src/dio.c:590:29
+	add.w	r0, r6, #21
+	.loc	2 590 77 is_stmt 0      @ ../Src/dio.c:590:77
+	orr	r2, r4, #1
+	.loc	2 590 29                @ ../Src/dio.c:590:29
+	movs	r1, #1
+	bl	Str2Hex
+	.loc	2 591 29 is_stmt 1      @ ../Src/dio.c:591:29
+	add.w	r0, r6, #23
+	.loc	2 591 77 is_stmt 0      @ ../Src/dio.c:591:77
+	orr	r2, r4, #3
+	.loc	2 591 29                @ ../Src/dio.c:591:29
+	movs	r1, #1
+	bl	Str2Hex
+	.loc	2 592 29 is_stmt 1      @ ../Src/dio.c:592:29
+	add.w	r0, r6, #25
+	add	r5, sp, #8
+.Ltmp289:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:time_dio <- [DW_OP_plus_uconst 8] [$sp+0]
+	movs	r1, #1
+	mov	r2, r5
+	bl	Str2Hex
+	.loc	2 593 29                @ ../Src/dio.c:593:29
+	add.w	r0, r6, #27
+	.loc	2 593 77 is_stmt 0      @ ../Src/dio.c:593:77
+	orr	r2, r5, #1
+	.loc	2 593 29                @ ../Src/dio.c:593:29
+	movs	r1, #1
+	bl	Str2Hex
+	.loc	2 594 46 is_stmt 1      @ ../Src/dio.c:594:46
+	strb.w	r7, [sp, #10]
+	.loc	2 595 29                @ ../Src/dio.c:595:29
+	movw	r6, :lower16:hrtc
+	movt	r6, :upper16:hrtc
+	mov	r0, r6
+	mov	r1, r5
+	movs	r2, #1
+	bl	HAL_RTC_SetTime
+	.loc	2 596 29                @ ../Src/dio.c:596:29
+	mov	r0, r6
+	mov	r1, r4
+	movs	r2, #1
+	bl	HAL_RTC_SetDate
+	.loc	2 597 29                @ ../Src/dio.c:597:29
+	mov	r0, r6
+	bl	HAL_RTC_WaitForSynchro
+	b	.LBB6_114
+.Ltmp290:
+.LBB6_131:
+	.loc	2 600 38                @ ../Src/dio.c:600:38
+	cmp	r0, #12
+	blo	.LBB6_134
+@ %bb.132:
+	ldrb	r1, [r6, #17]
+	cbz	r1, .LBB6_134
+@ %bb.133:
+	.loc	2 0 38 is_stmt 0        @ ../Src/dio.c:0:38
+	movs	r0, #0
+.Ltmp291:
+	.loc	2 602 31 is_stmt 1      @ ../Src/dio.c:602:31
+	strb	r0, [r6, #17]
+	add.w	r0, r6, #11
+	add	r1, sp, #16
+.Ltmp292:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:tmp_add <- [DW_OP_plus_uconst 16] [$sp+0]
+	.loc	2 603 7                 @ ../Src/dio.c:603:7
+	bl	Str2Int
+	.loc	2 604 34                @ ../Src/dio.c:604:34
+	movw	r0, :lower16:rs485_interface_address
+	movt	r0, :upper16:rs485_interface_address
+	.loc	2 604 37 is_stmt 0      @ ../Src/dio.c:604:37
+	ldr	r1, [sp, #16]
+.Ltmp293:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:tmp_add <- $r1
+	.loc	2 605 34 is_stmt 1      @ ../Src/dio.c:605:34
+	strb	r1, [r0, #1]
+	.loc	2 604 45                @ ../Src/dio.c:604:45
+	lsrs	r2, r1, #8
+	.loc	2 604 34 is_stmt 0      @ ../Src/dio.c:604:34
+	strb	r2, [r0]
+	.loc	2 606 18 is_stmt 1      @ ../Src/dio.c:606:18
+	mov.w	r0, #10240
+	b	.LBB6_137
+.Ltmp294:
+.LBB6_134:
+	.loc	2 613 52                @ ../Src/dio.c:613:52
+	cmp	r0, #7
+	blo.w	.LBB6_114
+@ %bb.135:
+	ldrb	r0, [r6, #9]
+	cmp	r0, #0
+	beq.w	.LBB6_114
+@ %bb.136:
+	.loc	2 0 52 is_stmt 0        @ ../Src/dio.c:0:52
+	movs	r0, #0
+.Ltmp295:
+	.loc	2 615 31 is_stmt 1      @ ../Src/dio.c:615:31
+	strb	r0, [r6, #9]
+	adds	r0, r6, #3
+	add	r1, sp, #16
+.Ltmp296:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:tmp_add <- [DW_OP_plus_uconst 16] [$sp+0]
+	.loc	2 616 7                 @ ../Src/dio.c:616:7
+	bl	Str2Int
+	.loc	2 617 20                @ ../Src/dio.c:617:20
+	movw	r0, :lower16:system_id
+	movt	r0, :upper16:system_id
+	.loc	2 617 23 is_stmt 0      @ ../Src/dio.c:617:23
+	ldr	r1, [sp, #16]
+.Ltmp297:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:tmp_add <- $r1
+	.loc	2 618 20 is_stmt 1      @ ../Src/dio.c:618:20
+	strb	r1, [r0, #1]
+	.loc	2 617 31                @ ../Src/dio.c:617:31
+	lsrs	r2, r1, #8
+	.loc	2 617 20 is_stmt 0      @ ../Src/dio.c:617:20
+	strb	r2, [r0]
+	.loc	2 619 18 is_stmt 1      @ ../Src/dio.c:619:18
+	mov.w	r0, #13824
+.Ltmp298:
+.LBB6_137:
+	@DEBUG_VALUE: DIO_DebounceDigitalInput:tmp_add <- $r1
+	.loc	2 0 18 is_stmt 0        @ ../Src/dio.c:0:18
+	strh.w	r0, [sp, #12]
+	strb.w	r1, [sp, #15]
+	strb.w	r2, [sp, #14]
+	movs	r0, #5
+	str	r0, [sp]
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	add	r2, sp, #12
+	movs	r1, #160
+.Ltmp299:
+	movs	r3, #4
+	bl	HAL_I2C_Master_Transmit
+	cmp	r0, #0
+.Ltmp300:
+	.loc	2 610 97 is_stmt 1      @ ../Src/dio.c:610:97
+	it	ne
+	blne	Error_Handler
+	movw	r0, :lower16:hi2c1
+	movt	r0, :upper16:hi2c1
+	movs	r1, #161
+	movs	r2, #100
+	movs	r3, #15
+	bl	HAL_I2C_IsDeviceReady
+	cmp	r0, #0
+	beq.w	.LBB6_114
+.Ltmp301:
+@ %bb.138:
+	.loc	2 0 97 is_stmt 0        @ ../Src/dio.c:0:97
+	bl	Error_Handler
+	b	.LBB6_114
+.LBB6_139:
+.Ltmp302:
+	.loc	2 641 7 is_stmt 1       @ ../Src/dio.c:641:7
+	ldrb	r0, [r6, #4]
+	.loc	2 642 25                @ ../Src/dio.c:642:25
+	ldrb	r1, [r6, #9]
+	.loc	2 641 7                 @ ../Src/dio.c:641:7
+	adds	r0, #1
+	strb	r0, [r6, #4]
+	.loc	2 642 25                @ ../Src/dio.c:642:25
+	adds	r1, #1
+	strb	r1, [r6, #9]
+	.loc	2 641 7                 @ ../Src/dio.c:641:7
+	uxtb	r0, r0
+	.loc	2 644 10                @ ../Src/dio.c:644:10
+	cmp	r0, #58
+.Ltmp303:
+	.loc	2 646 53                @ ../Src/dio.c:646:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #4]
+	b	.LBB6_114
+.Ltmp304:
+.LBB6_140:
+	.loc	2 651 7                 @ ../Src/dio.c:651:7
+	ldrb	r0, [r6, #5]
+	.loc	2 652 25                @ ../Src/dio.c:652:25
+	ldrb	r1, [r6, #9]
+	.loc	2 651 7                 @ ../Src/dio.c:651:7
+	adds	r0, #1
+	strb	r0, [r6, #5]
+	.loc	2 652 25                @ ../Src/dio.c:652:25
+	adds	r1, #1
+	strb	r1, [r6, #9]
+	.loc	2 651 7                 @ ../Src/dio.c:651:7
+	uxtb	r0, r0
+	.loc	2 654 10                @ ../Src/dio.c:654:10
+	cmp	r0, #58
+.Ltmp305:
+	.loc	2 656 53                @ ../Src/dio.c:656:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #5]
+	b	.LBB6_114
+.Ltmp306:
+.LBB6_141:
+	.loc	2 681 7                 @ ../Src/dio.c:681:7
+	ldrb	r0, [r6, #11]
+	.loc	2 682 25                @ ../Src/dio.c:682:25
+	ldrb	r1, [r6, #17]
+	.loc	2 681 7                 @ ../Src/dio.c:681:7
+	adds	r0, #1
+	strb	r0, [r6, #11]
+	.loc	2 682 25                @ ../Src/dio.c:682:25
+	adds	r1, #1
+	strb	r1, [r6, #17]
+	.loc	2 681 7                 @ ../Src/dio.c:681:7
+	uxtb	r0, r0
+	.loc	2 684 10                @ ../Src/dio.c:684:10
+	cmp	r0, #55
+.Ltmp307:
+	.loc	2 686 53                @ ../Src/dio.c:686:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #11]
+	b	.LBB6_114
+.Ltmp308:
+.LBB6_142:
+	.loc	2 691 7                 @ ../Src/dio.c:691:7
+	ldrb	r0, [r6, #12]
+	.loc	2 692 25                @ ../Src/dio.c:692:25
+	ldrb	r1, [r6, #17]
+	.loc	2 691 7                 @ ../Src/dio.c:691:7
+	adds	r0, #1
+	strb	r0, [r6, #12]
+	.loc	2 692 25                @ ../Src/dio.c:692:25
+	adds	r1, #1
+	strb	r1, [r6, #17]
+	.loc	2 691 7                 @ ../Src/dio.c:691:7
+	uxtb	r0, r0
+	.loc	2 694 10                @ ../Src/dio.c:694:10
+	cmp	r0, #55
+.Ltmp309:
+	.loc	2 696 53                @ ../Src/dio.c:696:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #12]
+	b	.LBB6_114
+.Ltmp310:
+.LBB6_143:
+	.loc	2 701 7                 @ ../Src/dio.c:701:7
+	ldrb	r0, [r6, #13]
+	.loc	2 702 25                @ ../Src/dio.c:702:25
+	ldrb	r1, [r6, #17]
+	.loc	2 701 7                 @ ../Src/dio.c:701:7
+	adds	r0, #1
+	strb	r0, [r6, #13]
+	.loc	2 702 25                @ ../Src/dio.c:702:25
+	adds	r1, #1
+	strb	r1, [r6, #17]
+	.loc	2 701 7                 @ ../Src/dio.c:701:7
+	uxtb	r0, r0
+	.loc	2 704 10                @ ../Src/dio.c:704:10
+	cmp	r0, #55
+.Ltmp311:
+	.loc	2 706 53                @ ../Src/dio.c:706:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #13]
+	b	.LBB6_114
+.Ltmp312:
+.LBB6_144:
+	.loc	2 735 10                @ ../Src/dio.c:735:10
+	ldrb	r0, [r6, #19]
+	.loc	2 732 25                @ ../Src/dio.c:732:25
+	ldrb	r1, [r6, #20]
+	.loc	2 733 25                @ ../Src/dio.c:733:25
+	ldrb	r2, [r6, #29]
+	.loc	2 732 25                @ ../Src/dio.c:732:25
+	adds	r1, #1
+	strb	r1, [r6, #20]
+	.loc	2 733 25                @ ../Src/dio.c:733:25
+	adds	r2, #1
+	strb	r2, [r6, #29]
+	.loc	2 732 25                @ ../Src/dio.c:732:25
+	uxtb	r1, r1
+	.loc	2 735 10                @ ../Src/dio.c:735:10
+	cmp	r1, #52
+	blo.w	.LBB6_114
+@ %bb.145:
+	cmp	r0, #50
+.Ltmp313:
+	.loc	2 739 57                @ ../Src/dio.c:739:57
+	itt	eq
+	movweq	r0, #12336
+	strheq.w	r0, [r6, #19]
+	b	.LBB6_114
+.Ltmp314:
+.LBB6_146:
+	.loc	2 754 10                @ ../Src/dio.c:754:10
+	ldrb	r0, [r6, #21]
+	.loc	2 751 7                 @ ../Src/dio.c:751:7
+	ldrb	r1, [r6, #22]
+	.loc	2 752 25                @ ../Src/dio.c:752:25
+	ldrb	r2, [r6, #29]
+	.loc	2 751 7                 @ ../Src/dio.c:751:7
+	adds	r1, #1
+	strb	r1, [r6, #22]
+	.loc	2 752 25                @ ../Src/dio.c:752:25
+	adds	r2, #1
+	strb	r2, [r6, #29]
+	.loc	2 751 7                 @ ../Src/dio.c:751:7
+	uxtb	r1, r1
+	.loc	2 754 10                @ ../Src/dio.c:754:10
+	cmp	r1, #58
+	blo.w	.LBB6_114
+@ %bb.147:
+	cmp	r0, #53
+.Ltmp315:
+	.loc	2 758 57                @ ../Src/dio.c:758:57
+	itt	eq
+	movweq	r0, #12336
+	strheq.w	r0, [r6, #21]
+	b	.LBB6_114
+.Ltmp316:
+.LBB6_148:
+	.loc	2 773 10                @ ../Src/dio.c:773:10
+	ldrb	r0, [r6, #23]
+	.loc	2 770 7                 @ ../Src/dio.c:770:7
+	ldrb	r1, [r6, #24]
+	.loc	2 771 25                @ ../Src/dio.c:771:25
+	ldrb	r2, [r6, #29]
+	.loc	2 770 7                 @ ../Src/dio.c:770:7
+	adds	r1, #1
+	strb	r1, [r6, #24]
+	.loc	2 771 25                @ ../Src/dio.c:771:25
+	adds	r2, #1
+	strb	r2, [r6, #29]
+	.loc	2 770 7                 @ ../Src/dio.c:770:7
+	uxtb	r1, r1
+	.loc	2 773 10                @ ../Src/dio.c:773:10
+	cmp	r1, #50
+	blo.w	.LBB6_114
+@ %bb.149:
+	cmp	r0, #51
+.Ltmp317:
+	.loc	2 777 57                @ ../Src/dio.c:777:57
+	itt	eq
+	movweq	r0, #12592
+	strheq.w	r0, [r6, #23]
+	b	.LBB6_114
+.Ltmp318:
+.LBB6_150:
+	.loc	2 792 10                @ ../Src/dio.c:792:10
+	ldrb	r0, [r6, #25]
+	.loc	2 789 7                 @ ../Src/dio.c:789:7
+	ldrb	r1, [r6, #26]
+	.loc	2 790 25                @ ../Src/dio.c:790:25
+	ldrb	r2, [r6, #29]
+	.loc	2 789 7                 @ ../Src/dio.c:789:7
+	adds	r1, #1
+	strb	r1, [r6, #26]
+	.loc	2 790 25                @ ../Src/dio.c:790:25
+	adds	r2, #1
+	strb	r2, [r6, #29]
+	.loc	2 789 7                 @ ../Src/dio.c:789:7
+	uxtb	r1, r1
+	.loc	2 792 10                @ ../Src/dio.c:792:10
+	cmp	r1, #51
+	blo.w	.LBB6_114
+@ %bb.151:
+	cmp	r0, #49
+.Ltmp319:
+	.loc	2 796 57                @ ../Src/dio.c:796:57
+	itt	eq
+	movweq	r0, #12592
+	strheq.w	r0, [r6, #25]
+	b	.LBB6_114
+.Ltmp320:
+.LBB6_152:
+	.loc	2 808 7                 @ ../Src/dio.c:808:7
+	ldrb	r0, [r6, #28]
+	.loc	2 809 25                @ ../Src/dio.c:809:25
+	ldrb	r1, [r6, #29]
+	.loc	2 808 7                 @ ../Src/dio.c:808:7
+	adds	r0, #1
+	strb	r0, [r6, #28]
+	.loc	2 809 25                @ ../Src/dio.c:809:25
+	adds	r1, #1
+	strb	r1, [r6, #29]
+	.loc	2 808 7                 @ ../Src/dio.c:808:7
+	uxtb	r0, r0
+	.loc	2 811 10                @ ../Src/dio.c:811:10
+	cmp	r0, #58
+	blo.w	.LBB6_114
+@ %bb.153:
+.Ltmp321:
+	.loc	2 813 53                @ ../Src/dio.c:813:53
+	movs	r0, #48
+	strb	r0, [r6, #28]
+	.loc	2 814 29                @ ../Src/dio.c:814:29
+	ldrb	r0, [r6, #27]
+	adds	r0, #1
+	uxtb	r1, r0
+	.loc	2 816 32                @ ../Src/dio.c:816:32
+	cmp	r1, #57
+	it	hi
+	movhi	r0, #48
+	strb	r0, [r6, #27]
+	b	.LBB6_114
+.Ltmp322:
+.LBB6_154:
+	.loc	2 661 7                 @ ../Src/dio.c:661:7
+	ldrb	r0, [r6, #6]
+	.loc	2 662 25                @ ../Src/dio.c:662:25
+	ldrb	r1, [r6, #9]
+	.loc	2 661 7                 @ ../Src/dio.c:661:7
+	adds	r0, #1
+	strb	r0, [r6, #6]
+	.loc	2 662 25                @ ../Src/dio.c:662:25
+	adds	r1, #1
+	strb	r1, [r6, #9]
+	.loc	2 661 7                 @ ../Src/dio.c:661:7
+	uxtb	r0, r0
+	.loc	2 664 10                @ ../Src/dio.c:664:10
+	cmp	r0, #58
+.Ltmp323:
+	.loc	2 666 53                @ ../Src/dio.c:666:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #6]
+	b	.LBB6_114
+.Ltmp324:
+.LBB6_155:
+	.loc	2 671 7                 @ ../Src/dio.c:671:7
+	ldrb	r0, [r6, #7]
+	.loc	2 672 25                @ ../Src/dio.c:672:25
+	ldrb	r1, [r6, #9]
+	.loc	2 671 7                 @ ../Src/dio.c:671:7
+	adds	r0, #1
+	strb	r0, [r6, #7]
+	.loc	2 672 25                @ ../Src/dio.c:672:25
+	adds	r1, #1
+	strb	r1, [r6, #9]
+	.loc	2 671 7                 @ ../Src/dio.c:671:7
+	uxtb	r0, r0
+	.loc	2 674 10                @ ../Src/dio.c:674:10
+	cmp	r0, #58
+.Ltmp325:
+	.loc	2 676 53                @ ../Src/dio.c:676:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #7]
+	b	.LBB6_114
+.Ltmp326:
+.LBB6_156:
+	.loc	2 711 7                 @ ../Src/dio.c:711:7
+	ldrb	r0, [r6, #14]
+	.loc	2 712 25                @ ../Src/dio.c:712:25
+	ldrb	r1, [r6, #17]
+	.loc	2 711 7                 @ ../Src/dio.c:711:7
+	adds	r0, #1
+	strb	r0, [r6, #14]
+	.loc	2 712 25                @ ../Src/dio.c:712:25
+	adds	r1, #1
+	strb	r1, [r6, #17]
+	.loc	2 711 7                 @ ../Src/dio.c:711:7
+	uxtb	r0, r0
+	.loc	2 714 10                @ ../Src/dio.c:714:10
+	cmp	r0, #55
+.Ltmp327:
+	.loc	2 716 53                @ ../Src/dio.c:716:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #14]
+	b	.LBB6_114
+.Ltmp328:
+.LBB6_157:
+	.loc	2 721 7                 @ ../Src/dio.c:721:7
+	ldrb	r0, [r6, #15]
+	.loc	2 722 25                @ ../Src/dio.c:722:25
+	ldrb	r1, [r6, #17]
+	.loc	2 721 7                 @ ../Src/dio.c:721:7
+	adds	r0, #1
+	strb	r0, [r6, #15]
+	.loc	2 722 25                @ ../Src/dio.c:722:25
+	adds	r1, #1
+	strb	r1, [r6, #17]
+	.loc	2 721 7                 @ ../Src/dio.c:721:7
+	uxtb	r0, r0
+	.loc	2 724 10                @ ../Src/dio.c:724:10
+	cmp	r0, #55
+.Ltmp329:
+	.loc	2 726 53                @ ../Src/dio.c:726:53
+	itt	hs
+	movhs	r0, #48
+	strbhs	r0, [r6, #15]
+	b	.LBB6_114
+.Ltmp330:
+.Lfunc_end6:
+	.size	DIO_DebounceDigitalInput, .Lfunc_end6-DIO_DebounceDigitalInput
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.hidden	dio_flags               @ @dio_flags
+	.type	dio_flags,%object
+	.section	.bss.dio_flags,"aw",%nobits
+	.globl	dio_flags
+	.p2align	2
+dio_flags:
+	.long	0                       @ 0x0
+	.size	dio_flags, 4
+
+	.hidden	hc595_dout              @ @hc595_dout
+	.type	hc595_dout,%object
+	.section	.bss.hc595_dout,"aw",%nobits
+	.globl	hc595_dout
+hc595_dout:
+	.byte	0                       @ 0x0
+	.size	hc595_dout, 1
+
+	.hidden	dout_0_7                @ @dout_0_7
+	.type	dout_0_7,%object
+	.section	.bss.dout_0_7,"aw",%nobits
+	.globl	dout_0_7
+dout_0_7:
+	.byte	0                       @ 0x0
+	.size	dout_0_7, 1
+
+	.type	DIO_Service.dout_0_7_mem,%object @ @DIO_Service.dout_0_7_mem
+	.section	.bss.DIO_Service.dout_0_7_mem,"aw",%nobits
+DIO_Service.dout_0_7_mem:
+	.byte	0                       @ 0x0
+	.size	DIO_Service.dout_0_7_mem, 1
+
+	.type	DIO_Service.doorlock_timer,%object @ @DIO_Service.doorlock_timer
+	.section	.bss.DIO_Service.doorlock_timer,"aw",%nobits
+	.p2align	2
+DIO_Service.doorlock_timer:
+	.long	0                       @ 0x0
+	.size	DIO_Service.doorlock_timer, 4
+
+	.hidden	dout_0_7_remote         @ @dout_0_7_remote
+	.type	dout_0_7_remote,%object
+	.section	.bss.dout_0_7_remote,"aw",%nobits
+	.globl	dout_0_7_remote
+	.p2align	1
+dout_0_7_remote:
+	.short	0                       @ 0x0
+	.size	dout_0_7_remote, 2
+
+	.hidden	din_cap_sen             @ @din_cap_sen
+	.type	din_cap_sen,%object
+	.section	.bss.din_cap_sen,"aw",%nobits
+	.globl	din_cap_sen
+din_cap_sen:
+	.byte	0                       @ 0x0
+	.size	din_cap_sen, 1
+
+	.hidden	din_state               @ @din_state
+	.type	din_state,%object
+	.section	.bss.din_state,"aw",%nobits
+	.globl	din_state
+din_state:
+	.byte	0                       @ 0x0
+	.size	din_state, 1
+
+	.type	DIO_DebounceDigitalInput.din_0_timer,%object @ @DIO_DebounceDigitalInput.din_0_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_0_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_0_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_0_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_1_timer,%object @ @DIO_DebounceDigitalInput.din_1_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_1_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_1_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_1_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_2_timer,%object @ @DIO_DebounceDigitalInput.din_2_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_2_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_2_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_2_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_3_timer,%object @ @DIO_DebounceDigitalInput.din_3_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_3_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_3_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_3_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_4_timer,%object @ @DIO_DebounceDigitalInput.din_4_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_4_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_4_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_4_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_5_timer,%object @ @DIO_DebounceDigitalInput.din_5_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_5_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_5_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_5_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_6_timer,%object @ @DIO_DebounceDigitalInput.din_6_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_6_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_6_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_6_timer, 1
+
+	.type	DIO_DebounceDigitalInput.din_7_timer,%object @ @DIO_DebounceDigitalInput.din_7_timer
+	.section	.bss.DIO_DebounceDigitalInput.din_7_timer,"aw",%nobits
+DIO_DebounceDigitalInput.din_7_timer:
+	.byte	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.din_7_timer, 1
+
+	.type	DIO_DebounceDigitalInput.entry_door_pcnt,%object @ @DIO_DebounceDigitalInput.entry_door_pcnt
+	.section	.bss.DIO_DebounceDigitalInput.entry_door_pcnt,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.entry_door_pcnt:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.entry_door_pcnt, 4
+
+	.type	DIO_DebounceDigitalInput.entry_door_timer,%object @ @DIO_DebounceDigitalInput.entry_door_timer
+	.section	.bss.DIO_DebounceDigitalInput.entry_door_timer,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.entry_door_timer:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.entry_door_timer, 4
+
+	.type	DIO_DebounceDigitalInput.handmaid_sw_time,%object @ @DIO_DebounceDigitalInput.handmaid_sw_time
+	.section	.bss.DIO_DebounceDigitalInput.handmaid_sw_time,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.handmaid_sw_time:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.handmaid_sw_time, 4
+
+	.type	DIO_DebounceDigitalInput.handmaid_sw_timer,%object @ @DIO_DebounceDigitalInput.handmaid_sw_timer
+	.section	.bss.DIO_DebounceDigitalInput.handmaid_sw_timer,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.handmaid_sw_timer:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.handmaid_sw_timer, 4
+
+	.type	DIO_DebounceDigitalInput.door_bell_sw_time,%object @ @DIO_DebounceDigitalInput.door_bell_sw_time
+	.section	.bss.DIO_DebounceDigitalInput.door_bell_sw_time,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.door_bell_sw_time:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.door_bell_sw_time, 4
+
+	.type	DIO_DebounceDigitalInput.door_bell_sw_timer,%object @ @DIO_DebounceDigitalInput.door_bell_sw_timer
+	.section	.bss.DIO_DebounceDigitalInput.door_bell_sw_timer,"aw",%nobits
+	.p2align	2
+DIO_DebounceDigitalInput.door_bell_sw_timer:
+	.long	0                       @ 0x0
+	.size	DIO_DebounceDigitalInput.door_bell_sw_timer, 4
+
+	.hidden	din_0_7                 @ @din_0_7
+	.type	din_0_7,%object
+	.section	.bss.din_0_7,"aw",%nobits
+	.globl	din_0_7
+din_0_7:
+	.byte	0                       @ 0x0
+	.size	din_0_7, 1
+
+	.file	8 "../Drivers/STM32F1xx_HAL_Driver/Inc" "stm32f1xx_hal_rtc.h"
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../Src\\dio.c"         @ string offset=57
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\RoomController\\DE-170318\\MDK-ARM" @ string offset=70
+.Linfo_string3:
+	.asciz	"dout_0_7_mem"          @ string offset=148
+.Linfo_string4:
+	.asciz	"unsigned char"         @ string offset=161
+.Linfo_string5:
+	.asciz	"uint8_t"               @ string offset=175
+.Linfo_string6:
+	.asciz	"doorlock_timer"        @ string offset=183
+.Linfo_string7:
+	.asciz	"unsigned int"          @ string offset=198
+.Linfo_string8:
+	.asciz	"uint32_t"              @ string offset=211
+.Linfo_string9:
+	.asciz	"din_0_timer"           @ string offset=220
+.Linfo_string10:
+	.asciz	"din_1_timer"           @ string offset=232
+.Linfo_string11:
+	.asciz	"din_2_timer"           @ string offset=244
+.Linfo_string12:
+	.asciz	"din_3_timer"           @ string offset=256
+.Linfo_string13:
+	.asciz	"din_4_timer"           @ string offset=268
+.Linfo_string14:
+	.asciz	"din_5_timer"           @ string offset=280
+.Linfo_string15:
+	.asciz	"din_6_timer"           @ string offset=292
+.Linfo_string16:
+	.asciz	"din_7_timer"           @ string offset=304
+.Linfo_string17:
+	.asciz	"entry_door_pcnt"       @ string offset=316
+.Linfo_string18:
+	.asciz	"entry_door_timer"      @ string offset=332
+.Linfo_string19:
+	.asciz	"handmaid_sw_time"      @ string offset=349
+.Linfo_string20:
+	.asciz	"handmaid_sw_timer"     @ string offset=366
+.Linfo_string21:
+	.asciz	"door_bell_sw_time"     @ string offset=384
+.Linfo_string22:
+	.asciz	"door_bell_sw_timer"    @ string offset=402
+.Linfo_string23:
+	.asciz	"dio_flags"             @ string offset=421
+.Linfo_string24:
+	.asciz	"din_0_7"               @ string offset=431
+.Linfo_string25:
+	.asciz	"din_state"             @ string offset=439
+.Linfo_string26:
+	.asciz	"din_cap_sen"           @ string offset=449
+.Linfo_string27:
+	.asciz	"dout_0_7"              @ string offset=461
+.Linfo_string28:
+	.asciz	"dout_0_7_remote"       @ string offset=470
+.Linfo_string29:
+	.asciz	"unsigned short"        @ string offset=486
+.Linfo_string30:
+	.asciz	"uint16_t"              @ string offset=501
+.Linfo_string31:
+	.asciz	"hc595_dout"            @ string offset=510
+.Linfo_string32:
+	.asciz	"COM_INIT"              @ string offset=521
+.Linfo_string33:
+	.asciz	"COM_PACKET_PENDING"    @ string offset=530
+.Linfo_string34:
+	.asciz	"COM_PACKET_RECEIVED"   @ string offset=549
+.Linfo_string35:
+	.asciz	"COM_RECEIVE_SUSPEND"   @ string offset=569
+.Linfo_string36:
+	.asciz	"COM_ERROR"             @ string offset=589
+.Linfo_string37:
+	.asciz	"GPIO_PIN_RESET"        @ string offset=599
+.Linfo_string38:
+	.asciz	"GPIO_PIN_SET"          @ string offset=614
+.Linfo_string39:
+	.asciz	"ROOM_IDLE"             @ string offset=627
+.Linfo_string40:
+	.asciz	"ROOM_READY"            @ string offset=637
+.Linfo_string41:
+	.asciz	"ROOM_BUSY"             @ string offset=648
+.Linfo_string42:
+	.asciz	"ROOM_CLEANING"         @ string offset=658
+.Linfo_string43:
+	.asciz	"ROOM_BEDDING_REPLACEMENT" @ string offset=672
+.Linfo_string44:
+	.asciz	"ROOM_GENERAL_CLEANING" @ string offset=697
+.Linfo_string45:
+	.asciz	"ROOM_OUT_OF_ORDER"     @ string offset=719
+.Linfo_string46:
+	.asciz	"ROOM_LATE_CHECKOUT"    @ string offset=737
+.Linfo_string47:
+	.asciz	"ROOM_HANDMAID_IN"      @ string offset=756
+.Linfo_string48:
+	.asciz	"ROOM_FORCING_DND"      @ string offset=773
+.Linfo_string49:
+	.asciz	"ROOM_FIRE_ALARM"       @ string offset=790
+.Linfo_string50:
+	.asciz	"ROOM_FIRE_EXIT"        @ string offset=806
+.Linfo_string51:
+	.asciz	"BUZZ_OFF"              @ string offset=821
+.Linfo_string52:
+	.asciz	"BUZZ_CARD_INVALID"     @ string offset=830
+.Linfo_string53:
+	.asciz	"BUZZ_CARD_VALID"       @ string offset=848
+.Linfo_string54:
+	.asciz	"BUZZ_DOOR_BELL"        @ string offset=864
+.Linfo_string55:
+	.asciz	"BUZZ_HANDMAID_FINISH"  @ string offset=879
+.Linfo_string56:
+	.asciz	"BUZZ_ROOM_BUSY"        @ string offset=900
+.Linfo_string57:
+	.asciz	"BUZZ_SOS_ALARM"        @ string offset=915
+.Linfo_string58:
+	.asciz	"BUZZ_FIRE_ALARM"       @ string offset=930
+.Linfo_string59:
+	.asciz	"HAL_OK"                @ string offset=946
+.Linfo_string60:
+	.asciz	"HAL_ERROR"             @ string offset=953
+.Linfo_string61:
+	.asciz	"HAL_BUSY"              @ string offset=963
+.Linfo_string62:
+	.asciz	"HAL_TIMEOUT"           @ string offset=972
+.Linfo_string63:
+	.asciz	"CRL"                   @ string offset=984
+.Linfo_string64:
+	.asciz	"CRH"                   @ string offset=988
+.Linfo_string65:
+	.asciz	"IDR"                   @ string offset=992
+.Linfo_string66:
+	.asciz	"ODR"                   @ string offset=996
+.Linfo_string67:
+	.asciz	"BSRR"                  @ string offset=1000
+.Linfo_string68:
+	.asciz	"BRR"                   @ string offset=1005
+.Linfo_string69:
+	.asciz	"LCKR"                  @ string offset=1009
+.Linfo_string70:
+	.asciz	"GPIO_TypeDef"          @ string offset=1014
+.Linfo_string71:
+	.asciz	"DIO_Init"              @ string offset=1027
+.Linfo_string72:
+	.asciz	"DIO_SetOuput"          @ string offset=1036
+.Linfo_string73:
+	.asciz	"CAP1293_Init"          @ string offset=1049
+.Linfo_string74:
+	.asciz	"DIO_Service"           @ string offset=1062
+.Linfo_string75:
+	.asciz	"CAP1293_ReadRegister"  @ string offset=1074
+.Linfo_string76:
+	.asciz	"CAP1293_WriteRegister" @ string offset=1095
+.Linfo_string77:
+	.asciz	"DIO_DebounceDigitalInput" @ string offset=1117
+.Linfo_string78:
+	.asciz	"reg_wr"                @ string offset=1142
+.Linfo_string79:
+	.asciz	"sizetype"              @ string offset=1149
+.Linfo_string80:
+	.asciz	"product_id"            @ string offset=1158
+.Linfo_string81:
+	.asciz	"vendor_id"             @ string offset=1169
+.Linfo_string82:
+	.asciz	"rd_reg"                @ string offset=1179
+.Linfo_string83:
+	.asciz	"register_address"      @ string offset=1186
+.Linfo_string84:
+	.asciz	"ret_val"               @ string offset=1203
+.Linfo_string85:
+	.asciz	"reg_val"               @ string offset=1211
+.Linfo_string86:
+	.asciz	"register_data"         @ string offset=1219
+.Linfo_string87:
+	.asciz	"ee_buff"               @ string offset=1233
+.Linfo_string88:
+	.asciz	"date_dio"              @ string offset=1241
+.Linfo_string89:
+	.asciz	"WeekDay"               @ string offset=1250
+.Linfo_string90:
+	.asciz	"Month"                 @ string offset=1258
+.Linfo_string91:
+	.asciz	"Date"                  @ string offset=1264
+.Linfo_string92:
+	.asciz	"Year"                  @ string offset=1269
+.Linfo_string93:
+	.asciz	"RTC_DateTypeDef"       @ string offset=1274
+.Linfo_string94:
+	.asciz	"time_dio"              @ string offset=1290
+.Linfo_string95:
+	.asciz	"Hours"                 @ string offset=1299
+.Linfo_string96:
+	.asciz	"Minutes"               @ string offset=1305
+.Linfo_string97:
+	.asciz	"Seconds"               @ string offset=1313
+.Linfo_string98:
+	.asciz	"RTC_TimeTypeDef"       @ string offset=1321
+.Linfo_string99:
+	.asciz	"tmp_add"               @ string offset=1337
+	.section	.debug_loc,"",%progbits
+.Ldebug_loc0:
+	.long	.Ltmp5
+	.long	.Ltmp7
+	.short	2                       @ Loc expr size
+	.byte	16                      @ DW_OP_constu
+	.byte	0                       @ 0
+	.long	.Ltmp7
+	.long	.Ltmp13
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	6                       @ 6
+	.long	.Ltmp14
+	.long	.Ltmp16
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	6                       @ 6
+	.long	0
+	.long	0
+.Ldebug_loc1:
+	.long	.Ltmp6
+	.long	.Ltmp8
+	.short	2                       @ Loc expr size
+	.byte	16                      @ DW_OP_constu
+	.byte	0                       @ 0
+	.long	.Ltmp8
+	.long	.Ltmp13
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	7                       @ 7
+	.long	.Ltmp14
+	.long	.Ltmp16
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	7                       @ 7
+	.long	0
+	.long	0
+.Ldebug_loc2:
+	.long	.Lfunc_begin4
+	.long	.Ltmp95
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	.Ltmp95
+	.long	.Ltmp97
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	7                       @ 7
+	.long	0
+	.long	0
+.Ldebug_loc3:
+	.long	.Ltmp96
+	.long	.Ltmp97
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	6                       @ 6
+	.long	0
+	.long	0
+.Ldebug_loc4:
+	.long	.Lfunc_begin5
+	.long	.Ltmp100
+	.short	1                       @ Loc expr size
+	.byte	80                      @ DW_OP_reg0
+	.long	0
+	.long	0
+.Ldebug_loc5:
+	.long	.Lfunc_begin5
+	.long	.Ltmp101
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	0
+	.long	0
+.Ldebug_loc6:
+	.long	.Ltmp288
+	.long	.Ltmp290
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	4                       @ 4
+	.long	0
+	.long	0
+.Ldebug_loc7:
+	.long	.Ltmp289
+	.long	.Ltmp290
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	8                       @ 8
+	.long	0
+	.long	0
+.Ldebug_loc8:
+	.long	.Ltmp292
+	.long	.Ltmp293
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	16                      @ 16
+	.long	.Ltmp293
+	.long	.Ltmp294
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	.Ltmp296
+	.long	.Ltmp297
+	.short	2                       @ Loc expr size
+	.byte	125                     @ DW_OP_breg13
+	.byte	16                      @ 16
+	.long	.Ltmp297
+	.long	.Ltmp299
+	.short	1                       @ Loc expr size
+	.byte	81                      @ DW_OP_reg1
+	.long	0
+	.long	0
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.ascii	"\264B"                 @ DW_AT_GNU_pubnames
+	.byte	12                      @ DW_FORM_flag
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	3                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	4                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	5                       @ Abbreviation Code
+	.byte	22                      @ DW_TAG_typedef
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	6                       @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	7                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	8                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	9                       @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	10                      @ Abbreviation Code
+	.byte	53                      @ DW_TAG_volatile_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	11                      @ Abbreviation Code
+	.byte	4                       @ DW_TAG_enumeration_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	12                      @ Abbreviation Code
+	.byte	40                      @ DW_TAG_enumerator
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	28                      @ DW_AT_const_value
+	.byte	15                      @ DW_FORM_udata
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	13                      @ Abbreviation Code
+	.byte	15                      @ DW_TAG_pointer_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	14                      @ Abbreviation Code
+	.byte	22                      @ DW_TAG_typedef
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	15                      @ Abbreviation Code
+	.byte	19                      @ DW_TAG_structure_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	16                      @ Abbreviation Code
+	.byte	13                      @ DW_TAG_member
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	56                      @ DW_AT_data_member_location
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	17                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	18                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	19                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	20                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	21                      @ Abbreviation Code
+	.byte	52                      @ DW_TAG_variable
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	22                      @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	23                      @ Abbreviation Code
+	.byte	5                       @ DW_TAG_formal_parameter
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	2                       @ DW_AT_location
+	.byte	6                       @ DW_FORM_data4
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	5                       @ DW_FORM_data2
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	24                      @ Abbreviation Code
+	.byte	1                       @ DW_TAG_array_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	25                      @ Abbreviation Code
+	.byte	33                      @ DW_TAG_subrange_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	55                      @ DW_AT_count
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	26                      @ Abbreviation Code
+	.byte	36                      @ DW_TAG_base_type
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	62                      @ DW_AT_encoding
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	27                      @ Abbreviation Code
+	.byte	19                      @ DW_TAG_structure_type
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	11                      @ DW_AT_byte_size
+	.byte	11                      @ DW_FORM_data1
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	28                      @ Abbreviation Code
+	.byte	13                      @ DW_TAG_member
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	73                      @ DW_AT_type
+	.byte	19                      @ DW_FORM_ref4
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	56                      @ DW_AT_data_member_location
+	.byte	11                      @ DW_FORM_data1
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	1337                    @ Length of Unit
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0x532 DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.byte	1                       @ DW_AT_GNU_pubnames
+	.long	0                       @ DW_AT_low_pc
+	.long	.Ldebug_ranges0         @ DW_AT_ranges
+	.byte	2                       @ Abbrev [2] 0x27:0x41 DW_TAG_subprogram
+	.long	.Lfunc_begin3           @ DW_AT_low_pc
+	.long	.Lfunc_end3             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string74         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	133                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ Abbrev [3] 0x3a:0x11 DW_TAG_variable
+	.long	.Linfo_string3          @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	136                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_Service.dout_0_7_mem
+	.byte	3                       @ Abbrev [3] 0x4b:0x11 DW_TAG_variable
+	.long	.Linfo_string6          @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	137                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_Service.doorlock_timer
+	.byte	4                       @ Abbrev [4] 0x5c:0xb DW_TAG_variable
+	.long	.Linfo_string82         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	135                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	5                       @ Abbrev [5] 0x68:0xb DW_TAG_typedef
+	.long	115                     @ DW_AT_type
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	62                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x73:0x7 DW_TAG_base_type
+	.long	.Linfo_string4          @ DW_AT_name
+	.byte	8                       @ DW_AT_encoding
+	.byte	1                       @ DW_AT_byte_size
+	.byte	5                       @ Abbrev [5] 0x7a:0xb DW_TAG_typedef
+	.long	133                     @ DW_AT_type
+	.long	.Linfo_string8          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	64                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x85:0x7 DW_TAG_base_type
+	.long	.Linfo_string7          @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	4                       @ DW_AT_byte_size
+	.byte	2                       @ Abbrev [2] 0x8c:0x13d DW_TAG_subprogram
+	.long	.Lfunc_begin6           @ DW_AT_low_pc
+	.long	.Lfunc_end6             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string77         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	227                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	3                       @ Abbrev [3] 0x9f:0x11 DW_TAG_variable
+	.long	.Linfo_string9          @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	233                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_0_timer
+	.byte	3                       @ Abbrev [3] 0xb0:0x11 DW_TAG_variable
+	.long	.Linfo_string10         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	234                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_1_timer
+	.byte	3                       @ Abbrev [3] 0xc1:0x11 DW_TAG_variable
+	.long	.Linfo_string11         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	235                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_2_timer
+	.byte	3                       @ Abbrev [3] 0xd2:0x11 DW_TAG_variable
+	.long	.Linfo_string12         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	236                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_3_timer
+	.byte	3                       @ Abbrev [3] 0xe3:0x11 DW_TAG_variable
+	.long	.Linfo_string13         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	237                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_4_timer
+	.byte	3                       @ Abbrev [3] 0xf4:0x11 DW_TAG_variable
+	.long	.Linfo_string14         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	238                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_5_timer
+	.byte	3                       @ Abbrev [3] 0x105:0x11 DW_TAG_variable
+	.long	.Linfo_string15         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	239                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_6_timer
+	.byte	3                       @ Abbrev [3] 0x116:0x11 DW_TAG_variable
+	.long	.Linfo_string16         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	240                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.din_7_timer
+	.byte	3                       @ Abbrev [3] 0x127:0x11 DW_TAG_variable
+	.long	.Linfo_string17         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	241                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.entry_door_pcnt
+	.byte	3                       @ Abbrev [3] 0x138:0x11 DW_TAG_variable
+	.long	.Linfo_string18         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	242                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.entry_door_timer
+	.byte	3                       @ Abbrev [3] 0x149:0x11 DW_TAG_variable
+	.long	.Linfo_string19         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	243                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.handmaid_sw_time
+	.byte	3                       @ Abbrev [3] 0x15a:0x11 DW_TAG_variable
+	.long	.Linfo_string20         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	244                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.handmaid_sw_timer
+	.byte	3                       @ Abbrev [3] 0x16b:0x11 DW_TAG_variable
+	.long	.Linfo_string21         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	245                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.door_bell_sw_time
+	.byte	3                       @ Abbrev [3] 0x17c:0x11 DW_TAG_variable
+	.long	.Linfo_string22         @ DW_AT_name
+	.long	122                     @ DW_AT_type
+	.byte	2                       @ DW_AT_decl_file
+	.byte	246                     @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	DIO_DebounceDigitalInput.door_bell_sw_timer
+	.byte	7                       @ Abbrev [7] 0x18d:0xe DW_TAG_variable
+	.byte	2                       @ DW_AT_location
+	.byte	145
+	.byte	12
+	.long	.Linfo_string87         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	230                     @ DW_AT_decl_line
+	.long	1212                    @ DW_AT_type
+	.byte	8                       @ Abbrev [8] 0x19b:0xf DW_TAG_variable
+	.long	.Ldebug_loc6            @ DW_AT_location
+	.long	.Linfo_string88         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	232                     @ DW_AT_decl_line
+	.long	1224                    @ DW_AT_type
+	.byte	8                       @ Abbrev [8] 0x1aa:0xf DW_TAG_variable
+	.long	.Ldebug_loc7            @ DW_AT_location
+	.long	.Linfo_string94         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	231                     @ DW_AT_decl_line
+	.long	1288                    @ DW_AT_type
+	.byte	8                       @ Abbrev [8] 0x1b9:0xf DW_TAG_variable
+	.long	.Ldebug_loc8            @ DW_AT_location
+	.long	.Linfo_string99         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	229                     @ DW_AT_decl_line
+	.long	122                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	9                       @ Abbrev [9] 0x1c9:0x12 DW_TAG_variable
+	.long	.Linfo_string23         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	36                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	dio_flags
+	.byte	10                      @ Abbrev [10] 0x1db:0x5 DW_TAG_volatile_type
+	.long	122                     @ DW_AT_type
+	.byte	9                       @ Abbrev [9] 0x1e0:0x12 DW_TAG_variable
+	.long	.Linfo_string24         @ DW_AT_name
+	.long	498                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	37                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	din_0_7
+	.byte	10                      @ Abbrev [10] 0x1f2:0x5 DW_TAG_volatile_type
+	.long	104                     @ DW_AT_type
+	.byte	9                       @ Abbrev [9] 0x1f7:0x12 DW_TAG_variable
+	.long	.Linfo_string25         @ DW_AT_name
+	.long	498                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	38                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	din_state
+	.byte	9                       @ Abbrev [9] 0x209:0x12 DW_TAG_variable
+	.long	.Linfo_string26         @ DW_AT_name
+	.long	498                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	39                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	din_cap_sen
+	.byte	9                       @ Abbrev [9] 0x21b:0x12 DW_TAG_variable
+	.long	.Linfo_string27         @ DW_AT_name
+	.long	498                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	40                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	dout_0_7
+	.byte	9                       @ Abbrev [9] 0x22d:0x12 DW_TAG_variable
+	.long	.Linfo_string28         @ DW_AT_name
+	.long	575                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	41                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	dout_0_7_remote
+	.byte	10                      @ Abbrev [10] 0x23f:0x5 DW_TAG_volatile_type
+	.long	580                     @ DW_AT_type
+	.byte	5                       @ Abbrev [5] 0x244:0xb DW_TAG_typedef
+	.long	591                     @ DW_AT_type
+	.long	.Linfo_string30         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	63                      @ DW_AT_decl_line
+	.byte	6                       @ Abbrev [6] 0x24f:0x7 DW_TAG_base_type
+	.long	.Linfo_string29         @ DW_AT_name
+	.byte	7                       @ DW_AT_encoding
+	.byte	2                       @ DW_AT_byte_size
+	.byte	9                       @ Abbrev [9] 0x256:0x12 DW_TAG_variable
+	.long	.Linfo_string31         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ DW_AT_decl_file
+	.byte	42                      @ DW_AT_decl_line
+	.byte	5                       @ DW_AT_location
+	.byte	3
+	.long	hc595_dout
+	.byte	11                      @ Abbrev [11] 0x268:0x27 DW_TAG_enumeration_type
+	.long	133                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	3                       @ DW_AT_decl_file
+	.byte	37                      @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x270:0x6 DW_TAG_enumerator
+	.long	.Linfo_string32         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x276:0x6 DW_TAG_enumerator
+	.long	.Linfo_string33         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x27c:0x6 DW_TAG_enumerator
+	.long	.Linfo_string34         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x282:0x6 DW_TAG_enumerator
+	.long	.Linfo_string35         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x288:0x6 DW_TAG_enumerator
+	.long	.Linfo_string36         @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	11                      @ Abbrev [11] 0x28f:0x15 DW_TAG_enumeration_type
+	.long	133                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	4                       @ DW_AT_decl_file
+	.byte	83                      @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x297:0x6 DW_TAG_enumerator
+	.long	.Linfo_string37         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x29d:0x6 DW_TAG_enumerator
+	.long	.Linfo_string38         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	11                      @ Abbrev [11] 0x2a4:0x51 DW_TAG_enumeration_type
+	.long	133                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	5                       @ DW_AT_decl_file
+	.byte	26                      @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x2ac:0x6 DW_TAG_enumerator
+	.long	.Linfo_string39         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2b2:0x6 DW_TAG_enumerator
+	.long	.Linfo_string40         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2b8:0x6 DW_TAG_enumerator
+	.long	.Linfo_string41         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2be:0x6 DW_TAG_enumerator
+	.long	.Linfo_string42         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2c4:0x6 DW_TAG_enumerator
+	.long	.Linfo_string43         @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2ca:0x6 DW_TAG_enumerator
+	.long	.Linfo_string44         @ DW_AT_name
+	.byte	5                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2d0:0x6 DW_TAG_enumerator
+	.long	.Linfo_string45         @ DW_AT_name
+	.byte	6                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2d6:0x6 DW_TAG_enumerator
+	.long	.Linfo_string46         @ DW_AT_name
+	.byte	7                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2dc:0x6 DW_TAG_enumerator
+	.long	.Linfo_string47         @ DW_AT_name
+	.byte	8                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2e2:0x6 DW_TAG_enumerator
+	.long	.Linfo_string48         @ DW_AT_name
+	.byte	9                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2e8:0x6 DW_TAG_enumerator
+	.long	.Linfo_string49         @ DW_AT_name
+	.byte	10                      @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x2ee:0x6 DW_TAG_enumerator
+	.long	.Linfo_string50         @ DW_AT_name
+	.byte	11                      @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	11                      @ Abbrev [11] 0x2f5:0x39 DW_TAG_enumeration_type
+	.long	133                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	5                       @ DW_AT_decl_file
+	.byte	44                      @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x2fd:0x6 DW_TAG_enumerator
+	.long	.Linfo_string51         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x303:0x6 DW_TAG_enumerator
+	.long	.Linfo_string52         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x309:0x6 DW_TAG_enumerator
+	.long	.Linfo_string53         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x30f:0x6 DW_TAG_enumerator
+	.long	.Linfo_string54         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x315:0x6 DW_TAG_enumerator
+	.long	.Linfo_string55         @ DW_AT_name
+	.byte	4                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x31b:0x6 DW_TAG_enumerator
+	.long	.Linfo_string56         @ DW_AT_name
+	.byte	5                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x321:0x6 DW_TAG_enumerator
+	.long	.Linfo_string57         @ DW_AT_name
+	.byte	6                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x327:0x6 DW_TAG_enumerator
+	.long	.Linfo_string58         @ DW_AT_name
+	.byte	7                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	11                      @ Abbrev [11] 0x32e:0x21 DW_TAG_enumeration_type
+	.long	133                     @ DW_AT_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	6                       @ DW_AT_decl_file
+	.byte	59                      @ DW_AT_decl_line
+	.byte	12                      @ Abbrev [12] 0x336:0x6 DW_TAG_enumerator
+	.long	.Linfo_string59         @ DW_AT_name
+	.byte	0                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x33c:0x6 DW_TAG_enumerator
+	.long	.Linfo_string60         @ DW_AT_name
+	.byte	1                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x342:0x6 DW_TAG_enumerator
+	.long	.Linfo_string61         @ DW_AT_name
+	.byte	2                       @ DW_AT_const_value
+	.byte	12                      @ Abbrev [12] 0x348:0x6 DW_TAG_enumerator
+	.long	.Linfo_string62         @ DW_AT_name
+	.byte	3                       @ DW_AT_const_value
+	.byte	0                       @ End Of Children Mark
+	.byte	13                      @ Abbrev [13] 0x34f:0x5 DW_TAG_pointer_type
+	.long	852                     @ DW_AT_type
+	.byte	14                      @ Abbrev [14] 0x354:0xc DW_TAG_typedef
+	.long	864                     @ DW_AT_type
+	.long	.Linfo_string70         @ DW_AT_name
+	.byte	7                       @ DW_AT_decl_file
+	.short	385                     @ DW_AT_decl_line
+	.byte	15                      @ Abbrev [15] 0x360:0x61 DW_TAG_structure_type
+	.byte	28                      @ DW_AT_byte_size
+	.byte	7                       @ DW_AT_decl_file
+	.short	376                     @ DW_AT_decl_line
+	.byte	16                      @ Abbrev [16] 0x365:0xd DW_TAG_member
+	.long	.Linfo_string63         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	378                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x372:0xd DW_TAG_member
+	.long	.Linfo_string64         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	379                     @ DW_AT_decl_line
+	.byte	4                       @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x37f:0xd DW_TAG_member
+	.long	.Linfo_string65         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	380                     @ DW_AT_decl_line
+	.byte	8                       @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x38c:0xd DW_TAG_member
+	.long	.Linfo_string66         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	381                     @ DW_AT_decl_line
+	.byte	12                      @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x399:0xd DW_TAG_member
+	.long	.Linfo_string67         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	382                     @ DW_AT_decl_line
+	.byte	16                      @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x3a6:0xd DW_TAG_member
+	.long	.Linfo_string68         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	383                     @ DW_AT_decl_line
+	.byte	20                      @ DW_AT_data_member_location
+	.byte	16                      @ Abbrev [16] 0x3b3:0xd DW_TAG_member
+	.long	.Linfo_string69         @ DW_AT_name
+	.long	475                     @ DW_AT_type
+	.byte	7                       @ DW_AT_decl_file
+	.short	384                     @ DW_AT_decl_line
+	.byte	24                      @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	17                      @ Abbrev [17] 0x3c1:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin0           @ DW_AT_low_pc
+	.long	.Lfunc_end0             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string71         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.byte	123                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	18                      @ Abbrev [18] 0x3d4:0x14 DW_TAG_subprogram
+	.long	.Lfunc_begin1           @ DW_AT_low_pc
+	.long	.Lfunc_end1             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string72         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	856                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	19                      @ Abbrev [19] 0x3e8:0x44 DW_TAG_subprogram
+	.long	.Lfunc_begin2           @ DW_AT_low_pc
+	.long	.Lfunc_end2             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string73         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	864                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	20                      @ Abbrev [20] 0x3fc:0xf DW_TAG_variable
+	.byte	2                       @ DW_AT_location
+	.byte	145
+	.byte	4
+	.long	.Linfo_string78         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	866                     @ DW_AT_decl_line
+	.long	1193                    @ DW_AT_type
+	.byte	21                      @ Abbrev [21] 0x40b:0x10 DW_TAG_variable
+	.long	.Ldebug_loc0            @ DW_AT_location
+	.long	.Linfo_string80         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	866                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	21                      @ Abbrev [21] 0x41b:0x10 DW_TAG_variable
+	.long	.Ldebug_loc1            @ DW_AT_location
+	.long	.Linfo_string81         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	866                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	22                      @ Abbrev [22] 0x42c:0x39 DW_TAG_subprogram
+	.long	.Lfunc_begin4           @ DW_AT_low_pc
+	.long	.Lfunc_end4             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string75         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	894                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.long	104                     @ DW_AT_type
+	.byte	1                       @ DW_AT_external
+	.byte	23                      @ Abbrev [23] 0x444:0x10 DW_TAG_formal_parameter
+	.long	.Ldebug_loc2            @ DW_AT_location
+	.long	.Linfo_string83         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	894                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	21                      @ Abbrev [21] 0x454:0x10 DW_TAG_variable
+	.long	.Ldebug_loc3            @ DW_AT_location
+	.long	.Linfo_string84         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	896                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	19                      @ Abbrev [19] 0x465:0x44 DW_TAG_subprogram
+	.long	.Lfunc_begin5           @ DW_AT_low_pc
+	.long	.Lfunc_end5             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string76         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	904                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	23                      @ Abbrev [23] 0x479:0x10 DW_TAG_formal_parameter
+	.long	.Ldebug_loc4            @ DW_AT_location
+	.long	.Linfo_string83         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	904                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	23                      @ Abbrev [23] 0x489:0x10 DW_TAG_formal_parameter
+	.long	.Ldebug_loc5            @ DW_AT_location
+	.long	.Linfo_string86         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	904                     @ DW_AT_decl_line
+	.long	104                     @ DW_AT_type
+	.byte	20                      @ Abbrev [20] 0x499:0xf DW_TAG_variable
+	.byte	2                       @ DW_AT_location
+	.byte	145
+	.byte	6
+	.long	.Linfo_string85         @ DW_AT_name
+	.byte	2                       @ DW_AT_decl_file
+	.short	906                     @ DW_AT_decl_line
+	.long	1193                    @ DW_AT_type
+	.byte	0                       @ End Of Children Mark
+	.byte	24                      @ Abbrev [24] 0x4a9:0xc DW_TAG_array_type
+	.long	104                     @ DW_AT_type
+	.byte	25                      @ Abbrev [25] 0x4ae:0x6 DW_TAG_subrange_type
+	.long	1205                    @ DW_AT_type
+	.byte	2                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	26                      @ Abbrev [26] 0x4b5:0x7 DW_TAG_base_type
+	.long	.Linfo_string79         @ DW_AT_name
+	.byte	8                       @ DW_AT_byte_size
+	.byte	7                       @ DW_AT_encoding
+	.byte	24                      @ Abbrev [24] 0x4bc:0xc DW_TAG_array_type
+	.long	104                     @ DW_AT_type
+	.byte	25                      @ Abbrev [25] 0x4c1:0x6 DW_TAG_subrange_type
+	.long	1205                    @ DW_AT_type
+	.byte	4                       @ DW_AT_count
+	.byte	0                       @ End Of Children Mark
+	.byte	5                       @ Abbrev [5] 0x4c8:0xb DW_TAG_typedef
+	.long	1235                    @ DW_AT_type
+	.long	.Linfo_string93         @ DW_AT_name
+	.byte	8                       @ DW_AT_decl_file
+	.byte	179                     @ DW_AT_decl_line
+	.byte	27                      @ Abbrev [27] 0x4d3:0x35 DW_TAG_structure_type
+	.byte	4                       @ DW_AT_byte_size
+	.byte	8                       @ DW_AT_decl_file
+	.byte	165                     @ DW_AT_decl_line
+	.byte	28                      @ Abbrev [28] 0x4d7:0xc DW_TAG_member
+	.long	.Linfo_string89         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	167                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	28                      @ Abbrev [28] 0x4e3:0xc DW_TAG_member
+	.long	.Linfo_string90         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	170                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_data_member_location
+	.byte	28                      @ Abbrev [28] 0x4ef:0xc DW_TAG_member
+	.long	.Linfo_string91         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	173                     @ DW_AT_decl_line
+	.byte	2                       @ DW_AT_data_member_location
+	.byte	28                      @ Abbrev [28] 0x4fb:0xc DW_TAG_member
+	.long	.Linfo_string92         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	176                     @ DW_AT_decl_line
+	.byte	3                       @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	5                       @ Abbrev [5] 0x508:0xb DW_TAG_typedef
+	.long	1299                    @ DW_AT_type
+	.long	.Linfo_string98         @ DW_AT_name
+	.byte	8                       @ DW_AT_decl_file
+	.byte	122                     @ DW_AT_decl_line
+	.byte	27                      @ Abbrev [27] 0x513:0x29 DW_TAG_structure_type
+	.byte	3                       @ DW_AT_byte_size
+	.byte	8                       @ DW_AT_decl_file
+	.byte	111                     @ DW_AT_decl_line
+	.byte	28                      @ Abbrev [28] 0x517:0xc DW_TAG_member
+	.long	.Linfo_string95         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	113                     @ DW_AT_decl_line
+	.byte	0                       @ DW_AT_data_member_location
+	.byte	28                      @ Abbrev [28] 0x523:0xc DW_TAG_member
+	.long	.Linfo_string96         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	116                     @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_data_member_location
+	.byte	28                      @ Abbrev [28] 0x52f:0xc DW_TAG_member
+	.long	.Linfo_string97         @ DW_AT_name
+	.long	104                     @ DW_AT_type
+	.byte	8                       @ DW_AT_decl_file
+	.byte	119                     @ DW_AT_decl_line
+	.byte	2                       @ DW_AT_data_member_location
+	.byte	0                       @ End Of Children Mark
+	.byte	0                       @ End Of Children Mark
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.long	.Lfunc_begin0
+	.long	.Lfunc_end0
+	.long	.Lfunc_begin1
+	.long	.Lfunc_end1
+	.long	.Lfunc_begin2
+	.long	.Lfunc_end2
+	.long	.Lfunc_begin3
+	.long	.Lfunc_end3
+	.long	.Lfunc_begin4
+	.long	.Lfunc_end4
+	.long	.Lfunc_begin5
+	.long	.Lfunc_end5
+	.long	.Lfunc_begin6
+	.long	.Lfunc_end6
+	.long	0
+	.long	0
+	.section	.debug_macinfo,"",%progbits
+.Lcu_macro_begin0:
+	.byte	0                       @ End Of Macro List Mark
+	.section	.debug_pubnames,"",%progbits
+	.long	.LpubNames_end0-.LpubNames_begin0 @ Length of Public Names Info
+.LpubNames_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	1341                    @ Compilation Unit Length
+	.long	480                     @ DIE offset
+	.asciz	"din_0_7"               @ External Name
+	.long	539                     @ DIE offset
+	.asciz	"dout_0_7"              @ External Name
+	.long	1068                    @ DIE offset
+	.asciz	"CAP1293_ReadRegister"  @ External Name
+	.long	980                     @ DIE offset
+	.asciz	"DIO_SetOuput"          @ External Name
+	.long	312                     @ DIE offset
+	.asciz	"entry_door_timer"      @ External Name
+	.long	457                     @ DIE offset
+	.asciz	"dio_flags"             @ External Name
+	.long	363                     @ DIE offset
+	.asciz	"door_bell_sw_time"     @ External Name
+	.long	39                      @ DIE offset
+	.asciz	"DIO_Service"           @ External Name
+	.long	140                     @ DIE offset
+	.asciz	"DIO_DebounceDigitalInput" @ External Name
+	.long	521                     @ DIE offset
+	.asciz	"din_cap_sen"           @ External Name
+	.long	1000                    @ DIE offset
+	.asciz	"CAP1293_Init"          @ External Name
+	.long	295                     @ DIE offset
+	.asciz	"entry_door_pcnt"       @ External Name
+	.long	380                     @ DIE offset
+	.asciz	"door_bell_sw_timer"    @ External Name
+	.long	58                      @ DIE offset
+	.asciz	"dout_0_7_mem"          @ External Name
+	.long	598                     @ DIE offset
+	.asciz	"hc595_dout"            @ External Name
+	.long	159                     @ DIE offset
+	.asciz	"din_0_timer"           @ External Name
+	.long	176                     @ DIE offset
+	.asciz	"din_1_timer"           @ External Name
+	.long	193                     @ DIE offset
+	.asciz	"din_2_timer"           @ External Name
+	.long	329                     @ DIE offset
+	.asciz	"handmaid_sw_time"      @ External Name
+	.long	227                     @ DIE offset
+	.asciz	"din_4_timer"           @ External Name
+	.long	244                     @ DIE offset
+	.asciz	"din_5_timer"           @ External Name
+	.long	261                     @ DIE offset
+	.asciz	"din_6_timer"           @ External Name
+	.long	278                     @ DIE offset
+	.asciz	"din_7_timer"           @ External Name
+	.long	557                     @ DIE offset
+	.asciz	"dout_0_7_remote"       @ External Name
+	.long	210                     @ DIE offset
+	.asciz	"din_3_timer"           @ External Name
+	.long	961                     @ DIE offset
+	.asciz	"DIO_Init"              @ External Name
+	.long	1125                    @ DIE offset
+	.asciz	"CAP1293_WriteRegister" @ External Name
+	.long	503                     @ DIE offset
+	.asciz	"din_state"             @ External Name
+	.long	75                      @ DIE offset
+	.asciz	"doorlock_timer"        @ External Name
+	.long	346                     @ DIE offset
+	.asciz	"handmaid_sw_timer"     @ External Name
+	.long	0                       @ End Mark
+.LpubNames_end0:
+	.section	.debug_pubtypes,"",%progbits
+	.long	.LpubTypes_end0-.LpubTypes_begin0 @ Length of Public Types Info
+.LpubTypes_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	1341                    @ Compilation Unit Length
+	.long	1224                    @ DIE offset
+	.asciz	"RTC_DateTypeDef"       @ External Name
+	.long	122                     @ DIE offset
+	.asciz	"uint32_t"              @ External Name
+	.long	133                     @ DIE offset
+	.asciz	"unsigned int"          @ External Name
+	.long	580                     @ DIE offset
+	.asciz	"uint16_t"              @ External Name
+	.long	104                     @ DIE offset
+	.asciz	"uint8_t"               @ External Name
+	.long	115                     @ DIE offset
+	.asciz	"unsigned char"         @ External Name
+	.long	591                     @ DIE offset
+	.asciz	"unsigned short"        @ External Name
+	.long	1288                    @ DIE offset
+	.asciz	"RTC_TimeTypeDef"       @ External Name
+	.long	852                     @ DIE offset
+	.asciz	"GPIO_TypeDef"          @ External Name
+	.long	0                       @ End Mark
+.LpubTypes_end0:
+
+	.ident	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]"
+	.section	".note.GNU-stack","",%progbits
+	.eabi_attribute	30, 1	@ Tag_ABI_optimization_goals
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

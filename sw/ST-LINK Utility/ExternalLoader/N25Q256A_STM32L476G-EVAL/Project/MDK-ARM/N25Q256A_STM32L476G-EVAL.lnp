@@ -1,0 +1,12 @@
+--cpu=Cortex-M4 --fpu=SoftVFP
+".\dev_inf.o"
+".\loader_src.o"
+".\stm32l4xx_gpio.o"
+".\stm32l4xx_quadspi.o"
+".\stm32l4xx_rcc.o"
+".\stm32l4xx_syscfg.o"
+".\system_stm32l4xx.o"
+--strict --scatter ".\loader.sct"
+--diag_suppress L6305 --summary_stderr --info summarysizes --map --load_addr_map_info --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\N25Q256A_STM32L476G-EVAL.map" -o .\N25Q256A_STM32L476G-EVAL.axf

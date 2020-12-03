@@ -1,0 +1,258 @@
+Added Component: Designator=C1(0805)
+Added Component: Designator=C2(VP52-2.5)
+Added Component: Designator=C3(0603)
+Added Component: Designator=C4(0805)
+Added Component: Designator=C5(VP52-2.5)
+Added Component: Designator=C6(VP52-2.5)
+Added Component: Designator=C7(0603)
+Added Component: Designator=D1(SMB)
+Added Component: Designator=D2(SMB)
+Added Component: Designator=D3(SMB)
+Added Component: Designator=D4(SMB)
+Added Component: Designator=D5(SMB)
+Added Component: Designator=D6(ONSC-TO-220-3-221A-07)
+Added Component: Designator=D7(ONSC-TO-220-3-221A-07)
+Added Component: Designator=J1(15-43-8501)
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=P2(TERMINAL BLOK 2)
+Added Component: Designator=P3(TERMINAL BLOK 3)
+Added Component: Designator=P4(TERMINAL BLOK 2)
+Added Component: Designator=P5(HDR1X2)
+Added Component: Designator=P6(HDR1X2)
+Added Component: Designator=Q1(SOT23_N)
+Added Component: Designator=R1(6-0805)
+Added Component: Designator=R2(6-0805)
+Added Component: Designator=R3(6-0805)
+Added Component: Designator=R4(6-0805)
+Added Component: Designator=R5(6-0805)
+Added Component: Designator=R6(6-0805)
+Added Component: Designator=R7(6-0805)
+Added Component: Designator=R8(6-0805)
+Added Component: Designator=R9(6-0805)
+Added Component: Designator=R10(6-0805)
+Added Component: Designator=R11(6-0805)
+Added Component: Designator=R12(6-0805)
+Added Component: Designator=R13(6-0805)
+Added Component: Designator=R14(6-0805)
+Added Component: Designator=R15(6-0805)
+Added Component: Designator=R16(6-0805)
+Added Component: Designator=R17(6-0805)
+Added Component: Designator=R18(6-0805)
+Added Component: Designator=R19(6-0805)
+Added Component: Designator=R20(6-0805)
+Added Component: Designator=R21(6-0805)
+Added Component: Designator=R22(6-0805)
+Added Component: Designator=R23(6-0805)
+Added Component: Designator=R24(6-0805)
+Added Component: Designator=R25(6-0805)
+Added Component: Designator=R26(6-0805)
+Added Component: Designator=R27(6-0805)
+Added Component: Designator=U1(M14A_N)
+Added Component: Designator=U2(DIP-4)
+Added Component: Designator=U3(DIP6)
+Added Component: Designator=U4(DIP6)
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=VSS Pin=C3-1
+Added Pin To Net: NetName=VDD Pin=C3-2
+Added Pin To Net: NetName=VSS Pin=C4-1
+Added Pin To Net: NetName=VDD Pin=C4-2
+Added Pin To Net: NetName=NetC2_1 Pin=C5-1
+Added Pin To Net: NetName=VSS Pin=C7-1
+Added Pin To Net: NetName=FANCOIL_NTC Pin=C7-2
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetC1_2 Pin=D1-2
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=NetC1_2 Pin=D2-2
+Added Pin To Net: NetName=NetC1_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_2 Pin=D3-2
+Added Pin To Net: NetName=NetD3_2 Pin=D4-1
+Added Pin To Net: NetName=NetD1_1 Pin=D4-2
+Added Pin To Net: NetName=NetD3_2 Pin=D5-1
+Added Pin To Net: NetName=NetD2_1 Pin=D5-2
+Added Pin To Net: NetName=NetC2_1 Pin=D6-1
+Added Pin To Net: NetName=LIVE Pin=D6-2
+Added Pin To Net: NetName=NetD6_3 Pin=D6-3
+Added Pin To Net: NetName=LIVE Pin=D7-2
+Added Pin To Net: NetName=NetD7_3 Pin=D7-3
+Added Pin To Net: NetName=VSS Pin=J1-1
+Added Pin To Net: NetName=FANCOIL_NTC Pin=J1-2
+Added Pin To Net: NetName=VALVE_TRIAC Pin=J1-4
+Added Pin To Net: NetName=MOTOR_TRIAC Pin=J1-5
+Added Pin To Net: NetName=ZERO_CROSS Pin=J1-6
+Added Pin To Net: NetName=MOTOR_RPM Pin=J1-7
+Added Pin To Net: NetName=VDD Pin=J1-8
+Added Pin To Net: NetName=VSS Pin=P1-1
+Added Pin To Net: NetName=VDD Pin=P1-3
+Added Pin To Net: NetName=LIVE Pin=P2-1
+Added Pin To Net: NetName=NEUTRAL Pin=P2-2
+Added Pin To Net: NetName=NetC2_2 Pin=P3-1
+Added Pin To Net: NetName=NetC2_1 Pin=P3-2
+Added Pin To Net: NetName=NEUTRAL Pin=P3-3
+Added Pin To Net: NetName=NEUTRAL Pin=P4-2
+Added Pin To Net: NetName=VSS Pin=P5-1
+Added Pin To Net: NetName=FANCOIL_NTC Pin=P5-2
+Added Pin To Net: NetName=NetD3_2 Pin=Q1-1
+Added Pin To Net: NetName=NetC1_1 Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_3 Pin=Q1-3
+Added Pin To Net: NetName=VDD Pin=R1-1
+Added Pin To Net: NetName=VDD Pin=R2-1
+Added Pin To Net: NetName=NetC1_2 Pin=R3-2
+Added Pin To Net: NetName=NetD1_1 Pin=R4-1
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=R6-1
+Added Pin To Net: NetName=LIVE Pin=R7-2
+Added Pin To Net: NetName=NetD3_2 Pin=R8-1
+Added Pin To Net: NetName=NetC1_2 Pin=R8-2
+Added Pin To Net: NetName=MOTOR_RPM Pin=R9-1
+Added Pin To Net: NetName=VSS Pin=R9-2
+Added Pin To Net: NetName=ZERO_CROSS Pin=R10-1
+Added Pin To Net: NetName=VSS Pin=R10-2
+Added Pin To Net: NetName=NetD2_1 Pin=R11-1
+Added Pin To Net: NetName=NetR12_2 Pin=R12-2
+Added Pin To Net: NetName=NetR12_2 Pin=R13-1
+Added Pin To Net: NetName=NEUTRAL Pin=R14-2
+Added Pin To Net: NetName=VDD Pin=R15-1
+Added Pin To Net: NetName=MOTOR_TRIAC Pin=R15-2
+Added Pin To Net: NetName=NetR16_1 Pin=R16-1
+Added Pin To Net: NetName=LIVE Pin=R19-2
+Added Pin To Net: NetName=VDD Pin=R21-1
+Added Pin To Net: NetName=VALVE_TRIAC Pin=R21-2
+Added Pin To Net: NetName=LIVE Pin=R25-2
+Added Pin To Net: NetName=VDD Pin=R27-1
+Added Pin To Net: NetName=MOTOR_RPM Pin=U1-2
+Added Pin To Net: NetName=ZERO_CROSS Pin=U1-4
+Added Pin To Net: NetName=MOTOR_RPM Pin=U1-6
+Added Pin To Net: NetName=ZERO_CROSS Pin=U1-8
+Added Pin To Net: NetName=MOTOR_TRIAC Pin=U1-11
+Added Pin To Net: NetName=VALVE_TRIAC Pin=U1-13
+Added Pin To Net: NetName=NetQ1_3 Pin=U2-2
+Added Pin To Net: NetName=VSS Pin=U2-3
+Added Pin To Net: NetName=VSS Pin=U3-2
+Added Pin To Net: NetName=NetD6_3 Pin=U3-4
+Added Pin To Net: NetName=NetR16_1 Pin=U3-6
+Added Pin To Net: NetName=VSS Pin=U4-2
+Added Pin To Net: NetName=NetD7_3 Pin=U4-4
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=R17-2
+Added Pin To Net: NetName=NetC5_2 Pin=R18-1
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=NetC6_1 Pin=D7-1
+Added Pin To Net: NetName=NetC6_1 Pin=P4-1
+Added Net: Name=NetC6_1
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=NetC6_2 Pin=R23-2
+Added Pin To Net: NetName=NetC6_2 Pin=R24-1
+Added Net: Name=NetC6_2
+Added Pin To Net: NetName=NetP1_2 Pin=P1-2
+Added Pin To Net: NetName=NetP1_2 Pin=R1-2
+Added Pin To Net: NetName=NetP1_2 Pin=U1-1
+Added Pin To Net: NetName=NetP1_2 Pin=U1-5
+Added Net: Name=NetP1_2
+Added Pin To Net: NetName=NetP6_2 Pin=P6-2
+Added Pin To Net: NetName=NetP6_2 Pin=R27-2
+Added Net: Name=NetP6_2
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=U1-3
+Added Pin To Net: NetName=NetR2_2 Pin=U1-9
+Added Pin To Net: NetName=NetR2_2 Pin=U2-4
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetR3_1 Pin=U2-1
+Added Net: Name=NetR3_1
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=NetR6_2 Pin=R7-1
+Added Net: Name=NetR6_2
+Added Pin To Net: NetName=NetR13_2 Pin=R13-2
+Added Pin To Net: NetName=NetR13_2 Pin=R14-1
+Added Net: Name=NetR13_2
+Added Pin To Net: NetName=NetR16_2 Pin=R16-2
+Added Pin To Net: NetName=NetR16_2 Pin=R17-1
+Added Net: Name=NetR16_2
+Added Pin To Net: NetName=NetR18_2 Pin=R18-2
+Added Pin To Net: NetName=NetR18_2 Pin=R19-1
+Added Net: Name=NetR18_2
+Added Pin To Net: NetName=NetR20_1 Pin=R20-1
+Added Pin To Net: NetName=NetR20_1 Pin=U3-1
+Added Net: Name=NetR20_1
+Added Pin To Net: NetName=NetR20_2 Pin=R20-2
+Added Pin To Net: NetName=NetR20_2 Pin=U1-10
+Added Net: Name=NetR20_2
+Added Pin To Net: NetName=NetR22_1 Pin=R22-1
+Added Pin To Net: NetName=NetR22_1 Pin=U4-6
+Added Net: Name=NetR22_1
+Added Pin To Net: NetName=NetR22_2 Pin=R22-2
+Added Pin To Net: NetName=NetR22_2 Pin=R23-1
+Added Net: Name=NetR22_2
+Added Pin To Net: NetName=NetR24_2 Pin=R24-2
+Added Pin To Net: NetName=NetR24_2 Pin=R25-1
+Added Net: Name=NetR24_2
+Added Pin To Net: NetName=NetR26_1 Pin=R26-1
+Added Pin To Net: NetName=NetR26_1 Pin=U4-1
+Added Net: Name=NetR26_1
+Added Pin To Net: NetName=NetR26_2 Pin=R26-2
+Added Pin To Net: NetName=NetR26_2 Pin=U1-12
+Added Net: Name=NetR26_2
+Added Pin To Net: NetName=STATUS_LED Pin=J1-3
+Added Pin To Net: NetName=STATUS_LED Pin=P6-1
+Added Net: Name=STATUS_LED
+Added Pin To Net: NetName=VCC Pin=U1-14
+Added Net: Name=VCC
+Added Member To Class: ClassName=DE-060418 Member=Component C1 4u7
+Added Member To Class: ClassName=DE-060418 Member=Component C2 47nF/X2
+Added Member To Class: ClassName=DE-060418 Member=Component C3 100nF
+Added Member To Class: ClassName=DE-060418 Member=Component C4 4u7
+Added Member To Class: ClassName=DE-060418 Member=Component C5 47nF/X2
+Added Member To Class: ClassName=DE-060418 Member=Component C6 47nF/X2
+Added Member To Class: ClassName=DE-060418 Member=Component C7 100nF
+Added Member To Class: ClassName=DE-060418 Member=Component D1 1N4148
+Added Member To Class: ClassName=DE-060418 Member=Component D2 1N4148
+Added Member To Class: ClassName=DE-060418 Member=Component D3 1N4148
+Added Member To Class: ClassName=DE-060418 Member=Component D4 1N4148
+Added Member To Class: ClassName=DE-060418 Member=Component D5 1N4148
+Added Member To Class: ClassName=DE-060418 Member=Component D6 BTA16-600
+Added Member To Class: ClassName=DE-060418 Member=Component D7 BTA16-600
+Added Member To Class: ClassName=DE-060418 Member=Component J1 THERMOSTAT
+Added Member To Class: ClassName=DE-060418 Member=Component P1 MOTOR_RPM_SENSOR
+Added Member To Class: ClassName=DE-060418 Member=Component P2 220VAC
+Added Member To Class: ClassName=DE-060418 Member=Component P3 FAN_MOTOR
+Added Member To Class: ClassName=DE-060418 Member=Component P4 COOLING_VALVE
+Added Member To Class: ClassName=DE-060418 Member=Component P5 NTC_2K_FANCOIL
+Added Member To Class: ClassName=DE-060418 Member=Component P6 STATUS_LED
+Added Member To Class: ClassName=DE-060418 Member=Component Q1 BC817
+Added Member To Class: ClassName=DE-060418 Member=Component R1 1K
+Added Member To Class: ClassName=DE-060418 Member=Component R2 1K
+Added Member To Class: ClassName=DE-060418 Member=Component R3 1K
+Added Member To Class: ClassName=DE-060418 Member=Component R4 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R5 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R6 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R7 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R8 10K
+Added Member To Class: ClassName=DE-060418 Member=Component R9 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R10 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R11 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R12 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R13 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R14 56K
+Added Member To Class: ClassName=DE-060418 Member=Component R15 1K
+Added Member To Class: ClassName=DE-060418 Member=Component R16 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R17 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R18 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R19 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R20 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R21 1K
+Added Member To Class: ClassName=DE-060418 Member=Component R22 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R23 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R24 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R25 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R26 220R
+Added Member To Class: ClassName=DE-060418 Member=Component R27 220R
+Added Member To Class: ClassName=DE-060418 Member=Component U1 74AC14SC
+Added Member To Class: ClassName=DE-060418 Member=Component U2 PC817
+Added Member To Class: ClassName=DE-060418 Member=Component U3 MOC3052
+Added Member To Class: ClassName=DE-060418 Member=Component U4 MOC3083

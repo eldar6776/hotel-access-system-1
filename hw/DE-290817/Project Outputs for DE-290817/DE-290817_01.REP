@@ -1,0 +1,30 @@
+------------------------------------------------------------
+Single Pin Net Report for DE-290817_01.SchDoc
+-- 20.09.2017.
+-- 18:16:43
+------------------------------------------------------------
+
+Net +5V has only one pin (Pin D103-2)
+Net DIN0 has only one pin (Pin U102-18)
+Net DIN1 has only one pin (Pin U102-19)
+Net DIN2 has only one pin (Pin U102-20)
+Net DIN3 has only one pin (Pin U102-39)
+Net DIN4 has only one pin (Pin U102-40)
+Net DIN5 has only one pin (Pin U102-41)
+Net DIN6 has only one pin (Pin U102-42)
+Net DIN7 has only one pin (Pin U102-43)
+Net DOORLOCK_PWM has only one pin (Pin U102-16)
+Net DOUT0 has only one pin (Pin U102-14)
+Net DOUT1 has only one pin (Pin U102-15)
+Net DOUT2 has only one pin (Pin U102-17)
+Net DOUT3 has only one pin (Pin U101-4)
+Net DOUT4 has only one pin (Pin U101-5)
+Net GUARD_RING has only one pin (Pin U100-7)
+Net ONE_WIRE_RX has only one pin (Pin U102-13)
+Net ONE_WIRE_TX has only one pin (Pin U102-12)
+Net RC522_RST has only one pin (Pin D107-2)
+Net SOUND_PWM has only one pin (Pin U102-29)
+Net TOUCH_PAD1 has only one pin (Pin U100-8)
+Net TOUCH_PAD2 has only one pin (Pin U100-6)
+Net USART1_RX has only one pin (Pin U102-31)
+Net USART1_TX has only one pin (Pin U102-30)

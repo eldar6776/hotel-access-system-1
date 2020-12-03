@@ -1,0 +1,435 @@
+	.text
+	.syntax unified
+	.eabi_attribute	67, "2.09"	@ Tag_conformance
+	.cpu	cortex-m7
+	.eabi_attribute	6, 13	@ Tag_CPU_arch
+	.eabi_attribute	7, 77	@ Tag_CPU_arch_profile
+	.eabi_attribute	8, 0	@ Tag_ARM_ISA_use
+	.eabi_attribute	9, 2	@ Tag_THUMB_ISA_use
+	.fpu	fpv5-sp-d16
+	.eabi_attribute	27, 1	@ Tag_ABI_HardFP_use
+	.eabi_attribute	36, 1	@ Tag_FP_HP_extension
+	.eabi_attribute	34, 1	@ Tag_CPU_unaligned_access
+	.eabi_attribute	17, 1	@ Tag_ABI_PCS_GOT_use
+	.eabi_attribute	20, 2	@ Tag_ABI_FP_denormal
+	.eabi_attribute	21, 0	@ Tag_ABI_FP_exceptions
+	.eabi_attribute	23, 1	@ Tag_ABI_FP_number_model
+	.eabi_attribute	24, 1	@ Tag_ABI_align_needed
+	.eabi_attribute	25, 1	@ Tag_ABI_align_preserved
+	.eabi_attribute	28, 1	@ Tag_ABI_VFP_args
+	.eabi_attribute	38, 1	@ Tag_ABI_FP_16bit_format
+	.eabi_attribute	18, 2	@ Tag_ABI_PCS_wchar_t
+	.eabi_attribute	26, 1	@ Tag_ABI_enum_size
+	.eabi_attribute	14, 0	@ Tag_ABI_PCS_R9_use
+	.file	"stm32f7xx_it.c"
+	.section	.text.NMI_Handler,"ax",%progbits
+	.hidden	NMI_Handler             @ -- Begin function NMI_Handler
+	.globl	NMI_Handler
+	.p2align	1
+	.type	NMI_Handler,%function
+	.code	16                      @ @NMI_Handler
+	.thumb_func
+NMI_Handler:
+.Lfunc_begin0:
+	.file	1 "../Src" "stm32f7xx_it.c"
+	.loc	1 51 0                  @ ../Src/stm32f7xx_it.c:51:0
+	.fnstart
+	.cfi_sections .debug_frame
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 52 2 prologue_end     @ ../Src/stm32f7xx_it.c:52:2
+	b	Error_Handler
+.Ltmp0:
+.Lfunc_end0:
+	.size	NMI_Handler, .Lfunc_end0-NMI_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.HardFault_Handler,"ax",%progbits
+	.hidden	HardFault_Handler       @ -- Begin function HardFault_Handler
+	.globl	HardFault_Handler
+	.p2align	1
+	.type	HardFault_Handler,%function
+	.code	16                      @ @HardFault_Handler
+	.thumb_func
+HardFault_Handler:
+.Lfunc_begin1:
+	.loc	1 57 0                  @ ../Src/stm32f7xx_it.c:57:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 58 2 prologue_end     @ ../Src/stm32f7xx_it.c:58:2
+	b	Error_Handler
+.Ltmp1:
+.Lfunc_end1:
+	.size	HardFault_Handler, .Lfunc_end1-HardFault_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.MemManage_Handler,"ax",%progbits
+	.hidden	MemManage_Handler       @ -- Begin function MemManage_Handler
+	.globl	MemManage_Handler
+	.p2align	1
+	.type	MemManage_Handler,%function
+	.code	16                      @ @MemManage_Handler
+	.thumb_func
+MemManage_Handler:
+.Lfunc_begin2:
+	.loc	1 63 0                  @ ../Src/stm32f7xx_it.c:63:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 64 2 prologue_end     @ ../Src/stm32f7xx_it.c:64:2
+	b	Error_Handler
+.Ltmp2:
+.Lfunc_end2:
+	.size	MemManage_Handler, .Lfunc_end2-MemManage_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.BusFault_Handler,"ax",%progbits
+	.hidden	BusFault_Handler        @ -- Begin function BusFault_Handler
+	.globl	BusFault_Handler
+	.p2align	1
+	.type	BusFault_Handler,%function
+	.code	16                      @ @BusFault_Handler
+	.thumb_func
+BusFault_Handler:
+.Lfunc_begin3:
+	.loc	1 69 0                  @ ../Src/stm32f7xx_it.c:69:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 70 2 prologue_end     @ ../Src/stm32f7xx_it.c:70:2
+	b	Error_Handler
+.Ltmp3:
+.Lfunc_end3:
+	.size	BusFault_Handler, .Lfunc_end3-BusFault_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.UsageFault_Handler,"ax",%progbits
+	.hidden	UsageFault_Handler      @ -- Begin function UsageFault_Handler
+	.globl	UsageFault_Handler
+	.p2align	1
+	.type	UsageFault_Handler,%function
+	.code	16                      @ @UsageFault_Handler
+	.thumb_func
+UsageFault_Handler:
+.Lfunc_begin4:
+	.loc	1 75 0                  @ ../Src/stm32f7xx_it.c:75:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 76 2 prologue_end     @ ../Src/stm32f7xx_it.c:76:2
+	b	Error_Handler
+.Ltmp4:
+.Lfunc_end4:
+	.size	UsageFault_Handler, .Lfunc_end4-UsageFault_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.DebugMon_Handler,"ax",%progbits
+	.hidden	DebugMon_Handler        @ -- Begin function DebugMon_Handler
+	.globl	DebugMon_Handler
+	.p2align	1
+	.type	DebugMon_Handler,%function
+	.code	16                      @ @DebugMon_Handler
+	.thumb_func
+DebugMon_Handler:
+.Lfunc_begin5:
+	.loc	1 81 0                  @ ../Src/stm32f7xx_it.c:81:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 83 1 prologue_end     @ ../Src/stm32f7xx_it.c:83:1
+	bx	lr
+.Ltmp5:
+.Lfunc_end5:
+	.size	DebugMon_Handler, .Lfunc_end5-DebugMon_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.SysTick_Handler,"ax",%progbits
+	.hidden	SysTick_Handler         @ -- Begin function SysTick_Handler
+	.globl	SysTick_Handler
+	.p2align	1
+	.type	SysTick_Handler,%function
+	.code	16                      @ @SysTick_Handler
+	.thumb_func
+SysTick_Handler:
+.Lfunc_begin6:
+	.loc	1 87 0                  @ ../Src/stm32f7xx_it.c:87:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 88 2 prologue_end     @ ../Src/stm32f7xx_it.c:88:2
+	b	HAL_IncTick
+.Ltmp6:
+.Lfunc_end6:
+	.size	SysTick_Handler, .Lfunc_end6-SysTick_Handler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.text.QUADSPI_IRQHandler,"ax",%progbits
+	.hidden	QUADSPI_IRQHandler      @ -- Begin function QUADSPI_IRQHandler
+	.globl	QUADSPI_IRQHandler
+	.p2align	2
+	.type	QUADSPI_IRQHandler,%function
+	.code	16                      @ @QUADSPI_IRQHandler
+	.thumb_func
+QUADSPI_IRQHandler:
+.Lfunc_begin7:
+	.loc	1 93 0                  @ ../Src/stm32f7xx_it.c:93:0
+	.fnstart
+	.cfi_startproc
+@ %bb.0:
+	.loc	1 94 2 prologue_end     @ ../Src/stm32f7xx_it.c:94:2
+	ldr	r0, __arm_cp.7_0
+	b	HAL_QSPI_IRQHandler
+.Ltmp7:
+	.p2align	2
+@ %bb.1:
+	.loc	1 0 2 is_stmt 0         @ ../Src/stm32f7xx_it.c:0:2
+__arm_cp.7_0:
+	.long	QSPIHandle
+.Lcpi_end0:
+	.size	__arm_cp.7_0, .Lcpi_end0-__arm_cp.7_0
+.Lfunc_end7:
+	.size	QUADSPI_IRQHandler, .Lfunc_end7-QUADSPI_IRQHandler
+	.cfi_endproc
+	.cantunwind
+	.fnend
+                                        @ -- End function
+	.section	.debug_str,"MS",%progbits,1
+.Linfo_string0:
+	.asciz	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]" @ string offset=0
+.Linfo_string1:
+	.asciz	"../Src\\stm32f7xx_it.c" @ string offset=57
+.Linfo_string2:
+	.asciz	"F:\\SkyDrive\\OtvoreniProjekti\\HotelSaplast\\fw\\RoomThermostat\\DE-301018\\MDK-ARM" @ string offset=79
+.Linfo_string3:
+	.asciz	"NMI_Handler"           @ string offset=157
+.Linfo_string4:
+	.asciz	"HardFault_Handler"     @ string offset=169
+.Linfo_string5:
+	.asciz	"MemManage_Handler"     @ string offset=187
+.Linfo_string6:
+	.asciz	"BusFault_Handler"      @ string offset=205
+.Linfo_string7:
+	.asciz	"UsageFault_Handler"    @ string offset=222
+.Linfo_string8:
+	.asciz	"DebugMon_Handler"      @ string offset=241
+.Linfo_string9:
+	.asciz	"SysTick_Handler"       @ string offset=258
+.Linfo_string10:
+	.asciz	"QUADSPI_IRQHandler"    @ string offset=274
+	.section	.debug_abbrev,"",%progbits
+	.byte	1                       @ Abbreviation Code
+	.byte	17                      @ DW_TAG_compile_unit
+	.byte	1                       @ DW_CHILDREN_yes
+	.byte	37                      @ DW_AT_producer
+	.byte	14                      @ DW_FORM_strp
+	.byte	19                      @ DW_AT_language
+	.byte	5                       @ DW_FORM_data2
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	16                      @ DW_AT_stmt_list
+	.byte	6                       @ DW_FORM_data4
+	.byte	27                      @ DW_AT_comp_dir
+	.byte	14                      @ DW_FORM_strp
+	.ascii	"\264B"                 @ DW_AT_GNU_pubnames
+	.byte	12                      @ DW_FORM_flag
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	85                      @ DW_AT_ranges
+	.byte	6                       @ DW_FORM_data4
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	2                       @ Abbreviation Code
+	.byte	46                      @ DW_TAG_subprogram
+	.byte	0                       @ DW_CHILDREN_no
+	.byte	17                      @ DW_AT_low_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	18                      @ DW_AT_high_pc
+	.byte	1                       @ DW_FORM_addr
+	.byte	64                      @ DW_AT_frame_base
+	.byte	10                      @ DW_FORM_block1
+	.byte	3                       @ DW_AT_name
+	.byte	14                      @ DW_FORM_strp
+	.byte	58                      @ DW_AT_decl_file
+	.byte	11                      @ DW_FORM_data1
+	.byte	59                      @ DW_AT_decl_line
+	.byte	11                      @ DW_FORM_data1
+	.byte	39                      @ DW_AT_prototyped
+	.byte	12                      @ DW_FORM_flag
+	.byte	63                      @ DW_AT_external
+	.byte	12                      @ DW_FORM_flag
+	.byte	0                       @ EOM(1)
+	.byte	0                       @ EOM(2)
+	.byte	0                       @ EOM(3)
+	.section	.debug_info,"",%progbits
+.Lcu_begin0:
+	.long	188                     @ Length of Unit
+	.short	3                       @ DWARF version number
+	.long	.debug_abbrev           @ Offset Into Abbrev. Section
+	.byte	4                       @ Address Size (in bytes)
+	.byte	1                       @ Abbrev [1] 0xb:0xb5 DW_TAG_compile_unit
+	.long	.Linfo_string0          @ DW_AT_producer
+	.short	12                      @ DW_AT_language
+	.long	.Linfo_string1          @ DW_AT_name
+	.long	.Lline_table_start0     @ DW_AT_stmt_list
+	.long	.Linfo_string2          @ DW_AT_comp_dir
+	.byte	1                       @ DW_AT_GNU_pubnames
+	.long	0                       @ DW_AT_low_pc
+	.long	.Ldebug_ranges0         @ DW_AT_ranges
+	.byte	2                       @ Abbrev [2] 0x27:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin0           @ DW_AT_low_pc
+	.long	.Lfunc_end0             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string3          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	50                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x3a:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin1           @ DW_AT_low_pc
+	.long	.Lfunc_end1             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string4          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	56                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x4d:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin2           @ DW_AT_low_pc
+	.long	.Lfunc_end2             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string5          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	62                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x60:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin3           @ DW_AT_low_pc
+	.long	.Lfunc_end3             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string6          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	68                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x73:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin4           @ DW_AT_low_pc
+	.long	.Lfunc_end4             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string7          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	74                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x86:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin5           @ DW_AT_low_pc
+	.long	.Lfunc_end5             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string8          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	80                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0x99:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin6           @ DW_AT_low_pc
+	.long	.Lfunc_end6             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string9          @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	86                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	2                       @ Abbrev [2] 0xac:0x13 DW_TAG_subprogram
+	.long	.Lfunc_begin7           @ DW_AT_low_pc
+	.long	.Lfunc_end7             @ DW_AT_high_pc
+	.byte	1                       @ DW_AT_frame_base
+	.byte	93
+	.long	.Linfo_string10         @ DW_AT_name
+	.byte	1                       @ DW_AT_decl_file
+	.byte	92                      @ DW_AT_decl_line
+	.byte	1                       @ DW_AT_prototyped
+	.byte	1                       @ DW_AT_external
+	.byte	0                       @ End Of Children Mark
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.long	.Lfunc_begin0
+	.long	.Lfunc_end0
+	.long	.Lfunc_begin1
+	.long	.Lfunc_end1
+	.long	.Lfunc_begin2
+	.long	.Lfunc_end2
+	.long	.Lfunc_begin3
+	.long	.Lfunc_end3
+	.long	.Lfunc_begin4
+	.long	.Lfunc_end4
+	.long	.Lfunc_begin5
+	.long	.Lfunc_end5
+	.long	.Lfunc_begin6
+	.long	.Lfunc_end6
+	.long	.Lfunc_begin7
+	.long	.Lfunc_end7
+	.long	0
+	.long	0
+	.section	.debug_macinfo,"",%progbits
+.Lcu_macro_begin0:
+	.byte	0                       @ End Of Macro List Mark
+	.section	.debug_pubnames,"",%progbits
+	.long	.LpubNames_end0-.LpubNames_begin0 @ Length of Public Names Info
+.LpubNames_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	192                     @ Compilation Unit Length
+	.long	172                     @ DIE offset
+	.asciz	"QUADSPI_IRQHandler"    @ External Name
+	.long	39                      @ DIE offset
+	.asciz	"NMI_Handler"           @ External Name
+	.long	96                      @ DIE offset
+	.asciz	"BusFault_Handler"      @ External Name
+	.long	77                      @ DIE offset
+	.asciz	"MemManage_Handler"     @ External Name
+	.long	153                     @ DIE offset
+	.asciz	"SysTick_Handler"       @ External Name
+	.long	58                      @ DIE offset
+	.asciz	"HardFault_Handler"     @ External Name
+	.long	115                     @ DIE offset
+	.asciz	"UsageFault_Handler"    @ External Name
+	.long	134                     @ DIE offset
+	.asciz	"DebugMon_Handler"      @ External Name
+	.long	0                       @ End Mark
+.LpubNames_end0:
+	.section	.debug_pubtypes,"",%progbits
+	.long	.LpubTypes_end0-.LpubTypes_begin0 @ Length of Public Types Info
+.LpubTypes_begin0:
+	.short	2                       @ DWARF Version
+	.long	.Lcu_begin0             @ Offset of Compilation Unit Info
+	.long	192                     @ Compilation Unit Length
+	.long	0                       @ End Mark
+.LpubTypes_end0:
+
+	.ident	"Component: ARM Compiler 6.10.1 Tool: armclang [5d143200]"
+	.section	".note.GNU-stack","",%progbits
+	.eabi_attribute	30, 4	@ Tag_ABI_optimization_goals
+	.ARM_attribute	16, 1	@ Tag_AV_eba
+	.section	.debug_line,"",%progbits
+.Lline_table_start0:

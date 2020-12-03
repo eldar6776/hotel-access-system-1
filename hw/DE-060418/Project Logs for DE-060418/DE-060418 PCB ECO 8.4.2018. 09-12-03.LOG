@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VDD Pin=R1-1
+Removed Pin From Net: NetName=VSS Pin=U1-3
+Removed Pin From Net: NetName=ZERO_CROSS Pin=U1-4
+Change Component Comment : Designator=R1 Old Comment=220R New Comment=1K
+Added Pin To Net: NetName=VSS Pin=R1-1
+Added Pin To Net: NetName=ZERO_CROSS Pin=U1-3
+Added Pin To Net: NetName=VDD Pin=U1-4

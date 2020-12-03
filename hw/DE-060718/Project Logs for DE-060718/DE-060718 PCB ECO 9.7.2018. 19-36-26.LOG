@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VSS2 Pin=U1-33
+Added Component: Designator=LS1(BUZZER)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=+5V Pin=LS1-1
+Added Pin To Net: NetName=BUZZER Pin=LS1-2
+Added Member To Class: ClassName=DE-060718 Member=Component C21 10uF
+Added Member To Class: ClassName=DE-060718 Member=Component LS1 Buzzer 5Vdc

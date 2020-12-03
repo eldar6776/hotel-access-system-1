@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+".\exe\startup_stm32f429_439xx.o"
+".\exe\system_stm32f4xx.o"
+".\exe\misc.o"
+".\exe\stm32f4xx_flash.o"
+".\exe\stm32f4xx_gpio.o"
+".\exe\stm32f4xx_pwr.o"
+".\exe\stm32f4xx_rcc.o"
+".\exe\stm32f4xx_sdio.o"
+".\exe\stm32f4xx_fmc.o"
+".\exe\stm32f4xx_ltdc.o"
+".\exe\stm32f4xx_i2c.o"
+".\exe\stm32f4xx_dma.o"
+".\exe\stm32f4xx_dma2d.o"
+".\exe\sdio_sd.o"
+".\exe\i2c_eeprom.o"
+".\exe\stm32f429i_lcd.o"
+".\exe\stm32f429i_sdram.o"
+".\exe\ff.o"
+".\exe\fatfs_drv.o"
+".\exe\flash_if.o"
+".\exe\main.o"
+".\exe\command.o"
+".\exe\stm32f4xx_it.o"
+--library_type=microlib --strict --scatter ".\Exe\HCBL020318.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Lst\HCBL020318.map" -o .\Exe\HCBL020318.axf

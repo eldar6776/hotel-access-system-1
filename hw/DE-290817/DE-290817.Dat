@@ -1,0 +1,67 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~DE-290817.PrjPcb|ReportField=ProjectFullPath~C:\Users\eldar\Desktop\HotelRoomAccessControlUnit\hw\DE-290817.PrjPcb|ReportField=Title~Bill of Materials For Project [DE-290817.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~173|ReportField=ReportTime~17:46:34|ReportField=ReportDate~20.09.2017.|ReportField=ReportDateTime~20.09.2017. 17:46:34|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~Topal Osman Paše 18|ReportField=Address2~71000 Sarajevo|ReportField=Address3~Federacija BiH|ReportField=Address4~Bosna i Hercegovina|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~eldar6776@hotmail.com|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=ConfigurationParameters~|ReportField=ConfiguratorName~|ReportField=CurrentDate~20.09.2017.|ReportField=CurrentTime~17:37:25|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\eldar\Desktop\HotelRoomAccessControlUnit\hw\DE-290817_01.SchDoc|ReportField=DocumentName~DE-290817_01.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~Eldar Dedić|ReportField=Engineer~|ReportField=ImagePath~|ReportField=IsUserConfigurable~|ReportField=ModifiedDate~20.09.2017.|ReportField=Organization~I-MEDIA GROUP d.o.o.|ReportField=ProjectName~DE-290817.PrjPcb|ReportField=Revision~001|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~2|ReportField=Time~|ReportField=Title~Microcontroller - Memory - Display|ReportField=VersionControl_RevNumber~|ReportField=DataSourceFileName~DE-290817.PrjPcb|ReportField=DataSourceFullPath~C:\Users\eldar\Desktop\HotelRoomAccessControlUnit\hw\DE-290817.PrjPcb
+1|10uF|Ceramic Chip Capacitor - Standard|C100, C106, C110, C120, C215, C216, C217, C220, C221, C301|0805|C0805|10
+2|100nF|Ceramic Chip Capacitor - Standard|C101, C102, C103, C104, C105, C111, C113, C114, C115, C116, C117, C118, C119, C122, C200, C201, C202, C203, C204, C205, C206, C207, C208, C209, C214, C218, C219, C300, C302, C303|0603|C0603|30
+3|22pF|Ceramic Chip Capacitor - Standard|C107, C108, C305, C312|0603|C0603|4
+4|6p8|Ceramic Chip Capacitor - Standard|C109, C112|0603|C0603|2
+5|1uF|Ceramic Chip Capacitor - Standard|C121|0603|C0603|1
+6|22nF|Ceramic Chip Capacitor - Standard|C211|0603|C0603|1
+7|220uF/50V|Aluminum Electrolytic Capacitors (SMD Type)|C212|EEEHA1H101P|EEEHA1H101P|1
+8|220uF/16V|Aluminum Electrolytic Capacitors (SMD Type)|C213|EEEHA1H101P|EEEHA1C221P|1
+9|1nF|Ceramic Chip Capacitor - Standard|C304|0603|C0603|1
+10|NF|Ceramic Chip Capacitor - Standard|C306, C309|0603|C0603|2
+11|220pF|Ceramic Chip Capacitor - Standard|C307, C310|0603|C0603|2
+12|100pF|Ceramic Chip Capacitor - Standard|C308, C311|0603|C0603|2
+13|15pF|Ceramic Chip Capacitor - Standard|C313, C314|0603|C0603|2
+14|LED_BLUE|High Performance Chip LED, Red|D100|1.6X0.8X0.8|HSMZ-C190|1
+15|NTC 10K|Photosensitive Diode|D101|PIN2|Photo Sen|1
+16|LED_RED|High Performance Chip LED, Red|D102|1.6X0.8X0.8|HSMZ-C190|1
+17|1N4148|Schottky Barrier Diode, Schottky Barrier Diode, Schottky Barrier Diode, General-purpose Diode|D103, D106, D107, D204|SOD323|1PS76SB10, 1PS76SB10, 1PS76SB10, BAS321|4
+18|LED_GREEN|High Performance Chip LED, Red|D104|1.6X0.8X0.8|HSMZ-C190|1
+19|LED_WHITE|High Performance Chip LED, Red|D105|1.6X0.8X0.8|HSMZ-C190|1
+20|3V3|Schottky Barrier Diode|D200, D201, D202, D203, D205, D206, D207, D208|SOD323|1PS76SB10|8
+21|SR3100|Schottky Power Rectifier, 2-Pin SMA, Pb-Free, Tape and Reel|D209|ONSC-SMA-2-403D-02_C_V|MBRA320T3G|1
+22|120R|SMD EMI Suppression Ferrite Bead WE-CBF, Z = 120 Ohm|L100|SMD-0805|74279202|1
+23|wurth WE-PD=744770133|SMD-Shielded Power Inductor WE-PD, L = 33 µH|L200|WE-PD-XL|744770133|1
+24|74279207|SMD EMI Suppression Ferrite Bead WE-CBF, Z = 100 Ohm|L300|SMD-0805|74279207|1
+25|560nH/300mA|SMD EMI Suppression Ferrite Bead WE-CBF, Z = 100 Ohm|L301, L302|SMD-0805|74279207|2
+26|Buzzer 5Vdc|5Vdc PCB buzzer|LS200|BUZZER|BUZZER|1
+27|NRF24L01|Header, 4-Pin, Dual row|P100|HDR2X4|Header 4X2|1
+28|SPI TFT DISPLAY|DISPLAY ILI9341 240x320  CONNECTOR|P101|DISPLAY CON|DISPLAY CONNECTOR|1
+29|ICSP|ICSP connection pads|P102|ICSP|ICSP|1
+30|RTC BATTERY|Header, 2-Pin|P103|HDR1X2|Header 2|1
+31|CON 1|Header, 17-Pin, Dual row|P200|HDR2X17|Header 17X2|1
+32|FB241|PCB MOUNT TERMINAL BLOCK 2.5MM PITCH|P201|FB241_6|TERMINAL BLOCK 6|1
+33|MMBT2222|NPN General-purpose Transistor|Q100|SOT23_N|BC817|1
+34|2N7002|N-channel Enhancement Mode Field-effect Transistor, N-channel Enhancement Mode Vertical D-MOSFET, N-channel Enhancement Mode Vertical D-MOSFET, N-channel Enhancement Mode Vertical D-MOSFET, N-channel Enhancement Mode Vertical D-MOSFET|Q200, Q204, Q206, Q207, Q208|SOT23_N|2N7002, BSS123, BSS123, BSS123, BSS123|5
+35|STS4DNF60L|Power MOSFET, 40 V, 5.8 A, Dual N-Channel, 8-Pin SOIC, Pb-Free, Tape and Reel|Q201|ONSC-SOIC-8-751-07_V|NVMD6N04R2G|1
+36|AO3400|N-channel Enhancement Mode Field-effect Transistor|Q202, Q203, Q205, Q209, Q210|SOT23_N|2N7002|5
+37|120R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R100, R103, R106|ERA-0603|ERAV|3
+38|100K|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R101, R104|ERA-0603|ERAV|2
+39|220R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R102|ERA-0603|ERAV|1
+40|100R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R105|ERA-0603|ERAV|1
+41|4R7|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R107|ERA-0603|ERAV|1
+42|1K|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R108, R109, R110|ERA-0603|ERAV|3
+43|4K7|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R111, R112|ERA-0603|ERAV|2
+44|10K|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R113, R114, R116, R117, R201, R203, R204, R206, R207, R208, R209, R210, R211, R212, R213, R214, R215, R216, R217, R218, R219, R221, R222, R223, R229, R232, R233, R235, R301|ERA-0603|ERAV|29
+45|NF|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R115|ERA-0603|ERAV|1
+46|0R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R200, R205|ERA-0603|ERAV|2
+47|NF|Flame-Retardant Fuse Type Carbon Film Resistor, 4.7 Ohm to 1k Ohm Range, 2% and 5% Tolerance, 0.166 W|R202|RD3.2x1.7|ERD6FC|1
+48|10R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R220|ERA-0603|ERAV|1
+49|2K2|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R224, R225, R226, R228, R230, R231|ERA-0603|ERAV|6
+50|1K2|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R227|ERA-0603|ERAV|1
+51|3K3|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R234|ERA-0603|ERAV|1
+52|1K8|Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W|R300, R302|3-0603|ERJ3RS|2
+53|1R8|Low Ohmic Value Thick Film Chip Resistor, 0.1 Ohm to 0.2 Ohm Range, 1%, 2% and 5% Tolerance, 0603 Size, 0.1 W|R303, R304|3-0603|ERJ3RS|2
+54|TAMPER||S100|TACTILE_SWITCH|TACKTILE_SWITCH|1
+55|CAP1293|3-Channel Capacitive Touch Sensor with Proximity Detection & Signal Guard|U100|SOP8|CAP1293|1
+56|SN74HC595D|8-Bit Shift Register with 3-State Output Registers|U101|D016_N|SN74HC595D|1
+57|STM32F103C8T6|ARM Cortex-M3 32-bit MCU, 64 KB Flash, 20 KB Internal RAM, 37 I/Os, 48-pin LQFP, -40 to 85 degC, Tray|U102|STM-LQFP48_N|STM32F103C8T6|1
+58|FT24C128A|64Kbit, 400kHz, 1.7V, I2C Serial EEPROM, 8-Pin SOIC 150mil, Commercial Temperature|U103|SOIC-SN8_N|24AA64/SN|1
+59|W25Q64|64K SPI Bus Serial EEPROM, 8-Pin SOIC, Industrial Temperature|U104|SOIJ-SM8_N|25LC640A-I/SN|1
+60|MAX485ESA|Low-Power, Slew-Rate-Limited RS-485/RS-422 Transceiver|U200|NSO8_M|MAX485ESA|1
+61|LM2596S-ADJ|SIMPLE SWITCHER® Power Converter 150 KHz 3A Step-Down Voltage Regulator, 5-pin TO-263|U201|TS5B_N|LM2596S-ADJ|1
+62|REG1117-3.3|800mA and 1A Low Dropout Positive Regulator 2.85V, 3.3V, 5V, and Adjustable|U202|ZZ311|REG1117-3.3|1
+63|MFRC522|MIFARE reader writer|U300|QFN32|MFRC522|1
+64|8MHz|Surface Mount Quartz Crystal|Y100|HC49/4H_SMX|HC49/4H_SMX|1
+65|32.768MHz|Tuning Fork Crystal Unit|Y101|R26|R26-32.768|1
+66|27,12 MHz|Crystal Oscillator|Y300|HC49/4H_SMX|ECS-80-20-1|1

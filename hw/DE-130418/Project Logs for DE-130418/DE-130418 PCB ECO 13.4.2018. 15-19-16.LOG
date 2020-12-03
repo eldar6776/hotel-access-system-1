@@ -1,0 +1,78 @@
+Added Component: Designator=C1(0603)
+Added Component: Designator=C2(0805)
+Added Component: Designator=D1(ONSC-TO-220-3-221A-07)
+Added Component: Designator=D2(ONSC-TO-220-3-221A-07)
+Added Component: Designator=D3(ONSC-TO-220-3-221A-07)
+Added Component: Designator=J1(15-43-8501)
+Added Component: Designator=P4(HDR1X3)
+Added Component: Designator=R1(ERA-0805)
+Added Component: Designator=R2(RD6.35x2.3)
+Added Component: Designator=R3(RD6.35x2.3)
+Added Component: Designator=R4(ERA-0805)
+Added Component: Designator=R5(RD6.35x2.3)
+Added Component: Designator=R6(RD6.35x2.3)
+Added Component: Designator=R7(ERA-0805)
+Added Component: Designator=R8(RD6.35x2.3)
+Added Component: Designator=R9(RD6.35x2.3)
+Added Pin To Net: NetName=+5V Pin=C1-2
+Added Pin To Net: NetName=+5V Pin=C2-2
+Added Pin To Net: NetName=+5V Pin=J1-8
+Added Pin To Net: NetName=+5V Pin=R1-2
+Added Pin To Net: NetName=+5V Pin=R4-2
+Added Pin To Net: NetName=+5V Pin=R7-2
+Added Net: Name=+5V
+Added Pin To Net: NetName=COOLING_VALVE Pin=J1-4
+Added Pin To Net: NetName=COOLING_VALVE Pin=P4-1
+Added Net: Name=COOLING_VALVE
+Added Pin To Net: NetName=FAN_HIGH_SPEED Pin=J1-2
+Added Net: Name=FAN_HIGH_SPEED
+Added Pin To Net: NetName=FAN_LOW_SPEED Pin=J1-7
+Added Net: Name=FAN_LOW_SPEED
+Added Pin To Net: NetName=FAN_MIDDLE_SPEED Pin=J1-6
+Added Net: Name=FAN_MIDDLE_SPEED
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=P4-3
+Added Net: Name=GND
+Added Pin To Net: NetName=HEATING_VALVE Pin=J1-3
+Added Pin To Net: NetName=HEATING_VALVE Pin=P4-2
+Added Net: Name=HEATING_VALVE
+Added Pin To Net: NetName=LIVE Pin=D1-2
+Added Pin To Net: NetName=LIVE Pin=D2-2
+Added Pin To Net: NetName=LIVE Pin=D3-2
+Added Pin To Net: NetName=LIVE Pin=R2-2
+Added Pin To Net: NetName=LIVE Pin=R5-2
+Added Pin To Net: NetName=LIVE Pin=R8-2
+Added Net: Name=LIVE
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_1 Pin=R3-2
+Added Net: Name=NetD1_1
+Added Pin To Net: NetName=NetD1_3 Pin=D1-3
+Added Pin To Net: NetName=NetD1_3 Pin=R3-1
+Added Net: Name=NetD1_3
+Added Pin To Net: NetName=NetD2_3 Pin=D2-3
+Added Pin To Net: NetName=NetD2_3 Pin=R6-1
+Added Net: Name=NetD2_3
+Added Pin To Net: NetName=NetD3_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_1 Pin=R9-2
+Added Net: Name=NetD3_1
+Added Pin To Net: NetName=NetD3_3 Pin=D3-3
+Added Pin To Net: NetName=NetD3_3 Pin=R9-1
+Added Net: Name=NetD3_3
+Added Pin To Net: NetName=NetP2_2 Pin=R6-2
+Added Net: Name=NetP2_2
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Net: Name=NetR2_1
+Added Pin To Net: NetName=NetR4_1 Pin=R4-1
+Added Net: Name=NetR4_1
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Net: Name=NetR5_1
+Added Pin To Net: NetName=NetR7_1 Pin=R7-1
+Added Net: Name=NetR7_1
+Added Pin To Net: NetName=NetR8_1 Pin=R8-1
+Added Net: Name=NetR8_1
+Added Net: Name=NEUTRAL
+Added Class: Name=DE-130418

@@ -1,0 +1,16 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~DE-120418.PrjPcb|ReportField=ProjectFullPath~F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-120418\DE-120418.PrjPcb|ReportField=Title~Bill of Materials For Project [DE-120418.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~23|ReportField=ReportTime~14:26:23|ReportField=ReportDate~13.4.2018.|ReportField=ReportDateTime~13.4.2018. 14:26:23|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~Topal Osman Paše 18|ReportField=Address2~Sarajevo 71000|ReportField=Address3~Federacija BiH|ReportField=Address4~Bosna i Hercegovina|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~eldar6776@hotmail.com|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~13.4.2018.|ReportField=CurrentTime~14:24:59|ReportField=Date~|ReportField=DocumentFullPathAndName~F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-120418\DE-120418.SchDoc|ReportField=DocumentName~DE-120418.SchDoc|ReportField=DocumentNumber~DE-120418|ReportField=DrawnBy~Eldar Dedic|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~13.4.2018.|ReportField=Organization~I-MEDIA GROUP d.o.o.|ReportField=ProjectName~DE-120418.PrjPcb|ReportField=Revision~001|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~AUDIO CODEC|ReportField=DataSourceFileName~DE-120418.PrjPcb|ReportField=DataSourceFullPath~F:\SkyDrive\OtvoreniProjekti\HotelSaplast\hw\DE-120418\DE-120418.PrjPcb
+1|47uF/10V|Tantamount Commercial, Surface Mount Solid Tantalum Chip Capacitor: 15uF, 20% Tolerance, 4 WVDC @ +85°C, Surge = 5.2V|C1|3528|293D156X0004B2|1
+2|10uF|Ceramic Chip Capacitor - Standard|C2, C9|0805|C0805|2
+3|100nF|Ceramic Chip Capacitor - Standard|C3, C11, C12|0603|C0603|3
+4|4u7|Ceramic Chip Capacitor - Standard|C4, C6, C7, C13, C14|0805|C0805|5
+5|100uF|Tantamount Commercial, Surface Mount Solid Tantalum Chip Capacitor: 15uF, 20% Tolerance, 4 WVDC @ +85°C, Surge = 5.2V|C8|3528|293D156X0004B2|1
+6|220pF|Ceramic Chip Capacitor - Standard|C15|0603|C0603|1
+7|1uF|Ceramic Chip Capacitor - Standard|C16, C17|0603|C0603|2
+8|BLM15AG121|Inductor|L1|INDC1608L|Inductor_SMD|1
+9|SPEAKER|Header, 2-Pin|P1|HDR1X2|Header 2|1
+10|MIC|Header, 2-Pin|P2|HDR1X2|Header 2|1
+11|AUDIO_CODEC|Header, 5-Pin, Dual row|P3|HDR2X5|Header 5X2|1
+12|47K|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R1|ERA-0603|ERAV|1
+13|680R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R2|ERA-0603|ERAV|1
+14|0R|Metal Film Thermosensitive Chip Resistor, 0.56 Ohm to 10k Ohm Range, 5% Tolerance, 0603 Size, 0.063 W|R3|ERA-0603|ERAV|1
+15|WM8976|Stereo CODEC with speaker driver|U1|QFN32_N|WM8976|1
